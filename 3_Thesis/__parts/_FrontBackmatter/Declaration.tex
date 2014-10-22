@@ -1,0 +1,48 @@
+%*******************************************************
+% Declaration
+%*******************************************************
+%\refstepcounter{dummy}
+%\pdfbookmark[0]{Declaration}{declaration}
+%\chapter*{Eidesstattliche Erklärung}
+%\thispagestyle{empty}
+%Hiermit versichere ich, die vorliegende Diplomarbeit ohne Hilfe Dritter und nur mit den angegebenen Quellen und Hilfsmitteln angefertigt zu haben. Alle Stellen, die aus den Quellen entnommen wurden, sind als solche kenntlich gemacht worden. Diese Arbeit hat in gleicher oder {\"a}hnlicher Form noch keiner Pr{\"u}fungsbeh{\"o}rde vorgelegen. 
+
+%\bigskip
+ 
+%\noindent\textit{\myLocation, \myTime}
+
+%\smallskip
+
+%\begin{flushright}
+   % \begin{tabular}{m{5cm}}
+      %  \\ \hline
+        %\centering\myName \\
+    %\end{tabular}
+%\end{flushright}
+\refstepcounter{dummy}
+\addcontentsline{toc}{chapter}{\tocEntry{Publications}}
+
+\begingroup
+\let\clearpage\relax
+\let\cleardoublepage\relax
+\let\cleardoublepage\relax
+
+\addcontentsline{toc}{chapter}{\tocEntry{Statutory Declaration}}
+\chapter*{Statutory Declaration}
+I hereby declare that I have developed and written this thesis on my own, and no external
+sources were used except as acknowledged in the text and footnotes. The thesis in this form or in any other form has not been submitted to an examination body and has not been published.
+\bigskip
+
+\noindent\textit{\myLocation, \myTime}
+
+\smallskip
+
+\begin{flushright}
+    \begin{tabular}{m{5cm}}
+        \\ \hline
+        \centering\myName \\
+    \end{tabular}
+\end{flushright}
+
+\endgroup
+\vfill

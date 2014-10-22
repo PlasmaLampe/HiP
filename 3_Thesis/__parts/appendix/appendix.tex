@@ -1,0 +1,309 @@
+\chapter{Appendix}
+The appendix contains some diagrams and tables that were to big to put them into the continuous text.
+
+\begin{table}[h]
+%\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+BS1 	& The supervisor should draft guidelines 		& - At least one information resp. help 	& 1	\\
+ 	& and assistance (e.g., Button with question-mark)	& function per functionality 			& 		\\
+\hline
+BS2 	& The supervisor should be able to see 	&  	& 1	\\
+ 	& which data is missing 				&  	& 	\\
+\hline
+BS3 	& The supervisor should be able to see & - Try without content that is ready for review  & 1\\
+ 	& data that is ready for review 		& - Try with content that is ready for review & \\
+\hline
+BS4 	& The supervisor should be able to assign 	& - Try assigning an exhibit to one student & 1\\
+ 	& exhibits to students 					& - Try assigning an exhibit to more than student & \\
+\hline
+BS5 	& The supervisor should be able to trace 	&  	& 1\\
+ 	& content back to specific students 			&  	& \\
+\hline
+BS6 	& The supervisor should be able to define  	&  - Try defining a topic more than once	& 1\\
+ 	& topics and exhibits  				    	&  	& \\
+\hline
+BS7 	& The supervisor should be able to comment 	&  		& 1\\
+	& and discuss the given content of the students 	&		& \\	
+\hline
+BS8 	& The supervisor should be able to mark 	& - Try marking an error twice & 1\\
+	& errors in the content					&	& \\
+\hline
+BS9 	& The supervisor should get e-mail notifications 	& - The e-mail should be received in less  & 1\\
+	& about new content handed in by students		& than 2 minutes in 90\% of the time	& \\
+\hline
+BS10& The supervisor should be able to copy topics 	&  		& 2\\
+	& and categories (e.g., usage of templates		&		&		\\
+	& for different typical cases, duplication, etc.)		&		& \\
+\hline
+BS11& The supervisor should be able to define 		& - Try with error within the validation & 2\\
+	& validation-constraints (e.g., character			& constraints & \\
+	& limitation)								& 			& \\
+\hline
+BSt12& The supervisor is able to see the amount		& - Try without any content included & 2\\
+	& of texts and pictures in a hidden topic			& - Try with a lot of content included	& \\
+\hline
+BS13& The supervisor should be able to work offline 	& - Try disconnecting a running session & 3\\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Backend for the supervisor role, which are sorted by priority}
+\label{RequirementsBackendSupervisor}
+\end{table}
+
+\begin{table}[h]
+\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+BSt1 & The students are only able to send in 		& - Try sending content to another topic & 1	\\
+ 	& specific content (field / topic) 			&  & 		\\
+\hline
+BSt2	& The students should get an e-mail noti- 	& - The e-mail should be received in less & 1	\\
+ 	& fiation about new content in their topic 	& than 2 minutes in 90\% of the time & 	\\
+ 	& (e.g., send in via fellow students) 		&  & 	\\
+\hline
+BSt3 & The students should be able to send in  	& - Try with errors within the meta-data & 1\\
+ 	& metadata 							&  & \\
+\hline
+BSt4 & The students should be able to overview 	& - Try without any links & 1\\
+ 	& the possible links within their topic 		& - Try with a lot of links & \\
+ 	& (e.g., GPS-information) 				&  & \\
+\hline
+BSt5 & The students should be able to send in  	&  & 1\\
+ 	& content								&  & \\
+\hline
+BSt6 & The students should be able to propose  	&  & 1\\
+ 	& topics and content  				    	&  & \\
+\hline
+BSt7 & The students should only have temporary 	& - Try logging in after the temporary & 1\\
+	& access to the backend					& account has been deleted	& \\	
+\hline
+BSt8 & The students should have access to all 	&  	& 1\\
+	& temporary content (i.e., not reviewed 		&	& \\
+	&	content)							&	& \\
+\hline
+BSt9 & The students should be able to create 	&  	& 1\\
+	& interdisciplinary groups and communicate	&	& \\
+	& within these							&	& \\
+\hline
+BSt10& The students should be able to see their &  & 2\\
+	& content in a preview mode that simulates	&	&	\\
+	& the frontend	&	& \\
+\hline
+BSt11& The students should be able to see content &  & 2\\
+	& of other groups in a preview mode that 	&	&	\\
+	& simulates the frontend	&	& \\
+\hline
+BSt12& The students should be able to comment  	&  & 2\\
+	& and discuss the content of their group		&	 & \\
+	& or other groups						&	 & \\
+\hline
+BSt13& The students should be able to hide their & - Try hiding without having any content & 2\\
+	& unfinished work to the supervisor		&	& \\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Backend for the student role, which are sorted by priority}
+\label{RequirementsBackendStudent}
+\end{table}
+
+\begin{table}[h]
+\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+BM1 & The master should be able to recover data 	& - The recovery should not take & 1	\\
+ 	& by using a back-up system					& longer than one hour & 		\\
+\hline
+BM2 & The master role can be assigned to 		&  & 2	\\
+ 	& a couple of users at the same time 		&  & 	\\
+\hline
+BM3 & The master is able to do the final  		&  & 2\\
+ 	& acceptance 							&  & \\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Backend for the master role, which are sorted by priority}
+\label{RequirementsBackendMaster}
+\end{table}
+
+\begin{table}[h]
+\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+BMi1 & The data of the system is stored on IMT- 	&  & 1	\\
+ 	& Server								&  & 		\\
+\hline
+BMi2 & The system can be updated and  		&  & 1	\\
+ 	& maintained in the future				&  & 	\\
+	& (e.g., project-groups, SHK, etc.)	& 	& \\
+\hline
+BMi3 & The content should not be limited to		&  	& 1\\
+ 	& specific layouts, views (e.g., languages)	&	& \\
+	& and templates 						&  	& \\
+	\hline
+BMi4 & The system should be expandable 		&  	& 1	\\
+ 	& (e.g., new content, filters, etc.)			&  	& 		\\
+\hline
+BMi5 & The system should be safe with respect 	& -The system should be safe with 	& 1	\\
+ 	& to hackers resp. data manipulation 		&  respect to the economic view/ 	& 	\\
+	&									& definition of safety			&\\
+\hline
+BMi6 & The system offers features to manage  	&  & 2\\
+ 	& groups 								&  & \\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Backend, which are sorted by priority}
+\label{RequirementsBackendMisc}
+\end{table}
+
+\begin{table}[h]
+\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+F1 & The user should be able to navigate 		&  		& 1\\
+ 	& to the different locations shown in the 		&  		& \\
+	& HiP-application 						&		&	\\
+\hline
+F1.A & The user should be able to navigate 		&  		& 1\\
+ 	& to the different locations and discover 		&  		& \\
+	& these locations on his own 				&		&	\\
+\hline
+F1.B & The user should be able to navigate 		&  		& 1\\
+ 	& to the different locations and use 		&  		& \\
+	& round tour information of the application 	&		&	\\
+	\hline
+F1.B & The user should be able to navigate 		& 	 	& 1\\
+ 	& to the different locations while using  		&  		& \\
+	& filters (e.g., epochs)					&		&	\\
+\hline
+F2 & The user should be able to create thematic 	& - Try creating a route without assigning & 1\\
+	& routes 								& a theme & \\
+\hline
+F3 & The user should get a list of locations/exhibits 	&  	& 1\\
+	& in Paderborn								&	& \\
+\hline
+F4 & The user should see linkings within an exhibit  	&  	& 1\\
+	& different exhibits (e.g., Liborischrein -> Hle ->	&	& \\
+	& Scriptorium) 								&	& \\
+\hline
+F5 & The user should be able to deselect specific 	& - Try deselect only one & 1\\
+	& categories 							& - Try deselect many	& \\
+\hline
+F6 & The user should be able to filter exhibits on  &  	& 1\\
+	& the map (e.g., locations, historical figures, &	& \\
+	& etc.)								&	& \\
+\hline
+F7 & The user is able to overlay the current map  & - Try overlay one map with a hist. one & 1\\
+	& of the city with historical maps			& - Try overlay a couple of maps	& \\
+\hline
+F8 & The user is able to see himself and historical &  	& 1\\
+	& places on the map 					&	&  \\
+\hline
+F9 & The user should not exceed his storage 	&  	& 1\\
+	& on the smartphone					&	& \\
+\hline
+F10 & The user should not exceed his data-volume &  	& 1\\
+	& on the smartphone					&	& \\
+\hline
+F11 & The user should be able to use the  		&  	& 1\\
+	& application easily (good usability)			&	& \\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
+\label{RequirementsFrontend}
+\end{table}
+
+\begin{table}[h]
+\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+F12 & The user should be able to switch between 	&  	& 1\\
+	& different contents (e.g., Video, 3D, etc.)	&	& \\
+	& fast								&	& \\
+\hline
+F13 & The user should be able to see \textit{invisible} 	&  	& 1\\
+	& objects within the details-tab (e.g., something	&	& \\
+	& placed inside an altar)						&	& \\
+\hline
+F14 & The user should be able to use tablets and &  	& 1\\
+	& smartphones						&	& \\
+\hline
+F15 & The user should only get details about an  & - Try to get details beforehand & 1\\
+	& exhibit while he is next to it or afterwards &	& \\
+\hline
+F16 & The user should be able to get texts, graphics/  &  & 1\\
+	& pictures and links about an exhibit	&	& \\
+\hline
+F17 & The user should be able to get audio, video  &  & 2\\
+	& and 3D-views/models about an exhibit	&	& \\
+\hline
+F18 & The user can create and join treasure hunts &  & 2\\
+	& respectively geo-caching features		&	& \\
+\hline
+F19 & The user should get informed about exhibits &  & 2\\
+	& and locations that are next to him		&		& \\
+\hline
+F20 & The user should be able to get navigated 	&  & 2\\
+	& with AR-rabbits 						&		& \\
+\hline
+F21 & The user should be able to get navigated  &  & 2\\
+	& inside of a building					&	& \\
+\hline
+F22 & The user should be able to choose between &  & 2\\
+	& different starting possibilities (i.e., tour, &	& \\
+	& discovery and historical topics) 		&	& \\
+\hline
+F23 & The user should be able to hear the content &  & 2\\
+	& via an audio-guide				&	& \\
+\hline
+F24 & The user should be able to get exhibits as &  & 2\\
+	& comparison by using AR			&	& \\ 
+\hline
+F25 & The user should be able to create own &  & 2\\
+	& notes and comments				&	& \\
+\hline
+F26 & The user should be able to share content &  & 2\\
+	& via social media					&		& \\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
+\label{RequirementsFrontend2}
+\end{table}
+
+\begin{table}[h]
+\centering% NICHT \begin{center}
+\begin{tabular}{llll}
+	\toprule
+ID 	& Description 	& Acceptance 	& Priority \\
+ 	& 			 & criteria 	&  \\
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}\cmidrule(rl){4-4}
+F27 & The user should be able to export content & - The export should not take longer than 30 sec & 2\\
+	& as PDF and create book-marks			& in 90\% of the time	& \\
+\hline
+F28 & The user should be able to get the content &  & 2\\
+	& in different languages (i.e., englisch, french, &	& \\
+	& turkish) &	& \\
+\hline
+F29 & The user should be able to choose between  & - Try selecting one criterion & 2\\
+	& different criteria with respect to the audience & - Try selecting more than one criterion	& \\
+	& (e.g., different ages of people) &	& \\
+	\bottomrule
+\end{tabular}
+\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
+\label{RequirementsFrontend3}
+\end{table}

@@ -1,0 +1,138 @@
+\chapter[Technical and methodological background]{Technical and methodological background}
+After we have seen the need for the planned application, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  
+
+\section{Agile Development - Scrum}
+\label{SCRUM-intro}
+The main idea of agile development is described within the agile manifesto\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is an agile development method, we find similar ideas in the Scrum development process.
+
+The HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is to small. Nonetheless, we will include the ideas and concepts of the Scrum process but will, for example, combine different roles in one person. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
+
+Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. After every sprint the product should be more refined (\cite{scrum}). However, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog, which includes every feature that should be added in a specific sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in this short timeframe.
+
+The development process also influences the order of the development because the chose of Scrum indicates that we will develop the front-end and back-end in parallel. We will use a \ac{TDD}-like approach within every sprint (where possible). So, we will at first create needed test cases and afterwards implement against these test cases. This approach will prevent that testing of the application will be shifted into the last week(s) of the development process and done in a superficial way. In addition to that, a comprehensive test suite is a great basis for further development (\cite{max03}).
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/scrum}}
+\caption{The diagram shows the Scrum development process. (Simplified, original work from \cite{SCRUMPic})}
+\label{ScrumDia}
+\end{figure}
+
+Now, after we have seen the general concept of Scrum, we will now take a look at methods for cost estimation. 
+
+\section{Methods for cost estimation}
+To get a feasible estimation of the workload of a given backlog, as it has been described in section \ref{SCRUM-intro}, we need some methods to create a good work- respectively cost-estimation.
+
+\section{Used Frameworks}
+Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio-will be used to include the \ac{AR}-functionality on the smartphone application.
+
+\subsection{Play Framework - Backend}	
+We will use the Play framework for the backend of the application because Play is an open source web application framework, which is written in Scala and Java, follows the \ac{MVC} architectural pattern and handles the routing from \ac{HTTP}-requests to application code. 
+
+A simple example for the routing configuration file is shown in Listing \ref{Play:Routing}. In this file, each documented route consists of an \ac{HTTP} method and \ac{URI} pattern that is linked to a call of a, so called, \textit{action method} within the Java respectively Scala code. As one can easily see in line 9, it is quite easy to pass parameters to the application code. Furthermore, one can see that the parameters are type-safe; thus, for example, a String passed in as an Integer would result in a compilation error. 
+
+\lstset{language=XML,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple routing configuration file within the Play Framework},label=Play:Routing,frame=tlbr,breaklines]
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET /               controllers.Application.index()
+
+# Usage of parameter
+GET /thesis/:grade  controllers.Application.exp(grade: Integer)
+
+# Map static resources from /public to the /assets URL path
+GET /assets/*file   controllers.Assets.at(path="/public", file)
+\end{lstlisting}
+
+Very briefly, the Play framework includes three different parts: 
+
+1) Java Code that implements the controllers. The controllers are used to handle requests that get routed to them via \ac{HTTP}. A simple controller is shown in Listing \ref{Play:Controller}. As one can see within line 10 of Listing \ref{Play:Controller} the String "Your new application is ready" gets passed to the render function of the class index and returned as a parameter within the \textit{ok} function, which creates a simple \ac{HTTP} header with return-code 200. The index class is a Scala class that gets automatically creates from the Scala/\ac{HTML} template called \textit{index.scala.html}. We will see this in more detail within point 3 of this list.
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple Java-controller within the Play Framework},label=Play:Controller,frame=tlbr,breaklines]
+package controllers;
+
+import play.*;
+import play.mvc.*;
+import views.html.*;
+
+public class Application extends Controller {
+
+    public static Result index() {
+        return ok(index.render("Your new application is ready."));
+    }
+}
+\end{lstlisting}
+
+2) Java Code that implements the model entities. The model is used to do the actual calculation and data handling. In essence, we should include as less application-logic as possible within the controllers and use these model classes instead. \\
+3) Scala templates that are used as \textit{views}. As a return value of the controllers, they pass data to a fitting template and return a corresponding \ac{HTML}-view. However, we may also skip the template engine sometimes to directly return \ac{JSON}-documents, which can be used to provide a \ac{API}. Listing \ref{Play:Template} shows the used \textit{index.scala.html} template used in point 1 of this list. In line 1, we declare the used parameters, in our case one String variable, which we have used to pass the String "Your new application is ready". The \textit{@main} command in line 3 calls another template, which includes everything beside the \ac{HTML} body. The body of the file is now included in line 4 by calling another framework specific method, which includes a welcome and documentation message and renders our passed String variable.
+
+\lstset{language=XML,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple Scala template within the Play Framework},label=Play:Template,frame=tlbr,breaklines]
+@(message: String)
+
+@main("Welcome to Play") {
+    @play20.welcome(message, style = "Java")
+}
+\end{lstlisting}
+
+As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}. 
+As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST}(\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O. So, all in all, Play will noticeably enhance the development speed of the backend.
+
+\subsection{AngularJS - Frontend}
+After we have now seen the basics of the Play framework, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend.
+
+\todo{shows expressions}
+
+\todo{show ng-class}
+
+\subsection{Twitter Bootstrap}
+Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be downloaded here: \url{https://github.com/twitter/bootstrap}} is an open and freely available collection of tools on the basis of the \ac{HTML}, \ac{CSS} and \ac{JS} and can be used to support and accelerate the building of web applications. We will use Twitter Bootstrap inside the user front-end of our web application because it works nicely together with AngularJS and can for example be used to create tabs and alerts. Furthermore, Twitter Bootstrap is nowadays used a lot by common web-applications and, thus, we enhance the external consistency \todo{ref external consistency} of the \ac{HiP}-application in respect of other web-applications, which may be well known to the user. 
+
+Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnote{The terms of the license can be found here: \url{http://www.apache.org/licenses/LICENSE-2.0}}.
+
+\subsection{Junaio - Frontend}
+The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}. However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
+
+\section{WebGL}
+Furthermore, we will need WebGL to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
+
+\section{Tooling}
+A couple of frameworks and techniques is a good start for creating such a sophisticated system, however, we will also need fitting tooling to support the development. These tools will be described in the following section.
+
+\subsection{Git}
+We will use Git, which is a commonly used distributed revision control and source code management system, for the versioning of our source-code. Git is free software distributed under the terms of the GNU General Public License version 2.
+The service GitHub offers his users the possibility to maintain public and private Git repositories. The usage of GitHub is free, if the user uses public repositories only. We will use GitHub to host our source-code.
+\subsection{Jira}
+
+\subsection{IntelliJ IDEA}
+IntelliJ IDEA is a Java \ac{IDE} by the company JetBrains. 
+
+The current version offers support for Java 8, UI designer for Android development, Play 2.0 and Scala and is, thus, a good choice to work with because all of these features will be used in our development process.
+
+The \ac{IDE} is available as an Apache 2 Licensed community edition and a commercial edition.
+
+\section{Testing techniques}	
+
+\subsection{Why is testing within an agile development even more important}
+
+\subsection{TDD}
+
+\subsection{The fundamental test process}

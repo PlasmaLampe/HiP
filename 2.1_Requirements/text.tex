@@ -1,0 +1,316 @@
+\documentclass[twoside,openright,fleqn,pointlessnumbers,headinclude,,11pt,a4paper,BCOR5mm,footinclude,cleardoubleempty,abstracton % <--- obsolete, remove (todo)
+                ]{scrreprt}
+
+\usepackage{amsfonts} 
+\usepackage[applemac]{inputenc} %ggfs. auf andere Plattform anpassen
+\usepackage[T1]{fontenc} 
+\usepackage[american]{babel}    
+%\usepackage{table}
+\usepackage[top=1in, bottom=1in, left=0.5in, right=0.5in]{geometry}
+			
+\begin{document}
+	\begin{table}[h]
+	%\centering% NICHT \begin{center}
+		\caption{Showing the derived requirements of the Backend for the supervisor role, which are sorted by priority}
+	\begin{tabular}{llll}
+	\hline
+	ID 	& Description 	& Acceptance 	& Priority \\
+	 	& 			 & criteria 	&  \\
+		\hline
+	BS1 	& The supervisor should draft \textbf{guidelines} 		& - At least one information resp. help 	& 1	\\
+	 	& and assistance (e.g., Button with question-mark)	& function per functionality 			& 		\\
+	\hline
+	BS2 	& The supervisor should be able to see 				&  - The feedback should be visual	& 1	\\
+	 	& \textbf{which data is missing} 					&  - The feedback should be transparent to	& 	\\
+		& 											& upper layers of the UI & \\
+	\hline
+	BS3 	& The supervisor should be able to see 				& - Try without content that is ready & 1\\
+	 	& \textbf{data that is ready} for review 				&  for review & \\
+		&											& - Try with content that is ready		& \\
+		&											& for review		& \\
+	\hline
+	BS4 	& The supervisor should be able to \textbf{assign} 	& - Try assigning an exhibit to one & 1\\
+	 	& \textbf{exhibits} to students 					& student  & \\
+		&										& - Try assigning an exhibit to more	& \\
+		&										&	than one student				& \\
+	\hline
+	BS5 	& The supervisor should be able to \textbf{trace} 		& - Show visual connection between	& 1\\
+	 	& \textbf{content} back to specific students 			&  student and content 	& \\
+	\hline
+	BS6 	& The supervisor should be able to \textbf{define}  	&  - Try defining a topic more than once	& 1\\
+	 	& \textbf{topics} and exhibits  				    		&  	& \\
+	\hline
+	BS7 	& The supervisor should be able to \textbf{comment} 		& - Try commenting empty content		& 1\\
+		& \textbf{and discuss} the given content of the students 	&- Try commenting a lot of content		& \\	
+	\hline
+	BS8 	& The supervisor should be able to \textbf{mark} 	& - Try marking an error twice & 1\\
+		& \textbf{errors} in the content					&	& \\
+	\hline
+	BS9 	& The supervisor should get \textbf{e-mail notifications} 	& - The message should leave the system  & 1\\
+		& about new content handed in by students		& in less than 2 minutes in 90\% of the time	& \\
+	\hline
+	BS10& The supervisor should be able to \textbf{copy topics} 		& - Try copy an empty topic  		& 2\\
+		& and categories (e.g., usage of templates				& - The copied topic should be easily		&		\\
+		& for different typical cases, duplication, etc.)				& changeable to adapt it to the new usage		& \\
+	\hline
+	BS11& The supervisor should be able to define 				& - Try with error within the validation & 2\\
+		& \textbf{validation-constraints} (e.g., character			& constraints & \\
+		& limitation)										& 			& \\
+	\hline
+	BSt12& The supervisor is able to see the \textbf{amount}		& - Try without any content included & 2\\
+		& of \textbf{texts and pictures} in a hidden topic			& - Try with a lot of content included	& \\
+	\hline
+	BS13& The supervisor should be able to \textbf{work offline} 	& - Try disconnecting a running session & 3\\
+	\hline
+	\end{tabular}
+	\label{RequirementsBackendSupervisor}
+	\end{table}
+
+	\begin{table}[h]
+			\caption{Showing the derived requirements of the Backend for the student role, which are sorted by priority}
+	\centering% NICHT \begin{center}
+	\begin{tabular}{llll}
+	\hline
+	ID 	& Description 	& Acceptance 	& Priority \\
+	 	& 			 & criteria 	&  \\
+		\hline
+	BSt1 & The students are only able to \textbf{send in} 		& - Try sending content to another topic & 1	\\
+	 	& \textbf{specific content} (field / topic) 				&  & 		\\
+	\hline
+	BSt2	& The students should get an \textbf{e-mail noti-} 	& - The e-mail should be received in less & 1	\\
+	 	& \textbf{fiation} about new content in their topic 	& than 2 minutes in 90\% of the time & 	\\
+	 	& (e.g., send in via fellow students) 			&  & 	\\
+	\hline
+	BSt3 & The students should be able to send in  		& - Try with errors within the meta-data & 1\\
+	 	& \textbf{metadata} 							&  & \\
+	\hline
+	BSt4 & The students should be able to \textbf{overview} 	& - Try without any links & 1\\
+	 	& the \textbf{possible links} within their topic 			& - Try with a lot of links & \\
+	 	& (e.g., GPS-information) 						&  & \\
+	\hline
+	BSt5 & The students should be able to \textbf{send in}  		& - Try sending empty content  & 1\\
+	 	& \textbf{content}								& - Try sending a lot of content  & \\
+	\hline
+	BSt6 & The students should be able to \textbf{propose}  	& - Try proposing an existing topic  & 1\\
+	 	& topics and content  				    			&  & \\
+	\hline
+	BSt7 & The students should only have \textbf{access}  		& - Try logging in after the temporary & 1\\
+		& to the backend \textbf{for a specific time} 			& account has been deleted	& \\	
+	\hline
+	BSt8 & The students should have \textbf{access to all} 		& - Try accessing currently empty content  	& 1\\
+		& temporary content (i.e., not reviewed 				&	& \\
+		&	content)									&	& \\
+	\hline
+	BSt9 & The students should be able to create 			& - Try creating a group without users  	& 1\\
+		& \textbf{interdisciplinary groups} and communicate	& - Try to send an empty message to	& \\
+		& within these									& the group	& \\
+		& 											& - Try to send a very long message to	& \\
+		& 											& the group	& \\
+	\hline
+	BSt10& The students should be able to see their 			& - Try showing an empty topic 	& 2\\
+		& content in a \textbf{preview mode} that simulates	& - Try showing a huge topic	&	\\
+		& the frontend									&	& \\
+	\hline
+	BSt11& The students should be able to see content 		& -  Try showing an empty topic & 2\\
+		& of \textbf{other groups in a preview} mode that 		& - Try showing a huge topic	&	\\
+		& simulates the frontend							&	& \\
+	\hline
+	BSt12& The students should be able to comment  			& - Try to send an empty comment  & 2\\
+		& and \textbf{discuss} the content of their group		& - Try to send a huge comment	 & \\
+		& or other groups								&	 & \\
+	\hline
+	BSt13& The students should be able to \textbf{hide} their 	& - Try hiding without having any content & 2\\
+		& unfinished work to the supervisor					&	& \\
+			\hline
+	\end{tabular}
+	\label{RequirementsBackendStudent}
+	\end{table}
+
+	\begin{table}[h]
+			\caption{Showing the derived requirements of the Backend for the master role, which are sorted by priority}
+	\centering% NICHT \begin{center}
+	\begin{tabular}{llll}
+			\hline
+	ID 	& Description 	& Acceptance 	& Priority \\
+	 	& 			 & criteria 	&  \\
+		\hline
+	BM1 & The master should be able to \textbf{recover data} 	& - The recovery should not take & 1	\\
+	 	& by using a back-up system					& longer than one hour & 		\\
+	\hline
+	BM2 & The master role can be assigned to 				& - Try to assign the master role to nobody & 2	\\
+	 	& a \textbf{couple of users} at the same time 			&  & 	\\
+	\hline
+	BM3 & The master is able to do the final  				& - Try to accept an empty topic & 2\\
+	 	& \textbf{acceptance} 							& - Try to accept a huge topic & \\
+			\hline
+	\end{tabular}
+	\label{RequirementsBackendMaster}
+	\end{table}
+
+	\begin{table}[h]
+			\caption{Showing the derived requirements of the Backend, which are sorted by priority}
+	\centering% NICHT \begin{center}
+	\begin{tabular}{llll}
+			\hline
+	ID 	& Description 	& Acceptance 	& Priority \\
+	 	& 			 & criteria 	&  \\
+	\hline
+	BMi1 & The data of the system is \textbf{stored} on IMT- 	& - The data should be easily transferable & 1	\\
+	 	& Server										&  & 		\\
+	\hline
+	BMi2 & The system can be \textbf{updated} and  			&  & 1	\\
+	 	& maintained in the future						&  & 	\\
+		& (e.g., project-groups, SHK, etc.)					& 	& \\
+	\hline
+	BMi3 & The content should not be limited to				&  	& 1\\
+	 	& specific \textbf{layouts, views} (e.g., languages)		&	& \\
+		& and templates 								&  	& \\
+		\hline
+	BMi4 & The system should be \textbf{expandable} 		&  	& 1	\\
+	 	& (e.g., new content, filters, etc.)					&  	& 		\\
+	\hline
+	BMi5 & The system should be \textbf{safe} with respect 	& -The system should be safe with 	& 1	\\
+	 	& to hackers resp. data manipulation 				&  respect to the economic view/ 	& 	\\
+		&											& definition of safety			&\\
+	\hline
+	BMi6 & The system offers features to \textbf{manage}  		& - Try managing a group with an empty name  & 2\\
+	 	& groups 										&  & \\
+			\hline
+	\end{tabular}
+
+	\label{RequirementsBackendMisc}
+	\end{table}
+
+	\begin{table}[h]
+			\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
+	\centering% NICHT \begin{center}
+	\begin{tabular}{llll}
+			\hline
+	ID 	& Description 	& Acceptance 	& Priority \\
+	 	& 			 & criteria 	&  \\
+	\hline
+	F1 & The user should be able to \textbf{navigate} 			&  - The navigation should response fast  		& 1\\
+	 	& to the different locations shown in the 				&  - Try navigating to the current position		& \\
+		& HiP-application 								&		&	\\
+	\hline
+	F1.A & The user should be able to navigate 		&  See F1		& 1\\
+	 	& to the different locations and discover 		&  		& \\
+		& these locations on his own 				&		&	\\
+	\hline
+	F1.B & The user should be able to navigate 		&  See F1		& 1\\
+	 	& to the different locations and use 		&  		& \\
+		& round tour information of the application 	&		&	\\
+		\hline
+	F1.B & The user should be able to navigate 		& See F1	 	& 1\\
+	 	& to the different locations while using  		&  		& \\
+		& filters (e.g., epochs)					&		&	\\
+	\hline
+	F2 & The user should be able to create \textbf{thematic} 	& - Try creating a route without assigning & 1\\
+		& \textbf{routes} 								& a theme & \\
+	\hline
+	F3 & The user should get a \textbf{list of locations/exhibits} 	& - Try opening an empty list  	& 1\\
+		& in Paderborn									&	& \\
+	\hline
+	F4 & The user should \textbf{see linkings} within an exhibit  	&  - Try opening a topic without links	& 1\\
+		& different exhibits (e.g., Liborischrein -> Hle ->		& - Try opening a topic with a lot of links	& \\
+		& Scriptorium) 								&	& \\
+	\hline
+	F5 & The user should be able to \textbf{deselect} specific 	& - Try deselect only one & 1\\
+		& categories 									& - Try deselect many	& \\
+	\hline
+	F6 & The user should be able to \textbf{filter} exhibits on  	& - Try using multiple filters  	& 1\\
+		& the map (e.g., locations, historical figures, 			&	& \\
+		& etc.)										&	& \\
+	\hline
+	F7 & The user is able to \textbf{overlay} the current map  	& - Try overlay one map with a hist. one & 1\\
+		& of the city with historical maps					& - Try overlay a couple of maps	& \\
+	\hline
+	F8 & The user is able to \textbf{see himself and historical} 	& - Try in an area without hist. places  	& 1\\
+		& places on the map 							& - Try in an area with a lot of hist. places	&  \\
+	\hline
+	F9 & The user should not \textbf{exceed his storage} 		& - Clear cache should be possible  	& 1\\
+		& on the smartphone							&	& \\
+	\hline
+	F10 & The user should not \textbf{exceed his data-volume} 	& - Pictures and videos have to be   	& 1\\
+		& on the smartphone							& small	& \\
+	\hline
+	F11 & The user should be able to use the  				&  - Interface should not include too many 	& 1\\
+		& application easily (\textbf{good usability})			& functions per view 	& \\
+			\hline
+	\end{tabular}
+	\label{RequirementsFrontend}
+	\end{table}
+
+	\begin{table}[h]
+			\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
+	\centering% NICHT \begin{center}
+	\begin{tabular}{llll}
+		\hline
+	ID 	& Description 	& Acceptance 	& Priority \\
+	 	& 			 & criteria 	&  \\
+	\hline
+	F12 & The user should be able to switch between 			& - At most two clicks/touches between  	& 1\\
+		& \textbf{different contents} (e.g., Video, 3D, etc.)		& the different contents	& \\
+		& fast										&	& \\
+	\hline
+	F13 & The user should be able to see \textbf{\textit{invisible}} 	& - Try with more than one invisible 	& 1\\
+		& objects within the details-tab (e.g., something			& object at the same time	& \\
+		& placed inside an altar)								&	& \\
+	\hline
+	F14 & The user should be able to use \textbf{tablets} and 		& - The UI should adapt to the screen size  	& 1\\
+		& smartphones									& resp. resolution	& \\
+	\hline
+	F15 & The user should only get details about an  				& - Try to get details beforehand & 1\\
+		& exhibit while he is \textbf{next to it or afterwards} 		&	& \\
+	\hline
+	F16 & The user should be able to get \textbf{texts, graphics/}  	& - Try without any texts, etc.  & 1\\
+		& \textbf{pictures} and links about an exhibit				& - Try with a lot of texts, etc.  	& \\
+	\hline
+	F17 & The user should be able to get \textbf{audio, video}  		& - Try without any videos, etc.    & 2\\
+		& and \textbf{3D-views/models} about an exhibit			& - Try with a lot of videos, etc.  	& \\
+	\hline
+	F18 & The user can create and join \textbf{treasure hunts} 		& - Try join an treasure hunt without a name & 2\\
+		& respectively geo-caching features					&	& \\
+	\hline
+	F19 & The user should get informed about \textbf{exhibits} 		& - The information should be send immediately  & 2\\
+		& and \textbf{locations that are next to him}				& as the user arrives at the position		& \\
+	\hline
+	F20 & The user should be able to get navigated 				& See F1  & 2\\
+		& with \textbf{AR-rabbits} 							&		& \\
+	\hline
+	F21 & The user should be able to get navigated  				& - The navigation should be accurate   & 2\\
+		& inside of a \textbf{building}							&	& \\
+	\hline
+	F22 & The user should be able to choose between 			&    & 2\\
+		& different \textbf{starting possibilities} (i.e., tour, 			&	& \\
+		& discovery and historical topics) 						&	& \\
+	\hline
+	F23 & The user should be able to \textbf{hear the content} 		& - The audio files should be small  & 2\\
+		& via an audio-guide								& (see, F9, F10)	& \\
+	\hline
+	F24 & The user should be able to get exhibits as 				&  - Try opening more than one exhibit as& 2\\
+		& \textbf{comparison by using AR}						& comparison	& \\ 
+	\hline
+	F25 & The user should be able to \textbf{create own} 			& - Try creating an empty note/comment  & 2\\
+		& \textbf{notes and comments}						& - Try creating a huge note/comment	& \\
+	\hline
+	F26 & The user should be able to \textbf{share content} 		& - Sharing should not need more than two clicks & 2\\
+		& via social media									&		& \\
+	\hline
+	F27 & The user should be able to \textbf{export content} 		& - The export should not take longer than  & 2\\
+		& as PDF and create book-marks						& 30 sec in 90\% of the time	& \\
+	\hline
+	F28 & The user should be able to get the content 				& - Adding new languages should be easy  & 2\\
+		& in \textbf{different languages} (i.e., english, french, 		&	& \\
+		& turkish) 										&	& \\
+	\hline
+	F29 & The user should be able to choose between  			& - Try selecting one criterion & 2\\
+		& different \textbf{criteria} with respect to the audience 		& - Try selecting more than one criterion	& \\
+		& (e.g., different ages of people) 						&	& \\
+	\hline
+	\end{tabular}
+	\label{RequirementsFrontend2}
+	\end{table}
+	
+	
+\end{document}
