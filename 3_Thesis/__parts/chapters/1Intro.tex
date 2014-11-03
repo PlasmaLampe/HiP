@@ -1,4 +1,5 @@
 \chapter[Introduction in the thesis]{Introduction in the thesis}
+This first chapter will introduce the benefits of the system that will be developed within this thesis and will explain the current situation without the system.
 
 \section{What is the current situation without the tool/app}
 At the present point in time, guests of the city Paderborn has to look up information about the city in a tedious way, for example using Wikipedia or other existing platforms. On the other hand, people, who want to provide information about the city (e.g., university employees or students), have to provide these information in a general accessible way, again like Wikipedia. Thus, they are limited to the features that are provided by these platforms. Since Wikipedia has been founded in 2004 by the Wikimedia foundation (\cite{wikimedia}), most of the used technologies of the web application are nowadays outdated and very general. So, there is a rising need for a new technological updated approach, which is more focused on the specific topic of the city Paderborn and its history. 
@@ -12,8 +13,17 @@ Now, even if somebody wants to publish information about Paderborn on Wikipedia 
 This leads us to the application that should be prototypical developed within this master thesis, which will be described in the next section. 
 
 \section{What would the system look like (briefly)}
+As we will see in chapter \ref{draft}, the system will be divided in two big parts. One part is the web-backend, which is connected to an \textit{MongoDB} to store and retrieve the needed information. This backend will provide a \ac{REST} interface, which enables it to be connected two different kind of frontends. 
+
+The frontends create the second big part of the system. The first prototype of the system will include a web-frontend to access the backend for administrative purposes (e.g., including new data by students, creating groups, review data, etc.) and will be driven by the play framework in combination with AngularJS. 
+
+The second kind of frontend, which will be needed in the first prototype of the system, will be the smartphone frontend. With this frontend, the end-users (i.e., everybody who downloads the app from the app-store) are able access the information, which are included in the backend.
+
+After we have now seen, how the system will look like, we will now take a short look at the question, who will actually benefit of such a system.   
 
 \section{What would be better if the app would exit? Who would benefit?}
+On the one hand, users would benefit from the app by having a neat tool to discover the history of the city paderborn. It will be a great experience to be guided trough the city and learn a lot of important and interesting facts about the environment. 
+On the other hand, the system will be a nice 'abwechslung' \todo{dict} for the students, which may be bored from the typical \textit{send in a homework to pass the exam} cycle and can include the information directly into the backend and are able to see \textit{their} work some time later via the app in the frontend. So, they are actually able to \textbf{do} something, which is used in the future.    
 
 \section{Outline}
 The second chapter will explain all needed fundamentals of this Master thesis in detail and will show the used frameworks and tools.
@@ -22,6 +32,6 @@ The third chapter will outline the application design and describe some general 
 
 The fourth chapter will show important parts of the actual implementation, used tools and the final \acf{UML} diagrams of the application.
 
-The fifth chapter will show unit tests and the results of a survey that was used to evaluate the meaningfulness of the created diagrams. 
+The fifth chapter will show unit tests and the results of a survey that was used to evaluate usability of the system. 
 
 The sixth and last chapter will deal with arisen problems and will discuss the development for future work.
