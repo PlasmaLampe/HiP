@@ -22,7 +22,13 @@ The development process also influences the order of the development because the
 Now, after we have seen the general concept of Scrum, we will now take a look at methods for cost estimation. 
 
 \section{Methods for cost estimation}
-To get a feasible estimation of the workload of a given backlog, as it has been described in section \ref{SCRUM-intro}, we need some methods to create a good work- respectively cost-estimation.
+\label{cost}
+To get a feasible estimation of the workload of a given backlog, as it has been described in section \ref{SCRUM-intro}, we need some methods to create a good work- respectively cost-estimation. This is important to be able to choose a fitting amount of work per sprint.
+
+\todo{... add ....}
+
+A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} ??? of the graph. 
+\todo{Add an example chart}
 
 \section{Used Frameworks}
 Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio-will be used to include the \ac{AR}-functionality on the smartphone application.
@@ -99,11 +105,36 @@ As another important fact, Play emphasizes the usage of the \ac{REST} principle,
 As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST}(\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O. So, all in all, Play will noticeably enhance the development speed of the backend.
 
 \subsection{AngularJS - Frontend}
-After we have now seen the basics of the Play framework, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend.
+After we have now seen the basics of the Play framework, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The responsiveness of the application will be improved by the fact that the frontend will be a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. This results in a couple of benefits, like
 
+\todo{explain spa}
+
+The \textit{AngularJS} framework will be explained briefly in the following. AngularJS makes have use of expressions and directives. An expression within AngularJS is a term that is encapsulated by \textit{\{ \{ ... \} \}} and gets evaluated while the page gets loaded.
 \todo{shows expressions}
+\lstset{language=XML,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple example that shows the use of expressions},label=Angular:expressions,frame=tlbr,breaklines]
+<div class="panel-heading"> 
+	{{lc.getTerm('system_group_navigation')}} 
+</div>
+\end{lstlisting}
+Listing \ref{Angular:expressions} shows a simple example, where an expression is used to call a method of a controller object. As soon as the page gets rendered, the \ac{DOM}-tree will be loaded with the result value of the given javascript function called \textit{getTerm(String)}.\todo{ist das so?}
+Another major feature of AngularJS is the so called two-way data binding, which is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value. This creates a source-code that includes less unnecessary lines of code for updating the values in the view. 
 
 \todo{show ng-class}
+\lstset{language=XML,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple example that shows the ng-class directive},label=Angular:ngclass,frame=tlbr,breaklines]
+
+\end{lstlisting}
 
 \subsection{Twitter Bootstrap}
 Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be downloaded here: \url{https://github.com/twitter/bootstrap}} is an open and freely available collection of tools on the basis of the \ac{HTML}, \ac{CSS} and \ac{JS} and can be used to support and accelerate the building of web applications. We will use Twitter Bootstrap inside the user front-end of our web application because it works nicely together with AngularJS and can for example be used to create tabs and alerts. Furthermore, Twitter Bootstrap is nowadays used a lot by common web-applications and, thus, we enhance the external consistency \todo{ref external consistency} of the \ac{HiP}-application in respect of other web-applications, which may be well known to the user. 
@@ -114,7 +145,7 @@ Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnot
 The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}. However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
 
 \section{WebGL}
-Furthermore, we will need WebGL to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
+Furthermore, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
 
 \section{Tooling}
 A couple of frameworks and techniques is a good start for creating such a sophisticated system, however, we will also need fitting tooling to support the development. These tools will be described in the following section.
@@ -123,15 +154,16 @@ A couple of frameworks and techniques is a good start for creating such a sophis
 We will use Git, which is a commonly used distributed revision control and source code management system, for the versioning of our source-code. Git is free software distributed under the terms of the GNU General Public License version 2.
 The service GitHub offers his users the possibility to maintain public and private Git repositories. The usage of GitHub is free, if the user uses public repositories only. We will use GitHub to host our source-code.
 \subsection{Jira}
-Jira is a proprietary software for project tracking, which has been developed by the company Atlassian. It has support for agile development methods like Scrum or Kanban and offers a couple of features for bug tracking and time/cost estimation, like burn-down charts. \todo{explain}
+Jira is a proprietary software for project tracking purposes, which has been developed by the company Atlassian. It has support for agile development methods like Scrum or Kanban and offers a couple of features for bug tracking and time respectively cost estimation, like burn-down charts, which has been explained in section \ref{cost}. 
 
 We will use Jira to track the status of the \ac{HiP} application.
+
 \subsection{IntelliJ IDEA}
 IntelliJ IDEA is a Java \ac{IDE} by the company JetBrains. 
 
 The current version offers support for Java 8, UI designer for Android development, Play 2.0 and Scala and is, thus, a good choice to work with because all of these features will be used in our development process.
 
-The \ac{IDE} is available as an Apache 2 Licensed community edition and a commercial edition.
+The \ac{IDE} is available as an Apache 2 Licensed community edition and a commercial edition. The commercial edition can also be downloaded for free for educational purposes.
 
 \section{Testing techniques}	
 
