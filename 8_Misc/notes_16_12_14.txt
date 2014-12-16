@@ -1,0 +1,26 @@
+Wikipedia fußnoten sollen möglich sein
+Mehrere Betreuer - gleiches Thema nötig
+Freischalten per Deadline
+Bilder sollen nicht gesperrt werden
+
+Nach 'done' (über deadline) nicht mehr zurück => da wird bewertet
+
+Gruppen sollen read-Rechte anfragen können (bei anderen Gruppen)  
+
+==> ich brauche mehr test cases
+
+Hilfe  button
+
+
+Add footnotes in wikipedia style to the texts
+
+Make it possible that more than one supervisor handles the 
+same group
+
+Create the possibility that topics are published ("ready to supervise") to a given Deadline. No matter what the status of the topic is.
+
+Pictures should not be blocked.
+
+A group should be able to request read rights from another group
+
+Add a help button to every view
