@@ -5,7 +5,7 @@ After we have seen the need for the planned application, we will now get an insi
 \label{SCRUM-intro}
 The main idea of agile development is described within the agile manifesto\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process.
 
-In the year 2001\todo{Quellen: Scrum Buch 2001} development teams were struggling with the same problem they've been struggling all along and that was that projects took way too long and especially longer than they have been expected. This is a big problem within the software industry because doing a 6 month part of requirements engineering, followed by an 18-month development period lets one finish a product that is already obsolete at the day it gets published.
+A big problem within the software industry is that projects take longer than expected and the expectation of the customer differs more and more from the view of the development team because doing a 6 month part of requirements engineering, followed by an 18-month development period lets one finish a product that is already obsolete at the day it gets published.
 
 Similarly, the HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is to small. Nonetheless, we will include the ideas and concepts of the Scrum process but will, for example, combine different roles in one person. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
 
@@ -27,8 +27,13 @@ To get a feasible estimation of the workload of a given backlog, as it has been 
 
 \todo{... add ....}
 
-A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} ??? of the graph. 
-\todo{Add an example chart}
+A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The OPT line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the OPT line, you are to slow in the current sprint and in the case the sprint curve is below the OPT line, you are ahead of the time.
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/burndown}}
+\caption{The burndown diagram shows an example sprint.}
+\label{Burndown example}
+\end{figure}
 
 \section{Used Frameworks}
 Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio-will be used to include the \ac{AR}-functionality on the smartphone application.
@@ -140,6 +145,8 @@ backgroundcolor=\color{grey}}
 Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be downloaded here: \url{https://github.com/twitter/bootstrap}} is an open and freely available collection of tools on the basis of the \ac{HTML}, \ac{CSS} and \ac{JS} and can be used to support and accelerate the building of web applications. We will use Twitter Bootstrap inside the user front-end of our web application because it works nicely together with AngularJS and can for example be used to create tabs and alerts. Furthermore, Twitter Bootstrap is nowadays used a lot by common web-applications and, thus, we enhance the external consistency \todo{ref external consistency} of the \ac{HiP}-application in respect of other web-applications, which may be well known to the user. 
 
 Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnote{The terms of the license can be found here: \url{http://www.apache.org/licenses/LICENSE-2.0}}.
+
+Furthermore, Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: http://angular-ui.github.io/bootstrap/ and is distributed under the MIT license https://github.com/angular-ui/bootstrap/blob/master/LICENSE}
 
 \subsection{Junaio - Frontend}
 The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}. However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
