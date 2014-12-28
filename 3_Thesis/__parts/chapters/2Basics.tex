@@ -7,9 +7,9 @@ The main idea of agile development is described within the agile manifesto\footn
 
 A big problem within the software industry is that projects take longer than expected and the expectation of the customer differs more and more from the view of the development team because doing a 6 month part of requirements engineering, followed by an 18-month development period lets one finish a product that is already obsolete at the day it gets published.
 
-Similarly, the HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is to small. Nonetheless, we will include the ideas and concepts of the Scrum process but will, for example, combine different roles in one person. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
+Similarly, the HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is very small. Nonetheless, we will include the ideas and concepts of the Scrum process but will, for example, combine different roles in one person. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
 
-Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. After every sprint the product should be more refined (\cite{scrum}). However, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in this short timeframe.
+Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. However \cite{Ber07} points out that a four week sprint is in many cases problematic because a lot of customer requests have to be included into currently running sprints and so the backlog becomes more and more useless; he suggests having about 2 weeks long sprints. In any case, after every sprint the product should be more refined (\cite{scrum}). However, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in this short timeframe.
 
 The development process also influences the order of the development because the chose of Scrum indicates that we will develop the front-end and back-end in parallel. We will use a \ac{TDD}-like approach within every sprint (where possible). So, we will at first create needed test cases and afterwards implement against these test cases. This approach will prevent that testing of the application will be shifted into the last week(s) of the development process and done in a superficial way. In addition to that, a comprehensive test suite is a great basis for further development (\cite{max03}).
 
@@ -109,13 +109,70 @@ backgroundcolor=\color{grey}}
 As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}. 
 As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST}(\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O. So, all in all, Play will noticeably enhance the development speed of the backend.
 
+\subsection{MongoDB}
+As \cite{Tre14} describes, data entries within a MongoDB are called documents and are in essence ordered sets of key-value pairs. However, values can also be complete documents and arrays, so one can store complex hierarchical structures within a MongoDB. Similarly, the data gets stored in a \ac{BSON}-format, which is a binary \ac{JSON} format with more datatypes and better traversability.
+
+These documents are stored in so called collections, which are in general comparable to the tables in a relational database, like \ac{MySQL}.
+
+For every document within the database we need to include a field called \textit{\_id}, which contains the primary key of the document. Of course, this primary key has to be unique within the collection that contains the document. If an document is stored within the database without a \textit{\_id}field the field gets automatically generated.
+
+An insert into a MongoDB is easily done and shown in Listing \ref{MongoDB:insert}. 
+
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Inserting into a MongoDB},label=MongoDB:insert,frame=tlbr,breaklines]
+var db = ... // contains the connection to the database
+
+var object = {
+	firstname : 'John',
+	lastname : 'Doe'
+};
+
+db.hipUsers.insert(object);
+\end{lstlisting}
+
+Similarly one can read documents from the database by creating a document that is matched against the collection.
+For example, to retrieve the user \textit{John Doe} that has been included within Listing \ref{MongoDB:insert} by matching against his lastname, one would need to do the steps shown in Listing \ref{MongoDB:query}. 
+
+\begin{lstlisting}[numbers=left,caption={Reading documents from a MongoDB},label=MongoDB:insert,frame=tlbr,breaklines]
+var db = ... // contains the connection to the database
+
+var object = {
+	lastname : 'Doe'
+};
+
+db.hipUsers.find(object);
+\end{lstlisting}
+
+Now, we will take a look at the frontend technologies.
 \subsection{AngularJS - Frontend}
-After we have now seen the basics of the Play framework, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The responsiveness of the application will be improved by the fact that the frontend will be a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. This results in a couple of benefits, like
+After we have now seen the basics of the Play framework and the MongoDB, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The frontend will be designed as a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. A \ac{SPA} is a composition of individual components which can be updated respectively replaced independently of the complete site and, thus, without any reload after the actions of the user. This results in a couple of benefits, like improved interactivity, responsiveness and user satisfaction (\cite{Mes07}).
 
-\todo{explain spa}
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple example that shows the use of an AJAX request that shows the reponse text within a specific div container},label=AJAX:Example,frame=tlbr,breaklines]
+xmlhttp.onreadystatechange=function(){
+  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","ajax_info.txt",true);
+xmlhttp.send();
+\end{lstlisting}
 
-The \textit{AngularJS} framework will be explained briefly in the following. AngularJS makes have use of expressions and directives. An expression within AngularJS is a term that is encapsulated by \textit{\{ \{ ... \} \}} and gets evaluated while the page gets loaded.
-\todo{shows expressions}
+Obviously, creating a \ac{SPA} implicitly forces the usage of some kind of request mechanism to get the data that the user needs, without reloading the site. This could for example be done with an \ac{AJAX} request like the one that is show in Listing \ref{AJAX:Example}. The listing shows how the request is being made in line 6 and 7. Line 3 shows the exchange of the content of the div container with the id \textit{myDiv}. However, using \ac{AJAX} is cumbersome and can nowadays easily be hidden in very sophisticated frameworks, like AngularJS.
+
+The \textit{AngularJS} framework will be explained briefly in the following. AngularJS makes heavy use of expressions and directives.
+While directives in AngularJS are functions that get run when the DOM is compiled by the compiler and are shown as simple tags or attributes, an expression is a term that is encapsulated by \textit{\{ \{ ... \} \}} and gets evaluated while the page gets loaded.
+
 \lstset{language=XML,
 basicstyle=\small,
 showspaces=false,
@@ -128,19 +185,46 @@ backgroundcolor=\color{grey}}
 </div>
 \end{lstlisting}
 Listing \ref{Angular:expressions} shows a simple example, where an expression is used to call a method of a controller object. As soon as the page gets rendered, the \ac{DOM}-tree will be loaded with the result value of the given javascript function called \textit{getTerm(String)}. 
-Another major feature of AngularJS is the so called two-way data binding, which is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value.\todo{how does it work?} This creates a source-code that includes less unnecessary lines of code for updating the values in the view. 
+Another major feature of AngularJS is the so called two-way data binding, which is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value.This creates a source-code that includes less unnecessary lines of code for updating the values in the view. 
 
-\todo{show ng-class}
+Furthermore, AngularJS offers directives like \textit{ng-class} which adds dynamically a specific class to a \ac{DOM}-element if a given expression evaluates to true.
+
 \lstset{language=XML,
 basicstyle=\small,
 showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Simple example that shows the ng-class directive},label=Angular:ngclass,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Simple example that shows the ng-class directive to change the style respectivly color of an alert depending on its type},label=Angular:ngclass,frame=tlbr,breaklines]
+<div ng-class="{'alert-warning' : alert.type == 'warning',
+                         'alert-danger' : alert.type == 'danger',
+                         'alert-info' : alert.type == 'info',
+                         'alert-success' : alert.type == 'success'}"
+     role="alert">
 
+	{{alert.msg}}
+</div>
+\end{lstlisting}
+Listing \ref{Angular:ngclass} shows how the \textit{ng-class} directive exchanges the used style of the alert depending on the boolean expression that is places behind the ':'. So the syntax of the attribute value is \{ class : expression \}.
+
+Of course one can also create own directives to get a much cleaner code. For example, it is possible to create a directive called \textit{chat-box} which can directly included within the \ac{DOM}-tree. Thus, the usage of the created chat element folds down to the code that is shown in Listing \ref{Angular:ownDirective}. The same can be achieved by using web components or Google polymer, which is in essence an extension of the web-components technology. However both technologies are, at the present point in time, only fully compatible to Google Chrome. Because of that we will use custom AngularJS directives to create clean and maintainable code.
+
+\lstset{language=XML,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple example that shows the usage of a custom directive},label=Angular:ownDirective,frame=tlbr,breaklines]
+<!-- some code up here -->
+
+<chat-box> </chat-box>
+
+<!-- some code down here -->
 \end{lstlisting}
 
+Besides AngularJS, Twitter Bootstrap will also play an major role in the frontend development process.
+ 
 \subsection{Twitter Bootstrap}
 Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be downloaded here: \url{https://github.com/twitter/bootstrap}} is an open and freely available collection of tools on the basis of the \ac{HTML}, \ac{CSS} and \ac{JS} and can be used to support and accelerate the building of web applications. We will use Twitter Bootstrap inside the user front-end of our web application because it works nicely together with AngularJS and can for example be used to create tabs and alerts. Furthermore, Twitter Bootstrap is nowadays used a lot by common web-applications and, thus, we enhance the external consistency \todo{ref external consistency} of the \ac{HiP}-application in respect of other web-applications, which may be well known to the user. 
 
