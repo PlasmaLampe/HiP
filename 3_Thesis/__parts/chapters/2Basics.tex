@@ -257,9 +257,27 @@ The current version offers support for Java 8, UI designer for Android developme
 The \ac{IDE} is available as an Apache 2 Licensed community edition and a commercial edition. The commercial edition can also be downloaded for free for educational purposes.
 
 \section{Testing techniques}	
-
-\subsection{Why is testing within an agile development even more important}
+Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. \todo{uebrleitung tdd}  
 
 \subsection{TDD}
+The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \ac{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. As the definition of the Agile Alliance (\cite{GAA2015}) states \textit{"Test-driven development" refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}. So, \ac{TDD} is not only a testing technique, it is a programming technique which follows a couple of rules to  achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, design seems to be a bit different to grasp it with a technique that relies on testing. However, as \cite{Janzen2005} points out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
+
+Furthermore, \cite{Janzen2005} states that the positive aspects of the usage of \ac{TDD} have also been shown in studies of the \ac{NCSU}, which has performed a couple of empirical studies (\cite{George2004}, \cite{max03}, \cite{Williams2003}) on TDD in industry settings.
+These studies showed that programmers who used \ac{TDD} to produce code created 18 up to 50 percent more external test cases than code that has been produced by corresponding control groups. The studies also reported that the \ac{TDD} developers spent less time while debugging their code. Nevertheless, they reported also that the \ac{TDD} project took up to 16 percent longer. But, in the case that took 16 percent more time, researchers noted that the control group without \ac{TDD} wrote far fewer tests than the \ac{TDD} group. 
+
+According to \ac{GAA2015} the \ac{TDD} process can be expressed with the following set of steps:
+
+\begin{enumerate}
+  	\item write a "single" unit test describing an aspect of the program
+  	\item run the test, which should fail because the program lacks that feature
+  	\item write "just enough" code, the simplest possible, to make the test pass
+	\item "refactor" the code until it conforms to the \textit{simplicity criteria}
+	\item repeat, "accumulating" unit tests over time
+\end{enumerate}
+
+Note that the \textit{simplicity criteria} within step 4 of the procedure has been defined by \cite{Beck1999} as \todo{insert def beck 1999}.
+
+
+
 
 \subsection{The fundamental test process}
