@@ -3,19 +3,19 @@ After we have seen the need for the planned application, we will now get an insi
 
 \section{Agile Development - Scrum}
 \label{SCRUM-intro}
-The main idea of agile development is described within the agile manifesto\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process.
+The main idea of agile development is described within the agile manifesto \cite{Beck2001agile}\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process.
 
 A big problem within the software industry is that projects take longer than expected and the expectation of the customer differs more and more from the view of the development team because doing a 6 month part of requirements engineering, followed by an 18-month development period lets one finish a product that is already obsolete at the day it gets published.
 
 Similarly, the HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is very small. Nonetheless, we will include the ideas and concepts of the Scrum process but will, for example, combine different roles in one person. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
 
-Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. However \cite{Ber07} points out that a four week sprint is in many cases problematic because a lot of customer requests have to be included into currently running sprints and so the backlog becomes more and more useless; he suggests having about 2 weeks long sprints. In any case, after every sprint the product should be more refined (\cite{scrum}). However, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in this short timeframe.
+Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. However \cite{Ber07} points out that a four week sprint is in many cases problematic because a lot of customer requests have to be included into currently running sprints and so the backlog becomes more and more useless; he suggests having about 2 weeks long sprints. In any case, after every sprint the product should be more refined (\cite{scrum}). However, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in this short timeframe. The close customer relationship can for example be found in the fact the the customer is often invited in meetings after the sprints to see the progress on the product and, more important, to be able to influence the development process. However, \cite{paulk2002agile} claims that customers may also create a threat to finish agile development successful if they are not able or willing to maintain such a close relationship with the development team.
 
-The development process also influences the order of the development because the chose of Scrum indicates that we will develop the front-end and back-end in parallel. We will use a \ac{TDD}-like approach within every sprint (where possible). So, we will at first create needed test cases and afterwards implement against these test cases. This approach will prevent that testing of the application will be shifted into the last week(s) of the development process and done in a superficial way. In addition to that, a comprehensive test suite is a great basis for further development (\cite{max03}).
+The development process also influences the order of the development because the chose of Scrum indicates that we will develop the front-end and back-end in parallel. We will use a \ac{TDD}-like approach within every sprint (where possible) because we will need to adapt and refactor existing code often. So, we will at first create needed test cases and afterwards implement against these test cases. This approach will prevent that testing of the application will be shifted into the last week(s) of the development process and done in a superficial way. In addition to that, a comprehensive test suite is a great basis for further development (\cite{max03}).
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/scrum}}
-\caption{The diagram shows the Scrum development process. (Simplified, original work from \cite{SCRUMPic})}
+\caption{The diagram shows the Scrum development process. (Simplified, original work from \cite{5_maxxor.com_2015})}
 \label{ScrumDia}
 \end{figure}
 
@@ -25,10 +25,14 @@ Now, after we have seen the general concept of Scrum, we will now take a look at
 \label{cost}
 To get a feasible estimation of the workload of a given backlog, as it has been described in section \ref{SCRUM-intro}, we need some methods to create a good work- respectively cost-estimation. This is important to be able to choose a fitting amount of work per sprint.
 
-\todo{... add ....}
+As \cite{Keaveney11} points out, one of the main principles of agile methods is to have meetings with the customer within the development phase to adapt the requirements if needed (\cite{beck2001}). However, changing requirements within a currently running software development are a common cause of problems with respect to software cost estimating (\cite{jones2003flawed}). So, our methods for cost-estimation has to be able to handle changing requirements in short time-frames. Similarly, surveys have shown that in real life scenarios, the techniques used to estimate costs in agile development projects are in general based on the expertise of the team-members. So, the developers look to past iterations (or even past projects) to produce estimates about the costs of the current project respectively sprint (\cite{ceschi2005project}). 
 
-A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The OPT line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the OPT line, you are to slow in the current sprint and in the case the sprint curve is below the OPT line, you are ahead of the time.
+To be able to formalize knowledge about past iterations and to be able to compare the data with the current iteration, one can use diagrams like burn-down charts.
 
+\subsection{Burn-down charts}
+A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The OPT line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the OPT line, you are to slow in the current sprint and in the case the sprint curve is below the OPT line, you are ahead of the time. Obviously, burn-down charts do not have problems with changing requirements outside of the current sprint. But, in addition to that, we can also include new tasks to a running sprint and can simply adapt the OPT line with its slope to track the new added tasks within the active sprint. 
+
+\todo{add user stories - basis : see wikipedia}
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/burndown}}
 \caption{The burndown diagram shows an example sprint.}
@@ -36,9 +40,9 @@ A burn-down chart shows the amount of remaining story points (which correspond t
 \end{figure}
 
 \section{Used Frameworks}
-Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio-will be used to include the \ac{AR}-functionality on the smartphone application.
+Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
 
-\subsection{Play Framework - Backend}	
+\subsection{Play Framework}	
 We will use the Play framework for the backend of the application because Play is an open source web application framework, which is written in Scala and Java, follows the \ac{MVC} architectural pattern and handles the routing from \ac{HTTP}-requests to application code. 
 
 A simple example for the routing configuration file is shown in Listing \ref{Play:Routing}. In this file, each documented route consists of an \ac{HTTP} method and \ac{URI} pattern that is linked to a call of a, so called, \textit{action method} within the Java respectively Scala code. As one can easily see in line 9, it is quite easy to pass parameters to the application code. Furthermore, one can see that the parameters are type-safe; thus, for example, a String passed in as an Integer would result in a compilation error. 
@@ -148,8 +152,8 @@ var object = {
 db.hipUsers.find(object);
 \end{lstlisting}
 
-Now, we will take a look at the frontend technologies.
-\subsection{AngularJS - Frontend}
+Now, within the following section, we will take a look at the frontend technologies.
+\subsection{AngularJS}
 After we have now seen the basics of the Play framework and the MongoDB, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The frontend will be designed as a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. A \ac{SPA} is a composition of individual components which can be updated respectively replaced independently of the complete site and, thus, without any reload after the actions of the user. This results in a couple of benefits, like improved interactivity, responsiveness and user satisfaction (\cite{Mes07}).
 
 \lstset{language=JavaScript,
@@ -232,11 +236,44 @@ Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnot
 
 Furthermore, Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: http://angular-ui.github.io/bootstrap/ and is distributed under the MIT license https://github.com/angular-ui/bootstrap/blob/master/LICENSE}
 
-\subsection{Junaio - Frontend}
-The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}. However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
+\subsection{Junaio - Metaio}
+The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}). However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
 
-\section{WebGL}
-Furthermore, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
+\begin{figure}[th]
+\centerline{\includegraphics[width=.7\textwidth]{gfx/stackAREL}}
+\caption{The figure shows the placement of the AREL interpreter within the platform stack. (Taken from \cite{MetaioDEV})}
+\label{stackArel}
+\end{figure}
+
+Furthermore, Metaio has developed a JavaScript binding of the SDK used for \ac{AR}-applications called \ac{AREL} which can be used as a platform to write your \ac{AR} apps without writing platform specific code of the mobile operating system \cite{MetaioDEV}. Figure \ref{stackArel} shows the placement of the \ac{AREL} interpreter within the platform stack. 
+
+So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
+
+\subsection{WebGL}
+Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
+
+\section{Testing techniques}	
+Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. This leads us to \ac{TDD}, which is a developing technique which relies on the heavy use of tests. \ac{TDD} will be explained in the following section. 
+
+\subsection{TDD}
+The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \ac{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. As the definition of the Agile Alliance (\cite{GAA2015}) states \textit{"Test-driven development" refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}. So, \ac{TDD} is not only a testing technique, it is a programming technique which follows a couple of rules to  achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, design seems to be a bit different to grasp it with a technique that relies on testing. However, as \cite{Janzen2005} points out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
+
+Furthermore, \cite{Janzen2005} states that the positive aspects of the usage of \ac{TDD} have also been shown in studies of the \ac{NCSU}, which has performed a couple of empirical studies (\cite{George2004}, \cite{max03}, \cite{Williams2003}) on TDD in industry settings.
+These studies showed that programmers who used \ac{TDD} to produce code created 18 up to 50 percent more external test cases than code that has been produced by corresponding control groups. The studies also reported that the \ac{TDD} developers spent less time while debugging their code. Nevertheless, they reported also that the \ac{TDD} project took up to 16 percent longer. But, in the case that took 16 percent more time, researchers noted that the control group without \ac{TDD} wrote far fewer tests than the \ac{TDD} group. 
+
+According to \ac{GAA2015} the \ac{TDD} process can be expressed with the following set of steps:
+
+\begin{enumerate}
+  	\item write a "single" unit test describing an aspect of the program
+  	\item run the test, which should fail because the program lacks that feature
+  	\item write "just enough" code, the simplest possible, to make the test pass
+	\item "refactor" the code until it conforms to the \textit{simplicity criteria}
+	\item repeat, "accumulating" unit tests over time
+\end{enumerate}
+
+Note that the \textit{simplicity criteria} within step 4 of the procedure has been defined by \cite{Beck1999} as: \textit{At every moment, the design runs all the tests, communicates everything the programmers want to communicate, contains no duplicate code, and has the fewest possible classes and methods. This rule can be summarized as, \"Say everything once and only once.\"}. 
+
+So, all in all, the \ac{TDD} process relies on writing unit test before writing the application code itself and use them as tests in the developing phase to check if the currently written code is able to fulfill the requirement. Step 5 shows, that the sum of all test cases is then also used in a \textit{traditional} way to find bugs in the existing application-code. 
 
 \section{Tooling}
 A couple of frameworks and techniques is a good start for creating such a sophisticated system, however, we will also need fitting tooling to support the development. These tools will be described in the following section.
@@ -256,28 +293,4 @@ The current version offers support for Java 8, UI designer for Android developme
 
 The \ac{IDE} is available as an Apache 2 Licensed community edition and a commercial edition. The commercial edition can also be downloaded for free for educational purposes.
 
-\section{Testing techniques}	
-Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. \todo{uebrleitung tdd}  
-
-\subsection{TDD}
-The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \ac{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. As the definition of the Agile Alliance (\cite{GAA2015}) states \textit{"Test-driven development" refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}. So, \ac{TDD} is not only a testing technique, it is a programming technique which follows a couple of rules to  achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, design seems to be a bit different to grasp it with a technique that relies on testing. However, as \cite{Janzen2005} points out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
-
-Furthermore, \cite{Janzen2005} states that the positive aspects of the usage of \ac{TDD} have also been shown in studies of the \ac{NCSU}, which has performed a couple of empirical studies (\cite{George2004}, \cite{max03}, \cite{Williams2003}) on TDD in industry settings.
-These studies showed that programmers who used \ac{TDD} to produce code created 18 up to 50 percent more external test cases than code that has been produced by corresponding control groups. The studies also reported that the \ac{TDD} developers spent less time while debugging their code. Nevertheless, they reported also that the \ac{TDD} project took up to 16 percent longer. But, in the case that took 16 percent more time, researchers noted that the control group without \ac{TDD} wrote far fewer tests than the \ac{TDD} group. 
-
-According to \ac{GAA2015} the \ac{TDD} process can be expressed with the following set of steps:
-
-\begin{enumerate}
-  	\item write a "single" unit test describing an aspect of the program
-  	\item run the test, which should fail because the program lacks that feature
-  	\item write "just enough" code, the simplest possible, to make the test pass
-	\item "refactor" the code until it conforms to the \textit{simplicity criteria}
-	\item repeat, "accumulating" unit tests over time
-\end{enumerate}
-
-Note that the \textit{simplicity criteria} within step 4 of the procedure has been defined by \cite{Beck1999} as \todo{insert def beck 1999}.
-
-
-
-
-\subsection{The fundamental test process}
+After we have now seen all needed fundamentals to grasp the main idea of the application, we will take a look at the draft of the application.
