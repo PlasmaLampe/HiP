@@ -9,8 +9,33 @@ First of all, a requirement is defined as "[...]A condition or capability that m
 
 We started the development with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in Table \ref{RequirementsFrontend} and \ref{RequirementsBackend}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
 
-In the following, we will explain the two parts of the application separately.
+Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. 
+The usage of these external components and their structure will be the main topic of the next section.
+  
+\section{Usage of the components}
 
+\subsection{Framework and library stack}
+
+\section{Architecture of the application}
+The architecture design in agile projects is slightly different from common respectively classical development projects. Within a classical development process, one would design the architecture of the system in its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the the following important attributes:
+
+\begin{enumerate}
+	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.	%\item Damit wird ein iteratives Vorgehen ermöglicht und architektonische Ent- scheidungen können bis zum „ hinausgezogen werden, d. h. sie werden zum spätmög- lichsten Zeitpunkt getroffen und da- nach meist sofort umgesetzt.
+	\item This enables the developer to be able to use an iterative development style and to postpone important development choices to the \textit{Least Responsible Moment}. The \textit{Least Responsible Moment} is the latest possible point in time, where you can implement an architecture decision 	%\item Detaillierte Strukturen und technische Konzepte entstehen unterwegs.
+	\item This way, detailed structures and technical concepts are created on-the-fly, while the application gets developed
+\end{enumerate}
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/architecture}}
+\caption{The general 3-layer architecture of the HiP-application with both presentation layers}
+\label{hip:architecture}
+\end{figure}
+
+Similarly, we will choose a 3-layer architecture for the development for the application, which is quite common for Client/Server respectively web applications \todo{quelle}. Within our application, the 3-layer architecture is nice because it enables us to exchange the presentation layer easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage layer, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application layer. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application layer need to be included on the client side within the presentation layer. So, we will create a thick-client. \todo{ref}
+\todo{Tier vs Layer} However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
+
+After we have now seen the general architecture, we will take a look at the different part of the system in more detail.
+ 
 \section{Backend (Web-Server)}
 Another important part of the system is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
 
@@ -29,6 +54,10 @@ Furthermore, the backend should include a way to modify the point-clouds of the 
 \subsection{Input data/content via CMS in the system}
 
 \subsection{Manage content as a reviewer}
+
+\subsubsection{AnnotateIt inclusion}
+
+\subsubsection{JWT}
 
 \subsection{Including a 3D-Tooling system for point-clouds (WebGL)}
 
