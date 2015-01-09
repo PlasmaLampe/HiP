@@ -253,7 +253,7 @@ So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating syste
 \subsection{WebGL}
 Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
 
-\section{Testing techniques}	
+\section{Testing techniques and tools}	
 Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. This leads us to \ac{TDD}, which is a developing technique which relies on the heavy use of tests. \ac{TDD} will be explained in the following section. 
 
 \subsection{TDD}
@@ -275,6 +275,8 @@ According to \ac{GAA2015} the \ac{TDD} process can be expressed with the followi
 Note that the \textit{simplicity criteria} within step 4 of the procedure has been defined by \cite{Beck1999} as: \textit{At every moment, the design runs all the tests, communicates everything the programmers want to communicate, contains no duplicate code, and has the fewest possible classes and methods. This rule can be summarized as, \"Say everything once and only once.\"}. 
 
 So, all in all, the \ac{TDD} process relies on writing unit test before writing the application code itself and use them as tests in the developing phase to check if the currently written code is able to fulfill the requirement. Step 5 shows, that the sum of all test cases is then also used in a \textit{traditional} way to find bugs in the existing application-code. 
+
+\subsection{Jasmine and Karma}
 
 \section{Tooling}
 A couple of frameworks and techniques is a good start for creating such a sophisticated system, however, we will also need fitting tooling to support the development. These tools will be described in the following section.

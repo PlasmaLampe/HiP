@@ -11,13 +11,74 @@ We started the development with a requirements engineering meeting together with
 
 Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. 
 The usage of these external components and their structure will be the main topic of the next section.
-  
+
+\section{Use Cases - User stories}
+The system in its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
+
+\begin{enumerate}
+	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of supervisor is the betreuung \todo{dict} of groups.
+	\item Students: Students are placed in groups by their supervisor and work on a specific topic. They are able to hand in their work for review by the supervisor. 
+	\item Admin: The admins are able to assign users to specific roles and edit the system itself (e.g., edit translations, etc. )
+	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
+\end{enumerate}
+
+\todo{include use case diagram}
+
+After we have now seen the different roles that are involved in this system, we will include two use case tables as an example for the usage of the system here. However, a complete list of use case scenarios would be to large for this thesis.
+
+ \begin{table}[h]
+\scriptsize
+ \caption{Use Case Scenario: student changes content on a topic}
+ \begin{tabular}{lll}
+	\toprule
+  Step: & Involved: & Description of the activity: \\ 
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}
+  	0 	& Student & logs into the system \\
+	1	& Student	& navigates to the correct group \\
+	2	& Student & navigates to the topic he wants to work on \\
+	3	& Student & changes content on the topic \\
+	4	& Student & saves the changes \\	
+	5	& Student & logs out \\
+	\bottomrule
+ \end{tabular}
+ \label{tab:ucTopicChange}
+ \end{table} 
+
+Table \ref{tab:ucTopicChange} shows that when a student wants to change the content of a topic he is working on, he needs to log into the system, navigate to the group and topic and is then able to change the content.
+ 
+ \begin{table}[h]
+\scriptsize
+ \caption{Use Case Scenario: Supervisor creates a new group}
+ \begin{tabular}{lll}
+	\toprule
+  Step: & Involved: & Description of the activity: \\ 
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}
+  	0 	& Supervisor & logs into the system \\
+	1	& Supervisor & navigates to create group view \\
+	2	& Supervisor & inputs name, member, topics, etc. \\
+	3	& Supervisor & saves the group \\	
+	4	& Supervisor & logs out \\
+	\bottomrule
+ \end{tabular}
+ \label{tab:ucGroupCreation}
+ \end{table} 
+
+The second use case scenario in Table \ref{tab:ucGroupCreation} shows that it will be quite easy for a supervisor to create a new group. He only needs to log into the system, open the correct view and input all needed information, like members of the group. 
+
+\todo{include complete "group and topic" lifecycle as an activity diagram}
+
+\todo{include simple sequence diagrams}
+
+Now, after we have seen what the application is about and which tools and frameworks are in general used to create the application, we will now take a closer look at the usage of the different components (e.g., frameworks, libraries and tools) and how the will work together.
+
 \section{Usage of the components}
+
 
 \subsection{Framework and library stack}
 
+
 \section{Architecture of the application}
-The architecture design in agile projects is slightly different from common respectively classical development projects. Within a classical development process, one would design the architecture of the system in its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the the following important attributes:
+The architecture design in agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system in its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the the following important attributes:
 
 \begin{enumerate}
 	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.	%\item Damit wird ein iteratives Vorgehen ermöglicht und architektonische Ent- scheidungen können bis zum „ hinausgezogen werden, d. h. sie werden zum spätmög- lichsten Zeitpunkt getroffen und da- nach meist sofort umgesetzt.
@@ -27,12 +88,14 @@ The architecture design in agile projects is slightly different from common resp
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/architecture}}
-\caption{The general 3-layer architecture of the HiP-application with both presentation layers}
+\caption{The general 3-tier architecture of the HiP-application with both presentation tier}
 \label{hip:architecture}
 \end{figure}
 
-Similarly, we will choose a 3-layer architecture for the development for the application, which is quite common for Client/Server respectively web applications \todo{quelle}. Within our application, the 3-layer architecture is nice because it enables us to exchange the presentation layer easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage layer, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application layer. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application layer need to be included on the client side within the presentation layer. So, we will create a thick-client. \todo{ref}
-\todo{Tier vs Layer} However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
+Similarly, we will choose a 3-tier architecture for the development for the application, which is, according to \cite{Eckerson1995}, a quite common for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application tier need to be included on the client side within the presentation tier. So, we will create a thick-client. \todo{ref}
+\todo{Tier vs Layer} 
+
+However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
 
 After we have now seen the general architecture, we will take a look at the different part of the system in more detail.
  
