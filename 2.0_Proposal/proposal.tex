@@ -23,7 +23,7 @@
 \begin{table}[!th]
 \begin{tabular}{l p{0.8\textwidth}}
 Supervisor & Dr. Simon Oberth\"ur \\
-Project Title &  HiP - Planning and developing of the project 'History in Paderborn'
+Project Title &  HiP - Developing the web-backend of the AR-application 'History in Paderborn' while using an agile approach
 \end{tabular}
 \end{table}
 
@@ -44,7 +44,7 @@ This leads us to the application that should be prototypical developed within th
   
 \section{Problem Definition - Goal of the Master Thesis} 
 \label{ProblemDef}
-To handle all these problems that have been described above within the section about the current situation, we will create a smartphone application that gets supported by a backend web-server. The master thesis will handle the planning respectively cost estimation of the different parts/features of the system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components. The system should be able to get data from university courses to enable the rendering of \ac{AR} information and navigation right within the smartphone application. In the following, we will explain the two parts separately.
+To handle all these problems that have been described above within the section about the current situation, we will focus on the backend system for the smartphone application. The master thesis will handle the planning respectively cost estimation of the different parts/features of the system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components. The system should be able to get data from university courses to enable the rendering of \ac{AR} information and navigation right within the smartphone application. In the following, we will explain the two parts separately.
 
 \subsection{The frontend: Smartphone application} 
 \begin{figure}[th]
@@ -65,7 +65,7 @@ To create a feasible input for the \ac{AR} system, the user should be able to sc
 \end{figure}
 
 \subsection{The backend: Web-Server} 
-Another important part of the system is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
+Another important part of the system, and the main focus of the master thesis, is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
 
 The data should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
@@ -199,6 +199,15 @@ Week  		& 	Action				&  \\
 The expected timing is shown in Table \ref{tgantt} and more visual within Figure \ref{gantt} as a Gantt diagram. The thesis will be written over the most part of the timeframe of the 20 weeks. The last weeks are planned to include in general review and (usability-)testing work to finalize the thesis. The first milestone should be reached within Week 6 and indicates the finish of the draft and the start of the actual implementation. 
 
 The second milestone should be reached in Week 17 and indicates the end of the implementation phase. The frontend and backend will mainly be implemented in parallel because we will use SCRUM as the main development method. This means that we will have a fully working but growing systems that needs both components in the development phase to complete the SCRUM sprints, as it has been introduced in section \ref{SCRUM}. 
+
+\section{Summary of the goals of the thesis}
+The following section will now briefly summarize the goals of the master thesis:
+\begin{itemize}
+	\item We will need to draft the application before the actual implementation phase start, to do this, we will need:
+	\item --- to collect all needed requirements
+	\item --- to create drafts of the general architecture and the main components from these requirements
+	\item --- to create cost estimations about the different parts of the system based on the drafts
+\end{itemize} 
 
 So, after the complete project has now been proposed and and the methods and used frameworks has been explained, we are now looking forward to create the proposed system in the following months.
 
