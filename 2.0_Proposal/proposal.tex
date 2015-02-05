@@ -32,7 +32,7 @@ This proposal will show the planned development of the application called 'Histo
 \end{abstract}
 
 \section{Introduction - Current Situation}
-At the present point in time, guests of the city Paderborn has to look up information about the city in a tedious way, for example using Wikipedia or other existing platforms. On the other hand, people, who want to provide information about the city (e.g., university employees or students), have to provide these information in a general accessible way, again like Wikipedia. Thus, they are limited to the features that are provided by these platforms. Since Wikipedia has been founded in 2004 by the Wikimedia foundation \cite{wikimedia}, most of the used technologies of the web application are nowadays outdated and very general. So, there is a rising need for a new technological updated approach, which is more focused on the specific topic of the city Paderborn and its history. 
+At the present point in time, guests of the city Paderborn have to look up information about the city in a tedious way, for example using Wikipedia or other existing platforms. On the other hand, people, who want to provide information about the city (e.g., university employees or students), have to provide these information in a general accessible way, again like Wikipedia. Thus, they are limited to the features that are provided by these platforms. Since Wikipedia has been founded in 2004 by the Wikimedia foundation \cite{wikimedia}, most of the used technologies of the web application are nowadays outdated and very general. So, there is a rising need for a new technological updated approach, which is more focused on the specific topic of the city Paderborn and its history. 
 
 Especially the use of mobile devices has been risen in this time, which is easily recognizable at the number of sales of the Apple iPhone. The iPhone has been sold 0.27 million times in Q3 2007 and 51.03 million times in Q1 2014 \cite{statIPhone}. Of course, this shift from the device side (i.e., hardware) includes a major shift in (software-) technology as well. Technologies like the nowadays well known \ac{AR} would not be possible in 2004. Of course, this new technology includes a lot of new opportunities to transfer knowledge between people and cultures. \ac{AR} is a great example to show how 'the real world' is blended more and more with artificial information; for example in the form of call-outs and layers. \ac{AR} is a technology that displays virtual (i.e., digital) information on top of a real object or location using the camera of a mobile device as input for the real objects. So, it ends up to be a combination of both worlds; the real and the digital one. Azuma et. al. has shown a lot of possible fields where the usage of \ac{AR} would be a great improvement, which includes the field of annotation and visualization \cite{Azu97}. Furthermore, path finding and navigation are fields that could be revolutionized by using \ac{AR} on mobile devices.
 
@@ -44,7 +44,7 @@ This leads us to the application that should be prototypical developed within th
   
 \section{Problem Definition - Goal of the Master Thesis} 
 \label{ProblemDef}
-To handle all these problems that have been described above within the section about the current situation, we will focus on the backend system for the smartphone application. The master thesis will handle the planning respectively cost estimation of the different parts/features of the system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components. The system should be able to get data from university courses to enable the rendering of \ac{AR} information and navigation right within the smartphone application. In the following, we will explain the two parts separately.
+Within this thesis, we will develop an application (with focus on the backend system) to handle all these problems that have been described above within the section about the current situation. The master thesis will handle the planning respectively cost estimation of the different parts/features of the general system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components of the backend system. The general system should be able to get data from university courses to enable the rendering of \ac{AR} information and navigation right within the smartphone application. In the following, we will explain the two parts separately.
 
 \subsection{The frontend: Smartphone application} 
 \begin{figure}[th]
@@ -185,8 +185,7 @@ Week  		& 	Action				&  \\
   2-4 			& Work in used frameworks	&  \\ 				 	
   4-6			& Draft of the backend		&  \\ 
   4-6			& Draft of the frontend		& \\
-  6-16		& Implementation backend	&  \\ 
-  7-18		& Implementation frontend	&  \\ 
+  6-18		& Implementation backend	&  \\ 
   6-18		& Developing Test Cases for TDD	&  \\ 
  16-20		& Usability testing				&  \\ 
  6-20		& Software testing				&  \\ 
@@ -198,22 +197,20 @@ Week  		& 	Action				&  \\
 
 The expected timing is shown in Table \ref{tgantt} and more visual within Figure \ref{gantt} as a Gantt diagram. The thesis will be written over the most part of the timeframe of the 20 weeks. The last weeks are planned to include in general review and (usability-)testing work to finalize the thesis. The first milestone should be reached within Week 6 and indicates the finish of the draft and the start of the actual implementation. 
 
-The second milestone should be reached in Week 17 and indicates the end of the implementation phase. The frontend and backend will mainly be implemented in parallel because we will use SCRUM as the main development method. This means that we will have a fully working but growing systems that needs both components in the development phase to complete the SCRUM sprints, as it has been introduced in section \ref{SCRUM}. 
+The second milestone should be reached in Week 17 and indicates the end of the implementation phase. Because we are using an agile approach, we will have a fully working but growing systems in the development phase. 
 
 \section{Summary of the goals of the thesis}
 The following section will now briefly summarize the goals of the master thesis:
 \begin{itemize}
 	\item We will need to draft the application before the actual implementation phase start, to do this, we will need:
 	\begin{itemize}
-	\item to collect the high level requirements %rest in den meetings
-	\item to create drafts of the general architecture and the main components from these requirements
-	\item to create cost estimations about the different parts of the system based on the drafts
+	\item to collect the high level requirements. The remaining requirements will be derived within the biweekly meetings with the stakeholders.
+	\item to create drafts of the general architecture and the main components from these requirements.
+	\item to create cost estimations about the different parts of the system based on the drafts.
 	\end{itemize} 
-	\item After that, we will implement the backend and a prototype of the frontend application %konkreter - agile zyklus -> Prozess soll durchlaufen werden
-	%Welche Vorteile? Doku
-	\item Finally, we will need to evaluate a suitable way to pass the whole project to an upcoming 
-	'Project Group' of the AG Engels.  
-	\item The whole project will be done in an agile approach using common agile project management  applications and techniques
+	\item After that, we will implement the backend and a prototype of the frontend application. A major goal of this part is to pass the whole agile development cycle and document the benefits respectively drawbacks that will be encountered within the process by us.	
+	\item Finally, we will need to evaluate a suitable way to pass the whole project to an upcoming 'Project Group' of the AG Engels.  
+	\item The whole project will be done in an agile approach using common agile project management  applications and techniques.
 \end{itemize} 
 
 So, after the complete project has now been proposed and and the methods and used frameworks has been explained, we are now looking forward to create the proposed system in the following months.
