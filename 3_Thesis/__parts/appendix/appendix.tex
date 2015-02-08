@@ -3,14 +3,31 @@ The appendix contains some diagrams and tables that were to big to put them into
 
 The IDs of the list, which are written in bold letters, will be done within the master-thesis itself. The remaining parts can be done via, for example, project-groups, etc. 
 
-%\begin{landscape}
-	\begin{table}[h]
-	%\centering% NICHT \begin{center}
-		\caption{Showing the derived requirements of the Backend for the supervisor role, which are sorted by priority}
-	\begin{tabular}{llll}
-	\hline
-	ID 	& Description 	& Acceptance 	& Priority \\
-	 	& 			 & criteria 	&  \\
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+	
+\begin{longtable}{|l|l|lll|}
+\caption{Showing the derived requirements of the Backend for the supervisor role, which are sorted by priority} 
+\label{RequirementsBackendSupervisor} \\
+
+\hline 
+	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline 	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
 		\hline
 	\textbf{BS1} 	& The supervisor should draft \textbf{guidelines} 		& - At least one information resp. help 	& 1	\\
 	 		& and assistance (e.g., Button with question-mark)		& function per functionality 			& 		\\
@@ -56,18 +73,37 @@ The IDs of the list, which are written in bold letters, will be done within the 
 		& of \textbf{texts and pictures} in a hidden topic			& - Try with a lot of content included	& \\
 	\hline
 	BS13& The supervisor should be able to \textbf{work offline} 	& - Try disconnecting a running session & 3\\
-	\hline
-	\end{tabular}
-	\label{RequirementsBackendSupervisor}
-	\end{table}
+\end{longtable}
+\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}
 
-	\begin{table}[h]
-			\caption{Showing the derived requirements of the Backend for the student role, which are sorted by priority}
-	\centering% NICHT \begin{center}
-	\begin{tabular}{llll}
-	\hline
-	ID 	& Description 	& Acceptance 	& Priority \\
-	 	& 			 & criteria 	&  \\
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+	
+\begin{longtable}{|l|l|lll|}
+\caption{Showing the derived requirements of the Backend for the student role, which are sorted by priority} 
+\label{RequirementsBackendStudent} \\
+
+\hline 
+	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline 	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
 		\hline
 	\textbf{BSt1} & The students are only able to \textbf{send in} 		& - Try sending content to another topic & 1	\\
 	 	& \textbf{specific content} (field / topic) 				&  & 		\\
@@ -116,18 +152,37 @@ The IDs of the list, which are written in bold letters, will be done within the 
 	\hline
 	\textbf{BSt13}& The students should be able to \textbf{hide} their 	& - Try hiding without having any content & 2\\
 		& unfinished work to the supervisor					&	& \\
-			\hline
-	\end{tabular}
-	\label{RequirementsBackendStudent}
-	\end{table}
+\end{longtable}
+\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}
 
-	\begin{table}[h]
-			\caption{Showing the derived requirements of the Backend for the master role, which are sorted by priority}
-	\centering% NICHT \begin{center}
-	\begin{tabular}{llll}
-			\hline
-	ID 	& Description 	& Acceptance 	& Priority \\
-	 	& 			 & criteria 	&  \\
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+	
+\begin{longtable}{|l|l|lll|}
+\caption{Showing the derived requirements of the Backend for the master role, which are sorted by priority} 
+\label{RequirementsBackendMaster} \\
+
+\hline 
+	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline 	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
 		\hline
 	BM1 & The master should be able to \textbf{recover data} 	& - The recovery should not take & 1	\\
 	 	& by using a back-up system					& longer than one hour & 		\\
@@ -137,19 +192,38 @@ The IDs of the list, which are written in bold letters, will be done within the 
 	\hline
 	\textbf{BM3} & The master is able to do the final  				& - Try to accept an empty topic & 2\\
 	 	& \textbf{acceptance} 							& - Try to accept a huge topic & \\
-			\hline
-	\end{tabular}
-	\label{RequirementsBackendMaster}
-	\end{table}
+\end{longtable}
+\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}
 
-	\begin{table}[h]
-			\caption{Showing the derived requirements of the Backend, which are sorted by priority}
-	\centering% NICHT \begin{center}
-	\begin{tabular}{llll}
-			\hline
-	ID 	& Description 	& Acceptance 	& Priority \\
-	 	& 			 & criteria 	&  \\
-	\hline
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+	
+\begin{longtable}{|l|l|lll|}
+\caption{Showing the derived requirements of the Backend, which are sorted by priority} 
+\label{RequirementsBackendMisc} \\
+
+\hline 
+	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline 	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+		\hline
 	BMi1 & The data of the system is \textbf{stored} on IMT- 		& - The data should be easily transferable & 1	\\
 	 	& Server											&  	& 		\\
 	\hline
@@ -170,35 +244,53 @@ The IDs of the list, which are written in bold letters, will be done within the 
 	\hline
 	\textbf{BMi6} & The system offers features to \textbf{manage}  	& - Try managing a group with an empty name  & 2\\
 	 	& groups 											& 	 & \\
-			\hline
-	\end{tabular}
+\end{longtable}
+\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}
 
-	\label{RequirementsBackendMisc}
-	\end{table}
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+	
+\begin{longtable}{|l|l|lll|}
+\caption{Showing the derived requirements of the Frontend, which are sorted by priority} 
+\label{RequirementsFrontend} \\
 
-	\begin{table}[h]
-			\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
-	\centering% NICHT \begin{center}
-	\begin{tabular}{llll}
-			\hline
-	ID 	& Description 	& Acceptance 	& Priority \\
-	 	& 			 & criteria 	&  \\
-	\hline
-	F1 & The user should be able to \textbf{navigate} 			&  - The navigation should response fast  		& 1\\
+\hline 
+	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline 	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Acceptance criteria}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+		\hline
+F1 & The user should be able to \textbf{navigate} 			&  - The navigation should response fast  		& 1\\
 	 	& to the different locations shown in the 				&  - Try navigating to the current position		& \\
 		& HiP-application 								&		&	\\
 	\hline
-	F1.A & The user should be able to navigate 		&  See F1		& 1\\
-	 	& to the different locations and discover 		&  		& \\
-		& these locations on his own 				&		&	\\
+	F1.A & The user should be able to navigate 				&  See F1		& 1\\
+	 	& to the different locations and discover 				&  		& \\
+		& these locations on his own 						&		&	\\
 	\hline
-	F1.B & The user should be able to navigate 		&  See F1		& 1\\
-	 	& to the different locations and use 		&  		& \\
-		& round tour information of the application 	&		&	\\
+	F1.B & The user should be able to navigate 				&  See F1		& 1\\
+	 	& to the different locations and use 				&  		& \\
+		& round tour information of the application 			&		&	\\
 		\hline
-	F1.B & The user should be able to navigate 		& See F1	 	& 1\\
-	 	& to the different locations while using  		&  		& \\
-		& filters (e.g., epochs)					&		&	\\
+	F1.B & The user should be able to navigate 				& See F1	 	& 1\\
+	 	& to the different locations while using  				&  		& \\
+		& filters (e.g., epochs)							&		&	\\
 	\hline
 	F2 & The user should be able to create \textbf{thematic} 	& - Try creating a route without assigning & 1\\
 		& \textbf{routes} 								& a theme & \\
@@ -208,7 +300,7 @@ The IDs of the list, which are written in bold letters, will be done within the 
 	\hline
 	F4 & The user should \textbf{see linkings} within an exhibit  	&  - Try opening a topic without links	& 1\\
 		& different exhibits (e.g., Liborischrein -> Hle ->		& - Try opening a topic with a lot of links	& \\
-		& Scriptorium) 								&	& \\
+		& Scriptorium) 									&	& \\
 	\hline
 	F5 & The user should be able to \textbf{deselect} specific 	& - Try deselect only one & 1\\
 		& categories 									& - Try deselect many	& \\
@@ -231,20 +323,7 @@ The IDs of the list, which are written in bold letters, will be done within the 
 	\hline
 	F11 & The user should be able to use the  				&  - Interface should not include too many 	& 1\\
 		& application easily (\textbf{good usability})			& functions per view 	& \\
-			\hline
-	\end{tabular}
-	\label{RequirementsFrontend}
-	\end{table}
-
-	\begin{table}[h]
-			\caption{Showing the derived requirements of the Frontend, which are sorted by priority}
-	\centering% NICHT \begin{center}
-	\begin{tabular}{llll}
-		\hline
-	ID 	& Description 	& Acceptance 	& Priority \\
-	 	& 			 & criteria 	&  \\
-	\hline
-	F12 & The user should be able to switch between 			& - At most two clicks/touches between  	& 1\\
+		F12 & The user should be able to switch between 			& - At most two clicks/touches between  	& 1\\
 		& \textbf{different contents} (e.g., Video, 3D, etc.)		& the different contents	& \\
 		& fast										&	& \\
 	\hline
@@ -302,8 +381,8 @@ The IDs of the list, which are written in bold letters, will be done within the 
 	F29 & The user should be able to choose between  			& - Try selecting one criterion & 2\\
 		& different \textbf{criteria} with respect to the audience 		& - Try selecting more than one criterion	& \\
 		& (e.g., different ages of people) 						&	& \\
-	\hline
-	\end{tabular}
-	\label{RequirementsFrontend2}
-	\end{table}
-%\end{landscape}
+\end{longtable}
+\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}

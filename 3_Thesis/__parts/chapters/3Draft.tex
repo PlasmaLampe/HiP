@@ -1,5 +1,5 @@
 \chapter[Draft of the application]{Draft of the application}
-To handle all these problems that have been described above within the section about the current situation, we will create a smartphone application that gets supported by a backend web-server. The master thesis will handle the planning respectively cost estimation of the different parts/features of the system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components.
+Within this thesis, we will develop an application (with focus on the backend system) to handle all these problems that have been described above within the section about the current situation. This master thesis will handle the planning respectively cost estimation of the different parts/features of the general system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components of the backend system. 
 But at first, we will start with the first step in a development process; the requirements engineering.
 
 \section{Requirements engineering}
@@ -7,7 +7,7 @@ Because the HiP-Application will be developed closely together with our \textit{
 
 First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
 
-We started the development with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in Table \ref{RequirementsFrontend} and \ref{RequirementsBackend}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
+We started the development of the application with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in Table \ref{RequirementsFrontend} and \ref{RequirementsBackend}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
 
 Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. 
 The usage of these external components and their structure will be the main topic of the next section.
@@ -16,7 +16,7 @@ The usage of these external components and their structure will be the main topi
 The system in its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
 
 \begin{enumerate}
-	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of supervisor is the betreuung \todo{dict} of groups.
+	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of supervisor is the supervision of groups.
 	\item Students: Students are placed in groups by their supervisor and work on a specific topic. They are able to hand in their work for review by the supervisor. 
 	\item Admin: The admins are able to assign users to specific roles and edit the system itself (e.g., edit translations, etc. )
 	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
@@ -74,9 +74,6 @@ Now, after we have seen what the application is about and which tools and framew
 \section{Usage of the components}
 
 
-\subsection{Framework and library stack}
-
-
 \section{Architecture of the application}
 The architecture design in agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system in its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the the following important attributes:
 
@@ -88,19 +85,18 @@ The architecture design in agile projects is slightly different from the design 
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/architecture}}
-\caption{The general 3-tier architecture of the HiP-application with both presentation tier}
+\caption{The general 3-tier architecture of the HiP-application with both presentation tiers}
 \label{hip:architecture}
 \end{figure}
 
-Similarly, we will choose a 3-tier architecture for the development for the application, which is, according to \cite{Eckerson1995}, a quite common for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application tier need to be included on the client side within the presentation tier. So, we will create a thick-client. \todo{ref}
-\todo{Tier vs Layer} 
+Similarly, we will choose a 3-tier architecture for the development for the application, which is, according to \cite{Eckerson1995}, a quite common for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application tier need to be included on the client side within the presentation tier. Because of that, the presentation tier will be much more complex as it is shown in this brief draft since AngularJS, which is used in this tier, relies on a \ac{MVVM} architecture on its own but this will be explained later.
 
 However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
 
 After we have now seen the general architecture, we will take a look at the different part of the system in more detail.
  
 \section{Backend (Web-Server)}
-Another important part of the system is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
+The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
 
 The data should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
@@ -112,9 +108,10 @@ The data should be stored in a way that it can be shown within an \ac{AR}-enviro
 
 Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{web1}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
-\subsection{Cost estimation of the backend}
-
 \subsection{Input data/content via CMS in the system}
+The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. 
+
+However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
 
 \subsection{Manage content as a reviewer}
 
@@ -123,6 +120,11 @@ Furthermore, the backend should include a way to modify the point-clouds of the 
 \subsubsection{JWT}
 
 \subsection{Including a 3D-Tooling system for point-clouds (WebGL)}
+
+\subsection{Cost estimation of the backend}
+Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend.
+
+
 
 \section{Frontend (App)}
 \begin{figure}[th]

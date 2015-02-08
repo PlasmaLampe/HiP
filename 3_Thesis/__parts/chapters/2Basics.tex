@@ -1,6 +1,8 @@
 \chapter[Technical and methodological background]{Technical and methodological background}
 \label{background}
-After we have seen the need for the planned application, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  
+After we have seen the need for the planned application, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implemenation}. However, the whole system uses a lot more in its whole.
+
+The first thing, which is important to notice, is that the system will be developed with an agile software development method, which will be based on SCRUM. Because of that, we will start by explaining the SCRUM development method.
 
 \section{Agile Development - Scrum}
 \label{SCRUM-intro}
@@ -44,6 +46,7 @@ A burn-down chart shows the amount of remaining story points (which correspond t
 Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
 
 \subsection{Play Framework}	
+\label{Play2}
 We will use the Play framework for the backend of the application because Play is an open source web application framework, which is written in Scala and Java, follows the \ac{MVC} architectural pattern and handles the routing from \ac{HTTP}-requests to application code. 
 
 A simple example for the routing configuration file is shown in Listing \ref{Play:Routing}. In this file, each documented route consists of an \ac{HTTP} method and \ac{URI} pattern that is linked to a call of a, so called, \textit{action method} within the Java respectively Scala code. As one can easily see in line 9, it is quite easy to pass parameters to the application code. Furthermore, one can see that the parameters are type-safe; thus, for example, a String passed in as an Integer would result in a compilation error. 
@@ -111,8 +114,10 @@ backgroundcolor=\color{grey}}
 }
 \end{lstlisting}
 
+Besides the templating feature, Play can be augmented with Plugins that handle specific behavior. For example, the Plugin \emph{SecureSocial 2} is able to handle the whole user registration and login process and offers and interface to get the data from users, who are currently logged into the system.
+
 As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}. 
-As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST}(\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O. So, all in all, Play will noticeably enhance the development speed of the backend.
+As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST}(\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O.  So, all in all, Play will noticeably enhance the development speed of the backend.
 
 \subsection{MongoDB}
 As \cite{Tre14} describes, data entries within a MongoDB are called documents and are in essence ordered sets of key-value pairs. However, values can also be complete documents and arrays, so one can store complex hierarchical structures within a MongoDB. Similarly, the data gets stored in a \ac{BSON}-format, which is a binary \ac{JSON} format with more datatypes and better traversability.
@@ -155,7 +160,8 @@ db.hipUsers.find(object);
 
 Now, within the following section, we will take a look at the frontend technologies.
 \subsection{AngularJS}
-After we have now seen the basics of the Play framework and the MongoDB, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The frontend will be designed as a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. A \ac{SPA} is a composition of individual components which can be updated respectively replaced independently of the complete site and, thus, without any reload after the actions of the user. This results in a couple of benefits, like improved interactivity, responsiveness and user satisfaction (\cite{Mes07}).
+\label{AngularJS}
+After we have now seen the basics of the Play framework and the MongoDB, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The frontend will be designed as a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. A \ac{SPA} is a composition of individual components which can be updated respectively replaced independently of the complete site and, thus, without any reload after the actions of the user. This results in a couple of benefits, like improved interactivity, responsiveness and user satisfaction (\cite{Mes07}). Another important fact with respect to the system performance is that AngularJS offers functions (as we will see: \emph{directives}) to circumvent the need for changing the \ac{DOM}-Tree directly. AngularJS relies on a \ac{MVVM} architecture and tries to create the same behavior by doing changes to the ViewModel. The ViewModel sits behind the concrete \ac{UI} layer and exposes data needed by a View from a Model. Because of that the ViewModel can be viewed as the source our Views go to for both data and actions. 
 
 \lstset{language=JavaScript,
 basicstyle=\small,
