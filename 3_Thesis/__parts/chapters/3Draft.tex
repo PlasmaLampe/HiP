@@ -7,10 +7,9 @@ Because the HiP-Application will be developed closely together with our \textit{
 
 First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
 
-We started the development of the application with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in Table \ref{RequirementsFrontend} and \ref{RequirementsBackend}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
+We started the development of the application with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsFrontend}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendMisc} and \ref{RequirementsBackendMaster}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
 
-Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. 
-The usage of these external components and their structure will be the main topic of the next section.
+Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. However, we will now take a look at the users of the planned system.
 
 \section{Use Cases - User stories}
 The system in its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
@@ -69,18 +68,16 @@ The second use case scenario in Table \ref{tab:ucGroupCreation} shows that it wi
 
 \todo{include simple sequence diagrams}
 
-Now, after we have seen what the application is about and which tools and frameworks are in general used to create the application, we will now take a closer look at the usage of the different components (e.g., frameworks, libraries and tools) and how the will work together.
-
-\section{Usage of the components}
-
+Now, after we have seen what the application is about, we will now take a closer look at the planned architecture.
 
 \section{Architecture of the application}
+\label{architecture}
 The architecture design in agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system in its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the the following important attributes:
 
 \begin{enumerate}
-	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.	%\item Damit wird ein iteratives Vorgehen ermöglicht und architektonische Ent- scheidungen können bis zum „ hinausgezogen werden, d. h. sie werden zum spätmög- lichsten Zeitpunkt getroffen und da- nach meist sofort umgesetzt.
-	\item This enables the developer to be able to use an iterative development style and to postpone important development choices to the \textit{Least Responsible Moment}. The \textit{Least Responsible Moment} is the latest possible point in time, where you can implement an architecture decision 	%\item Detaillierte Strukturen und technische Konzepte entstehen unterwegs.
-	\item This way, detailed structures and technical concepts are created on-the-fly, while the application gets developed
+	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
+	\item This enables the developer to be able to use an iterative development style and to postpone important development choices to the \textit{Least Responsible Moment}. The \textit{Least Responsible Moment} is the latest possible point in time, where you can implement an architecture decision.
+	\item This way, detailed structures and technical concepts are created on-the-fly, while the application gets developed.
 \end{enumerate}
 
 \begin{figure}[th]
@@ -89,42 +86,95 @@ The architecture design in agile projects is slightly different from the design 
 \label{hip:architecture}
 \end{figure}
 
-Similarly, we will choose a 3-tier architecture for the development for the application, which is, according to \cite{Eckerson1995}, a quite common for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application tier need to be included on the client side within the presentation tier. Because of that, the presentation tier will be much more complex as it is shown in this brief draft since AngularJS, which is used in this tier, relies on a \ac{MVVM} architecture on its own but this will be explained later.
-
+That said, we will choose a 3-tier architecture for the development for the application, which is, according to \cite{Eckerson1995}, a quite common for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application tier need to be included on the client side within the presentation tier. Because of that, the presentation tier will be much more complex as it is shown in this brief draft since AngularJS, which is used in this tier, relies on a \ac{MVVM} architecture on its own but this will be explained later.
 However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
 
-After we have now seen the general architecture, we will take a look at the different part of the system in more detail.
+Now, we have an idea about the general architecture. However, we need to take a look at the usage of the different components (e.g., frameworks, libraries and tools) and how the will work together.
+
+\section{Usage of the components}
+As we have seen in section \ref{architecture} a lot of application logic will be included in the first tier (i.e., presentation tier). To offer all needed features of the backend in this short time frame, we will need to include a couple of frameworks and libraries. A brief overview about the components and how they work together is shown in Figure \ref{hip:components}. 
+
+ \begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/components}}
+\caption{The usage of the different components and how they work together}
+\label{hip:components}
+\end{figure}
+
+The figure shows that the backend system will make use of AngularJS and Bootstrap UI to create the \ac{UI} itself. Furthermore, These two components will be supported by a couple of smaller \ac{JS} libraries for highlighting (i.e., \emph{AnnotatorJS}) or word processing environments (i.e., \emph{textAngular}). To create highlighting with AnnotatorJS that is persistent, we need to send the information via another \ac{REST} interface to storage service.
+However, this creates the need for the user of the \ac{HiP} application to register on this backend service, which is not acceptable. This is why the authentication of the user can be pushed from the \ac{HiP} backend to the storage service (i.e., AnnotateIt) with a \ac{JWT}. This \ac{JWT} is a digital claim encoded as a \ac{JSON} object that is digitally signed using \ac{JWS}. It offers a possibility to represent claims that can be transferred between two parties in a safe way. More details about this authentication process will be shown in chapter \ref{implementation}.
+
+After we have now seen the general architecture and the used frameworks, we will take a look at the different part of the system in more detail.
  
 \section{Backend (Web-Server)}
 The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
+
+\todo{add topic lifecycle}
 
 The data should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/mockup_web_1}}
 \caption{A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application}
-\label{web1}
+\label{augmentation_web}
 \end{figure}
 
 Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{web1}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
 \subsection{Input data/content via CMS in the system}
-The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. 
+The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
+\todo{technical details}
 
 \subsection{Manage content as a reviewer}
+The reviewer should be able to review the content that gets send in by the students. In this process he should be able to attach comments to the topic itself and send feedback to the students.
+After that, the supervisor can mark the topic as 'ready for publish' if he is satisfied with the given quality.
 
-\subsubsection{AnnotateIt inclusion}
-
-\subsubsection{JWT}
+\todo{technical details}
 
 \subsection{Including a 3D-Tooling system for point-clouds (WebGL)}
+The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student.
+\todo{mehr}
+The editor should be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. 
+\todo{technical details}
 
 \subsection{Cost estimation of the backend}
-Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend.
+Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend. The story points have been explained in section \ref{storyPoints} and should represent 6 hours per point. This way we get a rough estimation, which should, however be sufficient to get an idea about the needed time. However, note that the parts of the system could be subject for change because we are using an agile approach and some new requirements may come up within the development process.
 
+ \begin{table}[h]
+\scriptsize
+ \caption{A brief cost-estimation about the backend}
+ \begin{tabular}{lll}
+	\toprule
+  Name & Description & Story points \\ 
+\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}
+	Create login system		&	Login needed for right/role management			&	2 \\	
+	Create language system	&	The system should be able to handle multiple languages&	2 \\	
+	Create chat system		&	Chats are needed for (group-) communication between &	1 \\	
+		 				&	users of the system 							&	 \\	
+	Create message system &	Messages are needed for direct communication between&	1 \\
+	 					&	users of the system 							&	 \\		
+  	Create group system 	& 	Groups will be needed for organization of students 	& 	2 \\
+  	Create topic system 	& 	Topics will be the main objects, which can be changed  	& 	10 \\
+  	 					& 	by students  								 	&	   \\
+	Create constraint system  &	Constrains should be created by supervisors and 		&	4 \\
+						&	are automatically evaluated						&	   \\	
+  	Create annotation system & 	Content of topics should be able to be annotated  		& 	3 \\
+  	 					& 	by students  (e.g, highlighted)						&	   \\
+  	Create \ac{AR} - editing  & 	The 3D objects should be editable by the students 	& 	4 \\
+  	 system				& 												&	   \\
+	Add tooltips			&	The main features should be explained with tooltips	&	1 \\
+	Media upload			&	The user should be able to upload multiple media formats	&	1 \\
+	  	 				& 	like pictures, 3D objects, etc.						&	   \\
+	Create version system	&	One should be able to restore/compare different versions &	4 \\	
+		  	 			& 	of a topic										&	   \\
+				  	 	& 												& $\sum$ $35$   \\
+	\bottomrule
+ \end{tabular}
+ \label{tab:costBackend}
+ \end{table} 
 
+Table \ref{tab:costBackend} shows that the Backend system needs a lot of typical \ac{CMS} functions, which sum up to $35$ story points. So, the Backend system should cost about $210$ hours to create a prototypical but running system. 
 
 \section{Frontend (App)}
 \begin{figure}[th]
@@ -136,22 +186,74 @@ Now, as we have seen the major ideas about the backend, we will try to create a 
 The smartphone application is the part of the system that gets shipped to the end-user (respectively downloaded via an App-Store like Google-Play). The user can use the app to find interesting places respectively objects in Paderborn and is able to start a navigation to the place/object easily. Furthermore, the user can get an overview about all places in Paderborn by activating a map that shows all entries within the system. A mockup of this view is shown in Figure \ref{app1}. Of course, the user will be able to set up specific filters like 'show only art', 'show only historic buildings' or 'use simplified language' to adapt the system to his own experiences and educational qualifications. Moreover, if the university courses would add information over years, the system will need filtering features like this to handle the complexity of the data.
 
 After an user has reached an interesting place, he can use the details tab to switch into the \ac{AR}-mode. With this view, the user can use the smartphone-camera to embed information, which has been added via the backend, right into the picture of the object. An mockup of this view is shown in Figure \ref{app2}. 
-To create a feasible input for the \ac{AR} system, the user should be able to scan objects in 3D right with his smartphone application and send the data (i.e., a point-cloud of the scanned object), back to the web-server.  Afterwards, the user can add annotations to the point-cloud via the web-backend of the system.  
+To create a feasible input for the \ac{AR} system, the user should be able to scan objects in 3D directly with his smartphone and send the data (i.e., a point-cloud of the scanned object), back to the web-server.  Afterwards, the user can add annotations to the point-cloud via the web-backend of the system. 
+
+In the following we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included. 
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=0.7\textwidth]{gfx/mockup_app_2}}
 \caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself}
 \label{app2}
-\end{figure}
-
-\subsection{Cost estimation of the frontend}				
+\end{figure}			
   
 \subsection{Input data into the system (scan objects and annotate them)} 
+With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used for further use. \todo{more}
 
-\subsection{Show close "interesting places" within a map /  via a overlay} 
+\subsubsection{Data format for \ac{AR} files}
+
+\subsection{Show close "interesting places" within a map} 
+Because the students should add \ac{GPS} coordinates for exhibits and locations that are included in the topics, we can make use of these informations to show them on a map on the smartphone. 
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Example for using the GPS coordinates within an Android application},label=Android:GPS,frame=tlbr,breaklines]
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MapPane extends Activity implements OnMapReadyCallback {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+	      /* some initialization data */
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        LatLng paderbornDom = new LatLng(51.718889, 8.755278);
+
+        map.setMyLocationEnabled(true);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(paderbornDom, 13));
+
+        map.addMarker(new MarkerOptions()
+                .title("Paderborner Dom")
+                .snippet("The cathedral of the Catholic Archdiocese of Paderborn")
+                .position(paderbornDom));
+    }
+}
+\end{lstlisting}
+
+The usage of the \ac{GPS} information is quite easy within Android because we can make use of the \emph{Google Maps API v2}. As Listing \ref{Android:GPS} shows we can directly manipulate the Google Maps view by using the $LatLng$ object. Line 18 shows the movement of the camera (i.e., the excerpt of the map) and line 20 the creation of a marker on the map. 
 
 \subsection{Navigation to "interesting places"}
-				
-\section{Interface}							 
+An easy way to create a navigation feature would be the usage of the google directions service \cite{GoogleNavi}. However, this runs not natively on Android.
 
-\subsection{Data format for \ac{AR} files}
+\subsection{Cost estimation of the frontend}	
+
+ \begin{table}[th]
+\scriptsize
+ \caption{A brief cost-estimation about the frontend}
+ \begin{tabular}{lll}
+	\toprule
+  	Name & Description & Story points \\ 
+	\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}
+	Showing locations on map	&	The exhibits and locations should be shown on the map			&	2 \\	
+	\bottomrule
+ \end{tabular}
+ \label{tab:costFrontend}
+ \end{table} 

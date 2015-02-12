@@ -1,6 +1,6 @@
 \chapter[Technical and methodological background]{Technical and methodological background}
 \label{background}
-After we have seen the need for the planned application, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implemenation}. However, the whole system uses a lot more in its whole.
+After we have seen the need for the planned application, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implementation}. However, the whole system uses a lot more in its whole.
 
 The first thing, which is important to notice, is that the system will be developed with an agile software development method, which will be based on SCRUM. Because of that, we will start by explaining the SCRUM development method.
 
@@ -33,7 +33,7 @@ As \cite{Keaveney11} points out, one of the main principles of agile methods is 
 To be able to formalize knowledge about past iterations and to be able to compare the data with the current iteration, one can use diagrams like burn-down charts.
 
 \subsection{Burn-down charts}
-A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The OPT line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the OPT line, you are to slow in the current sprint and in the case the sprint curve is below the OPT line, you are ahead of the time. Obviously, burn-down charts do not have problems with changing requirements outside of the current sprint. But, in addition to that, we can also include new tasks to a running sprint and can simply adapt the OPT line with its slope to track the new added tasks within the active sprint. 
+A burn-down chart shows the amount of remaining story points (which correspond to a specific estimated time-frame, like one story point per 30 minutes - \emph{Story points will be explained in the next section. For now, see them as a unit of needed time - }) on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time, and can derive if the sprint can be finished in the given time-frame, by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The OPT line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the OPT line, you are to slow in the current sprint and in the case the sprint curve is below the OPT line, you are ahead of the time. Obviously, burn-down charts do not have problems with changing requirements outside of the current sprint. But, in addition to that, we can also include new tasks to a running sprint and can simply adapt the OPT line with its slope to track the new added tasks within the active sprint. 
 
 \todo{add user stories - basis : see wikipedia}
 \begin{figure}[th]
@@ -41,6 +41,14 @@ A burn-down chart shows the amount of remaining story points (which correspond t
 \caption{The burndown diagram shows an example sprint.}
 \label{Burndown example}
 \end{figure}
+
+\subsection{Story points}
+\label{storyPoints}
+In the previous section, we have implicitly used \emph{story points}. Story points are tightly coupled with the idea of agile development because they are a unit of needed time which takes the team members effort and the subjective degree of difficulty into account (\cite{ScrumMeth}). This cannot be done by a manager, who is estimating the time and assigning tasks based on conjectures about the team performance. The main idea about story points is that the actual amount of time which is expressed by a story point does not matter. The important thing is that the collaborating teams share a common understanding of its scale. So,  every member of the teams should be comfortable with the represented time. 
+
+Another idea is that you can easily imagine the analogy 'this story is like that story, so it well take about the same time', which tries to improve the quality of time estimations \cite{cohn2004user}.
+
+Now, after we have gained some insights about the process itself, we will take a look at the frameworks that will be used in the development process.
 
 \section{Used Frameworks}
 Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{REST}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
@@ -283,7 +291,10 @@ Note that the \textit{simplicity criteria} within step 4 of the procedure has be
 So, all in all, the \ac{TDD} process relies on writing unit test before writing the application code itself and use them as tests in the developing phase to check if the currently written code is able to fulfill the requirement. Step 5 shows, that the sum of all test cases is then also used in a \textit{traditional} way to find bugs in the existing application-code. 
 
 \subsection{Jasmine and Karma}
+Testing will be a major part of the development process. Thus, the chose of a good test environment is important. Karma is a test runner, which can be extended with a couple of plugins (e.g., code-coverage, more available browsers, etc.) that allows you to execute JavaScript code in multiple real browsers. The tool has been created by the team that has created AngularJS and is, thus, suggested as the main test runner within an AngularJS environment (\cite{7_github_2015}).  
 
+Furthermore, Karma can be used with an extension called \emph{Karma-jasmine} to run Jasmine test cases. \emph{Jasmine} is a behavior-driven testing framework that can be used to test JavaScript code. As a brief explanation, \ac{BDD} is a development method that has been evolved from \ac{TDD} to get the idea to a bigger audience and to shorten the gap between behavior (which can easily be explained to the customer) and code \cite{BDD}. Thus, we will use Karma with the Jasmine extension to run our Jasmine test case for the application.
+ 
 \section{Tooling}
 A couple of frameworks and techniques is a good start for creating such a sophisticated system, however, we will also need fitting tooling to support the development. These tools will be described in the following section.
 
