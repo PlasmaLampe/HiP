@@ -201,6 +201,7 @@ With the Junaio eco-system of the company Metaio it is quite easy to scan object
 
 \subsubsection{Data format for \ac{AR} files}
 
+
 \subsection{Show close "interesting places" within a map} 
 Because the students should add \ac{GPS} coordinates for exhibits and locations that are included in the topics, we can make use of these informations to show them on a map on the smartphone. 
 
@@ -241,9 +242,77 @@ public class MapPane extends Activity implements OnMapReadyCallback {
 The usage of the \ac{GPS} information is quite easy within Android because we can make use of the \emph{Google Maps API v2}. As Listing \ref{Android:GPS} shows we can directly manipulate the Google Maps view by using the $LatLng$ object. Line 18 shows the movement of the camera (i.e., the excerpt of the map) and line 20 the creation of a marker on the map. 
 
 \subsection{Navigation to "interesting places"}
-An easy way to create a navigation feature would be the usage of the google directions service \cite{GoogleNavi}. However, this runs not natively on Android.
+An easy way to create a navigation feature would be the usage of the google directions service \cite{GoogleNavi}. However, this runs not natively on Android, so we would need a wrapper to access the \ac{HTML} and \ac{JS} based source code in our Android application. 
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Example for construction of the DirectionsRequest JSON object that is needed to use the directions service},label=Android:dirService,frame=tlbr,breaklines]
+{
+  origin: LatLng | String,
+  destination: LatLng | String,
+  travelMode: TravelMode,
+  transitOptions: TransitOptions,
+  unitSystem: UnitSystem,
+  waypoints[]: DirectionsWaypoint,
+  optimizeWaypoints: Boolean,
+  provideRouteAlternatives: Boolean,
+  avoidHighways: Boolean,
+  avoidTolls: Boolean
+  region: String
+}
+\end{lstlisting}
+
+After doing that, we can access the direction service by posting an \ac{JSON} object to the google service and using the returned data to render the navigation path in our application. The construction of such a \ac{JSON} object is shown in Listing \ref{Android:dirService}. As we can see, these object include information like the position of the navigation origin, the position of the destination and specific travel options (e.g., using train, car, etc.). After we have send this object, we need to render the returned data. This is, for example, possible by drawing lines on the map using the $google.maps.Polyline$ class. This is shown in Listing \ref{Android:polyline}.
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Example for writing a poly line on the google map},label=Android:polyline,frame=tlbr,breaklines]
+function initialize() {
+  var mapOptions = {
+         /* positioning of the map */
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+   /* array with the coordinates */
+  var flightPlanCoordinates = [
+    new google.maps.LatLng(37.772323, -122.214897),
+    [...],
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    [...] // options for the rendering of the polyline
+    strokeColor: '#FF0000'
+  });
+
+  flightPath.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+\end{lstlisting}
+
+As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript. The Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Furthermore, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality which has been expressed within the first requirements meeting. One one just need to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
+
+Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing, with optical and voice guidance, and (just like google directions service) offers this navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays like for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
+
+\todo{IBeacon support for indoor navigation}
+
+But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
+
+\subsection{Fetching topics and PDF export}
+
 
 \subsection{Cost estimation of the frontend}	
+The cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. 
 
  \begin{table}[th]
 \scriptsize
