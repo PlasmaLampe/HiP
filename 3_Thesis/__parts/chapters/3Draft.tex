@@ -7,7 +7,7 @@ Because the HiP-Application will be developed closely together with our \textit{
 
 First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
 
-We started the development of the application with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsFrontend}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendMisc} and \ref{RequirementsBackendMaster}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
+We started the development of the application with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
 
 Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. However, we will now take a look at the users of the planned system.
 
@@ -139,6 +139,7 @@ The editor should be able to show the stored point-clouds and attach objets (for
 \todo{technical details}
 
 \subsection{Cost estimation of the backend}
+\label{backendEstimation}
 Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend. The story points have been explained in section \ref{storyPoints} and should represent 6 hours per point. This way we get a rough estimation, which should, however be sufficient to get an idea about the needed time. However, note that the parts of the system could be subject for change because we are using an agile approach and some new requirements may come up within the development process.
 
  \begin{table}[h]
@@ -309,10 +310,50 @@ Another, more complex but more powerful, approach would be to fork the \ac{OsmAn
 But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
 
 \subsection{Fetching topics and PDF export}
+As soon as an user arrives at a specific location, he is able to gather data about the object and collect the information he wants. On a technical level, this is a simple \ac{HTTP} GET request to our backend to download the information.
 
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Creation and usage of an Android HTTP client},label=Android:HTTP,frame=tlbr,breaklines]
+/* init variables */
+[...]
 
+/* create HTTP client */
+HttpClient httpclient = new DefaultHttpClient();
+
+HttpGet request = new HttpGet();
+URI url = new URI("http://yourHipServer/topics/uIDOfATopic");
+request.setURI(url);
+
+/* send request and get response*/
+HttpResponse response = httpclient.execute(request);
+
+/* read response */
+in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+String line = in.readLine();
+textv.append(" First line: " + line);
+\end{lstlisting}
+
+As Listing \ref{Android:HTTP} shows, it is only a matter of a couple of lines to create a \ac{HTTP} client for Android. Line $5$ shows the creation of a $HttpClient$ object, which is used in line $12$ to send the GET request.
+
+Another important thing is the \ac{PDF} export functionality of the data, that we have just downloaded from our backend server.
+Because there is no out-of-the-box way on Android to create \ac{PDF} documents, we need to make use of an external library. One choice for such a library is $iText$. This is a \ac{PDF} library for Android that offers features to create, adapt and maintain \ac{PDF} document (\cite{itext2015}).
+With this library, it is quite easy to export the downloaded data to a \ac{PDF} file because we can directly create chapters and section with content within our \ac{PDF} file. For doing this, we can make use of classes like $chapter$, $Paragraph$ and similar environments (\cite{pdfCreation}). The creation of a new paragraph could for example look like:
+
+\verb|myCategory.add(new Paragraph("This is a very important message"));|  
+
+All in all, \ac{PDF} export can be included easy and fast within the smartphone application.
+
+\subsection{Rendering AR-data with Junaio}
+Another very important part of the \ac{HiP} frontend is the rendering of the \ac{AR} data. As it has been explained in section \ref{AREL}, we need to create a static content definition, a \ac{HTML5} layer and the application logic. While the application logic can be general for the whole application, we need to generate the static content definition and the \ac{HTML5} layer for every topic because the shown objects are changed, as soon as we change a topic.
+\todo{more}
+ 
 \subsection{Cost estimation of the frontend}	
-The cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. 
+Now, after we have seen the technical details about the different parts of the frontend, we can create our cost estimation. One problem is that the cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. Thus, we assume ,in the following, that we use the \ac{OsmAnd} project as the basis for the \ac{HiP}-navigation features. Like in section \ref{backendEstimation}, one story point should represent 6 hours.
 
  \begin{table}[th]
 \scriptsize
@@ -321,8 +362,23 @@ The cost estimation of the frontend is quite complex and depends heavily on the 
 	\toprule
   	Name & Description & Story points \\ 
 	\cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}
-	Showing locations on map	&	The exhibits and locations should be shown on the map			&	2 \\	
+	Create running prototype		&	We need to set up a running Android application that can be			&	5 \\	
+							& 	 used as a starting point for the \ac{HiP} frontend					& 	\\
+	Showing locations on map	&	The exhibits and locations should be shown on the map			&	3 \\	
+	Download data and PDF	 	&	More information should be downloaded as soon as the user		&	4 \\	
+	export					& 	arrives at the position. After that, he is able to export the data		&	\\
+							& 	to a \ac{PDF} document										& 	\\
+	Include treasure hunts, etc.	&	The user should be able to join treasure hunts within Paderborn		&	2 \\	
+	Include the Junaio framework	&	The user should be able to render AR-information, as soon as he		&	6 \\			
+							&	arrives at a specific position									&	\\
+	Fork and understand \ac{OsmAnd}	&	We need to find the important parts of \ac{OsmAnd} for the \ac{HiP}	&	6 \\
+							&	application. To find out, what we need to include and how 			&	\\
+							&	this is possible												& \\
+	Include needed parts of \ac{OsmAnd}	&	Include the needed parts of \ac{OsmAnd} in the \ac{HiP} application	&	8 \\	
+					  	 	& 												& $\sum$ $34$   \\			
 	\bottomrule
  \end{tabular}
  \label{tab:costFrontend}
  \end{table} 
+
+Table \ref{tab:costFrontend} shows the minimal features of the smartphone frontend, which sum up to $34$ story points. So, the frontend system should cost about $204$ hours to create a prototypical but running system. 

@@ -252,6 +252,7 @@ Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnot
 Furthermore, Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: http://angular-ui.github.io/bootstrap/ and is distributed under the MIT license https://github.com/angular-ui/bootstrap/blob/master/LICENSE}
 
 \subsection{Junaio - Metaio}
+\label{AREL}
 The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}). However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
 
 \begin{figure}[th]
@@ -261,6 +262,31 @@ The \ac{AR}-functionality will be offered by the framework Junaio. The company M
 \end{figure}
 
 Furthermore, Metaio has developed a JavaScript binding of the SDK used for \ac{AR}-applications called \ac{AREL} which can be used as a platform to write your \ac{AR} apps without writing platform specific code of the mobile operating system \cite{MetaioDEV}. Figure \ref{stackArel} shows the placement of the \ac{AREL} interpreter within the platform stack. 
+
+To use \ac{AREL} we need three different parts that that get combined to an \ac{AREL} application.
+
+\lstset{language=XML,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Example for the HTML5 layer},label=AREL:HTML5,frame=tlbr,breaklines]
+<html>
+   <head>
+      <!-- Integrates the arel javascript bridge -->
+      <script type="text/javascript" src="http://dev.junaio.com/arel/js/arel.js"></script>
+
+      <!-- Includes application logic -->
+      <script  type="text/javascript" src="logic.js"></script>
+   </head>
+ 
+   <body>
+   </body>
+</html>
+\end{lstlisting}
+
+First of all, we need a static content definition, which is a \ac{XML} document that references the models and graphics that will be loaded when we start the \ac{AREL} application. The second part is the \ac{HTML5} layer, which is also addressed in the static content definition. The \ac{HTML5} binds the static content definition to the application logic and may also add additional \ac{GUI} functionality. An example for such an \ac{HTML5} layer is shown in \ref{AREL:HTML5}. The last part, the application logic is written in \ac{JS} and loads objects that are afterwords tracked by patterns.  
 
 So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
 
