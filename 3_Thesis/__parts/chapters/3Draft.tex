@@ -21,7 +21,7 @@ The system in its whole will have four different kinds of users, which correspon
 	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
 \end{enumerate}
 
-\todo{include use case diagram}
+These four different roles are also shown in Figure \ref{usecase} an \ac{UML2} use case diagram, which is placed in the appendix. 	
 
 After we have now seen the different roles that are involved in this system, we will include two use case tables as an example for the usage of the system here. However, a complete list of use case scenarios would be to large for this thesis.
 
@@ -64,8 +64,6 @@ Table \ref{tab:ucTopicChange} shows that when a student wants to change the cont
 
 The second use case scenario in Table \ref{tab:ucGroupCreation} shows that it will be quite easy for a supervisor to create a new group. He only needs to log into the system, open the correct view and input all needed information, like members of the group. 
 
-\todo{include complete "group and topic" lifecycle as an activity diagram}
-
 \todo{include simple sequence diagrams}
 
 Now, after we have seen what the application is about, we will now take a closer look at the planned architecture.
@@ -106,11 +104,9 @@ However, this creates the need for the user of the \ac{HiP} application to regis
 After we have now seen the general architecture and the used frameworks, we will take a look at the different part of the system in more detail.
  
 \section{Backend (Web-Server)}
-The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application.
+The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application by an user, who represents the master role. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application. The whole process is also shown in Figure \ref{workflow_backend}, which can be found in the appendix. The figure shows the complete workflow within the backend system as flowchart.
 
-\todo{add topic lifecycle}
-
-The data should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
+The data (i.e., topics, graphics, etc.) should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/mockup_web_1}}

@@ -1,6 +1,32 @@
 \chapter{Appendix}
 The appendix contains some diagrams and tables that were to big to put them into the continuous text.
 
+Figure \ref{workflow_backend} shows the workflow within the backend system as a flow diagram.
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1.3\textwidth]{gfx/HiP-Backend-Workflow}}
+\caption{The diagram shows the workflow within the backend system with the three roles that are involved in the workflow}
+\label{workflow_backend}
+\end{figure}
+
+Furthermore, Figure \ref{usecase} shows an \ac{UML2} use case diagram showing the different users (i.e., user roles) of the application.
+
+\afterpage{%
+    %\clearpage% Flush earlier floats (otherwise order might not be correct)
+    \thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+		\begin{figure}[th]
+		\centerline{\includegraphics[width=1.5\textwidth]{gfx/HiP-UseCase_Diagramm}}
+		\caption{An \ac{UML2} use case diagram showing the different users of the \ac{HiP} system}
+		\label{usecase}
+		\end{figure}	
+	\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}
+
 The IDs of the list, which are written in bold letters, will be done within the master-thesis itself. The remaining parts can be done via, for example, project-groups, etc. 
 
 \afterpage{%
@@ -386,3 +412,82 @@ F1 & The user should be able to \textbf{navigate} 			&  - The navigation should 
     \end{landscape}
     \clearpage% Flush page
 }
+
+\clearpage
+
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Complete upload Action of the FileController},label=Scala:Upload:full,frame=tlbr,breaklines]
+def upload(topicID: String) = Action(parse.multipartFormData) { request =>
+    request.body.file("file") match {
+      case Some(photo) =>
+        val TARGET_W = 64; // width of the thumbnail
+        val TARGET_H = 64; // height of the thumbnail
+
+        val filename = photo.filename
+        val contentType = photo.contentType
+
+        val newFile = new File("/tmp/picture/uploaded")
+
+        if (newFile.exists())
+          newFile.delete()
+
+        photo.ref.moveTo(newFile)
+
+        val gridFS = new GridFS(db, "media")
+        val fileToSave = DefaultFileToSave(filename, contentType)
+
+        /* create thumbnail */
+        val fileToSaveThumb = DefaultFileToSave("thumb_"+filename, contentType)
+
+        val os = new ByteArrayOutputStream()
+
+        /* load image for scaling operation (needed to derive thumbnail) */
+        var before = ImageIO.read(newFile)
+
+        /* create scale operation */
+        val wScale  = TARGET_W / before.getWidth().asInstanceOf[Double]
+        val hScale  = TARGET_H / before.getHeight().asInstanceOf[Double]
+
+        var at = new AffineTransform()
+        at.scale(wScale, hScale)
+        var scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR)
+
+        /* create object that will contain the scaled image */
+        val w = (before.getWidth() * wScale).asInstanceOf[Int]
+        val h = (before.getHeight() * hScale).asInstanceOf[Int]
+        var after = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB)
+
+        /* use scale operation */
+        scaleOp.filter(before, after)
+
+        /* write image to output stream */
+        ImageIO.write(after,"png", os)
+
+        /* derive FileInputStream */
+        val fis = new ByteArrayInputStream(os.toByteArray())
+
+        /* write both files */
+        gridFS.writeFromInputStream(fileToSave, new FileInputStream(newFile))
+        gridFS.writeFromInputStream(fileToSaveThumb, fis)
+
+        /* include the additional data */
+        val cleanedID = fileToSave.id.toString.split('"')(1)
+        val cleanedIDThumb = fileToSaveThumb.id.toString.split('"')(1)
+
+        metaCollection.insert(Json.obj(
+          "uID"   ->  cleanedID,
+          "topic" ->  topicID,
+          "thumbnailID" -> cleanedIDThumb,
+          "kvStore" -> "-1"
+        ))
+
+        Ok("File uploaded")
+      case None => BadRequest("no media file")
+    }
+  }
+\end{lstlisting}

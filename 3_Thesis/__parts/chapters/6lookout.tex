@@ -1,8 +1,23 @@
 \chapter[Discussion and future work]{Discussion and future work}
 \section{Arisen problems within this thesis}
+Since this master thesis included two different aspects (i.e., the agile process and the actual development of the backend) of the actual development process, we want to express the problems separately. 
+
+\subsection{The agile process}
+To develop an application with an agile process was a great experience. It was really nice to get a biweekly feedback about the functions and more ideas about the further development process. This is especially important because if one creates an application for a foreign field (which was partially the case in this development process - e.g., the needed keys for meta-data of pictures - ) one just do not know what important points are. But this information can easily gathered within the meetings to create an application that can actually be used by the customer. 
+However, we found one drawback of these meetings, which was the problem that a lot of new requirements and feature request was created within these meetings, which makes time-planning really hard. For example, in two meetings created that much new requirements that we needed the whole two weeks to implement the newly requested features. Thus, we did not reduce the amount of story points within the actual backlog. This could result in problems for real industrial projects because some features are needed two specific deadlines.
+
+After we now have taken a look at the agile process, we will now take a look at the development of the application.   
+
+\subsection{The development of the application}
+On the other side, the development of the \ac{HiP}-application was fine and AngularJS was definitely a great choice as a basis framework. However, sometimes the usage of AngularJS enforces the need of little work-arounds. For example, the simple call to the Google Maps API v3 for rendering a map resulted in a map that contained grey little boxes and the whole map needed to be resized again. Nevertheless, such bugs were rare and, thus, AngularJS worked great. 
+Another problem was the complexity of the application. Especially in the last few weeks of the development process the complexity resulted in a lot more development effort as soon as code 'at the core of the system' needed to be changed because of new requirements that came up in the biweekly meetings. Thus, we cannot directly confirm the observation of Kent Beck that the curve that represents the cost of changes within an agile process is more or less flat \cite{beck2003test}. However, even changes at code parts with a lot of dependencies were quite good possible because the whole development was done with the idea of changing requirements in mind. 
 
 \section{Discussion and future work}
-\subsection{Results / Conclusion}
+This last section of this master thesis will draw a conclusion and take a loot at possible future work.
 
+\subsection{Results / Conclusion}
+We think that we have created a great system within this master thesis, which is a good foundation for following project groups and/or bachelor and master thesis's. We started with the idea in mind that we would need a system that works on the one hand as a working environment for students and, on the other hand, as a \ac{CMS} backend for a smartphone application that presents the data that has been created by the students. 
+\todo{more}
 
 \subsection{Future work}
+Although we have implemented a lot of functions within the backend, there is a lot more functionality within our Scrum backlog. In general, future work can be done on two major area, the smartphone application (which gets at the moment developed by a bachelor Student) and has been sketched within this thesis. And the remaining functions of the backend. The smartphone application will need sophisticated 3D-Rendering functionality as well as navigation functions. The backend, on the other side, needs more functions for editing the point clouds that have been imported by the students.

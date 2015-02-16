@@ -2,4 +2,135 @@
 \label{implementation}
 
 This chapter will show details about the implementation. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will pick specific parts, which are important within the system and show these parts in this chapter.
-Furthermore, we will show things that has been changed from the draft because the requirements came up within the implementation phase in the agile process. These changes are mostly features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our 'customers'.
+Furthermore, we will show things that has been changed from the draft because the requirements came up within the implementation phase in the agile process. These changes are mostly features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}.
+
+\section{General overview of the system}
+As it has been explained in the previous chapter, the third tier (i.e., the storage/database tier) of the application is driven by a MongoDB. The connection to the MongoDB is done by the play framework with a single line within the configuration file of the play framework (i.e., application.conf):
+
+\verb|mongodb.uri = "mongodb://localhost:27017/hip"|
+
+Note that one can easily connect to a remove database with a similar configuration line:
+
+\verb|mongodb.uri = "mongodb://user:pass@yourDomain:63859/hip"|  
+
+After Play 2.0 has created the connection to the MongoDB we can use it within the framework by extending a controller with the $MongoController$ trait (a trait is similar to an interface in Java). By doing this, we have created a couple of Scala Controllers which form the second tier of the application. The main function of these controllers is the handling of data on the way to the database. However, as we will see, the second tier includes also functions for creating thumbnails and the creation of \ac{JWT}. 
+
+However, the most application logic is included on the client side within the AngularJS framework. Here, we have four main points were we include the application-logic and \ac{GUI} parts:
+
+\begin{itemize}
+	\item[partials:] Partials are small \ac{HTML} snippets that get loaded as seen as the AngularJS router gets a \ac{HTTP} request to the corresponding \ac{HTML} page. Afterwards, the fitting partial gets loaded at a predefined position within the \ac{DOM} tree. Thus, you can see a partial as a part of a view of the system that contains \ac{GUI} elements and their connections to the controllers.  The complete \ac{HiP} backend consists of 22 different partials.  
+	\item[controllers:] The 16 controllers, which have been created for the \ac{HiP} backend, are getting commands and events from the user as he is browsing on the partials. These controllers are able to fetch data from the MongoDB and respond to the actions of the user. To offer the needed functionality, they make use of the next building block: services.  
+	\item[services:] The services encapsulate application logic. They can be created by controllers and are working completely autonomous. For the \ac{HiP} backend, we are using 4 different services.
+	\item[directives:] Last but not least, we are using directives to encapsulate application logic and \ac{GUI} data that are used in one component. For example, the MediaGallery directive can be used like a usual \ac{HTML} tag and contains the complete logic for a media gallery including meta data for pictures, etc. However, we will take a closer look at the used directives in section \ref{usedDirectives}.
+\end{itemize}
+
+\section{Scala: Highlighting and annotation with AnnotatorJS}
+
+\section{Scala: Picture upload and the creation of thumbnails}
+The upload of a picture is handled on the client side by dropzone.js, which is a small \ac{JS} library that offers functionality for the easy upload of files to remote servers. On its core, dropzone.js uses the \ac{HTML5} upload mechanism to stay  browser independent. After the file has been send, a controller called FileController accepts the connection and parses a $multiFormData$ request. Listing \ref{Scala:Upload} shows the Scala code of that part of the Action.
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Snippet of the upload Action of the FileController for uploading pictures},label=Scala:Upload,frame=tlbr,breaklines]
+def upload(topicID: String) = Action(parse.multipartFormData) { request =>
+    request.body.file("file") match {
+      case Some(photo) =>
+        [...]
+        val newFile = new File("/tmp/picture/uploaded")
+
+        photo.ref.moveTo(newFile)
+
+        val gridFS = new GridFS(db, "media")
+        val fileToSave = DefaultFileToSave(filename, contentType)
+
+        [...]
+
+        /* write file */
+        gridFS.writeFromInputStream(fileToSave, new FileInputStream(newFile))
+        [...]
+
+        /* store meta data of that picture */
+        metaCollection.insert(Json.obj(
+          "uID"   ->  cleanedID,
+          "topic" ->  topicID,
+          "thumbnailID" -> cleanedIDThumb,
+          "kvStore" -> "-1"
+        ))
+
+        Ok("File uploaded")
+      case None => BadRequest("no media file")
+    }
+  }
+\end{lstlisting}
+
+As one can see in line 9 from Listing \ref{Scala:Upload} we are using GridFS to store the binary data within the MongoDB. GridFS exceed the \ac{BSON} document size limit of 16MB because it divides a file into parts and stores each of those parts as a separate document within the MongoDB (\cite{gridfs}). The picture gets inserted into the MongoDB in line 15 and the meta data is written in line 19. However, by only using this code, we would need to download the complete full-size picture, even when this would not be needed. Because of that the upload Action creates thumbnails of the uploaded pictures, while the picture gets inserted into the database. The code for creating the thumbnails is shown in Listing \ref{Scala:Upload:Thumb}.
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Snippet of the upload Action of the FileController for creating thumbnails},label=Scala:Upload:Thumb,frame=tlbr,breaklines]
+[...]
+val TARGET_W = 64; // width of the thumbnail
+val TARGET_H = 64; // height of the thumbnail
+
+val filename = photo.filename
+val contentType = photo.contentType
+[...]
+
+/* create thumbnail */
+val fileToSaveThumb = DefaultFileToSave("thumb_"+filename, contentType)
+[...]
+
+/* load image for scaling (needed to derive thumbnail) */
+var before = ImageIO.read(newFile)
+
+/* create scale operation */
+val wScale = TARGET_W / before.getWidth().asInstanceOf[Double]
+val hScale = TARGET_H / before.getHeight().asInstanceOf[Double]
+
+var at = new AffineTransform()
+at.scale(wScale, hScale)
+var scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR)
+
+/* create object that will contain the scaled image */
+[...]
+
+/* use scale operation */
+scaleOp.filter(before, after)
+
+/* write image to output stream and to DB afterwards*/
+ImageIO.write(after,"png", os)
+val fis = new ByteArrayInputStream(os.toByteArray())
+gridFS.writeFromInputStream(fileToSaveThumb, fis)
+[...]
+\end{lstlisting}
+
+Now, we have seen both parts of the upload Action independently. To get a full view of the Action and a better understanding about how both parts work together the complete Action is shown in Figure \ref{Scala:Upload:full}; however, this figure is placed in the appendix because it would disturb within the continuous text.
+
+After we have now seen a couple of important Actions within the Scala controllers, we will start to look at the code on the client side by taking a look at important directives that are used on the client side. 
+\section{Important directives used in the system}
+\label{usedDirectives}
+In the following we want to outline the two most important directives that have been created for the client side. Both directives consists of three different parts that need to be combined to create the actual directive:
+
+\begin{itemize}
+	\item[template:] The template is a piece of \ac{HTML} code that is inserted at the position where the directive is used 
+	\item[constructor:] The constructor registers the directive at the AngularJS framework and is able to modify the scope of the template
+	\item[controller:] The controller is used within the template to create the needed functionality
+\end{itemize}
+
+In  % show picture instead of HTML and both others
+\subsection{A media gallery with the media-gallery directive}
+
+\subsection{Template handling with the templates-box directive}
+
+After we have now seen these two directives, we will now take a look at the key/value stores.
+\section{AngularJS: Key/Value stores}
+
+\subsection{Typing of stores}
