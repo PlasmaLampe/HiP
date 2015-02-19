@@ -117,7 +117,7 @@ Now, we have seen both parts of the upload Action independently. To get a full v
 After we have now seen a couple of important Actions within the Scala controllers, we will start to look at the code on the client side by taking a look at important directives that are used on the client side. 
 \section{Important directives used in the system}
 \label{usedDirectives}
-In the following we want to outline the two most important directives that have been created for the client side. Both directives consists of three different parts that need to be combined to create the actual directive:
+In the following we want to outline two important directives that have been created for the client side. Although the system contains a lot more directives, showing all of them would be to large for this thesis. Both directives consists of three different parts that need to be combined to create the actual directive:
 
 \begin{itemize}
 	\item[template:] The template is a piece of \ac{HTML} code that is inserted at the position where the directive is used 
@@ -125,12 +125,122 @@ In the following we want to outline the two most important directives that have 
 	\item[controller:] The controller is used within the template to create the needed functionality
 \end{itemize}
 
-In  % show picture instead of HTML and both others
+For the following two example directives, we will show screenshots to represent the template, show \ac{JS} code for the constructor and give some brief ideas for the controller because the controllers are too big to be shown in detail within this thesis.
 \subsection{A media gallery with the media-gallery directive}
+The media gallery directive can easily be used within the \ac{HTML} code by using the tag shown in Listing \ref{usingMediaGallery}. As the listing shows, we need to insert a couple of parameters for the directive to work correctly. However, the most important attribute is the files attribute. This attribute expects a list of media file objects that are shown within the gallery.
+
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={The listing shows the usage of the media gallery directive},label=usingMediaGallery,frame=tlbr,breaklines]
+<media-gallery files="tc.media"
+             picturetooltip="lc.getTerm('tooltip_img_use')"
+             deletetext="lc.getTerm('tooltip_img_delete')"
+             opentext="lc.getTerm('open_image_meta')"
+             sendmetadata="lc.getTerm('send_metadata')"
+             copyto="tc"
+             currenttype="lc.getTerm('current_type')"
+             updatetype="lc.getTerm('update_type')"
+             languagecontroller="lc"></media-gallery>
+\end{lstlisting}
+
+To get a better idea about how the media gallery looks like, we can see an example in Figure \ref{mediaGallery}. This example shows a media gallery that contains two images. So the list of media file objects that we have send to the files attribute contains these two objects. 
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/mediaGallery}}
+\caption{An example media gallery with two pictures}
+\label{mediaGallery}
+\end{figure}
+
+\subsubsection{Directive definition}
+Now, we can take a closer look at how the directive is working. The configuration is done within the constructor that is shown in Listing \ref{constructorMediaGallery}.
+
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={The listing shows the initialisation of the media gallery directive},label=constructorMediaGallery,frame=tlbr,breaklines]
+controllersModule.directive('mediaGallery', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            files: '=files',
+            picturetooltip: '=picturetooltip',
+            deletetext: '=deletetext',
+            copyto: '=copyto',
+            opentext: '=opentext',
+            sendmetadata: '=sendmetadata',
+            currentType: '=currenttype',
+            updatetype: '=updatetype',
+            lc: '=languagecontroller'
+        },
+        templateUrl: '/assets/directives/mediaGallery.html'
+    };
+});
+\end{lstlisting}
+
+There are three major parts within the return object of this constructor (i.e., the Directive Definition Object (\cite{AngularCons})), the restrict attribute, the scope attribute and the templateURL attribute. 
+
+The restrict attribute contains a String as a subset of \verb|EACM| and restricts the directive to a specific directive declaration style. So it modifies the way the directive is used within the \ac{HTML} code. These styles are:
+
+\begin{itemize}
+\item[E:] Element name (default): <my-directive></my-directive>
+\item[A:] Attribute (default): <div my-directive="exp"></div>
+\item[C:] Class: <div class="my-directive: exp;"></div>
+\item[M:] Comment: <!-- directive: my-directive exp -->
+\end{itemize}
+
+The scope attribute creates a new scope. If the attribute contains a new \ac{JSON} object, then a new scope is created with these values. With other words, the new \emph{isolate} scope does not inherit from the parent scope but uses the given data in the scope attribute. This is useful for the creation of reusable components because such components should not  read or modify data in the parent scope, as they are used in different contexts. 
+
+The last attribute, the templateUrl specified the location of the the template that is asynchronously loaded, when the directive is used.
+
+\subsubsection{Controller of the media gallery directive}
+The controller is used for the whole data handling that is needed to offer the functionality of the media gallery. For example, the controller contains a function called openMetaData, which is shown in Listing \ref{openMetaData}. As one can see in that listing, the controller makes heavy use of the keyValueService. This service will be explained in more detail in section \ref{keyValueService}. However, for the moment take it as a provider for typical key/value containers.
+
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={The listing shows the openMetaData function},label=openMetaData,frame=tlbr,breaklines]
+    this.openMetaData = function(uIDOfThePicture, uIDOfTheKeyValueStore){
+        if(uIDOfTheKeyValueStore != "-1"){
+            /* load it */
+            keyValueService.getKVStore(uIDOfTheKeyValueStore, function(store){
+                /* use store */
+                that.store = store;
+            });
+        }else{
+            /* create it */
+            var store = keyValueService.createEmptyStoreAccordingToType('img');
+
+            /* modify picture kvStore */
+            $http.put('/admin/picturekv/'+uIDOfThePicture+'/'+store.uID);
+
+            /* use store */
+            that.store = store;
+        }
+
+        /* trigger view */
+        $scope.collapse[uIDOfThePicture] = !$scope.collapse[uIDOfThePicture];
+    };
+\end{lstlisting}
 
 \subsection{Template handling with the templates-box directive}
+\begin{figure}[th]
+\centerline{\includegraphics[width=.5\textwidth]{gfx/templateBox}}
+\caption{An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side}
+\label{templateBox}
+\end{figure}
 
 After we have now seen these two directives, we will now take a look at the key/value stores.
 \section{AngularJS: Key/Value stores}
+\label{keyValueService}
 
 \subsection{Typing of stores}
