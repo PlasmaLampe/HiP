@@ -1,0 +1,77 @@
+\select@language {american}
+\vspace {-\cftbeforepartskip }
+\select@language {american}
+\contentsline {chapter}{\numberline {1}Introduction in the thesis}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}What is the current situation without the tool/app}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}What would the system look like (briefly)}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}What would be better if the app would exit? Who would benefit?}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Outline}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Technical and methodological background}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Agile Development - Scrum}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Methods for cost estimation}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Burn-down charts}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Story points}{9}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}DevOps}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Continuous Delivery}{9}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Used Frameworks}{9}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Play Framework}{10}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}MongoDB}{12}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}AngularJS}{13}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Twitter Bootstrap}{15}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Junaio - Metaio}{16}{subsection.2.4.5}
+\contentsline {subsection}{\numberline {2.4.6}WebGL}{17}{subsection.2.4.6}
+\contentsline {section}{\numberline {2.5}Testing techniques and tools}{18}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}TDD}{18}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Jasmine and Karma}{19}{subsection.2.5.2}
+\contentsline {section}{\numberline {2.6}Tooling}{20}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Git}{20}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Jira}{20}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}IntelliJ IDEA}{20}{subsection.2.6.3}
+\contentsline {chapter}{\numberline {3}Draft of the application}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Requirements engineering}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Use Cases - User stories}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Architecture of the application}{25}{section.3.3}
+\contentsline {section}{\numberline {3.4}Usage of the components}{27}{section.3.4}
+\contentsline {section}{\numberline {3.5}Backend (Web-Server)}{28}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Input data/content via CMS in the system}{29}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Manage content as a reviewer}{30}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Including a 3D-Tooling system for point-clouds (WebGL)}{30}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{30}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Frontend (App)}{30}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{32}{subsection.3.6.1}
+\contentsline {subsubsection}{Data format for \ac {AR} files}{33}{section*.65}
+\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{33}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{34}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{36}{subsection.3.6.4}
+\contentsline {subsection}{\numberline {3.6.5}Rendering AR-data with Junaio}{37}{subsection.3.6.5}
+\contentsline {subsection}{\numberline {3.6.6}Cost estimation of the frontend}{38}{subsection.3.6.6}
+\contentsline {chapter}{\numberline {4}Implementation details}{39}{chapter.4}
+\contentsline {section}{\numberline {4.1}General overview of the system}{39}{section.4.1}
+\contentsline {section}{\numberline {4.2}Scala: Highlighting and annotation with AnnotatorJS}{40}{section.4.2}
+\contentsline {section}{\numberline {4.3}Scala: Picture upload and the creation of thumbnails}{40}{section.4.3}
+\contentsline {section}{\numberline {4.4}Important directives used in the system}{43}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}A media gallery with the media-gallery directive}{43}{subsection.4.4.1}
+\contentsline {subsubsection}{Directive definition}{44}{figure.caption.73}
+\contentsline {subsubsection}{Controller of the media gallery directive}{45}{lstnumber.4.4.17}
+\contentsline {subsection}{\numberline {4.4.2}Template handling with the templates-box directive}{46}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}AngularJS: Key/Value stores}{48}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Typing of stores}{48}{subsection.4.5.1}
+\contentsline {chapter}{\numberline {5}Testing the application}{49}{chapter.5}
+\contentsline {section}{\numberline {5.1}Test environment}{49}{section.5.1}
+\contentsline {section}{\numberline {5.2}Testing results}{49}{section.5.2}
+\contentsline {section}{\numberline {5.3}Acceptance test of the prototype}{49}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Small usablity study of the app}{49}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Small usability study of the backend / CMS}{49}{subsection.5.3.2}
+\contentsline {chapter}{\numberline {6}Discussion and future work}{51}{chapter.6}
+\contentsline {section}{\numberline {6.1}Arisen problems within this thesis}{51}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}The agile process}{51}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}The development of the application}{52}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Discussion and future work}{52}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Results / Conclusion}{52}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Future work}{52}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {A}Appendix}{55}{appendix.A}
+\vspace {\beforebibskip }
+\contentsline {chapter}{\spacedlowsmallcaps {Bibliography}}{71}{dummy.6}
+\contentsline {chapter}{\spacedlowsmallcaps {Index}}{75}{dummy.7}
+\contentsline {chapter}{\spacedlowsmallcaps {Publications}}{75}{dummy.8}
+\contentsline {chapter}{\spacedlowsmallcaps {Statutory Declaration}}{75}{dummy.8}

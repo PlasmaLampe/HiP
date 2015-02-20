@@ -200,7 +200,7 @@ The scope attribute creates a new scope. If the attribute contains a new \ac{JSO
 The last attribute, the templateUrl specified the location of the the template that is asynchronously loaded, when the directive is used.
 
 \subsubsection{Controller of the media gallery directive}
-The controller is used for the whole data handling that is needed to offer the functionality of the media gallery. For example, the controller contains a function called openMetaData, which is shown in Listing \ref{openMetaData}. As one can see in that listing, the controller makes heavy use of the keyValueService. This service will be explained in more detail in section \ref{keyValueService}. However, for the moment take it as a provider for typical key/value containers.
+The controller is used for the whole data handling that is needed to offer the functionality of the media gallery. For example, the controller contains a function called openMetaData, which is shown in Listing \ref{openMetaData}, to download and prepare the meta data of the given picture. As one can see in that listing, the controller makes heavy use of the keyValueService. This service will be explained in more detail in section \ref{keyValueService}. However, for the moment take it as a provider for typical key/value containers. So, a container is a \ac{JS}-object that contains a list of keys and values; however the needed keys depends on the \emph{type} of the currently loaded container. 
 
 \lstset{language=JavaScript,
 basicstyle=\small,
@@ -232,15 +232,113 @@ backgroundcolor=\color{grey}}
     };
 \end{lstlisting}
 
+The function expects the uID of the picture and the uID of the key / value store and loads resp. creates the store for the type $img$.
+
+Within this section, we have seen, the main parts of a directive in AngularJS and, to underline the theoretical background, an example for such an directive.
+The files used within the second directive, the template box, are quite similar. But, we will now take a closer look.
+
 \subsection{Template handling with the templates-box directive}
+The template box is used for creating new templates, sharing templates and using templates within topics. The \ac{UI} elements that are shown are dependent on the user that is currently logged in. For example, a student who takes a look at the template box has no buttons for sharing a specific template.
+
+A typical example of the template box is shown in Figure \ref{templateBox}. The figure shows a template box from the view of a supervisor.
+
 \begin{figure}[th]
 \centerline{\includegraphics[width=.5\textwidth]{gfx/templateBox}}
 \caption{An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side}
 \label{templateBox}
 \end{figure}
 
-After we have now seen these two directives, we will now take a look at the key/value stores.
+The \emph{Directive Definition Object} for this directive looks quite similar to the one from the media gallery directive and is shown in Listing \ref{constructorTemplate}. Because we have seen the theoretical background in the last section, we will explain this directive only briefly. Like in the last case, we restrict the usage to the element name with the $restrict$ attribute, create a new isolated scope with the $scope$ attribute and set the templateURL of the \ac{HTML} code that is send back as soon as the directive is used. 
+
+It is noticeable within the \emph{Directive Definition Object} shown in Listing \ref{constructorTemplate} that it needs a lot more controllers as the \emph{Directive Definition Object} in section \ref{usedDirectives}. This results from the fact that the template box has a lot more functionality that needs to communicate with different aspects of the system, like the sharing from templates with groups and users.
+
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={The listing shows the initialisation of the template box directive},label=constructorTemplate,frame=tlbr,breaklines]
+controllersModule.directive('templatesBox', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            lc: '=languagecontroller',
+            uc: '=usercontroller',
+            gc: '=groupcontroller',
+            showcondition: '=showcondition',
+            tc: '=append',
+            directconnect: '@directconnect'
+        },
+        templateUrl: '/assets/directives/templatesBox.html'
+    };
+});
+\end{lstlisting}
+
+This increased complexity is also recognizable within the \emph{TemplateController}, which is the controller that drives the template box directive. The controller offers functions for fetching templates, transfer templates from one key/value store to another, transfer keys to groups, etc. These functions remain manageable because we use, again, the key value service to handle most of the data management. 
+
+After we have now seen these two directives that make use of the key value service, we will now take a look at the service itself.
+
 \section{AngularJS: Key/Value stores}
 \label{keyValueService}
 
+The key value service is a small but mighty service that is used at multiple places within the \ac{HiP} backend. A brief overview about the functionality is shown in Figure \ref{KVS}.
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/kvs}}
+\caption{The frontend and backend of the key value service with the two different data formats}
+\label{KVS}
+\end{figure}
+
+As one can see in the figure, the key value service can be accessed via a \ac{JS} \ac{API} within AngularJS to load and modify key value stores. These stores can afterwards been pushed to the MongoDB in a small and compact serialized data format. The main idea behind the serialization process is that we do not need any information about the used keys and we can create and use as many keys as we want but the database schema within the MongoDB stays the same. Every added key will end up as one new entry in the list array within the \ac{JS} object that will be pushed to the MongoDB. This makes the key value service extremely adaptable to every situation. This can also be seen in the fact that the service is used within the \ac{HiP} backend to store textual templates, meta-data for pictures and tag-clouds. So, it is used in very different situations for very different things but it can be adapted to every of these use cases by using different keys. But we will get more into details about the keys in section \ref{typedKVS} as we will need the typing to completely understand the topic.
+ 
+All in all, the key value service offers functions for downloading key value stores from the backend database, delete stores, create new stores (empty and according to specific types), modify stores, transfer keys from one store to another, etc.  
+However, a crucial part of the logic is encapsulated within the function that translates the data format because we need to change the data format after we downloaded a store from the backend. The translation function is shown in Listing \ref{keyTranslation}. 
+ 
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={The translation from the backend data format to the frontend data format within the key value service},label=keyTranslation,frame=tlbr,breaklines]
+   function serializedFormToJSON(uID, listOfKeysAndValues) {
+        var JSON = {};
+        var keys = [];
+        listOfKeysAndValues.forEach(function(item) {
+            var token = item.split("#");
+
+            // add key and value to JSON object
+            if(token[0] != "type"){
+                JSON[token[0]] = token[1];
+
+                // add to key list
+                keys.push(token[0]);
+            }else{
+                JSON.type = token[1];
+            }
+        });
+
+        JSON.uID = uID;
+        JSON.keys = keys;
+        JSON.length = keys.length;
+        return JSON;
+    }
+\end{lstlisting}
+
+The code in that function is straightforward. We iterate over every entry of the list array in line 4, split the key and value in line 5 and store the resulting array in the variable token.
+After that, we add the key with its value to the variable called JSON, which ends up to be the frontend format representation (line 11-14). If the key has the name type, we copy the value directly to the frontend representation (shown in line 9). At last, we can return the variable JSON, which will be used within the service and by the controller that uses the service.
+
 \subsection{Typing of stores}
+\label{typedKVS}
+One of the features that make the \ac{KVS} so reusable is the idea of typed key-value stores. A type specified the keys that need to be included within a specific key-value store. Of course, every store that is used within the system has a specific type and every type is a child of another one. If we create a new child that does not need to be derived from a specific type then we say that its parent type is \emph{root}.
+On the other hand, if we have a type $A$ with the keys $key1$ and $key2$ and create a new type $B$ that is a child of type $A$ than $B$ will derive the keys $key1$ and $key2$ automatically because it is a subtype of $A$.
+
+So, for every new situation were we want to use the \ac{KVS}, we just need to create a new storage type and the remaining work is done by the service. The editing of types (e.g., adding keys or even complete types) can be done from every controller within AngularJS by using the \emph{TypeService}. This service encapsulates all needed functionality to modify types and is used within the \ac{HiP} backend to create a type modify interface for the admins of the \ac{HiP} backend. However, we will not get into more details about this service or the type modify interface within this thesis.
+
+
+
+
+
+
+After we have now seen some of the details of the implementation, we will now come to the testing chapter. 
