@@ -2,6 +2,28 @@
 The appendix contains some diagrams and tables that were to big to put them into the continuous text. Furthermore, it contains a small installation manual for the \ac{HiP} backend.
 
 \section{Installation manual}
+The installation process of the \ac{HiP} backend is quite simple. In general you need to install 3 different things: The Play 2.0 framework, the MongoDB and \ac{NPM}. In more detail the process looks like this:
+
+\begin{enumerate}
+	\item Get your Play 2.0 framework instance from \url{https://www.playframework.com/download}
+	\item Install Play 2.0 (do NOT run it at this point in time)
+	\item Go to your \ac{HiP} root folder
+	\item Switch to \%hipRoot/public
+	\item Run npm link on your command line
+	\item Download MongoDB from \url{http://www.mongodb.org/downloads}
+	\item Run the MongoDB with the provided default database (this can be done on a Windows PC with the following command: mongod --dbpath PATH_TO_THE_PROVIDED_DB)
+	\item Again: Go to your \ac{HiP} root folder
+	\item	Start the \ac{HiP} backend by using the command: activator run
+\end{enumerate}
+
+Your \ac{HiP} server is now running. After you have installed all the needed components you can easily run the test cases for the controllers with the following commands:
+
+\begin{enumerate}
+	\item Switch to \%hipRoot/public
+	\item	Start the \ac{HiP} test cases by using the command: karma start karma.conf
+\end{enumerate}
+
+After we have now seen how we can start the application and the provided test cases, the remaining part of the appendix will contain bigger figures and tables.
 
 \section{Figures and tables}
 Figure \ref{workflow_backend} shows the work-flow within the backend system as a flow diagram.
