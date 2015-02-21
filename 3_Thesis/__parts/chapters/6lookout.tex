@@ -1,4 +1,7 @@
 \chapter[Discussion and future work]{Discussion and future work}
+\section{Handing of the project}
+-- PG -> DevOps , Scrum ....
+
 \section{Arisen problems within this thesis}
 Since this master thesis included two different aspects (i.e., the agile process and the actual development of the backend) of the actual development process, we want to express the problems separately. 
 
@@ -9,7 +12,8 @@ However, we found one drawback of these meetings, which was the problem that a l
 After we now have taken a look at the agile process, we will now take a look at the development of the application.   
 
 \subsection{The development of the application}
-On the other side, the development of the \ac{HiP}-application was fine and AngularJS was definitely a great choice as a basis framework. However, sometimes the usage of AngularJS enforces the need of little work-arounds. For example, the simple call to the Google Maps API v3 for rendering a map resulted in a map that contained grey little boxes and the whole map needed to be resized again. Nevertheless, such bugs were rare and, thus, AngularJS worked great. 
+On the other side, the development of the \ac{HiP}-application was fine and AngularJS was definitely a great choice as a basis framework. However, sometimes the usage of AngularJS enforces the need of little work-arounds. For example, the simple call to the Google Maps API v3 for rendering a map resulted in a map that contained grey little boxes and the whole map needed to be resized again (Although, we decided to use HereMaps instead of Google Maps anyway). Nevertheless, such bugs were rare and, thus, AngularJS worked great. 
+
 Another problem was the complexity of the application. Especially in the last few weeks of the development process the complexity resulted in a lot more development effort as soon as code 'at the core of the system' needed to be changed because of new requirements that came up in the biweekly meetings. Thus, we cannot directly confirm the observation of Kent Beck that the curve that represents the cost of changes within an agile process is more or less flat \cite{beck2003test}. However, even changes at code parts with a lot of dependencies were quite good possible because the whole development was done with the idea of changing requirements in mind. 
 
 \section{Discussion and future work}
@@ -20,4 +24,4 @@ We think that we have created a great system within this master thesis, which is
 \todo{more}
 
 \subsection{Future work}
-Although we have implemented a lot of functions within the backend, there is a lot more functionality within our Scrum backlog. In general, future work can be done on two major area, the smartphone application (which gets at the moment developed by a bachelor Student) and has been sketched within this thesis. And the remaining functions of the backend. The smartphone application will need sophisticated 3D-Rendering functionality as well as navigation functions. The backend, on the other side, needs more functions for editing the point clouds that have been imported by the students.
+Although we have implemented a lot of functions within the backend, there is a lot more functionality within our Scrum backlog. In general, future work can be done on two major area, the smartphone application (which gets at the moment developed by a bachelor Student) and has been sketched within this thesis. And the remaining functions of the backend. The smartphone application will need sophisticated 3D-Rendering functionality as well as navigation functions. The backend, on the other side, needs more functions for editing the point clouds that have been imported by the students. Furthermore, the backend should be configured in a way to support continuos delivery and the described patterns for DevOps architectures (\cite{cukier2013devops}) could be used within the system.  
