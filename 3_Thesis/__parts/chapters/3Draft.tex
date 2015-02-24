@@ -12,7 +12,7 @@ We started the development of the application with a requirements engineering me
 Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. However, we will now take a look at the users of the planned system.
 
 \section{Use Cases - User stories}
-The system in its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
+The system on its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
 
 \begin{enumerate}
 	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of supervisor is the supervision of groups.
@@ -21,7 +21,7 @@ The system in its whole will have four different kinds of users, which correspon
 	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
 \end{enumerate}
 
-These four different roles are also shown in Figure \ref{usecase} an \ac{UML2} use case diagram, which is placed in the appendix. 	
+These four different roles are also shown in Figure \ref{usecase} an \ac{UML2} use case diagram, which is placed in the appendix. The figure shows the roles together with the functionality that gets invoked by these roles. 	
 
 After we have now seen the different roles that are involved in this system, we will include two use case tables as an example for the usage of the system here. However, a complete list of use case scenarios would be to large for this thesis.
 
@@ -117,7 +117,7 @@ The data (i.e., topics, graphics, etc.) should be stored in a way that it can be
 Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{web1}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
 \subsection{Input data/content via CMS in the system}
-The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
+The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic, the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
 \todo{technical details}

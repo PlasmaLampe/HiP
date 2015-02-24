@@ -1,6 +1,23 @@
 \chapter[Technical and methodological background]{Technical and methodological background}
 \label{background}
-After we have seen the need for the planned application, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implementation}. However, the whole system uses a lot more in its whole.
+  \begin{verse}
+    \textit{All the revision in the world will not save a bad first draft: for the architecture of the thing comes, or fails to come, in the first conception, and revision only affects the detail and ornament, alas!}\\
+    \flushright{\textit{(T. E. Lawrence (1931))}}
+  \end{verse}
+
+Because an idea about the system and the background of the used technologies is very important (just like the quotation above shows), the following two chapters will contain details about the planned system. 
+
+In general, it should be able to handle the complete workflow for a university course situation. So, the backend should offer features that offer groups of students the work on specific topics. The domain model showing this situation a general university course is shown in Figure \ref{domain}. 
+
+\todo{model is wrong}
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/domainModel.png}}
+\caption{The domain model of the university courses}
+\label{domain}
+\end{figure}
+
+But before we come into more detail about the software itself, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implementation}. Although, the whole system uses a lot more on its whole.
 
 The first thing, which is important to notice, is that the system will be developed with an agile software development method, which will be based on SCRUM. Because of that, we will start by explaining the SCRUM development method.
 
