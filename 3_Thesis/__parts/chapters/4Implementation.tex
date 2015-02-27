@@ -25,6 +25,78 @@ However, the most application logic is included on the client side within the An
 \end{itemize}
 
 \section{Scala: Highlighting and annotation with AnnotatorJS}
+The highlighting of the content of topics itself is handled by the \ac{JS} library \emph{AnnotatorJS}. Technically, the plugins creates $span$ \ac{HTML} tags  with the class $annotator-hl$ and adds them to the \ac{DOM}-tree at the same position were the original text was placed. So, the creation of the highlighting itself is quite simple. However, we wanted to attach the information to a given topic and store it in some way.  
+
+\emph{AnnotatorJS} supports the storing of data on an external storage system that needs to be addressable by a specific \ac{REST} \ac{API}. We decided to use the external storage system \ac{AnnotateIt}, which accepts the requests from the \emph{AnnotatorJS} library and stores the data on their server. However, this created a major problem: The user needed to login into the \emph{AnnotateIt} website to be able to store highlights within the \ac{HiP} backend. To prevent this problem, \emph{AnnotateIt} accepts remote accounts to use the storage system if they are certified with a \ac{JWT}. To get a better understanding of this process, look at the following process:
+
+\begin{enumerate}
+\item Alice registers the \ac{HiP} backend by AnnotateIt, and receives a \emph{consumer key/secret key} pair
+\item Bob (a user the \ac{HiP} backend) logs into the \ac{HiP} backend and receives an authentication token in the \ac{JWT} format, which is a cryptographic combination of some details about this user and the consumer secret of the \ac{HiP} backend
+\item Bob's browser sends requests to \emph{AnnotateIt} to save annotations, including the authentication token as part of the payload
+\item \emph{AnnotateIt} can verify the Bob is a real user from \ac{HiP}, and thus stores his annotation
+\end{enumerate}
+
+An example for such an \ac{JWT} authentication token is shown in Figure \ref{JWT}.
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/JWT_b}}
+\caption{An example for a JWT authentication token. \\On the left side: The JWT in Base64 encoding. On the right side: As the decoded token.}
+\label{JWT}
+\end{figure}
+
+As one can see, the tokens contains a header, which specifies the used algorithm, a body, which contains the payload and an authenticator, which is a \ac{HMAC} based on the \ac{SHA256} algorithm. The payload contains mainly the userID and 
+consumer key of the application. So, this token proves that the accept comes from an authenticated user of the \ac{HiP} backend.
+
+The creation of these tokens is done by the part of the backend that is included into the Play 2.0 framework. The action that generates such a token is shown in Listing \ref{Scala:tokenGen}.
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Generation of JWT tokens within the backend},label=Scala:tokenGen,frame=tlbr,breaklines]
+def getToken = UserAwareAction { implicit  request =>
+    request.user match {
+      case Some(user) => {
+        /* prepare secret */
+        val sharedSecret = "9043aa09-e8c1-46b3-b570-2da27a018ac3" getBytes
+
+        // Create HMAC signer
+        val signer = new MACSigner(sharedSecret)
+
+        // get current time
+        [...]
+
+        // Prepare JWT with claims set
+        val claimsSet = new JWTClaimsSet()
+        claimsSet setCustomClaim("consumerKey",   "ed83da60ae5e4d159729eef16a207525")
+        claimsSet setCustomClaim("userId",  [...]);
+        claimsSet setCustomClaim("issuedAt", nowAsISO)
+        claimsSet setCustomClaim("ttl", "86400")
+
+        var signedJWT = new SignedJWT(new JWSHeader(JWSAlgorithm.HS256), claimsSet)
+
+        // Apply the HMAC
+        signedJWT.sign(signer)
+
+        val s = signedJWT.serialize
+
+        Ok(s)
+      }
+      case _ => {
+        Ok(views.html.loginplease())
+      }
+    }
+  }
+\end{lstlisting}
+
+Line 14-18 in Listing \ref{Scala:tokenGen} shows the preparation of the JWT's body and in line 20, we create the concrete JWT with the header and the already created body. The signing, which is used in the authenticator, is done in line 23. 
+
+Note, that we do not use a general Action but a \emph{UserAwareAction} (line 1).
+The UserAwareAction is provided by SecureSocial2 and checks the session of the current user. The user object is afterwards checked in line 4. If the user is not logged in but tried to gain a JWT access token, he is send to the loginplease.html page that contains the needed information for logging into the system. If the user is logged into the system, the JWT creation process is started.
+
+After we have now seen the creation of JWT tokens, we will now take a look at something else, which is also mainly handled by an Action within the Play 2.0 framework; the upload process of media files. 
 
 \section{Scala: Picture upload and the creation of thumbnails}
 The upload of a picture is handled on the client side by dropzone.js, which is a small \ac{JS} library that offers functionality for the easy upload of files to remote servers. On its core, dropzone.js uses the \ac{HTML5} upload mechanism to stay  browser independent. After the file has been send, a controller called FileController accepts the connection and parses a $multiFormData$ request. Listing \ref{Scala:Upload} shows the Scala code of that part of the Action.
