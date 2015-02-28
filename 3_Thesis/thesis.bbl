@@ -1,0 +1,275 @@
+\begin{thebibliography}{}
+
+\bibitem[Alliance, 2015]{GAA2015}
+Alliance, A. (2015).
+\newblock Guide to agile practices.
+\newblock Website, \url{http://guide.agilealliance.org/guide/tdd.html},
+  14.02.2015.
+
+\bibitem[AngularJS, 2015a]{AngularCons}
+AngularJS (2015a).
+\newblock Comprehensive directive api.
+\newblock Website,
+  \url{https://docs.angularjs.org/api/ng/service/$compile#directive-definition-object},
+  last checked 18.02.2015.
+
+\bibitem[AngularJS, 2015b]{7_github_2015}
+AngularJS (2015b).
+\newblock karma-runner/karma.
+\newblock Website, \url{https://github.com/karma-runner/karma}, 14.02.2015.
+
+\bibitem[Azuma, 1997]{Azu97}
+Azuma, R.~T. (1997).
+\newblock A survey of augmented reality a survey of augmented reality a survey
+  of augmented reality.
+\newblock {\em In Presence: Teleoperators and Virtual Environments},
+  6(4):355--385.
+
+\bibitem[Beck, 1999]{Beck1999}
+Beck, K. (1999).
+\newblock Embracing change with extreme programming.
+\newblock {\em Computer}, 32(10):70--77.
+
+\bibitem[Beck, 2003]{beck2003test}
+Beck, K. (2003).
+\newblock {\em Test-driven development: by example}.
+\newblock Addison-Wesley Professional.
+
+\bibitem[Beck et~al., 2001]{Beck2001agile}
+Beck, K., Beedle, M., van Bennekum, A., Cockburn, A., Cunningham, W., Fowler,
+  M., Grenning, J., Highsmith, J., Hunt, A., Jeffries, R., Kern, J., Marick,
+  B., Martin, R.~C., Mellor, S., Schwaber, K., Sutherland, J., and Thomas, D.
+  (2001).
+\newblock Manifesto for agile software development.
+\newblock Website, \url{http://www.agilemanifesto.org/}, 14.02.2015.
+
+\bibitem[Berczuk, 2007]{Ber07}
+Berczuk, S. (2007).
+\newblock Back to basics: The role of agile principles in success with an
+  distributed scrum team.
+\newblock {\em Agile Conference (AGILE), 2007}, pages 382 -- 388.
+
+\bibitem[Bondo et~al., 2010]{Bon10}
+Bondo, J., Barnard, D., and Burcow, D. (2010).
+\newblock {\em iPhone User Interface Design Projects}.
+\newblock Apress.
+
+\bibitem[Bradley et~al., 2014]{bradley2014json}
+Bradley, J., Sakimura, N., and Jones, M. (2014).
+\newblock Json web token (jwt).
+
+\bibitem[Ceschi et~al., 2005]{ceschi2005project}
+Ceschi, M., Sillitti, A., Succi, G., and De~Panfilis, S. (2005).
+\newblock Project management in plan-based and agile companies.
+\newblock {\em Software, IEEE}, 22(3):21--27.
+
+\bibitem[Cohn, 2004]{cohn2004user}
+Cohn, M. (2004).
+\newblock {\em User stories applied}.
+\newblock Addison-Wesley Professional.
+
+\bibitem[Cukier, 2013]{cukier2013devops}
+Cukier, D. (2013).
+\newblock Devops patterns to scale web applications using cloud services.
+\newblock In {\em Proceedings of the 2013 companion publication for conference
+  on Systems, programming, \& applications: software for humanity}, pages
+  143--152. ACM.
+
+\bibitem[Danube, 2014]{ScrumMeth}
+Danube (2014).
+\newblock Scrum effort estimation and story points.
+\newblock Website,
+  \url{http://scrummethodology.com/scrum-effort-estimation-and-story-points/},
+  12.02.2015.
+
+\bibitem[Dev.metaio.com, 2015]{MetaioDEV}
+Dev.metaio.com (2015).
+\newblock Overview | metaio developer portal.
+
+\bibitem[Duvall, 2012]{duvall2012breaking}
+Duvall, P. (2012).
+\newblock Breaking down barriers and reducing cycle times with devops and
+  continuous delivery.
+
+\bibitem[Eckerson, 1995]{Eckerson1995}
+Eckerson, W.~W. (1995).
+\newblock Three tier client/server architecture: Achieving scalability,
+  performance, and efficiency in client server applications.
+\newblock {\em Open Information Systems}, 3(20):46--50.
+
+\bibitem[Fielding, 2000]{Fielding2000}
+Fielding, R.~T. (2000).
+\newblock {\em Architectural styles and the design of network-based software
+  architectures}.
+\newblock PhD thesis, University of California, Irvine, USA.
+\newblock AAI9980887.
+
+\bibitem[George and Williams, 2004]{George2004}
+George, B. and Williams, L. (2004).
+\newblock A structured experiment of test-driven development.
+\newblock {\em Information and Software Technology}, 46(5):337 -- 342.
+\newblock Special Issue on Software Engineering, Applications, Practices and
+  Tools from the \{ACM\} Symposium on Applied Computing 2003.
+
+\bibitem[Google, 2014]{GoogleNavi}
+Google (2014).
+\newblock Google maps javascript api version 3.
+\newblock Website,
+  \url{https://developers.google.com/maps/documentation/javascript/directions},
+  14.02.2015.
+
+\bibitem[Google, 2015]{GooglePolylineNative}
+Google (2015).
+\newblock Polyline.
+\newblock Website,
+  \url{https://developer.android.com/reference/com/google/android/gms/maps/model/Polyline.html},
+  14.02.2015.
+
+\bibitem[Hampel, 2001]{ham01}
+Hampel, T. (2001).
+\newblock {\em Virtuelle Wissensr{\"a}ume}.
+\newblock PhD thesis, Universit{\"a}t Paderborn.
+
+\bibitem[IEEE, 1990]{IEEEReq}
+IEEE (1990).
+\newblock Ieee standard glossary of software engineering terminology.
+\newblock {\em IEEE Std 610.12-1990}, pages 1--84.
+
+\bibitem[iText Software~Corp, 2015]{itext2015}
+iText Software~Corp (2015).
+\newblock itext core functionality.
+\newblock Website, \url{http://www.itextpdf.com/functionality}, 14.02.2015.
+
+\bibitem[Janzen and Saiedian, 2005]{Janzen2005}
+Janzen, D.~S. and Saiedian, H. (2005).
+\newblock Test-driven development: Concepts, taxonomy, and future direction.
+\newblock {\em Computer Science and Software Engineering}, page~33.
+
+\bibitem[Jones, 2003]{jones2003flawed}
+Jones, C. (2003).
+\newblock Why flawed software projects are not cancelled in time.
+\newblock {\em Cutter IT Journal}, 16(12):12--17.
+
+\bibitem[Junaio, 2014]{junaio1}
+Junaio (2014).
+\newblock Why to become a junaio developer.
+\newblock Slideshare presentation,
+  \url{http://www.slideshare.net/metaio_AR/why-to-become-a-junaio-developer},
+  last checked 14.09.2014.
+
+\bibitem[Keaveney, 2011]{Keaveney11}
+Keaveney, S.~Conboy, K. (2011).
+\newblock {\em Cost Estimation in Agile Development Projects}.
+\newblock National University of Ireland.
+
+\bibitem[Mast, 2013]{Mast2013}
+Mast, R. (2013).
+\newblock Architektur in agilen teams: Was softwarearchitekten von jazzmusikern
+  lernen k{\"o}nnen.
+\newblock {\em OBJEKTspektrum}.
+
+\bibitem[Maximilien, 2003]{max03}
+Maximilien, E. Michael.~Williams, L. (2003).
+\newblock Assessing test-driven development at ibm.
+\newblock In {\em Software Engineering, 2003. Proceedings. 25th International
+  Conference on}, pages 564--569. IEEE.
+
+\bibitem[Maxxor, 2015]{5_maxxor.com_2015}
+Maxxor (2015).
+\newblock Software development process | maxxor.
+\newblock Website, \url{https://www.maxxor.com/software-development-process},
+  last checked 14.02.2015.
+
+\bibitem[Mesbah and van Deursen, 2007]{Mes07}
+Mesbah, A. and van Deursen, A. (2007).
+\newblock Migrating multi-page web applications to single-page ajax interfaces.
+\newblock {\em Software Maintenance and Reengineering, 2007. CSMR '07.}, pages
+  181 -- 190.
+
+\bibitem[MongoDB-Inc., 2015]{gridfs}
+MongoDB-Inc. (2015).
+\newblock Gridfs.
+\newblock Website, \url{http://docs.mongodb.org/manual/core/gridfs/}, last
+  checked 16.02.2015.
+
+\bibitem[Mueller et~al., 2011]{Mueller2011}
+Mueller, E., Wickett, J., and Gaekwad, K. (2011).
+\newblock What is devops?
+\newblock Website, \url{http://theagileadmin.com/what-is-devops/}, last checked
+  21.02.2015.
+
+\bibitem[Nerur et~al., 2005]{nerur2005}
+Nerur, S., Mahapatra, R., and Mangalaraj, G. (2005).
+\newblock Challenges of migrating to agile methodologies.
+\newblock {\em Communications of the ACM}, 48(5):72--78.
+
+\bibitem[North, 2012]{BDD}
+North, D. (2012).
+\newblock Bdd is like tdd if...
+\newblock Website, \url{http://dannorth.net/2012/05/31/bdd-is-like-tdd-if/},
+  14.02.2015.
+
+\bibitem[OpenSource, 2012]{osmand}
+OpenSource (2012).
+\newblock Osmand.
+\newblock Website, \url{https://code.google.com/p/osmand/}, 14.02.2015.
+
+\bibitem[Paulk, 2002]{paulk2002agile}
+Paulk, M.~C. (2002).
+\newblock Agile methodologies and process discipline.
+\newblock {\em Institute for Software Research}, page~3.
+
+\bibitem[Rodriguez, 2008]{Rodriguez2008}
+Rodriguez, A. (2008).
+\newblock Restful web services: The basics.
+\newblock {\em Online article in IBM DeveloperWorks Technical Library}, 36.
+
+\bibitem[Schwaber and Beedle, 2002]{scrum}
+Schwaber, K. and Beedle, M. (2002).
+\newblock {\em Agile Software Development with Scrum}.
+\newblock Pearson.
+
+\bibitem[Statista, 2014]{statIPhone}
+Statista (2014).
+\newblock Global apple iphone sales from 3rd quarter 2007 to 3rd quarter 2014
+  (in million units).
+\newblock Website,
+  \url{http://www.statista.com/statistics/263401/global-apple-iphone-sales-since-3rd-quarter-2007/},
+  last checked 13.09.2014.
+
+\bibitem[Sutherland, 2009]{Sut09}
+Sutherland, J.~Jakobsen, C. (2009).
+\newblock Scrum and cmmi -- going from good to great.
+\newblock {\em Agile Conference}.
+
+\bibitem[Trelle, 2014]{Tre14}
+Trelle, T. (2014).
+\newblock Mongodb.
+\newblock {\em JavaMagazine}, 5:56--62.
+
+\bibitem[Vogel, 2010]{pdfCreation}
+Vogel, L. (2010).
+\newblock Creating pdf with java and itext.
+\newblock Website, \url{http://www.vogella.com/tutorials/JavaPDF/article.html},
+  14.02.2015.
+
+\bibitem[Wikimedia-Foundation, 2014]{wikimedia}
+Wikimedia-Foundation (2014).
+\newblock About us.
+\newblock Website, \url{https://www.wikimedia.de/wiki/\%C3\%9Cber_uns}, last
+  checked 12.09.2014.
+
+\bibitem[Wikitude, 2014]{wikitude}
+Wikitude (2014).
+\newblock Augmented reality for multiple platforms.
+\newblock Website, \url{http://www.wikitude.com/products/wikitude-sdk/}, last
+  checked 14.09.2014.
+
+\bibitem[Williams et~al., 2003]{Williams2003}
+Williams, L., Maximilien, E.~M., and Vouk, M. (2003).
+\newblock Test-driven development as a defect-reduction practice.
+\newblock In {\em Proceedings of the 14th International Symposium on Software
+  Reliability Engineering}, ISSRE '03, pages 34--, Washington, DC, USA. IEEE
+  Computer Society.
+
+\end{thebibliography}

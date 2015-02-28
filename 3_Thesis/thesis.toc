@@ -39,9 +39,9 @@
 \contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{32}{subsection.3.5.4}
 \contentsline {section}{\numberline {3.6}Frontend (App)}{33}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{35}{subsection.3.6.1}
-\contentsline {subsubsection}{Data format for \ac {AR} files}{35}{section*.69}
-\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{35}{subsection.3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{36}{subsection.3.6.3}
+\contentsline {subsubsection}{Data format for \ac {AR} files}{35}{figure.caption.70}
+\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{36}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{37}{subsection.3.6.3}
 \contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{39}{subsection.3.6.4}
 \contentsline {subsection}{\numberline {3.6.5}Rendering AR-data with Junaio}{40}{subsection.3.6.5}
 \contentsline {subsection}{\numberline {3.6.6}Cost estimation of the frontend}{40}{subsection.3.6.6}
@@ -51,7 +51,7 @@
 \contentsline {section}{\numberline {4.3}Scala: Picture upload and the creation of thumbnails}{47}{section.4.3}
 \contentsline {section}{\numberline {4.4}Important directives used in the system}{49}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}A media gallery with the media-gallery directive}{50}{subsection.4.4.1}
-\contentsline {subsubsection}{Directive definition}{51}{figure.caption.81}
+\contentsline {subsubsection}{Directive definition}{51}{figure.caption.82}
 \contentsline {subsubsection}{Controller of the media gallery directive}{52}{lstnumber.4.5.17}
 \contentsline {subsection}{\numberline {4.4.2}Template handling with the templates-box directive}{53}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}AngularJS: Key/Value stores}{55}{section.4.5}

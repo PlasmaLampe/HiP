@@ -1,4 +1,5 @@
 \chapter[Draft of the application]{Draft of the application}
+\label{draft}
 Within this thesis, we will develop an application (with focus on the backend system) to handle all these problems that have been described above within the section about the current situation. This master thesis will handle the planning respectively cost estimation of the different parts/features of the general system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components of the backend system. 
 But at first, we will start with the first step in a development process; the requirements engineering.
 
@@ -108,13 +109,13 @@ The most important part of the system for this thesis is contained within the ba
 
 The data (i.e., topics, graphics, etc.) should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
-\begin{figure}[th]
+\begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{gfx/mockup_web_1}}
 \caption{A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application}
 \label{augmentation_web}
 \end{figure}
 
-Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{web1}. These annotations should also be assessable and (un-)lockable for the supervisor. 
+Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{augmentation_web}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
 \subsection{Input data/content via CMS in the system}
 The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic, the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
@@ -194,10 +195,16 @@ In the following we will focus on the planning and cost estimations off the fron
 \end{figure}			
   
 \subsection{Input data into the system (scan objects and annotate them)} 
-With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used for further use. \todo{more}
+With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown Figure \ref{MetToolbox}. \todo{more}
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=0.5\textwidth]{gfx/toolbox.png}}
+\caption{The main menu of the \emph{Metaio Toolbox} showing the main features of the app}
+\label{MetToolbox}
+\end{figure}	
 
 \subsubsection{Data format for \ac{AR} files}
-
+The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. To create a web editor, asked for a specification for the file format by the company Metaio. However, we never received an answer. 
 
 \subsection{Show close "interesting places" within a map} 
 Because the students should add \ac{GPS} coordinates for exhibits and locations that are included in the topics, we can make use of these informations to show them on a map on the smartphone. 

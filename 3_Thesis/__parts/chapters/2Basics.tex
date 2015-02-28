@@ -186,7 +186,7 @@ db.hipUsers.insert(object);
 Similarly one can read documents from the database by creating a document that is matched against the collection.
 For example, to retrieve the user \textit{John Doe} that has been included within Listing \ref{MongoDB:insert} by matching against his lastname, one would need to do the steps shown in Listing \ref{MongoDB:query}. 
 
-\begin{lstlisting}[numbers=left,caption={Reading documents from a MongoDB},label=MongoDB:insert,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Reading documents from a MongoDB},label=MongoDB:query,frame=tlbr,breaklines]
 var db = ... // contains the connection to the database
 
 var object = {

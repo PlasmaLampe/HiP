@@ -1,0 +1,100 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: ./thesis.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Titlepage.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Titleback.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Abstract.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Acknowledgments.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Contents.aux
+A level-1 auxiliary file: __parts/chapters/1Intro.aux
+A level-1 auxiliary file: __parts/chapters/2Basics.aux
+A level-1 auxiliary file: __parts/chapters/3Draft.aux
+A level-1 auxiliary file: __parts/chapters/4Implementation.aux
+A level-1 auxiliary file: __parts/chapters/5Tests.aux
+A level-1 auxiliary file: __parts/chapters/6Lookout.aux
+A level-1 auxiliary file: __parts/appendix/appendix.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Bibliography.aux
+The style file: apalike.bst
+A level-1 auxiliary file: __parts/_FrontBackMatter/Index.aux
+A level-1 auxiliary file: __parts/_FrontBackmatter/Declaration.aux
+Database file #1: __bib/literatur.bib
+Warning--entry type for "Mueller2011" isn't style-file defined
+--line 12 of file __bib/literatur.bib
+Warning--entry type for "AngularCons" isn't style-file defined
+--line 38 of file __bib/literatur.bib
+Warning--entry type for "gridfs" isn't style-file defined
+--line 46 of file __bib/literatur.bib
+Warning--entry type for "pdfCreation" isn't style-file defined
+--line 63 of file __bib/literatur.bib
+Warning--entry type for "itext2015" isn't style-file defined
+--line 74 of file __bib/literatur.bib
+Warning--entry type for "osmand" isn't style-file defined
+--line 85 of file __bib/literatur.bib
+Warning--entry type for "GooglePolylineNative" isn't style-file defined
+--line 96 of file __bib/literatur.bib
+Warning--entry type for "GoogleNavi" isn't style-file defined
+--line 107 of file __bib/literatur.bib
+Warning--entry type for "ScrumMeth" isn't style-file defined
+--line 118 of file __bib/literatur.bib
+Warning--entry type for "BDD" isn't style-file defined
+--line 144 of file __bib/literatur.bib
+Warning--entry type for "7_github_2015" isn't style-file defined
+--line 155 of file __bib/literatur.bib
+Warning--entry type for "5_maxxor.com_2015" isn't style-file defined
+--line 184 of file __bib/literatur.bib
+Warning--entry type for "beck2001agile" isn't style-file defined
+--line 227 of file __bib/literatur.bib
+Warning--entry type for "GAA2015" isn't style-file defined
+--line 316 of file __bib/literatur.bib
+Warning--entry type for "wikimedia" isn't style-file defined
+--line 435 of file __bib/literatur.bib
+Warning--entry type for "junaio1" isn't style-file defined
+--line 445 of file __bib/literatur.bib
+Warning--entry type for "wikitude" isn't style-file defined
+--line 453 of file __bib/literatur.bib
+Warning--entry type for "statIPhone" isn't style-file defined
+--line 477 of file __bib/literatur.bib
+Warning--I didn't find a database entry for "beck2001"
+Warning--empty journal in bradley2014json
+You've used 47 entries,
+            1935 wiz_defined-function locations,
+            750 strings with 11224 characters,
+and the built_in function-call counts, 15180 in all, are:
+= -- 1530
+> -- 505
+< -- 48
++ -- 165
+- -- 160
+* -- 1086
+:= -- 2760
+add.period$ -- 143
+call.type$ -- 47
+change.case$ -- 308
+chr.to.int$ -- 46
+cite$ -- 48
+duplicate$ -- 642
+empty$ -- 1035
+format.name$ -- 215
+if$ -- 2963
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 30
+newline$ -- 237
+num.names$ -- 141
+pop$ -- 240
+preamble$ -- 1
+purify$ -- 315
+quote$ -- 0
+skip$ -- 538
+stack$ -- 0
+substring$ -- 897
+swap$ -- 86
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 272
+warning$ -- 1
+while$ -- 123
+width$ -- 0
+write$ -- 588
+(There were 20 warnings)
