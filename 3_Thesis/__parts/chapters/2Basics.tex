@@ -73,10 +73,16 @@ Now, DevOps can be seen as the practice of \emph{operations} and \emph{developme
 Using a DevOps approach results in a couple of benefits like the fact that you learn about your induced problems much faster because you get much faster feedback from your enduser. Obviously, it is much easier to fix a bug in such a situation, as in the case that your customer detects a bug in a 'new' release, which is four month old on the development machines. This results also in the benefit that you problems are much smaller and need less time to be fixed (\cite{duvall2012breaking}).
 Furthermore, the focus on DevOps leads to the usage of tools that offer the possibility for new ways of structuring the architecture of the system (\cite{cukier2013devops}). As soon as you start thinking in much smaller autonomous chunks, it becomes much easier to migrate your system into a cloud service in a \ac{PaaS} like fashion (\cite{cukier2013devops}). 
 
-One of the tools you need to create a DevOps process (respectively a DevOps culture), is \ac{CD}.
+One of the tools you need to create a DevOps process (respectively a DevOps culture), is \acl{CD}.
 
 \subsection{Continuous Delivery and Continuous deployment}
-\ac{CD} is the automated implementation of the build, deploy, test and release process. A \ac{CD} process runs the software tests on every version that is committed to the version-control system and provides a quick automated feedback on the test result. By using a \ac{CD} process, the release of a new software version becomes easy and fast. Thus, \ac{CD} is the needed brick for creating a continuous deployment process. Within such a process every commit that is done by the developer and send to the code-versioning software becomes automatically shipped to the enduser (or at least parts of them - like only in North America for a specified time) by using the \ac{CD} system. However, a continuous deployment process cannot be used in every situation but can be a very important thing for fast paced companies like Netflix or Flickr.
+\acf{CD} is the automated implementation of the build, deploy, test and release process. A \ac{CD} process runs the software tests on every version that is committed to the version-control system and provides a quick automated feedback on the test result. By using a \ac{CD} process, the release of a new software version becomes easy and fast. Thus, \ac{CD} is the needed brick for creating a continuous deployment process. Within such a process every commit that is done by the developer and send to the code-versioning software becomes automatically shipped to the enduser (or at least parts of them - like only in North America for a specified time) by using the \ac{CD} system. However, a continuous deployment process cannot be used in every situation but can be a very important thing for fast paced companies like Netflix or Flickr. The complete process is also shown in Figure \ref{hip:cd}. As one can see within this figure, the process is quite straight forward and easily be automated by using tools and platforms like \emph{Bamboo} and \emph{GitHub}.
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/continuous-delivery}}
+\caption{The \ac{CD} process showing some tools that can be used to create a \ac{CD} pipeline (\cite{Wattson:2013aa})}
+\label{hip:cd}
+\end{figure}
 
 Now, after we have gained some insights about the process itself, we will take a look at the frameworks that will be used in the development process.
 
