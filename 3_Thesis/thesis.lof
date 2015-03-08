@@ -5,29 +5,30 @@
 \contentsline {xchapter}{Introduction in the thesis}{1}{chapter.1}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Technical and methodological background}{5}{chapter.2}
-\contentsline {figure}{\numberline {1}{\ignorespaces The domain model of the university courses\relax }}{5}{figure.caption.15}
-\contentsline {figure}{\numberline {2}{\ignorespaces The diagram shows the Scrum development process. (Simplified, original work from \cite {5_maxxor.com_2015})\relax }}{8}{figure.caption.18}
-\contentsline {figure}{\numberline {3}{\ignorespaces The burndown diagram shows an example sprint.\relax }}{9}{figure.caption.20}
-\contentsline {figure}{\numberline {4}{\ignorespaces The figure shows the placement of the AREL interpreter within the platform stack. (Taken from \cite {MetaioDEV})\relax }}{18}{figure.caption.41}
+\contentsline {figure}{\numberline {1}{\ignorespaces The domain model of the university courses\relax }}{5}{figure.caption.16}
+\contentsline {figure}{\numberline {2}{\ignorespaces The diagram shows the Scrum development process. (Simplified, original work from \cite {5_maxxor.com_2015})\relax }}{8}{figure.caption.19}
+\contentsline {figure}{\numberline {3}{\ignorespaces A burn-down diagram showing an example sprint\relax }}{9}{figure.caption.20}
+\contentsline {figure}{\numberline {4}{\ignorespaces The \ac {CD} process showing some tools that can be used to create a \ac {CD} pipeline (\cite {Wattson:2013aa})\relax }}{12}{figure.caption.22}
+\contentsline {figure}{\numberline {5}{\ignorespaces The figure shows the placement of the AREL interpreter within the platform stack. (Taken from \cite {MetaioDEV})\relax }}{20}{figure.caption.40}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Draft of the application}{25}{chapter.3}
-\contentsline {figure}{\numberline {5}{\ignorespaces The general 3-tier architecture of the HiP-application with both presentation tiers\relax }}{28}{figure.caption.56}
-\contentsline {figure}{\numberline {6}{\ignorespaces The usage of the different components and how they work together\relax }}{29}{figure.caption.57}
-\contentsline {figure}{\numberline {7}{\ignorespaces A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application\relax }}{31}{figure.caption.61}
-\contentsline {figure}{\numberline {8}{\ignorespaces A mockup showing the main page of the frontend application showing a map of paderborn and a general overview about the UI-elements\relax }}{34}{figure.caption.67}
-\contentsline {figure}{\numberline {9}{\ignorespaces A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself\relax }}{35}{figure.caption.68}
-\contentsline {figure}{\numberline {10}{\ignorespaces The main menu of the \emph {Metaio Toolbox} showing the main features of the app\relax }}{36}{figure.caption.70}
+\contentsline {figure}{\numberline {6}{\ignorespaces The general 3-tier architecture of the HiP-application with both presentation tiers\relax }}{28}{figure.caption.55}
+\contentsline {figure}{\numberline {7}{\ignorespaces The usage of the different components and how they work together\relax }}{29}{figure.caption.56}
+\contentsline {figure}{\numberline {8}{\ignorespaces A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application\relax }}{31}{figure.caption.60}
+\contentsline {figure}{\numberline {9}{\ignorespaces A mockup showing the main page of the frontend application showing a map of paderborn and a general overview about the UI-elements\relax }}{34}{figure.caption.66}
+\contentsline {figure}{\numberline {10}{\ignorespaces A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself\relax }}{35}{figure.caption.67}
+\contentsline {figure}{\numberline {11}{\ignorespaces The main menu of the \emph {Metaio Toolbox} showing the main features of the app\relax }}{36}{figure.caption.69}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation details}{43}{chapter.4}
-\contentsline {figure}{\numberline {11}{\ignorespaces An example for a JWT authentication token. On the left side: The JWT in Base64 encoding. On the right side: As the decoded token.\relax }}{45}{figure.caption.79}
-\contentsline {figure}{\numberline {12}{\ignorespaces An example media gallery with two pictures\relax }}{50}{figure.caption.82}
-\contentsline {figure}{\numberline {13}{\ignorespaces An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side\relax }}{53}{figure.caption.83}
-\contentsline {figure}{\numberline {14}{\ignorespaces The frontend and backend of the key value service with the two different data formats\relax }}{55}{figure.caption.84}
+\contentsline {figure}{\numberline {12}{\ignorespaces An example for a JWT authentication token. On the left side: The JWT in Base64 encoding. On the right side: As the decoded token.\relax }}{45}{figure.caption.78}
+\contentsline {figure}{\numberline {13}{\ignorespaces An example media gallery with two pictures\relax }}{50}{figure.caption.81}
+\contentsline {figure}{\numberline {14}{\ignorespaces An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side\relax }}{53}{figure.caption.82}
+\contentsline {figure}{\numberline {15}{\ignorespaces The frontend and backend of the key value service with the two different data formats\relax }}{55}{figure.caption.83}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Testing the application}{59}{chapter.5}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Discussion and future work}{61}{chapter.6}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Appendix}{65}{appendix.A}
-\contentsline {figure}{\numberline {15}{\ignorespaces The diagram shows the work-flow within the backend system with the three roles that are involved in the work-flow\relax }}{67}{figure.caption.90}
-\contentsline {figure}{\numberline {16}{\ignorespaces An \ac {UML2} use case diagram showing the different users of the \ac {HiP} system\relax }}{69}{figure.caption.91}
+\contentsline {figure}{\numberline {16}{\ignorespaces The diagram shows the work-flow within the backend system with the three roles that are involved in the work-flow\relax }}{67}{figure.caption.92}
+\contentsline {figure}{\numberline {17}{\ignorespaces An \ac {UML2} use case diagram showing the different users of the \ac {HiP} system\relax }}{69}{figure.caption.93}

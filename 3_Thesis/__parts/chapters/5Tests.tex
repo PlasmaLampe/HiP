@@ -1,10 +1,37 @@
 \chapter[Testing the application]{Testing the application}
-Although the section called \textit{testing} is the second last of this thesis, testing was a major force within the whole development process. We had to do changes on existing code parts often, which was the main reason for the \ac{TDD} development approach. So, the following section will contain the results of the final test suites for the current version of the HiP application. The tests have been developed with the help of the Jasmine framework.%"...Was dem testen eigenltlich nicht gerecht wird, aber man kann es in der thesis nciht anders darstellen..."
+Although the section called \textit{testing} is the second last of this thesis, testing was a major force within the whole development process. We had to do changes on existing code parts often, which was the main reason for the \ac{TDD} development approach. So, the following section will contain the results of the final test suites for the current version of the HiP application. Thus, this summary does not cope with the importance of testing within the development process but it cannot be shown or expressed in a better way within this written thesis. 
+
+As we have described in chapter \ref{background}, the tests have been developed with the help of the Jasmine framework.
   
 \section{Test environment}
 The Jasmine test suites were run within Karma on Mac OSX operating system with Google Chrome. The hardware configuration was a dual core \ac{CPU} and 8096MB \ac{RAM}.
 
 \section{Testing results}
+A typical test case within our test suites looks like the test case shown in Listing \ref{testcase}. 
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={Simple test case for the type service},label=testcase,frame=tlbr,breaklines]
+    it('is able to fetch all types', function () {
+        var check = function(type){
+            expect(type.length).toBe(2);
+        };
+        service.getTypes(check);
+
+        $httpBackend.expect("GET","/admin/types").respond(200, typeList);
+        $httpBackend.flush();
+    });
+\end{lstlisting}
+
+As one can see, this is a unit test case written for the Jasmine framework. Line 1 shows the header of the test case, which can be read like a typical english sentence. The body of the test case contains the call of the actual function (line 5) and the matching against the expected value (line 3). Furthermore, one can easily check the commands that have been send via the \ac{REST} interface with the mockup of the \ac{HTTP} module of AngularJS, which is called httpBackend in the listing.
+
+Because we restricted ourselves to only unit tests and did not created any integration tests, we were not able to reach every line of code within our controllers and services within the unit test cases (a lot of code is only for handling events for user input). However, we ended up with XX\todo{set} test cases with a coverage of YY\todo{set}. 
+
+Besides unit testing, we created a simple acceptance test that will be handled in the next section.
 
 \section{Acceptance test of the prototype}
 Besides the technical testing of the application, we created an acceptance test for the smartphone-frontend-application and the web-backend-application.

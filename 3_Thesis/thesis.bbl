@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[Alliance, 2013]{Alliance:2013aa}
+Alliance, A. (2013).
+\newblock User stories.
+\newblock Website,
+  \url{http://guide.agilealliance.org/guide/user-stories.html}, last checked
+  07.03.2015.
+
 \bibitem[Alliance, 2015]{GAA2015}
 Alliance, A. (2015).
 \newblock Guide to agile practices.
@@ -162,6 +169,13 @@ Keaveney, S.~Conboy, K. (2011).
 \newblock {\em Cost Estimation in Agile Development Projects}.
 \newblock National University of Ireland.
 
+\bibitem[Lidwell et~al., 2010]{lidwell2010universal}
+Lidwell, W., Holden, K., and Butler, J. (2010).
+\newblock {\em Universal Principles of Design, Revised and Updated: 125 Ways to
+  Enhance Usability, Influence Perception, Increase Appeal, Make Better Design
+  Decisions,}.
+\newblock Rockport Publishers.
+
 \bibitem[Mast, 2013]{Mast2013}
 Mast, R. (2013).
 \newblock Architektur in agilen teams: Was softwarearchitekten von jazzmusikern
@@ -219,6 +233,13 @@ Paulk, M.~C. (2002).
 \newblock Agile methodologies and process discipline.
 \newblock {\em Institute for Software Research}, page~3.
 
+\bibitem[Pichler, 2010]{Pichler:2010aa}
+Pichler, R. (2010).
+\newblock 10 tips for writing good user stories.
+\newblock
+  Website,\url{http://www.romanpichler.com/blog/10-tips-writing-good-user-stories/}
+  ,last checked 17.03.2015.
+
 \bibitem[Rodriguez, 2008]{Rodriguez2008}
 Rodriguez, A. (2008).
 \newblock Restful web services: The basics.
@@ -252,6 +273,13 @@ Vogel, L. (2010).
 \newblock Creating pdf with java and itext.
 \newblock Website, \url{http://www.vogella.com/tutorials/JavaPDF/article.html},
   14.02.2015.
+
+\bibitem[Wattson, 2013]{Wattson:2013aa}
+Wattson, M. (2013).
+\newblock Continuous delivery for winners -- with a feedback loop.
+\newblock Website,
+  \url{http://stackify.com/wp-content/uploads/2013/08/continuous-delivery.png},
+  last checked 16.02.2015.
 
 \bibitem[Wikimedia-Foundation, 2014]{wikimedia}
 Wikimedia-Foundation (2014).

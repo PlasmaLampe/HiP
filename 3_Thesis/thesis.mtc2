@@ -2,19 +2,20 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Methods for cost estimation}{\reset@font\mtcSfont 7}{section.2.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.1}Burn-down charts}{\reset@font\mtcSSfont 8}{subsection.2.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.2}Story points}{\reset@font\mtcSSfont 9}{subsection.2.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.2.3}User stories}{\reset@font\mtcSSfont 10}{subsection.2.2.3}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}DevOps}{\reset@font\mtcSfont 10}{section.2.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}Continuous Delivery and Continuous deployment}{\reset@font\mtcSSfont 10}{subsection.2.3.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Used Frameworks}{\reset@font\mtcSfont 11}{section.2.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Play Framework}{\reset@font\mtcSSfont 11}{subsection.2.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}MongoDB}{\reset@font\mtcSSfont 14}{subsection.2.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}AngularJS}{\reset@font\mtcSSfont 15}{subsection.2.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.4}Twitter Bootstrap}{\reset@font\mtcSSfont 17}{subsection.2.4.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.5}Junaio - Metaio}{\reset@font\mtcSSfont 18}{subsection.2.4.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.6}WebGL}{\reset@font\mtcSSfont 19}{subsection.2.4.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Testing techniques and tools}{\reset@font\mtcSfont 20}{section.2.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.1}TDD}{\reset@font\mtcSSfont 20}{subsection.2.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.2}Jasmine and Karma}{\reset@font\mtcSSfont 21}{subsection.2.5.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Tooling}{\reset@font\mtcSfont 22}{section.2.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.6.1}Git}{\reset@font\mtcSSfont 22}{subsection.2.6.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.6.2}Jira}{\reset@font\mtcSSfont 22}{subsection.2.6.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.6.3}IntelliJ IDEA}{\reset@font\mtcSSfont 22}{subsection.2.6.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}Continuous Delivery and Continuous deployment}{\reset@font\mtcSSfont 11}{subsection.2.3.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Used Frameworks}{\reset@font\mtcSfont 12}{section.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Play Framework}{\reset@font\mtcSSfont 12}{subsection.2.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}MongoDB}{\reset@font\mtcSSfont 15}{subsection.2.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}AngularJS}{\reset@font\mtcSSfont 16}{subsection.2.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.4}Twitter Bootstrap}{\reset@font\mtcSSfont 18}{subsection.2.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.5}Junaio - Metaio}{\reset@font\mtcSSfont 19}{subsection.2.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.6}WebGL}{\reset@font\mtcSSfont 21}{subsection.2.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Testing techniques and tools}{\reset@font\mtcSfont 21}{section.2.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.1}TDD}{\reset@font\mtcSSfont 21}{subsection.2.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.5.2}Jasmine and Karma}{\reset@font\mtcSSfont 22}{subsection.2.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Tooling}{\reset@font\mtcSfont 23}{section.2.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.6.1}Git}{\reset@font\mtcSSfont 23}{subsection.2.6.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.6.2}Jira}{\reset@font\mtcSSfont 23}{subsection.2.6.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.6.3}IntelliJ IDEA}{\reset@font\mtcSSfont 24}{subsection.2.6.3}}
