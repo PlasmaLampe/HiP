@@ -1,14 +1,13 @@
 \chapter[Draft of the application]{Draft of the application}
 \label{draft}
-Within this thesis, we will develop an application (with focus on the backend system) to handle all these problems that have been described above within the section about the current situation. This master thesis will handle the planning respectively cost estimation of the different parts/features of the general system and will, after the needed technologies/frameworks are elaborated and evaluated, include a prototypical implementation of the needed components of the backend system. 
-But at first, we will start with the first step in a development process; the requirements engineering.
+Within this thesis, we will develop an application (with focus on the backend system) to handle all these problems that have been described above within the section about the current situation. This master thesis will handle the planning respectively cost estimation of the different parts/features of the general system and will, after the needed technologies respectively frameworks are elaborated and evaluated, include a prototypical implementation of the needed components of the backend system. 
+
+But at first, we will start with the first step within each development process; the requirements engineering.
 
 \section{Requirements engineering}
-Because the HiP-Application will be developed closely together with our \textit{costumer}, other working-groups at the university of paderborn, the whole process starts with the requirements engineering phase.
-
 First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
 
-We started the development of the application with a requirements engineering meeting together with our \textit{customer}. Within this meeting we talked about the main ideas of the application and tried to grasp the needed functionality. In the end, we ended up with a couple of cards with written user stories. Some of these cards are shown in Figure \ref{cards}.
+We started the development of the application with a requirements engineering meeting together with our \textit{customer}. Within this meeting, we talked about the main ideas of the application and tried to grasp the needed functionality. In the end, we ended up with a couple of cards with written user stories. Some of these cards are shown in Figure \ref{cards}.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/cards.jpg}}
@@ -16,33 +15,33 @@ We started the development of the application with a requirements engineering me
 \label{cards}
 \end{figure} 
 
-After this meeting, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}. These requirements can directly be used to derive test cases from them, which is a good thing because we will use a \ac{TDD} driven development approach in every sprint. 
+After this meeting, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}. These requirements can directly be used to derive some the needed test cases for the \ac{TDD} approach.
 
-Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. However, we will now take a look at the users of the planned system.
+One of these main features that has been elaborated in this meeting, was the need for four different roles within the complete system. We will now take a more detailed look at these roles within the following section.
 
 \section{Use Cases}
 The system on its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
 
 \begin{enumerate}
-	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of supervisor is the supervision of groups.
+	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of a supervisor is the supervision of groups.
 	\item Students: Students are placed in groups by their supervisor and work on a specific topic. They are able to hand in their work for review by the supervisor. 
-	\item Admin: The admins are able to assign users to specific roles and edit the system itself (e.g., edit translations, etc. )
+	\item Admin: The admins are able to assign users to specific roles and edit the system itself (e.g., edit translations, etc.).
 	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
 \end{enumerate}
 
-These four different roles are also shown in Figure \ref{usecase} an \ac{UML2} use case diagram, which is placed in the appendix. The figure shows the roles together with the functionality that gets invoked by these roles. 	
+These four different roles are also shown in Figure \ref{usecase} as an \ac{UML2} use case diagram, which is placed in the appendix. Figure shows the roles together with the functionality that gets invoked by these roles. 	
 
 After we have now seen the different roles that are involved in this system, we will include two use case tables as an example for the usage of the system here. However, a complete list of use case scenarios would be to large for this thesis.
 
  \begin{table}[h]
 \scriptsize
- \caption{Use Case Scenario: student changes content on a topic}
+ \caption{Use Case Scenario: Student changes content of a topic}
  \begin{tabular}{lll}
 	\toprule
   Step: & Involved: & Description of the activity: \\ 
 \cmidrule(rl){1-1}\cmidrule(rl){2-2}\cmidrule(rl){3-3}
   	0 	& Student & logs into the system \\
-	1	& Student	& navigates to the correct group \\
+	1	& Student & navigates to the correct group \\
 	2	& Student & navigates to the topic he wants to work on \\
 	3	& Student & changes content on the topic \\
 	4	& Student & saves the changes \\	
@@ -71,7 +70,7 @@ Table \ref{tab:ucTopicChange} shows that when a student wants to change the cont
  \label{tab:ucGroupCreation}
  \end{table} 
 
-The second use case scenario in Table \ref{tab:ucGroupCreation} shows that it will be quite easy for a supervisor to create a new group. He only needs to log into the system, open the correct view and input all needed information, like members of the group. 
+The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that it will be quite easy for a supervisor to create a new group. The only steps he needs to take is to log into the system, open the correct view and input all needed information (e.g., members of the group). 
 
 \todo{include simple sequence diagrams}
 
@@ -79,7 +78,7 @@ Now, after we have seen what the application is about, we will now take a closer
 
 \section{Architecture of the application}
 \label{architecture}
-The architecture design in agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system in its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the the following important attributes:
+The architecture design within agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system on its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the following important attributes:
 
 \begin{enumerate}
 	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
@@ -93,10 +92,10 @@ The architecture design in agile projects is slightly different from the design 
 \label{hip:architecture}
 \end{figure}
 
-That said, we will choose a 3-tier architecture for the development for the application, which is, according to \cite{Eckerson1995}, a quite common for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, parts of the application tier need to be included on the client side within the presentation tier. Because of that, the presentation tier will be much more complex as it is shown in this brief draft since AngularJS, which is used in this tier, relies on a \ac{MVVM} architecture on its own but this will be explained later.
+That said, we will choose a 3-tier architecture for the development for the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows also the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, some parts of the application tier need to be included on the client side within the presentation tier. Because of that, the presentation tier will be much more complex as it is shown in this brief draft since AngularJS, which is used in this tier, relies on a \ac{MVVM} architecture on its own.
 However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
 
-Now, we have an idea about the general architecture. However, we need to take a look at the usage of the different components (e.g., frameworks, libraries and tools) and how the will work together.
+Now, we have an idea about the general architecture. Nevertheless, we need to take a look at the usage of the different components (e.g., frameworks, libraries and tools) and how they will work together.
 
 \section{Usage of the components}
 As we have seen in section \ref{architecture} a lot of application logic will be included in the first tier (i.e., presentation tier). To offer all needed features of the backend in this short time frame, we will need to include a couple of frameworks and libraries. A brief overview about the components and how they work together is shown in Figure \ref{hip:components}. 
@@ -107,13 +106,13 @@ As we have seen in section \ref{architecture} a lot of application logic will be
 \label{hip:components}
 \end{figure}
 
-The figure shows that the backend system will make use of AngularJS and Bootstrap UI to create the \ac{UI} itself. Furthermore, These two components will be supported by a couple of smaller \ac{JS} libraries for highlighting (i.e., \emph{AnnotatorJS}) or word processing environments (i.e., \emph{textAngular}). To create highlighting with AnnotatorJS that is persistent, we need to send the information via another \ac{REST} interface to storage service.
-However, this creates the need for the user of the \ac{HiP} application to register on this backend service, which is not acceptable. This is why the authentication of the user can be pushed from the \ac{HiP} backend to the storage service (i.e., AnnotateIt) with a \ac{JWT}. This \ac{JWT} is a digital claim encoded as a \ac{JSON} object that is digitally signed using \ac{JWS}. It offers a possibility to represent claims that can be transferred between two parties in a safe way. More details about this authentication process will be shown in chapter \ref{implementation}.
+The figure shows that the backend system will make use of AngularJS and Bootstrap UI to create the \ac{UI} itself. Furthermore, these two components will be supported by a couple of smaller \ac{JS} libraries for highlighting (i.e., \emph{AnnotatorJS}) or word processing environments (i.e., \emph{textAngular}). To create highlighting with AnnotatorJS that is persistent, we need to send the information via another \ac{REST} interface to storage service.
+However, this creates the need for the user of the \ac{HiP} application to register on this backend service, which is not acceptable. This is why the authentication of the user can be pushed from the \ac{HiP} backend to the storage service (i.e., AnnotateIt) with a \ac{JWT}. This \ac{JWT} is a digital claim encoded as a \ac{JSON} object that is digitally signed using a \ac{JWS}. It offers a possibility to represent claims that can be transferred between two parties in a safe way. More details about this authentication process will be shown in chapter \ref{implementation}.
 
 After we have now seen the general architecture and the used frameworks, we will take a look at the different part of the system in more detail.
  
 \section{Backend (Web-Server)}
-The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application by an user, who represents the master role. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student, to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application. The whole process is also shown in Figure \ref{workflow_backend}, which can be found in the appendix. The figure shows the complete workflow within the backend system as flowchart.
+The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor and unlocked for the frontend application by an user, who represents the master role. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application. The whole process is also shown in Figure \ref{workflow_backend}, which can be found in the appendix. The figure shows the complete workflow within the backend system as a flowchart.
 
 The data (i.e., topics, graphics, etc.) should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
@@ -126,13 +125,14 @@ The data (i.e., topics, graphics, etc.) should be stored in a way that it can be
 Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{augmentation_web}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
 \subsection{Input data/content via CMS in the system}
-The storage of the data respectively content of the topics and groups will be mainly done with using the MongoDB. For example, a topic will be an object with information like version number, content, etc. So, when an user changes something at a topic, the data is changed on the model in the view and send back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
+The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. 
+
+So, when an user changes something at a topic, the data is changed on the model in the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
-\todo{technical details}
 
 \subsection{Manage content as a reviewer}
-The reviewer should be able to review the content that gets send in by the students. In this process he should be able to attach comments to the topic itself and send feedback to the students.
+The reviewer should be able to review the content that gets send in by the students. In this process, he should be able to attach comments to the topic itself and send feedback to the students.
 After that, the supervisor can mark the topic as 'ready for publish' if he is satisfied with the given quality.
 
 \todo{technical details}
@@ -145,7 +145,7 @@ The editor should be able to show the stored point-clouds and attach objets (for
 
 \subsection{Cost estimation of the backend}
 \label{backendEstimation}
-Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend. The story points have been explained in section \ref{storyPoints} and should represent 6 hours per point. This way we get a rough estimation, which should, however be sufficient to get an idea about the needed time. However, note that the parts of the system could be subject for change because we are using an agile approach and some new requirements may come up within the development process.
+Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend. The story points have been explained in section \ref{storyPoints} and should represent 6 hours per point. This way, we get only a rough estimation. Nonetheless, this rough estimation should be sufficient to get an idea about the needed time. However, note that some parts of the system could be subject for change because we are using an agile approach and some new requirements may come up within the development process.
 
  \begin{table}[h]
 \scriptsize
@@ -180,7 +180,7 @@ Now, as we have seen the major ideas about the backend, we will try to create a 
  \label{tab:costBackend}
  \end{table} 
 
-Table \ref{tab:costBackend} shows that the Backend system needs a lot of typical \ac{CMS} functions, which sum up to $35$ story points. So, the Backend system should cost about $210$ hours to create a prototypical but running system. 
+Table \ref{tab:costBackend} shows that the backend system needs a lot of typical \ac{CMS} functions, which sum up to $35$ story points. So, the backend system should cost about $210$ hours to create a prototypical but running system. 
 
 \section{Frontend (App)}
 \begin{figure}[th]
@@ -194,7 +194,7 @@ The smartphone application is the part of the system that gets shipped to the en
 After an user has reached an interesting place, he can use the details tab to switch into the \ac{AR}-mode. With this view, the user can use the smartphone-camera to embed information, which has been added via the backend, right into the picture of the object. An mockup of this view is shown in Figure \ref{app2}. 
 To create a feasible input for the \ac{AR} system, the user should be able to scan objects in 3D directly with his smartphone and send the data (i.e., a point-cloud of the scanned object), back to the web-server.  Afterwards, the user can add annotations to the point-cloud via the web-backend of the system. 
 
-In the following we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included. 
+In the following, we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included within the draft. 
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=0.7\textwidth]{gfx/mockup_app_2}}
@@ -215,7 +215,7 @@ With the Junaio eco-system of the company Metaio it is quite easy to scan object
 The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. To create a web editor, asked for a specification for the file format by the company Metaio. However, we never received an answer. 
 
 \subsection{Show close "interesting places" within a map} 
-Because the students should add \ac{GPS} coordinates for exhibits and locations that are included in the topics, we can make use of these informations to show them on a map on the smartphone. 
+In the end, every topic will contain \ac{GPS} coordinates for exhibits and locations, which has been added by students. We can make use of this information to get a location specific map and navigation features on the smartphone. 
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -251,10 +251,10 @@ public class MapPane extends Activity implements OnMapReadyCallback {
 }
 \end{lstlisting}
 
-The usage of the \ac{GPS} information is quite easy within Android because we can make use of the \emph{Google Maps API v2}. As Listing \ref{Android:GPS} shows we can directly manipulate the Google Maps view by using the $LatLng$ object. Line 18 shows the movement of the camera (i.e., the excerpt of the map) and line 20 the creation of a marker on the map. 
+The usage of the \ac{GPS} information is quite easy within Android because we can make use of the \emph{Google Maps API}. As Listing \ref{Android:GPS} shows, we can directly manipulate the Google Maps view by using the $LatLng$ object. Line 18 shows the movement of the camera (i.e., the excerpt of the map) and line 20 the creation of a marker on the map. 
 
 \subsection{Navigation to "interesting places"}
-An easy way to create a navigation feature would be the usage of the google directions service \cite{GoogleNavi}. However, this runs not natively on Android, so we would need a wrapper to access the \ac{HTML} and \ac{JS} based source code in our Android application. 
+An easy way to create a navigation feature would be the usage of the Google directions service (\cite{GoogleNavi}). However, this service runs not natively on Android, so we would need a wrapper to access the \ac{HTML} and \ac{JS} based source code in our Android application. 
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -278,7 +278,9 @@ backgroundcolor=\color{grey}}
 }
 \end{lstlisting}
 
-After doing that, we can access the direction service by posting an \ac{JSON} object to the google service and using the returned data to render the navigation path in our application. The construction of such a \ac{JSON} object is shown in Listing \ref{Android:dirService}. As we can see, these object include information like the position of the navigation origin, the position of the destination and specific travel options (e.g., using train, car, etc.). After we have send this object, we need to render the returned data. This is, for example, possible by drawing lines on the map using the $google.maps.Polyline$ class. This is shown in Listing \ref{Android:polyline}.
+After doing that, we can access the direction service by posting a \ac{JSON} object to the Google service and use the returned data to render the navigation path within our application. The construction of such a \ac{JSON} object is shown in Listing \ref{Android:dirService}. 
+
+As we can see, this object include information like the position of the navigation origin, the position of the destination and specific travel options (e.g., using train, car, etc.). After we have send this object, we need to render the returned data. This is, for example, possible by drawing lines on the map using the $google.maps.Polyline$ class. This is shown in Listing \ref{Android:polyline}.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -312,9 +314,9 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 \end{lstlisting}
 
-As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript. The Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Furthermore, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality which has been expressed within the first requirements meeting. One one just need to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
+As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript.\todo{describe listing} The Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Furthermore, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality, which has been expressed within the first requirements meeting. One just needs to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
 
-Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing, with optical and voice guidance, and (just like google directions service) offers this navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays like for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
+Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
 
 \todo{IBeacon support for indoor navigation}
 
@@ -351,20 +353,20 @@ textv.append(" First line: " + line);
 
 As Listing \ref{Android:HTTP} shows, it is only a matter of a couple of lines to create a \ac{HTTP} client for Android. Line $5$ shows the creation of a $HttpClient$ object, which is used in line $12$ to send the GET request.
 
-Another important thing is the \ac{PDF} export functionality of the data, that we have just downloaded from our backend server.
+Another important thing is the \ac{PDF} export functionality of the data that we have just downloaded from our backend server.
 Because there is no out-of-the-box way on Android to create \ac{PDF} documents, we need to make use of an external library. One choice for such a library is $iText$. This is a \ac{PDF} library for Android that offers features to create, adapt and maintain \ac{PDF} document (\cite{itext2015}).
 With this library, it is quite easy to export the downloaded data to a \ac{PDF} file because we can directly create chapters and section with content within our \ac{PDF} file. For doing this, we can make use of classes like $chapter$, $Paragraph$ and similar environments (\cite{pdfCreation}). The creation of a new paragraph could for example look like:
 
 \verb|myCategory.add(new Paragraph("This is a very important message"));|  
 
-All in all, \ac{PDF} export can be included easy and fast within the smartphone application.
+All in all, \ac{PDF} export can be included fast and easy within the smartphone application.
 
 \subsection{Rendering AR-data with Junaio}
-Another very important part of the \ac{HiP} frontend is the rendering of the \ac{AR} data. As it has been explained in section \ref{AREL}, we need to create a static content definition, a \ac{HTML5} layer and the application logic. While the application logic can be general for the whole application, we need to generate the static content definition and the \ac{HTML5} layer for every topic because the shown objects are changed, as soon as we change a topic.
+The rendering of the \ac{AR} data is another very important part of the \ac{HiP} frontend. As it has been explained in section \ref{AREL}, we need to create a static content definition, a \ac{HTML5} layer and the application logic. While the application logic can be general for the whole application, we need to generate the static content definition and the \ac{HTML5} layer for every topic because the shown objects are changed, as soon as we change a topic.
 \todo{more}
  
 \subsection{Cost estimation of the frontend}	
-Now, after we have seen the technical details about the different parts of the frontend, we can create our cost estimation. One problem is that the cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. Thus, we assume ,in the following, that we use the \ac{OsmAnd} project as the basis for the \ac{HiP}-navigation features. Like in section \ref{backendEstimation}, one story point should represent 6 hours.
+Now, after we have seen the technical details about the different parts of the frontend, we can create our cost estimation. One problem is that the cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. Thus, we assume in the following that we use the \ac{OsmAnd} project as the basis for the \ac{HiP}-navigation features. Like in section \ref{backendEstimation}, one story point should represent 6 hours.
 
  \begin{table}[th]
 \scriptsize

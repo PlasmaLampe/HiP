@@ -106,7 +106,9 @@ Because the time frame for the project is quite small, it is not possible to cre
 \label{Play2}
 We will use the Play framework for the backend of the application because Play is an open source web application framework, which is written in Scala and Java, follows the \ac{MVC} architectural pattern and handles the routing from \ac{HTTP}-requests to application code. 
 
-A simple example for the routing configuration file is shown in Listing \ref{Play:Routing}. In this file, each documented route consists of an \ac{HTTP} method and \ac{URI} pattern that is linked to a call of a, so called, \textit{action method} within the Java respectively Scala code. As one can easily see in line 9, it is quite easy to pass parameters to the application code. Furthermore, one can see that the parameters are type-safe; thus, for example, a String passed in as an Integer would result in a compilation error. 
+A simple example for the routing configuration file is shown in Listing \ref{Play:Routing}. In this file, each documented route consists of an \ac{HTTP} method and an \ac{URI} pattern that is linked to a call of a, so called, \textit{action method} within the Java respectively Scala code. 
+
+As one can easily see in line 9, it is quite easy to pass parameters to the application code. Furthermore, one can see that the parameters are type-safe. Thus, for example, a String passed in as an Integer would result in a compilation error. 
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -131,7 +133,7 @@ GET /assets/*file   controllers.Assets.at(path="/public", file)
 
 Very briefly, the Play framework includes three different parts: 
 
-1) Java Code that implements the controllers. The controllers are used to handle requests that get routed to them via \ac{HTTP}. A simple controller is shown in Listing \ref{Play:Controller}. As one can see within line 10 of Listing \ref{Play:Controller} the String "Your new application is ready" gets passed to the render function of the class index and returned as a parameter within the \textit{ok} function, which creates a simple \ac{HTTP} header with return-code 200. The index class is a Scala class that gets automatically creates from the Scala/\ac{HTML} template called \textit{index.scala.html}. We will see this in more detail within point 3 of this list.
+1) Java code that implements the controllers. The controllers are used to handle requests that get routed to them via \ac{HTTP}. A simple controller is shown in Listing \ref{Play:Controller}. As one can see within line 10 of Listing \ref{Play:Controller} the String "Your new application is ready" gets passed to the render function of the class index and returned as a parameter within the \textit{ok} function, which creates a simple \ac{HTTP} header with return-code 200. The index class is a Scala class that gets automatically created from the Scala/\acs{HTML} template called \textit{index.scala.html}. We will see this in more detail within point 3 of this list.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -154,8 +156,8 @@ public class Application extends Controller {
 }
 \end{lstlisting}
 
-2) Java Code that implements the model entities. The model is used to do the actual calculation and data handling. In essence, we should include as less application-logic as possible within the controllers and use these model classes instead. \\
-3) Scala templates that are used as \textit{views}. As a return value of the controllers, they pass data to a fitting template and return a corresponding \ac{HTML}-view. However, we may also skip the template engine sometimes to directly return \ac{JSON}-documents, which can be used to provide a \ac{API}. Listing \ref{Play:Template} shows the used \textit{index.scala.html} template used in point 1 of this list. In line 1, we declare the used parameters, in our case one String variable, which we have used to pass the String "Your new application is ready". The \textit{@main} command in line 3 calls another template, which includes everything beside the \ac{HTML} body. The body of the file is now included in line 4 by calling another framework specific method, which includes a welcome and documentation message and renders our passed String variable.
+2) Java code that implements the model entities. The model in Play 2.0 is used to do the data handling, which is quite easy because the Play framework maps automatically the documents in the MongoDB to concrete Scala ojects. \\
+3) Scala templates that are used as \textit{views}. As a return value of the controllers, they pass data to a fitting template and return a corresponding \ac{HTML}-view. However, we may also skip the template engine sometimes to directly return \ac{JSON}-documents, which can be used to provide a \ac{API}. Listing \ref{Play:Template} shows the used \textit{index.scala.html} template used in Listing \ref{Play:Controller}. In line 1 of Listing \ref{Play:Template}, we declare the used parameters (i.e., a String variable) that we have used to pass the String "Your new application is ready". The \textit{@main} command in line 3 calls another template, which includes everything besides the \ac{HTML} body. The body of the file is now included in line 4 by calling another framework specific method, which includes a welcome and documentation message and renders our passed String variable.
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -171,17 +173,17 @@ backgroundcolor=\color{grey}}
 }
 \end{lstlisting}
 
-Besides the templating feature, Play can be augmented with Plugins that handle specific behavior. For example, the Plugin \emph{SecureSocial 2} is able to handle the whole user registration and login process and offers and interface to get the data from users, who are currently logged into the system. In more detail, it offers out of the box support for web-services like Twitter, Facebook, Google, LinkedIn and GitHub. Furthermore, \emph{SecureSocial 2} provides a Username/Password mechanism (will will be used by the \ac{HiP} backend) with signup, login and reset password functionality.
+Besides the templating feature, Play can be augmented with Plugins that handle specific behavior. For example, the Plugin \emph{SecureSocial 2} is able to handle the whole user registration and login process. In more detail, it offers an interface to get the data from users, who are currently logged into the system. Furthermore, it offers out of the box support for web-services like Twitter, Facebook, Google, LinkedIn and GitHub. If one do not want to rely on external services, \emph{SecureSocial 2} provides a Username/Password mechanism with signup, login and reset password functionality. We will use this last technique within the \ac{HiP} backend.
 
-As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}. 
+As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}. \todo{what is rest?}
 As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST} (\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O.  So, all in all, Play will noticeably enhance the development speed of the backend.
 
 \subsection{MongoDB}
-As \cite{Tre14} describes, data entries within a MongoDB are called documents and are in essence ordered sets of key-value pairs. However, values can also be complete documents and arrays, so one can store complex hierarchical structures within a MongoDB. Similarly, the data gets stored in a \ac{BSON}-format, which is a binary \ac{JSON} format with more datatypes and better traversability.
+\todo{Introduction}As \cite{Tre14} describes, data entries within a MongoDB are called documents and are in essence ordered sets of key-value pairs. However, values can also be complete documents and arrays. So, one can store complex hierarchical structures within a MongoDB. Similarly, binary data (e.g., pictures) gets stored in a \ac{BSON}-format. This format is a binary \ac{JSON} format that includes datatypes and better traversability.
 
-These documents are stored in so called collections, which are in general comparable to the tables in a relational database, like \ac{MySQL}.
+These documents are stored in \emph{collections}, which are in general comparable to the tables in a relational database, like MySQL.
 
-For every document within the database we need to include a field called \textit{\_id}, which contains the primary key of the document. Of course, this primary key has to be unique within the collection that contains the document. If an document is stored within the database without a \textit{\_id}field the field gets automatically generated.
+Every document within the database needs to include a field called \textit{\_id}, which contains the primary key of the document. Of course, this primary key has to be unique within the collection that contains the document. If an document is stored within the database without an \textit{\_id} field, the field gets automatically generated.
 
 An insert into a MongoDB is easily done and shown in Listing \ref{MongoDB:insert}. 
 
@@ -203,7 +205,7 @@ db.hipUsers.insert(object);
 \end{lstlisting}
 
 Similarly one can read documents from the database by creating a document that is matched against the collection.
-For example, to retrieve the user \textit{John Doe} that has been included within Listing \ref{MongoDB:insert} by matching against his lastname, one would need to do the steps shown in Listing \ref{MongoDB:query}. 
+For example, to retrieve the user \textit{John Doe} that has been included within Listing \ref{MongoDB:insert} by matching against his lastname, one would need to do the steps shown in Listing \ref{MongoDB:query}. The object that is used to match the query is created in line 3. The query itself is started in line 7 of Listing \ref{MongoDB:query}.
 
 \begin{lstlisting}[numbers=left,caption={Reading documents from a MongoDB},label=MongoDB:query,frame=tlbr,breaklines]
 var db = ... // contains the connection to the database
@@ -215,10 +217,11 @@ var object = {
 db.hipUsers.find(object);
 \end{lstlisting}
 
-Now, within the following section, we will take a look at the frontend technologies.
+Within the following section, we will take a look at the frontend technologies.
+
 \subsection{AngularJS}
 \label{AngularJS}
-After we have now seen the basics of the Play framework and the MongoDB, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The frontend will be designed as a \ac{SPA}. A \ac{SPA} is in general an orthogonal approach to the common way of creating websites as a set of linked pages. A \ac{SPA} is a composition of individual components which can be updated respectively replaced independently of the complete site and, thus, without any reload after the actions of the user. This results in a couple of benefits, like improved interactivity, responsiveness and user satisfaction (\cite{Mes07}). Another important fact with respect to the system performance is that AngularJS offers functions (as we will see: \emph{directives}) to circumvent the need for changing the \ac{DOM}-Tree directly. AngularJS relies on a \ac{MVVM} architecture and tries to create the same behavior by doing changes to the ViewModel. The ViewModel sits behind the concrete \ac{UI} layer and exposes data needed by a View from a Model. Because of that the ViewModel can be viewed as the source our Views go to for both data and actions. 
+After we have now seen the basics of the Play framework and the MongoDB, which will handle the backend functionality, we will now take a look at \textit{AngularJS}, which will provide needed features to create a fast and responsive frontend. The frontend will be designed as a \ac{SPA}. A \ac{SPA} is an orthogonal approach to the common way of creating websites as a set of linked pages. A \ac{SPA} is a composition of individual components which can be updated respectively replaced independently of the complete site and, thus, without any reload after the actions of the user. This results in a couple of benefits, like improved interactivity, responsiveness and user satisfaction (\cite{Mes07}). Another important fact with respect to the system performance is that AngularJS offers functions (as we will see: \emph{directives}) to circumvent the need for changing the \ac{DOM}-Tree directly. AngularJS relies on a \ac{MVVM} architecture and tries to create the same behavior by doing changes to the ViewModel. The ViewModel sits behind the concrete \ac{UI} layer and exposes data needed by a View from a Model. Because of that, the ViewModel can be viewed as the source of data for the Views to get data and call functions. 
 
 \lstset{language=JavaScript,
 basicstyle=\small,
@@ -226,7 +229,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Simple example that shows the use of an AJAX request that shows the reponse text within a specific div container},label=AJAX:Example,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Simple example that shows the use of an AJAX request that shows the response text within a specific div container},label=AJAX:Example,frame=tlbr,breaklines]
 xmlhttp.onreadystatechange=function(){
   if (xmlhttp.readyState==4 && xmlhttp.status==200){
     document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
@@ -236,10 +239,10 @@ xmlhttp.open("GET","ajax_info.txt",true);
 xmlhttp.send();
 \end{lstlisting}
 
-Obviously, creating a \ac{SPA} implicitly forces the usage of some kind of request mechanism to get the data that the user needs, without reloading the site. This could for example be done with an \ac{AJAX} request like the one that is show in Listing \ref{AJAX:Example}. The listing shows how the request is being made in line 6 and 7. Line 3 shows the exchange of the content of the div container with the id \textit{myDiv}. However, using \ac{AJAX} is cumbersome and can nowadays easily be hidden in very sophisticated frameworks, like AngularJS.
+Obviously, creating a \ac{SPA} implicitly forces the usage of some kind of request mechanism to get the data that the user needs without reloading the site. This could for example be done with an \ac{AJAX} request like the one that is show in Listing \ref{AJAX:Example}. The listing shows how the request is being made in line 6 and 7. Line 3 shows the exchange of the content of the div container with the id \textit{myDiv}. However, using \ac{AJAX} is cumbersome and can nowadays easily be hidden in very sophisticated frameworks, like AngularJS.
 
 The \textit{AngularJS} framework will be explained briefly in the following. AngularJS makes heavy use of expressions and directives.
-While directives in AngularJS are functions that get run when the DOM is compiled by the compiler and are shown as simple tags or attributes, an expression is a term that is encapsulated by \textit{\{ \{ ... \} \}} and gets evaluated while the page gets loaded.
+While directives in AngularJS are functions that get run when the DOM is compiled by the compiler and are shown as simple tags or attributes, an expression is a term that is encapsulated by \textit{\{ \{ ... \} \}} and gets evaluated while the page gets loaded. Listing \ref{Angular:expressions} shows a simple example, where an expression is used to call a method of a controller object.
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -252,8 +255,9 @@ backgroundcolor=\color{grey}}
 	{{lc.getTerm('system_group_navigation')}} 
 </div>
 \end{lstlisting}
-Listing \ref{Angular:expressions} shows a simple example, where an expression is used to call a method of a controller object. As soon as the page gets rendered, the \ac{DOM}-tree will be loaded with the result value of the given javascript function called \textit{getTerm(String)}. 
-Another major feature of AngularJS is the so called two-way data binding, which is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value.This creates a source-code that includes less unnecessary lines of code for updating the values in the view. 
+
+As soon as the page gets rendered, the \ac{DOM}-tree will be loaded with the result value of the given javascript function called \textit{getTerm(String)}. 
+Another major feature of AngularJS is the, so called, two-way data binding. This feature is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value. This creates a source-code that includes less unnecessary lines of code for updating the values in the view. 
 
 Furthermore, AngularJS offers directives like \textit{ng-class} which adds dynamically a specific class to a \ac{DOM}-element if a given expression evaluates to true.
 
@@ -273,9 +277,9 @@ backgroundcolor=\color{grey}}
 	{{alert.msg}}
 </div>
 \end{lstlisting}
-Listing \ref{Angular:ngclass} shows how the \textit{ng-class} directive exchanges the used style of the alert depending on the boolean expression that is places behind the ':'. So the syntax of the attribute value is \{ class : expression \}.
+Listing \ref{Angular:ngclass} shows how the \textit{ng-class} directive exchanges the used style of the alert depending on the boolean expression that is places behind the ':'. So, the syntax of the attribute value is \{ class : expression \}.
 
-Of course one can also create own directives to get a much cleaner code. For example, it is possible to create a directive called \textit{chat-box} which can directly included within the \ac{DOM}-tree. Thus, the usage of the created chat element folds down to the code that is shown in Listing \ref{Angular:ownDirective}. The same can be achieved by using web components or Google polymer, which is in essence an extension of the web-components technology. However both technologies are, at the present point in time, only fully compatible to Google Chrome. Because of that we will use custom AngularJS directives to create clean and maintainable code.
+Of course, one can also create own directives to get a much cleaner code. For example, it is possible to create a directive called \textit{chat-box} that can directly be included within the \ac{DOM}-tree. Thus, the usage of the created chat element folds down to the code that is shown in Listing \ref{Angular:ownDirective}. The same can be achieved by using web components or Google Polymer, which is in essence an extension of the web-components technology. However both technologies are, at the present point in time, only fully compatible to Google Chrome. Because of that, we will use custom AngularJS directives to create clean and maintainable code.
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -294,11 +298,11 @@ backgroundcolor=\color{grey}}
 Besides AngularJS, Twitter Bootstrap will also play an major role in the frontend development process.
  
 \subsection{Twitter Bootstrap}
-Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be downloaded here: \url{https://github.com/twitter/bootstrap}} is an open and freely available collection of tools on the basis of the \ac{HTML}, \ac{CSS} and \ac{JS} and can be used to support and accelerate the building of web applications. We will use Twitter Bootstrap inside the user front-end of our web application because it works nicely together with AngularJS and can for example be used to create tabs and alerts. Furthermore, Twitter Bootstrap is nowadays used a lot by common web-applications and, thus, we enhance the external consistency of the \ac{HiP}-application in respect of other web-applications (\cite{lidwell2010universal}), which may be well known to the user. 
+Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be downloaded here: \url{https://github.com/twitter/bootstrap}} is an open and freely available collection of tools on the basis of the \ac{HTML}, \ac{CSS} and \ac{JS} and can be used to support and accelerate the creation of web applications. We will use Twitter Bootstrap inside the user front-end of our web application because it works nicely together with AngularJS and can for example be used to create tabs and alerts. Furthermore, Twitter Bootstrap is nowadays used by a lot of common web-applications. Thus, we enhance the external consistency of the \ac{HiP}-application in respect of other web-applications (\cite{lidwell2010universal}), which may be well known to the user. 
 
 Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnote{The terms of the license can be found here: \url{http://www.apache.org/licenses/LICENSE-2.0}}.
 
-Furthermore, Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: http://angular-ui.github.io/bootstrap/ and is distributed under the MIT license https://github.com/angular-ui/bootstrap/blob/master/LICENSE}
+Furthermore, Twitter Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: http://angular-ui.github.io/bootstrap/ and is distributed under the MIT license https://github.com/angular-ui/bootstrap/blob/master/LICENSE}
 
 \subsection{Junaio - Metaio}
 \label{AREL}
@@ -310,9 +314,9 @@ The \ac{AR}-functionality will be offered by the framework Junaio. The company M
 \label{stackArel}
 \end{figure}
 
-Furthermore, Metaio has developed a JavaScript binding of the SDK used for \ac{AR}-applications called \ac{AREL} which can be used as a platform to write your \ac{AR} apps without writing platform specific code of the mobile operating system \cite{MetaioDEV}. Figure \ref{stackArel} shows the placement of the \ac{AREL} interpreter within the platform stack. 
+Furthermore, Metaio has developed a JavaScript binding of the SDK used for \ac{AR}-applications called \ac{AREL}, which can be used as a platform to write your \ac{AR} apps without writing platform specific code of the mobile operating system \cite{MetaioDEV}. Figure \ref{stackArel} shows the placement of the \ac{AREL} interpreter within the platform stack. 
 
-To use \ac{AREL} we need three different parts that that get combined to an \ac{AREL} application.
+To use \ac{AREL}, we need three different parts that that get combined to an \ac{AREL} application.
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -320,22 +324,17 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Example for the HTML5 layer},label=AREL:HTML5,frame=tlbr,breaklines]
-<html>
-   <head>
-      <!-- Integrates the arel javascript bridge -->
-      <script type="text/javascript" src="http://dev.junaio.com/arel/js/arel.js"></script>
+\begin{lstlisting}[numbers=left,caption={Example for the HTML5 AREL layer},label=AREL:HTML5,frame=tlbr,breaklines]
+<head>
+   <!-- Integrates the arel javascript bridge -->
+   <script type="text/javascript" src="http://dev.junaio.com/arel/js/arel.js"></script>
 
-      <!-- Includes application logic -->
-      <script  type="text/javascript" src="logic.js"></script>
-   </head>
- 
-   <body>
-   </body>
-</html>
+   <!-- Includes application logic -->
+   <script  type="text/javascript" src="logic.js"></script>
+</head>
 \end{lstlisting}
 
-First of all, we need a static content definition, which is a \ac{XML} document that references the models and graphics that will be loaded when we start the \ac{AREL} application. The second part is the \ac{HTML5} layer, which is also addressed in the static content definition. The \ac{HTML5} binds the static content definition to the application logic and may also add additional \ac{GUI} functionality. An example for such an \ac{HTML5} layer is shown in \ref{AREL:HTML5}. The last part, the application logic is written in \ac{JS} and loads objects that are afterwords tracked by patterns.  
+First of all, we need a static content definition, which is an \ac{XML} document that references the models and graphics that will be loaded when we start the \ac{AREL} application. The second part is the \ac{HTML5} layer, which is also addressed in the static content definition. The \ac{HTML5} binds the static content definition to the application logic and may also add additional \ac{GUI} functionality. An example for such an \ac{HTML5} layer is shown in \ref{AREL:HTML5}. The last part, the application logic is written in \ac{JS} and loads objects that are afterwords tracked by patterns.  
 
 So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
 
@@ -343,35 +342,37 @@ So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating syste
 Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
 
 \section{Testing techniques and tools}	
-Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. This leads us to \ac{TDD}, which is a developing technique which relies on the heavy use of tests. \ac{TDD} will be explained in the following section. 
+Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. This leads us to \ac{TDD}, which is a developing technique that relies on the heavy use of tests. \ac{TDD} will be explained in the following section. 
 
 \subsection{TDD}
-The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \ac{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. As the definition of the Agile Alliance (\cite{GAA2015}) states \textit{"Test-driven development" refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}. So, \ac{TDD} is not only a testing technique, it is a programming technique which follows a couple of rules to  achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, design seems to be a bit different to grasp it with a technique that relies on testing. However, as \cite{Janzen2005} points out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
+The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \cite{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. As the definition of the Agile Alliance (\cite{GAA2015}) states \textit{"Test-driven development" refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}. 
 
-Furthermore, \cite{Janzen2005} states that the positive aspects of the usage of \ac{TDD} have also been shown in studies of the \ac{NCSU}, which has performed a couple of empirical studies (\cite{George2004}, \cite{max03}, \cite{Williams2003}) on TDD in industry settings.
-These studies showed that programmers who used \ac{TDD} to produce code created 18 up to 50 percent more external test cases than code that has been produced by corresponding control groups. The studies also reported that the \ac{TDD} developers spent less time while debugging their code. Nevertheless, they reported also that the \ac{TDD} project took up to 16 percent longer. But, in the case that took 16 percent more time, researchers noted that the control group without \ac{TDD} wrote far fewer tests than the \ac{TDD} group. 
+So, \ac{TDD} is not only a testing technique, it is a programming technique which follows a couple of rules to achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, the relation between writing test cases and designing a system seems to be a bit odd. However, as \cite{Janzen2005} point out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
 
-According to \ac{GAA2015} the \ac{TDD} process can be expressed with the following set of steps:
+Furthermore, \cite{Janzen2005} state that the positive aspects of the usage of \ac{TDD} has also been shown in studies of the \ac{NCSU}, which has performed a couple of empirical studies (\cite{George2004}, \cite{max03}, \cite{Williams2003}) on TDD in industry settings.
+These studies showed that programmers, who used \ac{TDD} to produce code, created 18 up to 50 percent more external test cases than code that has been produced by corresponding control groups. The studies also reported that the \ac{TDD} developers spent less time while debugging their code. Nevertheless, they reported also that the \ac{TDD} project took up to 16 percent longer. But, in the case that took 16 percent more time, researchers noted that the control group without \ac{TDD} wrote far fewer tests than the \ac{TDD} group. 
+
+According to \cite{GAA2015} the \ac{TDD} process can be expressed with the following set of steps:
 
 \begin{enumerate}
-  	\item write a "single" unit test describing an aspect of the program
+  	\item write a \emph{single} unit test describing an aspect of the program
   	\item run the test, which should fail because the program lacks that feature
-  	\item write "just enough" code, the simplest possible, to make the test pass
-	\item "refactor" the code until it conforms to the \textit{simplicity criteria}
-	\item repeat, "accumulating" unit tests over time
+  	\item write \emph{just enough} code, the simplest possible, to make the test pass
+	\item \emph{refactor} the code until it conforms to the \textit{simplicity criteria}
+	\item repeat, \emph{accumulating} unit tests over time
 \end{enumerate}
 
-Note that the \textit{simplicity criteria} within step 4 of the procedure has been defined by \cite{Beck1999} as: \textit{At every moment, the design runs all the tests, communicates everything the programmers want to communicate, contains no duplicate code, and has the fewest possible classes and methods. This rule can be summarized as, \"Say everything once and only once.\"}. 
+Note that the \textit{simplicity criteria} within step 4 of the procedure has been defined by \cite{Beck1999} as: \textit{At every moment, the design runs all the tests, communicates everything the programmers want to communicate, contains no duplicate code, and has the fewest possible classes and methods. This rule can be summarized as, ''Say everything once and only once.''}. 
 
 So, all in all, the \ac{TDD} process relies on writing unit test before writing the application code itself and use them as tests in the developing phase to check if the currently written code is able to fulfill the requirement. Step 5 shows, that the sum of all test cases is then also used in a \textit{traditional} way to find bugs in the existing application-code. 
 
 \subsection{Jasmine and Karma}
-Testing will be a major part of the development process. Thus, the chose of a good test environment is important. Karma is a test runner, which can be extended with a couple of plugins (e.g., code-coverage, more available browsers, etc.) that allows you to execute JavaScript code in multiple real browsers. The tool has been created by the team that has created AngularJS and is, thus, suggested as the main test runner within an AngularJS environment (\cite{7_github_2015}).  
+As we have seen in the last section, testing will be a major part of the development process. Thus, the chose of a good test environment is important. Karma is a test runner, which can be extended with a couple of plugins (e.g., code-coverage, more available browsers, etc.) that allows you to execute JavaScript code in multiple real browsers. The tool has been created by the team that has created AngularJS and is, thus, suggested as the main test runner within an AngularJS environment (\cite{7_github_2015}).  
 
-Furthermore, Karma can be used with an extension called \emph{Karma-jasmine} to run Jasmine test cases. \emph{Jasmine} is a behavior-driven testing framework that can be used to test JavaScript code. As a brief explanation, \ac{BDD} is a development method that has been evolved from \ac{TDD} to get the idea to a bigger audience and to shorten the gap between behavior (which can easily be explained to the customer) and code \cite{BDD}. Thus, we will use Karma with the Jasmine extension to run our Jasmine test case for the application.
+Furthermore, Karma can be used with an extension called \emph{Karma-jasmine} to run Jasmine test cases. \emph{Jasmine} is a behavior-driven testing framework that can be used to test JavaScript code. As a brief explanation, \ac{BDD} is a development method that has been evolved from \ac{TDD} to get the idea to a bigger audience and to shorten the gap between behavior (which can easily be explained to the customer) and code (\cite{BDD}). Thus, we will use Karma with the Jasmine extension to run our Jasmine test case for the application.
  
 \section{Tooling}
-A couple of frameworks and techniques is a good start for creating such a sophisticated system, however, we will also need fitting tooling to support the development. These tools will be described in the following section.
+A couple of frameworks and techniques is a good start for creating such a sophisticated system. However, we will also need fitting tooling to support the development. These tools will be described in the following section.
 
 \subsection{Git}
 We will use Git, which is a commonly used distributed revision control and source code management system, for the versioning of our source-code. Git is free software distributed under the terms of the GNU General Public License version 2.
