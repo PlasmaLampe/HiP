@@ -8,11 +8,19 @@ Because the HiP-Application will be developed closely together with our \textit{
 
 First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
 
-We started the development of the application with a requirements engineering meeting together with our \textit{customer} and ended up with a couple of cards with written user stories. Afterwards, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}. These requirements can directly be used to derive test cases from them, which is good because we will use a \ac{TDD} driven development approach in every sprint. 
+We started the development of the application with a requirements engineering meeting together with our \textit{customer}. Within this meeting we talked about the main ideas of the application and tried to grasp the needed functionality. In the end, we ended up with a couple of cards with written user stories. Some of these cards are shown in Figure \ref{cards}.
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/cards.jpg}}
+\caption{Some of the requirement cards, which has been sorted.}
+\label{cards}
+\end{figure} 
+
+After this meeting, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}. These requirements can directly be used to derive test cases from them, which is a good thing because we will use a \ac{TDD} driven development approach in every sprint. 
 
 Because the system will be quite complex and big, we will need a couple of frameworks and libraries, which have mostly been explained in section \ref{background}. However, we will now take a look at the users of the planned system.
 
-\section{Use Cases - User stories}
+\section{Use Cases}
 The system on its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
 
 \begin{enumerate}
