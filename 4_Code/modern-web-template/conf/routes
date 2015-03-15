@@ -43,6 +43,8 @@ POST          /admin/topic                           @controllers.TopicControlle
 PUT           /admin/topic                           @controllers.TopicController.updateTopic
 DELETE        /admin/topic/:uID                      @controllers.TopicController.deleteTopic(uID: String)
 
+GET           /admin/topicapp                        @controllers.TopicController.getTopicsInAppFormat
+
 POST          /admin/notification                    @controllers.GroupController.addNotification
 POST          /admin/readRight/:uID/:uIDRight        @controllers.GroupController.addGroupToReadableList(uID: String, uIDRight: String)
 

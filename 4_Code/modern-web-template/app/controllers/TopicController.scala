@@ -131,6 +131,58 @@ class TopicController extends Controller with MongoController {
   }
 
   /**
+   * Returns every topic in the db in the app format
+   *
+   * @return a list that contains every topic as a JSON object in the app format
+   */
+  def getTopicsInAppFormat = Action.async {
+    // let's do our query
+    val cursor: Cursor[TopicModel] = topicCollection.find(Json.obj()).cursor[TopicModel]
+
+    // gather all the JsObjects in a list
+    val futureTopicsList: Future[List[TopicModel]] = cursor.collect[List]()
+
+    // transform the list into a JsArray
+    val futurePersonsJsonArray: Future[JsArray] = futureTopicsList.map { topics =>
+      Json.arr(topics)
+    }
+
+    // everything's ok! Let's reply with the array
+    futurePersonsJsonArray.map {
+      topics =>
+
+        def createNewFormat(uID: JsValue, name: JsValue, content: JsValue, lat: JsValue, lng: JsValue): JsObject = {
+          return Json.obj(
+            "id" -> uID,
+            "name" -> name,
+            "categories" -> new java.util.Date().getTime(),
+            "description" -> content,
+            "lat" -> lat,
+            "lng" -> lng,
+            "tags" -> "")
+        }
+
+        /* Access the needed attributes */
+        val uIDs    = topics(0).\\("uID")
+        val names   = topics(0).\\("name")
+        val content = topics(0).\\("content")
+        val gps     = topics(0).\\("gps")
+
+        var dataArray = new JsArray()
+
+        /* create new Array */
+        for( i <- 0 to uIDs.length-1){
+          dataArray = dataArray.append(createNewFormat(uIDs(i),names(i),content(i),gps(i)(0),gps(i)(1)))
+        }
+
+        /* put this into a new JSObject */
+        var returnThis = Json.obj("data" -> dataArray)
+
+        Ok(returnThis)
+    }
+  }
+
+  /**
    * Returns a topic given by its uID
    *
    * @return a list that contains every topic as a JSON object
