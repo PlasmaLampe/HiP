@@ -68,6 +68,10 @@ ins{
     color: #419641;
 }
 
+.custom-width-modal {
+    width: 80%;
+}
+
 #mainSingleBox{
     float: left;
     width: 940px;

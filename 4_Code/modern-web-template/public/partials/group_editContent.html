@@ -20,12 +20,25 @@
         -->
         <div ng-show="gc.userIDIsMemberOfGrp(uc.email,tc.currentTopic.group)" ng-init="status = false; picUpload = false; footnotes = true;
             lTopics = true; gps = true">
-            <div class="panel-body shift-left" ng-controller="OverlayCtrl as oc" ng-show="showDiv == 1">
+            <div class="panel-body shift-left" ng-show="showDiv == 1">
 
-                <fullscreen-overlay>
-                    <div text-angular ng-model="tc.currentTopic.content" ng-style="{'min-height': '500px',
-                    'overflow': 'scroll', 'max-height':'550px'}"></div>
-                </fullscreen-overlay>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog custom-width-modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <br>
+                            </div>
+
+                            <div class="modal-body">
+                                <div text-angular ng-model="tc.currentTopic.content" ng-style="{'min-height': '500px',
+                                    'overflow': 'scroll', 'max-height':'550px'}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF MODAL -->
 
                 <h4 ng-click="status = !status">
                     <collapse-triangle condition="status"></collapse-triangle> {{lc.getTerm('system_edit_status')}}
@@ -102,7 +115,7 @@
                         <h5 ng-bind="lc.getTerm('system_edit_information')"></h5>
                     </div>
                     <div class="shift-right">
-                        <span class="glyphicon glyphicon-resize-full" ng-click="oc.toggleOverlay()"></span>
+                        <span class="glyphicon glyphicon-resize-full" data-toggle="modal" data-target="#myModal""></span>
                     </div>
                     <div class="float-clear"></div>
                     <!-- END: Headline -->
