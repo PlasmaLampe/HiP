@@ -153,7 +153,7 @@
 
                         <ul>
                             <li ng-repeat="block in tc.currentTopic.nextTextBlock">
-                                <a ng-href="/#/edit/{{ block }}"> nächster Textblock: {{block}} </a> <a ng-click="tc.removeTextBlock(block)">DELETE</a></li>
+                                <a ng-href="/#/edit/{{ block }}"> {{lc.getTerm('nextText')}}</a> [<span ng-click="tc.removeTextBlock(block)" class="glyphicon glyphicon-trash">]</span></li>
                         </ul>
                     </div>
 
@@ -209,6 +209,7 @@
 
                     <hr>
 
+                    <b>Tags:</b>
                     <tag-cloud topiccontroller="tc" languagecontroller="lc"></tag-cloud>
                 </div>
 

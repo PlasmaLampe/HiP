@@ -1,51 +1,52 @@
 \chapter[Implementation details]{Implementation details}
 \label{implementation}
 
-This chapter will show details about the implementation. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will pick specific parts, which are important within the system and show these parts in this chapter.
+This chapter will show details about the implementation. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will pick only specific parts, which are important within the system and show these parts within this chapter.
+
 Furthermore, we will show things that has been changed from the draft because the requirements came up within the implementation phase in the agile process. These changes are mostly features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}.
 
 \section{General overview of the system}
-As it has been explained in the previous chapter, the third tier (i.e., the storage/database tier) of the application is driven by a MongoDB. The connection to the MongoDB is done by the play framework with a single line within the configuration file of the play framework (i.e., application.conf):
+As it has been explained in the previous chapter, the third tier (i.e., the storage/database tier) of the application is driven by a MongoDB. The connection to the MongoDB is done by the Play framework with a single line within the configuration file of the play framework (i.e., application.conf):
 
 \verb|mongodb.uri = "mongodb://localhost:27017/hip"|
 
 Note that one can easily connect to a remove database with a similar configuration line:
 
-\verb|mongodb.uri = "mongodb://user:pass@yourDomain:63859/hip"|  
+\verb|mongodb.uri = "mongodb://user:pass@yourDomain:Port/hip"|  
 
-After Play 2.0 has created the connection to the MongoDB we can use it within the framework by extending a controller with the $MongoController$ trait (a trait is similar to an interface in Java). By doing this, we have created a couple of Scala Controllers which form the second tier of the application. The main function of these controllers is the handling of data on the way to the database. However, as we will see, the second tier includes also functions for creating thumbnails and the creation of \ac{JWT}. 
+After Play 2.0 has created the connection to the MongoDB we can use it within the framework by extending a controller with the $MongoController$ trait (a Scala trait is similar to an interface in Java). By doing this, we have created a couple of Scala Controllers that form the second tier of the application. The main function of these controllers is the handling of data on the way to the database. Nevertheless, as we will see, the second tier includes also functions for creating thumbnails and the creation of \ac{JWT}. 
 
 However, the most application logic is included on the client side within the AngularJS framework. Here, we have four main points were we include the application-logic and \ac{GUI} parts:
 
 \begin{itemize}
-	\item[partials:] Partials are small \ac{HTML} snippets that get loaded as seen as the AngularJS router gets a \ac{HTTP} request to the corresponding \ac{HTML} page. Afterwards, the fitting partial gets loaded at a predefined position within the \ac{DOM} tree. Thus, you can see a partial as a part of a view of the system that contains \ac{GUI} elements and their connections to the controllers.  The complete \ac{HiP} backend consists of 22 different partials.  
+	\item[partials:] Partials are small \ac{HTML} snippets that get loaded as soon as the AngularJS router gets a \ac{HTTP} request to the corresponding \ac{HTML} page. Afterwards, the fitting partial gets loaded at a predefined position within the \ac{DOM} tree. Thus, one can see a partial as a part of a view of the system that contains \ac{GUI} elements and their connections to the controllers.  The complete \ac{HiP} backend consists of 22 different partials.  
 	\item[controllers:] The 16 controllers, which have been created for the \ac{HiP} backend, are getting commands and events from the user as he is browsing on the partials. These controllers are able to fetch data from the MongoDB and respond to the actions of the user. To offer the needed functionality, they make use of the next building block: services.  
 	\item[services:] The services encapsulate application logic. They can be created by controllers and are working completely autonomous. For the \ac{HiP} backend, we are using 4 different services.
-	\item[directives:] Last but not least, we are using directives to encapsulate application logic and \ac{GUI} data that are used in one component. For example, the MediaGallery directive can be used like a usual \ac{HTML} tag and contains the complete logic for a media gallery including meta data for pictures, etc. However, we will take a closer look at the used directives in section \ref{usedDirectives}.
+	\item[directives:] Last but not least, we are using directives to encapsulate application logic and \ac{GUI} data that are used in a component. For example, the MediaGallery directive can be used like a usual \ac{HTML} tag and contains the complete logic for a media gallery including meta data for pictures, etc. However, we will take a closer look at the used directives in section \ref{usedDirectives}.
 \end{itemize}
 
 \section{Scala: Highlighting and annotation with AnnotatorJS}
-The highlighting of the content of topics itself is handled by the \ac{JS} library \emph{AnnotatorJS}. Technically, the plugins creates $span$ \ac{HTML} tags  with the class $annotator-hl$ and adds them to the \ac{DOM}-tree at the same position were the original text was placed. So, the creation of the highlighting itself is quite simple. However, we wanted to attach the information to a given topic and store it in some way.  
+The highlighting of the content of topics itself is handled by the \ac{JS} library \emph{AnnotatorJS}. Technically, the plugin creates \emph{<span>} \ac{HTML} tags with the (css) class \emph{annotator-hl} and adds them to the \ac{DOM}-tree at the same position were the original text was placed. So, the creation of the highlighting itself is quite simple. However, we wanted to attach the information to a given topic and store it in some way.  
 
-\emph{AnnotatorJS} supports the storing of data on an external storage system that needs to be addressable by a specific \ac{REST} \ac{API}. We decided to use the external storage system \ac{AnnotateIt}, which accepts the requests from the \emph{AnnotatorJS} library and stores the data on their server. However, this created a major problem: The user needed to login into the \emph{AnnotateIt} website to be able to store highlights within the \ac{HiP} backend. To prevent this problem, \emph{AnnotateIt} accepts remote accounts to use the storage system if they are certified with a \ac{JWT}. To get a better understanding of this process, look at the following process:
+\emph{AnnotatorJS} supports storing data on an external storage system that needs to be addressable by a specific \ac{REST} \ac{API}. We decided to use the external storage system \emph{AnnotateIt}, which accepts the requests from the \emph{AnnotatorJS} library and stores the data on their server. However, this created a major problem: The user needed to login into the \emph{AnnotateIt} website to be able to store highlights within the \ac{HiP} backend. To prevent this problem, \emph{AnnotateIt} accepts remote accounts to use the storage system if they are certified with a \ac{JWT}. To get a better understanding of this process, look at the following description:
 
 \begin{enumerate}
-\item Alice registers the \ac{HiP} backend by AnnotateIt, and receives a \emph{consumer key/secret key} pair
-\item Bob (a user the \ac{HiP} backend) logs into the \ac{HiP} backend and receives an authentication token in the \ac{JWT} format, which is a cryptographic combination of some details about this user and the consumer secret of the \ac{HiP} backend
-\item Bob's browser sends requests to \emph{AnnotateIt} to save annotations, including the authentication token as part of the payload
-\item \emph{AnnotateIt} can verify the Bob is a real user from \ac{HiP}, and thus stores his annotation
+\item Alice registers the \ac{HiP} backend by AnnotateIt, and receives a \emph{consumer key/secret key} pair.
+\item Bob (an user the \ac{HiP} backend) logs into the \ac{HiP} backend and receives an authentication token in the \ac{JWT} format, which is a cryptographic combination of some details about this user and the consumer secret of the \ac{HiP} backend.
+\item Bob's browser sends requests to \emph{AnnotateIt} to save annotations, including the authentication token as part of the payload.
+\item \emph{AnnotateIt} can verify that Bob is a real user from \ac{HiP}. Thus, it stores his annotation.
 \end{enumerate}
 
 An example for such an \ac{JWT} authentication token is shown in Figure \ref{JWT}.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/JWT_b}}
-\caption{An example for a JWT authentication token. \\On the left side: The JWT in Base64 encoding. On the right side: As the decoded token.}
+\caption{An example for a JWT authentication token. \\On the left side: The JWT in Base64 encoding. On the right side: JWT as the decoded token.}
 \label{JWT}
 \end{figure}
 
-As one can see, the tokens contains a header, which specifies the used algorithm, a body, which contains the payload and an authenticator, which is a \ac{HMAC} based on the \ac{SHA256} algorithm. The payload contains mainly the userID and 
-consumer key of the application. So, this token proves that the accept comes from an authenticated user of the \ac{HiP} backend.
+As one can see, the token contains a header, which specifies the used algorithm, a body, which contains the payload and an authenticator, which is a \ac{HMAC} based on \ac{SHA256}. The payload contains mainly the userID and 
+consumer key of the application. So, this token proves that the request comes from an authenticated user of the \ac{HiP} backend.
 
 The creation of these tokens is done by the part of the backend that is included into the Play 2.0 framework. The action that generates such a token is shown in Listing \ref{Scala:tokenGen}.
 
@@ -93,7 +94,7 @@ def getToken = UserAwareAction { implicit  request =>
 
 Line 14-18 in Listing \ref{Scala:tokenGen} shows the preparation of the JWT's body and in line 20, we create the concrete JWT with the header and the already created body. The signing, which is used in the authenticator, is done in line 23. 
 
-Note, that we do not use a general Action but a \emph{UserAwareAction} (line 1).
+Note, that we do not use a general Action but an \emph{UserAwareAction} (line 1).
 The UserAwareAction is provided by SecureSocial2 and checks the session of the current user. The user object is afterwards checked in line 4. If the user is not logged in but tried to gain a JWT access token, he is send to the loginplease.html page that contains the needed information for logging into the system. If the user is logged into the system, the JWT creation process is started.
 
 After we have now seen the creation of JWT tokens, we will now take a look at something else, which is also mainly handled by an Action within the Play 2.0 framework; the upload process of media files. 
@@ -139,7 +140,7 @@ def upload(topicID: String) = Action(parse.multipartFormData) { request =>
   }
 \end{lstlisting}
 
-As one can see in line 9 from Listing \ref{Scala:Upload} we are using GridFS to store the binary data within the MongoDB. GridFS exceed the \ac{BSON} document size limit of 16MB because it divides a file into parts and stores each of those parts as a separate document within the MongoDB (\cite{gridfs}). The picture gets inserted into the MongoDB in line 15 and the meta data is written in line 19. However, by only using this code, we would need to download the complete full-size picture, even when this would not be needed. Because of that the upload Action creates thumbnails of the uploaded pictures, while the picture gets inserted into the database. The code for creating the thumbnails is shown in Listing \ref{Scala:Upload:Thumb}.
+As one can see in line 9 from Listing \ref{Scala:Upload} we are using GridFS to store binary data within the MongoDB. GridFS exceed the \ac{BSON} document size limit of 16MB because it divides a file into parts and stores each of those parts as a separate document within the MongoDB (\cite{gridfs}). The picture gets inserted into the MongoDB in line 15 and the meta data is written in line 19. However, by only using this code, we would need to download the complete full-size picture, even in cases where this would not be needed.  Because of that, the upload Action creates thumbnails of the uploaded pictures while the picture gets inserted into the database. The code for creating the thumbnails is shown in Listing \ref{Scala:Upload:Thumb}.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -184,20 +185,22 @@ gridFS.writeFromInputStream(fileToSaveThumb, fis)
 [...]
 \end{lstlisting}
 
-Now, we have seen both parts of the upload Action independently. To get a full view of the Action and a better understanding about how both parts work together the complete Action is shown in Figure \ref{Scala:Upload:full}; however, this figure is placed in the appendix because it would disturb within the continuous text.
+At this point, we have seen both parts of the upload Action independently. To get a full view of the Action and a better understanding about how both parts work together the complete Action is shown in Listing \ref{Scala:Upload:full}.
 
-After we have now seen a couple of important Actions within the Scala controllers, we will start to look at the code on the client side by taking a look at important directives that are used on the client side. 
+After we have now seen a couple of important Actions within the Scala controllers, we will start to look at the code on the client side. To do this, we will start by taking a closer look at important directives that are used on the client side. 
+
 \section{Important directives used in the system}
 \label{usedDirectives}
-In the following we want to outline two important directives that have been created for the client side. Although the system contains a lot more directives, showing all of them would be to large for this thesis. Both directives consists of three different parts that need to be combined to create the actual directive:
+In the following, we want to outline two important directives that have been created for the client side. Although the system contains a lot more directives, showing all of them would be to large for this thesis. Both directives consists of three different parts that need to be combined to create the actual directive:
 
 \begin{itemize}
-	\item[template:] The template is a piece of \ac{HTML} code that is inserted at the position where the directive is used 
-	\item[constructor:] The constructor registers the directive at the AngularJS framework and is able to modify the scope of the template
-	\item[controller:] The controller is used within the template to create the needed functionality
+	\item[template:] The template is a piece of \ac{HTML} code that is inserted at the position where the directive is used. 
+	\item[constructor:] The constructor registers the directive at the AngularJS framework and is able to modify the scope of the template.
+	\item[controller:] The controller is used within the template to create the needed functionality.
 \end{itemize}
 
-For the following two example directives, we will show screenshots to represent the template, show \ac{JS} code for the constructor and give some brief ideas for the controller because the controllers are too big to be shown in detail within this thesis.
+For the following two example directives, we will show screenshots to represent the template, show \ac{JS} code for the constructor and give some brief ideas for the controller because the controllers are too big to be shown in detail within this written thesis.
+
 \subsection{A media gallery with the media-gallery directive}
 The media gallery directive can easily be used within the \ac{HTML} code by using the tag shown in Listing \ref{usingMediaGallery}. As the listing shows, we need to insert a couple of parameters for the directive to work correctly. However, the most important attribute is the files attribute. This attribute expects a list of media file objects that are shown within the gallery.
 
@@ -258,7 +261,7 @@ controllersModule.directive('mediaGallery', function() {
 
 There are three major parts within the return object of this constructor (i.e., the Directive Definition Object (\cite{AngularCons})), the restrict attribute, the scope attribute and the templateURL attribute. 
 
-The restrict attribute contains a String as a subset of \verb|EACM| and restricts the directive to a specific directive declaration style. So it modifies the way the directive is used within the \ac{HTML} code. These styles are:
+The restrict attribute contains a String, which is a subset of the String \verb|EACM|, and restricts the directive to a specific directive declaration style. So, it modifies the way the directive is used within the \ac{HTML} code. These styles are:
 
 \begin{itemize}
 \item[E:] Element name (default): <my-directive></my-directive>
@@ -267,12 +270,12 @@ The restrict attribute contains a String as a subset of \verb|EACM| and restrict
 \item[M:] Comment: <!-- directive: my-directive exp -->
 \end{itemize}
 
-The scope attribute creates a new scope. If the attribute contains a new \ac{JSON} object, then a new scope is created with these values. With other words, the new \emph{isolate} scope does not inherit from the parent scope but uses the given data in the scope attribute. This is useful for the creation of reusable components because such components should not  read or modify data in the parent scope, as they are used in different contexts. 
+The scope attribute creates a new scope. If the attribute contains a new \ac{JSON} object, then a new scope is created with these values. With other words, the new \emph{isolated} scope does not inherit from the parent scope but uses the given data in the scope attribute. This is useful for the creation of reusable components because such components should not  read or modify data in the parent scope, as they are used in different contexts. 
 
 The last attribute, the templateUrl specified the location of the the template that is asynchronously loaded, when the directive is used.
 
 \subsubsection{Controller of the media gallery directive}
-The controller is used for the whole data handling that is needed to offer the functionality of the media gallery. For example, the controller contains a function called openMetaData, which is shown in Listing \ref{openMetaData}, to download and prepare the meta data of the given picture. As one can see in that listing, the controller makes heavy use of the keyValueService. This service will be explained in more detail in section \ref{keyValueService}. However, for the moment take it as a provider for typical key/value containers. So, a container is a \ac{JS}-object that contains a list of keys and values; however the needed keys depends on the \emph{type} of the currently loaded container. 
+The controller is used for the whole data handling that is needed to offer the functionality of the media gallery. For example, the controller contains a function called openMetaData, which is shown in Listing \ref{openMetaData}, to download and prepare the meta data of the given picture. As one can see in that listing, the controller makes heavy use of the keyValueService. This service will be explained in more detail in section \ref{keyValueService}. However, for the moment take it as a provider for typical key/value containers. So, a container is a \ac{JS}-object that contains a list of keys and values; however, the needed keys depend on the \emph{type} of the currently loaded container. 
 
 \lstset{language=JavaScript,
 basicstyle=\small,
@@ -306,8 +309,8 @@ backgroundcolor=\color{grey}}
 
 The function expects the uID of the picture and the uID of the key / value store and loads resp. creates the store for the type $img$.
 
-Within this section, we have seen, the main parts of a directive in AngularJS and, to underline the theoretical background, an example for such an directive.
-The files used within the second directive, the template box, are quite similar. But, we will now take a closer look.
+Within this section, we have seen the main parts of a directive in AngularJS and, to underline the theoretical background, an example for such an directive.
+The files used within the second directive, the template box, are quite similar but we will now take a closer look.
 
 \subsection{Template handling with the templates-box directive}
 The template box is used for creating new templates, sharing templates and using templates within topics. The \ac{UI} elements that are shown are dependent on the user that is currently logged in. For example, a student who takes a look at the template box has no buttons for sharing a specific template.
@@ -315,8 +318,8 @@ The template box is used for creating new templates, sharing templates and using
 A typical example of the template box is shown in Figure \ref{templateBox}. The figure shows a template box from the view of a supervisor.
 
 \begin{figure}[th]
-\centerline{\includegraphics[width=.5\textwidth]{gfx/templateBox}}
-\caption{An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side}
+\centerline{\includegraphics[width=.4\textwidth]{gfx/templateBox}}
+\caption{An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side.}
 \label{templateBox}
 \end{figure}
 
@@ -347,14 +350,14 @@ controllersModule.directive('templatesBox', function() {
 });
 \end{lstlisting}
 
-This increased complexity is also recognizable within the \emph{TemplateController}, which is the controller that drives the template box directive. The controller offers functions for fetching templates, transfer templates from one key/value store to another, transfer keys to groups, etc. These functions remain manageable because we use, again, the key value service to handle most of the data management. 
+This increased complexity is also recognizable within the \emph{TemplateController}, which is the controller that drives the template box directive. The controller offers functions for fetching templates, transfer templates from one key/value store to another, transfer keys to groups, etc. These functions remain manageable because we use, again, the key-value service to handle most of the data management. 
 
-After we have now seen these two directives that make use of the key value service, we will now take a look at the service itself.
+After we have now seen these two directives that make use of the key-value service, we will now take a look at the service itself.
 
 \section{AngularJS: Key/Value stores}
 \label{keyValueService}
 
-The key value service is a small but mighty service that is used at multiple places within the \ac{HiP} backend. A brief overview about the functionality is shown in Figure \ref{KVS}.
+The key-value service is a small but mighty service that is used at multiple places within the \ac{HiP} backend. A brief overview about the functionality is shown in Figure \ref{KVS}.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/kvs}}
@@ -362,10 +365,10 @@ The key value service is a small but mighty service that is used at multiple pla
 \label{KVS}
 \end{figure}
 
-As one can see in the figure, the key value service can be accessed via a \ac{JS} \ac{API} within AngularJS to load and modify key value stores. These stores can afterwards been pushed to the MongoDB in a small and compact serialized data format. The main idea behind the serialization process is that we do not need any information about the used keys and we can create and use as many keys as we want but the database schema within the MongoDB stays the same. Every added key will end up as one new entry in the list array within the \ac{JS} object that will be pushed to the MongoDB. This makes the key value service extremely adaptable to every situation. This can also be seen in the fact that the service is used within the \ac{HiP} backend to store textual templates, meta-data for pictures and tag-clouds. So, it is used in very different situations for very different things but it can be adapted to every of these use cases by using different keys. But we will get more into details about the keys in section \ref{typedKVS} as we will need the typing to completely understand the topic.
+As one can see in the figure, the key-value service can be accessed via a \ac{JS} \ac{API} within AngularJS to load and modify key value stores. These stores can afterwards been pushed to the MongoDB in a small and compact serialized data format. The main idea behind the serialization process is that we do not need any information about the used keys and we can create and use as many keys as we want but the database schema within the MongoDB stays the same. Every added key will end up as one new entry in the list array within the \ac{JS} object that will be pushed to the MongoDB. This makes the key-value service extremely adaptable to new situations and can also be seen in the fact that the service is used within the \ac{HiP} backend to store textual templates and meta-data for pictures. So, it is used in very different situations for very different things but it can be adapted to every of these use cases by using different keys. But we will get more into details about the keys in section \ref{typedKVS} as we will need the typing to completely understand the topic.
  
-All in all, the key value service offers functions for downloading key value stores from the backend database, delete stores, create new stores (empty and according to specific types), modify stores, transfer keys from one store to another, etc.  
-However, a crucial part of the logic is encapsulated within the function that translates the data format because we need to change the data format after we downloaded a store from the backend. The translation function is shown in Listing \ref{keyTranslation}. 
+All in all, the key-value service offers functions for downloading key-value stores from the backend database, delete stores, create new stores (empty and according to specific types), modify stores, transfer keys from one store to another, etc.  
+However, a crucial part of the program logic is encapsulated within the function that translates the data format because we need to change the data format after we downloaded a store from the backend. The translation function is shown in Listing \ref{keyTranslation}. 
  
 \lstset{language=JavaScript,
 basicstyle=\small,
@@ -403,7 +406,7 @@ After that, we add the key with its value to the variable called JSON, which end
 
 \subsection{Typing of stores}
 \label{typedKVS}
-One of the features that make the \ac{KVS} so reusable is the idea of typed key-value stores. A type specified the keys that need to be included within a specific key-value store. Of course, every store that is used within the system has a specific type and every type is a child of another one. If we create a new child that does not need to be derived from a specific type then we say that its parent type is \emph{root}.
+One of the features that make the \ac{KVS} so reusable is the idea of typed key-value stores. A type specifies the keys that need to be included within a specific key-value store. Of course, every store that is used within the system has a specific type and every type is a child of another one. If we create a new child that does not need to be derived from a specific type then we say that its parent type is \emph{root}.
 On the other hand, if we have a type $A$ with the keys $key1$ and $key2$ and create a new type $B$ that is a child of type $A$ than $B$ will derive the keys $key1$ and $key2$ automatically because it is a subtype of $A$.
 
 So, for every new situation were we want to use the \ac{KVS}, we just need to create a new storage type and the remaining work is done by the service. The editing of types (e.g., adding keys or even complete types) can be done from every controller within AngularJS by using the \emph{TypeService}. This service encapsulates all needed functionality to modify types and is used within the \ac{HiP} backend to create a type modify interface for the admins of the \ac{HiP} backend. However, we will not get into more details about this service or the type modify interface within this thesis.

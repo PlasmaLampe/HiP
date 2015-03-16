@@ -2,15 +2,15 @@
 \deactivateaddvspace 
 \select@language {american}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Introduction in the thesis}{1}{chapter.1}
+\contentsline {xchapter}{Introduction into the thesis}{1}{chapter.1}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Technical and methodological background}{5}{chapter.2}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Draft of the application}{25}{chapter.3}
-\contentsline {table}{\numberline {1}{\ignorespaces Use Case Scenario: student changes content on a topic\relax }}{26}{table.caption.51}
-\contentsline {table}{\numberline {2}{\ignorespaces Use Case Scenario: Supervisor creates a new group\relax }}{27}{table.caption.52}
+\contentsline {table}{\numberline {1}{\ignorespaces Use Case Scenario: Student changes content of a topic\relax }}{27}{table.caption.52}
+\contentsline {table}{\numberline {2}{\ignorespaces Use Case Scenario: Supervisor creates a new group\relax }}{27}{table.caption.53}
 \contentsline {table}{\numberline {3}{\ignorespaces A brief cost-estimation about the backend\relax }}{33}{table.caption.65}
-\contentsline {table}{\numberline {4}{\ignorespaces A brief cost-estimation about the frontend\relax }}{41}{table.caption.76}
+\contentsline {table}{\numberline {4}{\ignorespaces A brief cost-estimation about the frontend\relax }}{42}{table.caption.77}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation details}{43}{chapter.4}
 \addvspace {10\p@ }

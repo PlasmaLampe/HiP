@@ -8,6 +8,11 @@ A level-1 auxiliary file: __parts/_FrontBackmatter/Acknowledgments.aux
 A level-1 auxiliary file: __parts/_FrontBackmatter/Contents.aux
 A level-1 auxiliary file: __parts/chapters/1Intro.aux
 A level-1 auxiliary file: __parts/chapters/2Basics.aux
+Case mismatch error between cite keys beck2001agile and Beck2001agile
+---line 30 of file __parts/chapters/2Basics.aux
+ : \citation{beck2001agile
+ :                        }
+I'm skipping whatever remains of this command
 A level-1 auxiliary file: __parts/chapters/3Draft.aux
 A level-1 auxiliary file: __parts/chapters/4Implementation.aux
 A level-1 auxiliary file: __parts/chapters/5Tests.aux
@@ -60,11 +65,10 @@ Warning--entry type for "wikitude" isn't style-file defined
 --line 489 of file __bib/literatur.bib
 Warning--entry type for "statIPhone" isn't style-file defined
 --line 513 of file __bib/literatur.bib
-Warning--I didn't find a database entry for "beck2001"
 Warning--empty journal in bradley2014json
 You've used 51 entries,
             1935 wiz_defined-function locations,
-            768 strings with 11978 characters,
+            767 strings with 11970 characters,
 and the built_in function-call counts, 16256 in all, are:
 = -- 1638
 > -- 544
@@ -103,4 +107,4 @@ warning$ -- 1
 while$ -- 131
 width$ -- 0
 write$ -- 636
-(There were 23 warnings)
+(There was 1 error message)
