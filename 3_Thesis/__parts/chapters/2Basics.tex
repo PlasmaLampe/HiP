@@ -7,27 +7,21 @@
 
 The following two chapters will contain details about the planned system because an idea about the system, its behavior and the background of the used technologies is very important (just like the quotation above shows). 
 
-In general, the planned application should be able to handle the complete workflow for a university course situation. So, the backend should offer features that offer groups of students the work on specific topics. The domain model showing this situation for a general university course is shown in Figure \ref{domain}. 
-
-\todo{model is wrong, describe the correct model more in the text}
+In general, the planned application should be able to handle the complete workflow for a university course situation. So, the backend should offer features that offer groups of students the work on specific topics. The domain model showing this situation for a general university course is shown in Figure \ref{domain}. As one can see, students are working together in groups to create content for a specific topic. The whole process is supervised by the supervising employee of the university. 
 
 \begin{figure}[th]
-\centerline{\includegraphics[width=1\textwidth]{gfx/domainModel.png}}
-\caption{The domain model of the university courses}
+\centerline{\includegraphics[width=1\textwidth]{gfx/domainModel.pdf}}
+\caption{The domain model of the university courses.}
 \label{domain}
 \end{figure}
 
-But before we come into more detail about the software itself, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which are used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implementation}. Although, the whole system uses a lot more of them.
+Before we come into more detail about the software itself, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which have been used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implementation}. Although, the whole system uses a lot more of them.
 
 The first thing, which is important to notice, is that the system will be developed with an agile software development method, which will be based on Scrum. Because of that, we will start by explaining the Scrum development method.
 
 \section{Agile Development - Scrum}
 \label{SCRUM-intro}
-The main idea of agile development is described within the agile manifesto \cite{Beck2001agile}\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process.
-
-A big problem within the software industry is that projects take longer than expected and the expectation of the customer differs more and more \todo{Quellen+ review} from the view of the development team because doing a 6 month part of requirements engineering, followed by an 18-month development period lets one finish a product that is already obsolete at the day it gets published.
-
-Similarly, the HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is very small. Nonetheless, we will include the ideas and concepts of the Scrum process but will, for example, combine different roles in one person. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
+The main idea of agile development is described within the agile manifesto \cite{Beck2001agile}\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process. The HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is very small (i.e.,  we will combine different roles in one person). Nonetheless, we will include the ideas and concepts of the Scrum process. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
 
 Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. However, \cite{Ber07} points out that a four week sprint is in many cases problematic because a lot of customer requests have to be included into currently running sprints and so the backlog becomes more and more useless; he suggests sprints with a length of about 2 weeks. In any case, after every sprint the product should be more refined (\cite{scrum}). Of course, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in the short timeframe of the master thesis. The close customer relationship can for example be found in the fact the the customer is often invited in meetings after the sprints to see the progress on the product and, more important, to be able to influence the development process. However, \cite{paulk2002agile} claims that customers may also create a threat to finish agile development successful if they are not able or willing to maintain such a close relationship with the development team.
 
@@ -175,11 +169,19 @@ backgroundcolor=\color{grey}}
 
 Besides the templating feature, Play can be augmented with Plugins that handle specific behavior. For example, the Plugin \emph{SecureSocial 2} is able to handle the whole user registration and login process. In more detail, it offers an interface to get the data from users, who are currently logged into the system. Furthermore, it offers out of the box support for web-services like Twitter, Facebook, Google, LinkedIn and GitHub. If one do not want to rely on external services, \emph{SecureSocial 2} provides a Username/Password mechanism with signup, login and reset password functionality. We will use this last technique within the \ac{HiP} backend.
 
-As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}. \todo{what is rest?}
-As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers are taking up on \ac{REST} (\cite{Rodriguez2008}). Furthermore, the Play-framework comes with integrated unit testing and full support of asynchronous I/O.  So, all in all, Play will noticeably enhance the development speed of the backend.
+As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}.
+
+The core ideas of \ac{REST} are:  
+\begin{itemize}
+\item A resource is identified by a persistent identifier (i.e., the \ac{URI}).
+\item A resource (on the server side) is manipulated by using the fitting \ac{HTTP} methods: POST, GET, PUT, and DELETE. So, one should not use \ac{HTTP} GET to change something on the server.
+\item The actual representation, which gets downloaded as a resource from the server, is dependent on the request itself and not the used identifier. As stated in the first point of the list, every identifier identifies exactly one concrete resource. So, one should use \ac{HTTP} Accept headers to control the needed representation (e..g, \ac{XML}, \ac{JSON}, etc.).
+\end{itemize}
+
+As Rodriguez et. al. point out, \ac{REST} based web services are easier to use than \acf{SOAP} and \acf{WSDL}-based ones and getting more and more importance since mainstream web 2.0 service providers (i.e., Facebook, Twitter, etc.) are taking up on \ac{REST} (\cite{Rodriguez2008}). Besides the \ac{REST} support, the Play-framework comes with integrated unit testing and full support of asynchronous I/O.  So, all in all, Play will noticeably enhance the development speed of the backend.
 
 \subsection{MongoDB}
-\todo{Introduction}As \cite{Tre14} describes, data entries within a MongoDB are called documents and are in essence ordered sets of key-value pairs. However, values can also be complete documents and arrays. So, one can store complex hierarchical structures within a MongoDB. Similarly, binary data (e.g., pictures) gets stored in a \ac{BSON}-format. This format is a binary \ac{JSON} format that includes datatypes and better traversability.
+MongoDB is a document-oriented database, which stores data as \ac{JSON} objects. Thus, data entries within the MongoDB are called documents and are in essence ordered sets of key-value pairs (\cite{Tre14}). However, values can also be complete documents and arrays. So, one can store complex hierarchical structures within a MongoDB. Similarly, binary data (e.g., pictures) gets stored in a \ac{BSON}-format. This format is a binary \ac{JSON} format that includes datatypes and better traversability.
 
 These documents are stored in \emph{collections}, which are in general comparable to the tables in a relational database, like MySQL.
 

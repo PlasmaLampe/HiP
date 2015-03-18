@@ -78,7 +78,7 @@ Now, after we have seen what the application is about, we will now take a closer
 
 \section{Architecture of the application}
 \label{architecture}
-The architecture design within agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system on its whole, before the actual programming phase is started\todo{ref}. This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the following important attributes:
+The architecture design within agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system on its whole, before the actual programming phase is started (\cite{Patterns:2009aa}). This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the following important attributes:
 
 \begin{enumerate}
 	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
@@ -124,7 +124,7 @@ The data (i.e., topics, graphics, etc.) should be stored in a way that it can be
 
 Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{augmentation_web}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
-\subsection{Input data/content via CMS in the system}
+\subsection{Input data/content via the \ac{CMS} in the system}
 The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. 
 
 So, when an user changes something at a topic, the data is changed on the model in the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
@@ -132,10 +132,11 @@ So, when an user changes something at a topic, the data is changed on the model 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
 
 \subsection{Manage content as a reviewer}
-The reviewer should be able to review the content that gets send in by the students. In this process, he should be able to attach comments to the topic itself and send feedback to the students.
-After that, the supervisor can mark the topic as 'ready for publish' if he is satisfied with the given quality.
+The reviewer should be able to review the content that gets send in by the students. In this process, he should be able to attach comments to the topic itself and send feedback to the students. This can easily be handled by the \ac{JS} library \emph{AnnotateJS} and will be explained in more detail within chapter \ref{implementation}.
 
-\todo{technical details}
+The attachment of information to a complete topic can easily be created by using the chat system and a new chat room, which is exclusively opened for that topic object. 
+
+If the supervisor is satisfied with the given quality, he should be able to mark the topic as 'ready for publish'. On a technical side, this boils down to setting a new flag at the topic object. So, the needed time for this feature should be low.
 
 \subsection{Including a 3D-Tooling system for point-clouds (WebGL)}
 The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student.
@@ -157,7 +158,7 @@ Now, as we have seen the major ideas about the backend, we will try to create a 
 	Create login system		&	Login needed for right/role management			&	2 \\	
 	Create language system	&	The system should be able to handle multiple languages&	2 \\	
 	Create chat system		&	Chats are needed for (group-) communication between &	1 \\	
-		 				&	users of the system 							&	 \\	
+		 				&	users of the system (e.g., in topics)					&	 \\	
 	Create message system &	Messages are needed for direct communication between&	1 \\
 	 					&	users of the system 							&	 \\		
   	Create group system 	& 	Groups will be needed for organization of students 	& 	2 \\
