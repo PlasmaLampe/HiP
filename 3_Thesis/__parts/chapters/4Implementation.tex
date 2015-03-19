@@ -1,6 +1,5 @@
 \chapter[Implementation details]{Implementation details}
 \label{implementation}
-
 This chapter will show details about the implementation. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will pick only specific parts, which are important within the system and show these parts within this chapter.
 
 Furthermore, we will show things that has been changed from the draft because the requirements came up within the implementation phase in the agile process. These changes are mostly features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}.
@@ -401,8 +400,8 @@ backgroundcolor=\color{grey}}
     }
 \end{lstlisting}
 
-The code in that function is straightforward. We iterate over every entry of the list array in line 4, split the key and value in line 5 and store the resulting array in the variable token.
-After that, we add the key with its value to the variable called JSON, which ends up to be the frontend format representation (line 11-14). If the key has the name type, we copy the value directly to the frontend representation (shown in line 9). At last, we can return the variable JSON, which will be used within the service and by the controller that uses the service.
+The code in that function is straightforward. We iterate over every entry of the list array in line 4 and split the key and value in line 5. The resulting array gets stored in the variable token.
+After that, we add the key with its value to the variable called JSON, which ends up to be the frontend format representation (line 11-14). If the key has the name type, we copy the value to the frontend representation (shown in line 9). At last, we can return the variable JSON, which will be used within the service and by the controller that uses the service.
 
 \subsection{Typing of stores}
 \label{typedKVS}
@@ -411,9 +410,35 @@ On the other hand, if we have a type $A$ with the keys $key1$ and $key2$ and cre
 
 So, for every new situation were we want to use the \ac{KVS}, we just need to create a new storage type and the remaining work is done by the service. The editing of types (e.g., adding keys or even complete types) can be done from every controller within AngularJS by using the \emph{TypeService}. This service encapsulates all needed functionality to modify types and is used within the \ac{HiP} backend to create a type modify interface for the admins of the \ac{HiP} backend. However, we will not get into more details about this service or the type modify interface within this thesis.
 
+\section{Interface to the smartphone app}
+As we have said before, the smartphone application gets currently developed by a bachelor student. The app accepts data as \ac{JS} objects. Listing \ref{InterfaceStructure} shows the structure of these objects for topics. 
 
+\lstset{language=JavaScript,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={The format of topic files within the smartphone application.},label=InterfaceStructure,frame=tlbr,breaklines]
+{
+    "data": [
+        {
+            "categories": String,
+            "description": String,
+            "id": String,
+            "lat": Double,
+            "lng": Double,
+            "name": String,
+            "tags": String
+        },
+        [...]
+    ]
+}
+\end{lstlisting}
 
+As one can see, the format consists of \ac{JS} objects that are included in the array, which is the value for the key \emph{data}.  
 
+Because the \ac{HiP} backend uses another representation (which is also contained within the MongoDB), we offer another \ac{URI} to retrieve the file for the smartphone. Internally, we translate the representation that is stored within the MongoDB into the other representation for the smartphone. Note that this is not a break with the \ac{REST} principle that we should not use different \ac{URI} to specify the format. In this case, we do not only exchange the format (e.g., \ac{XML} to \ac{JSON}) of the same data. We store other (i.e., less) fields within the smartphone object as in the original document that is stored in the MongoDB. So, after all, we create a new object (which has another format) and every object has its own identifier. 
 
 
 After we have now seen some of the details of the implementation, we will now come to the testing chapter. 

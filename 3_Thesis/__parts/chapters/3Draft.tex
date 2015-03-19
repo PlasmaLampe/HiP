@@ -92,13 +92,15 @@ The architecture design within agile projects is slightly different from the des
 \label{hip:architecture}
 \end{figure}
 
-That said, we will choose a 3-tier architecture for the development for the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-tier architecture is nice because it enables us to exchange the presentation tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows also the storage tier, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, some parts of the application tier need to be included on the client side within the presentation tier. Because of that, the presentation tier will be much more complex as it is shown in this brief draft since AngularJS, which is used in this tier, relies on a \ac{MVVM} architecture on its own.
+That said, we will choose a 2-tier 3-layer architecture for the development for the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-layer architecture is nice because it enables us to exchange the first tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. 
+
+The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows also the storage layer, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application layer on the second tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, some parts of the application layer need to be included on the client side within the presentation layer. Because of that, the presentation layer will be much more complex as it is shown in this brief draft since AngularJS, which is used in this layer, relies on a \ac{MVVM} architecture on its own.
 However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
 
 Now, we have an idea about the general architecture. Nevertheless, we need to take a look at the usage of the different components (e.g., frameworks, libraries and tools) and how they will work together.
 
 \section{Usage of the components}
-As we have seen in section \ref{architecture} a lot of application logic will be included in the first tier (i.e., presentation tier). To offer all needed features of the backend in this short time frame, we will need to include a couple of frameworks and libraries. A brief overview about the components and how they work together is shown in Figure \ref{hip:components}. 
+As we have seen in section \ref{architecture} a lot of application logic will be included in the first layer (i.e., presentation layer). To offer all needed features of the backend in this short time frame, we will need to include a couple of frameworks and libraries. A brief overview about the components and how they work together is shown in Figure \ref{hip:components}. 
 
  \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/components}}
@@ -373,7 +375,7 @@ All in all, \ac{PDF} export can be included fast and easy within the smartphone 
 \subsection{Rendering AR-data with Junaio}
 The rendering of the \ac{AR} data is another very important part of the \ac{HiP} frontend. As it has been explained in section \ref{AREL}, we need to create a static content definition, a \ac{HTML5} layer and the application logic. While the application logic can be general for the whole application, we need to generate the static content definition and the \ac{HTML5} layer for every topic because the shown objects are changed, as soon as we change a topic.
 \todo{more}
- 
+
 \subsection{Cost estimation of the frontend}	
 Now, after we have seen the technical details about the different parts of the frontend, we can create our cost estimation. One problem is that the cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. Thus, we assume in the following that we use the \ac{OsmAnd} project as the basis for the \ac{HiP}-navigation features. Like in section \ref{backendEstimation}, one story point should represent 6 hours.
 
