@@ -5,7 +5,7 @@ This chapter will begin with a short explanation about the future development (r
 The fact that the backend has been developed in an agile fashion has a major impact on the way we are able to create a transition to a new development 'team'. \todo{ref for that: transition between development teams?} The transition is quite easy in this case because there are open problems/feature requests within the product backlog, which can easily be solved in small pieces by other developers. To accelerate the learning process for the members of the upcoming project group, we gave a short introduction talk and prepared installation instructions. This offers the members the opportunity to gain some insights into the current version of the \ac{HiP} backend. More ideas about future work will be briefly explained in section \ref{futurework}. 
 
 \section{Arisen problems within this thesis}
-Since this master thesis included two different aspects of the actual development process (i.e., the agile process and the actual development of the backend), we want to adress the problems separately. 
+Since this master thesis included two different aspects of the actual development process (i.e., the agile process and the actual development of the backend), we want to address the problems separately. 
 
 \subsection{The agile process}
 To develop an application with an agile process was a great experience. It was really nice to get a biweekly feedback about the functions and more ideas about the further development process. This is especially important because if one creates an application for a foreign field (which was partially the case in this development) the development team is unsure about the importance of specific features and problems (e.g., the needed keys for meta-data of pictures). But this information can easily gathered within the meetings to create an application that fits the customer needs. 
@@ -25,11 +25,20 @@ This last section of this master thesis will draw a conclusion and take a loot a
 \subsection{Results / Conclusion}
 We think that we have created a great system within this master thesis, which is a good foundation for following project groups and/or bachelor and master thesis's. We started with the idea in mind that we would need a system that works on the one hand as a working environment for students and, on the other hand, as a \ac{CMS} backend for a smartphone application that presents the data that has been created by the students. 
 
-With a lot of feedback within the biweekly meetings this goal has been achieved and the application is able to handle even complex editing, reviewing and organization of information. So, all in all, we achieved a lot more, as it has been specified within the first draft respectively within the first requirements engineering meeting that was used to create the story cards.
-\todo{more}
+With a lot of feedback within the biweekly meetings this goal has been achieved and the application is able to handle even complex editing, reviewing and organization of information. Supervisors are able to create new groups, assign topics to them and edit specific constraints to create an easy filtering process for the work of the students. The students are able to work on these topics, communicate in a couple of ways, add/modify meta-data and review there own work. If a topic is finished, it can be 'published' within the frontend by a master user. Admins are needed to create new data-types, change user-rights and edit language keys.
+
+So, all in all, we achieved a lot more, as it has been specified within the first draft respectively within the first requirements engineering meeting that was used to create the story cards.
 
 \subsection{Future work}
 \label{futurework}
-Although we have implemented a lot of functions within the backend, there is a lot more functionality open within our Scrum backlog. In general, future work can be done on two major areas, the smartphone application (which gets at the moment developed by a bachelor student), which has been sketched within this thesis,  and the remaining functions of the backend. 
+Although we have implemented a lot of functions within the backend, there is a lot more functionality open within our Scrum backlog. In general, future work can be done on three major areas:
 
-The smartphone application will need sophisticated 3D-rendering functionality as well as navigation functions. The backend, on the other side, needs more functions for editing the point clouds that have been imported by the students. Furthermore, the backend should be configured in a way to support continuos delivery as it has been explained within this thesis. This will be a major improvement for the delivery speed and reduce the needed effort within every release. Such an improvement is especially important for a small project group, which tends to lack of free time. Another possible improvement would be the implementation of some of the roughly described patterns for DevOps architectures (\cite{cukier2013devops}).  \todo{++ scaling of the system}
+\begin{itemize}
+\item The smartphone application. As we have seen, one view of this app gets currently developed by a bachelor student within his bachelor thesis. However, there are a lot open requirements that need to be implemented and has sketched within this thesis.
+\item The remaining functions of the backend.
+\item The shift to a \emph{DevOps ready} developing environment. 
+\end{itemize}
+
+The smartphone application will need sophisticated 3D-rendering functionality as well as navigation functions. The backend, on the other side, needs more functions for editing the point clouds that have been imported by the students. Furthermore, the backend should be configured in a way to support continuos delivery as it has been explained within this thesis. This will be a major improvement for the delivery speed and reduce the needed effort within every release. Such an improvement is especially important for a small project group, which tends to lack of free time. Another possible improvement would be the implementation of some of the roughly described patterns for DevOps architectures (\cite{cukier2013devops}).
+
+Furthermore, the \ac{UI} of the current system is able to handle a couple of seminars with students and supervisors at the same time. Nevertheless, one should think about more ways to scale the system in a way to be able to handle much bigger groups of students and supervisors, without loosing to much usability.  

@@ -124,22 +124,28 @@ The data (i.e., topics, graphics, etc.) should be stored in a way that it can be
 
 Furthermore, the backend should include a way to modify the point-clouds of the objects that has been scanned with the smartphone application. It will need features to add annotations directly to these point-clouds to show them afterwards within the \ac{AR}-environment. This editor will be created on the basis of \ac{HTML5} and \ac{WebGL}. A mockup of this site is shown in Figure \ref{augmentation_web}. These annotations should also be assessable and (un-)lockable for the supervisor. 
 
+The following subsections will take a closer look at specific parts of the backend to create a better foundation for the cost estimation at the end of this section. 
+
 \subsection{Input data/content via the \ac{CMS} in the system}
 The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. 
 
-So, when an user changes something at a topic, the data is changed on the model in the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
+So, when an user changes something at a topic, the data is changed on the model within the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. However, this way of data handling (i.e., modifying on the client side and sending data back as soon as the user hits the \emph{save} button) induces problems if more than one user works at the same time at the same topic. Imagine user $A$ and $B$ start to work at the same topic at the same point in time. Then both download the same content on their client side but if $A$ clicks \emph{save} before $B$, then $B$ will override all changes from $A$. We will prevent this problem by creating a \emph{lock} mechanism on a topic. So, if $A$ works on the topic, $B$ is not able to start editing in the first place. The now induced efficiency problem (i.e., only one user can work at a topic) will be reduced by offering features for creating different text blocks that are autonomously locked. So, $A$ is not locking the topic \emph{S\"udring center} but only a part of it (e.g., \emph{S\"udring center - Introduction}).
+
+Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
+
+But including data in the system is not enough for working with topics. We need also ways to offer review features for supervising users. 
 
 \subsection{Manage content as a reviewer}
 The reviewer should be able to review the content that gets send in by the students. In this process, he should be able to attach comments to the topic itself and send feedback to the students. This can easily be handled by the \ac{JS} library \emph{AnnotateJS} and will be explained in more detail within chapter \ref{implementation}.
 
-The attachment of information to a complete topic can easily be created by using the chat system and a new chat room, which is exclusively opened for that topic object. 
+The attachment of information and comments to a complete topic can easily be created by using the chat system and a new chat room, which is exclusively opened for that topic object. 
 
-If the supervisor is satisfied with the given quality, he should be able to mark the topic as 'ready for publish'. On a technical side, this boils down to setting a new flag at the topic object. So, the needed time for this feature should be low.
+If the supervisor is satisfied with the given quality, he should be able to mark the topic as 'ready for publish'. On a technical side, this boils down to setting a different flag at the topic object. So, the needed time for this feature should be low.
 
 \subsection{Including a 3D-Tooling system for point-clouds (WebGL)}
-The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student.
+The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student. 
 \todo{mehr}
 The editor should be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. 
 \todo{technical details}
@@ -198,22 +204,24 @@ To create a feasible input for the \ac{AR} system, the user should be able to sc
 In the following, we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included within the draft. 
 
 \begin{figure}[th]
-\centerline{\includegraphics[width=0.7\textwidth]{gfx/mockup_app_2}}
-\caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself}
-\label{app2}
+	\centerline{\includegraphics[width=0.7\textwidth]{gfx/mockup_app_2}}
+	\caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself}
+	\label{app2}
 \end{figure}			
   
 \subsection{Input data into the system (scan objects and annotate them)} 
-With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown Figure \ref{MetToolbox}. \todo{more}
+With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown in Figure \ref{MetToolbox}. When an object gets scanned with the Toolbox, the file is stored on the smartphone's filesystem and can be shared by using email attachments \todo{more}.
 
 \begin{figure}[th]
-\centerline{\includegraphics[width=0.5\textwidth]{gfx/toolbox.png}}
-\caption{The main menu of the \emph{Metaio Toolbox} showing the main features of the app}
-\label{MetToolbox}
+	\centerline{\includegraphics[width=0.5\textwidth]{gfx/toolbox.png}}
+	\caption{The main menu of the \emph{Metaio Toolbox} showing the main features of the app.}
+	\label{MetToolbox}
 \end{figure}	
 
 \subsubsection{Data format for \ac{AR} files}
-The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. To create a web editor, asked for a specification for the file format by the company Metaio. However, we never received an answer. 
+The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. Both files are essentially ZIP files that contain metadata, pictures and binary data for the point-clouds. The original idea within this thesis was to use these files to render the point-clouds in the backend and offer features for manipulation. However, because we would need the file specification to be able to read the binary data contained in the ZIP files, we asked for such a specification at the company Metaio. Sadly, we never received an answer. 
+
+Thus, this part of the thesis is postponed and left open for the Project Group.
 
 \subsection{Show close "interesting places" within a map} 
 In the end, every topic will contain \ac{GPS} coordinates for exhibits and locations, which has been added by students. We can make use of this information to get a location specific map and navigation features on the smartphone. 
@@ -315,7 +323,7 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 \end{lstlisting}
 
-As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript.\todo{describe listing} The Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Furthermore, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality, which has been expressed within the first requirements meeting. One just needs to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
+As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript. The flightPath object is directly created as a Polyline object with the given coordinates. After that, it can directly be placed on the map. Although the shown code is \ac{JS}, the Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Obviously, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality, which has been expressed within the first requirements meeting. One just needs to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
 
 Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
 
