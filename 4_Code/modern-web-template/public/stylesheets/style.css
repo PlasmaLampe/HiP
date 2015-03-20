@@ -12,6 +12,14 @@ body{
 	margin: auto;
 }
 
+.font-white{
+    color: white;
+}
+
+.font-white:hover{
+    color: #eb9316;
+}
+
 del{
     color: red;
 }
@@ -355,72 +363,6 @@ nav {
 /* ===================
 * Overlay:
 * =================== */
-
-#overlay {
-    position: fixed;
-    z-index:199;
-    top: 0px;
-    left: 0px;
-    height:100%;
-    width:100%;
-
-}
-
-* html #overlay { /* ie6 hack */
-    position: absolute;
-    height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
-}
-
-.overlayBG {
-    background-color:#000;
-    -ms-filter: "Alpha(Opacity=75)";
-    filter:alpha(opacity=75);
-    -moz-opacity: 0.75;
-    opacity: 0.75;
-}
-
-#lightBox {
-    position:fixed;
-    top:50%;
-    left:50%;
-    margin-left:-300px;
-    margin-top:-300px;
-    z-index:200;
-    width:500px;
-    min-height:500px;
-    background-color:#fff;
-    text-align:left;
-}
-* html #lightBox { /* ie6 hack */
-    position: absolute;
-    margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
-}
-
-#contentOfLightBox{
-    margin: 15px;
-}
-
-#overlayBGWhite {
-    background-color:#000;
-    -ms-filter: "Alpha(Opacity=75)";
-    filter:alpha(opacity=75);
-    -moz-opacity: 0.75;
-    opacity: 0.75;
-}
-
-#overlayBGWhite-lightBox {
-    position:fixed;
-
-    min-width: 700px ;
-    margin-top: -100px;
-    margin-left: auto ;
-    margin-right: auto ;
-
-    max-height: 700px;
-    z-index:200;
-    background-color:#fff;
-    text-align:left;
-}
 
 .modal-backdrop {
     z-index: -1;

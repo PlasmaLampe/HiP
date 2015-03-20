@@ -35,6 +35,9 @@ angular.module('myApp.routeConfig', ['ngRoute'])
             .when('/contact', {
                 templateUrl: '/assets/partials/basic_contact.html'
             })
+            .when('/impressum', {
+              templateUrl: '/assets/partials/basic_impressum.html'
+            })
             .when('/edit/:topicID', {
               templateUrl: '/assets/partials/group_editContent.html'
             })

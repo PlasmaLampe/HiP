@@ -2,9 +2,6 @@
 
     <div class="panel-heading">
         <div class="shift-left">{{lc.getTerm('system_groups')}}</div>
-        <div class="shift-right"> <a ng-init="gc.getGroups()" ng-click="gc.getGroups()">
-            <span class='glyphicon  glyphicon-refresh'></span> </a>
-        </div>
         <div class="float-clear"></div>
     </div>
 
@@ -16,7 +13,7 @@
             </div>
 
             <div class="shift-right" ng-show="uc.isSupervisor()">
-                [<span ng-click="gc.deleteGroup(grp.uID)" class="glyphicon glyphicon-trash">]</span>
+                <a href="#">[<span ng-click="gc.deleteGroup(grp.uID)" class="glyphicon glyphicon-trash"></span>]</a>
             </div>
 
             <div class="float-clear"></div>
