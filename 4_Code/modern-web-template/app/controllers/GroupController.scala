@@ -30,7 +30,6 @@ class GroupController extends Controller with MongoController {
     request =>
       request.body.validate[GroupModel].map {
         group =>
-          // `user` is an instance of the case class `models.User`
           collection.insert(group).map {
             lastError =>
               logger.debug(s"Successfully inserted with LastError: $lastError")

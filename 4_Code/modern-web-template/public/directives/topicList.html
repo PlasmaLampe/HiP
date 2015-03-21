@@ -6,18 +6,18 @@
         <a ng-href="/#/edit/{{ gc.bufferedGroup.topic }}" ng-show="uc.isStudent()">{{gc.bufferedTopic.name}}</a>
         <a ng-href="/#/viewExternalSupervisor/{{ gc.bufferedGroup.topic }}" ng-show="uc.isSupervisor()">{{gc.bufferedTopic.name}}</a>
 
-                               <span class="glyphicon glyphicon-remove-circle icon-red"
-                                     ng-class="{'ng-hide': gc.bufferedTopic.status == 'ir' || gc.bufferedTopic.status == 'done'}"
-                                     tooltip-html-unsafe="{{lc.getTerm('tooltip_wip')}}"
-                                     tooltip-trigger="mouseenter" tooltip-placement="right"> </span>
-                              <span class="glyphicon glyphicon-eye-open icon-yellow"
-                                    ng-class="{'ng-hide': gc.bufferedTopic.status == 'wip' || gc.bufferedTopic.status == 'done'}"
-                                    tooltip-html-unsafe="{{lc.getTerm('tooltip_ir')}}"
-                                    tooltip-trigger="mouseenter" tooltip-placement="right"> </span>
-                              <span class="glyphicon glyphicon-ok-circle icon-green"
-                                    ng-class="{'ng-hide': gc.bufferedTopic.status == 'ir' || gc.bufferedTopic.status == 'wip'}"
-                                    tooltip-html-unsafe="{{lc.getTerm('tooltip_done')}}"
-                                    tooltip-trigger="mouseenter" tooltip-placement="right"> </span>
+        <img ng-hide="gc.bufferedTopic.status == 'ir' || gc.bufferedTopic.status == 'done'"
+             src='assets/images/stop-light-red.png'      alt="Work in Progress" height="16" width="40"
+             tooltip-html-unsafe="{{lc.getTerm('tooltip_wip')}}"
+             tooltip-trigger="mouseenter" tooltip-placement="right"/>
+        <img ng-hide="gc.bufferedTopic.status == 'wip'|| gc.bufferedTopic.status == 'done'"
+             src='assets/images/stop-light-yellow.png'   alt="In review" height="16" width="40"
+             tooltip-html-unsafe="{{lc.getTerm('tooltip_ir')}}"
+             tooltip-trigger="mouseenter" tooltip-placement="right"/>
+        <img ng-hide="gc.bufferedTopic.status == 'ir' || gc.bufferedTopic.status == 'wip'"
+             src='assets/images/stop-light-green.png'    alt="Done" height="16" width="40"
+             tooltip-html-unsafe="{{lc.getTerm('tooltip_done')}}"
+             tooltip-trigger="mouseenter" tooltip-placement="right"/>
     </li>
 </ul>
 

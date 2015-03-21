@@ -14,20 +14,20 @@
     </style>
 </head>
 <body>
-<div class="header high">
+<div class="header medium">
     <h1>Code coverage report for <span class="entity">javascripts/controller/GroupController.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">82.63% <small>(157 / 190)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">79.9% <small>(159 / 199)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Branches: <span class="metric">59.09% <small>(39 / 66)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">70% <small>(35 / 50)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">66.04% <small>(35 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">82.63% <small>(157 / 190)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">79.9% <small>(159 / 199)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -609,7 +609,33 @@
 572
 573
 574
-575</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -961,6 +987,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -977,17 +1018,27 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1147,6 +1198,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -1531,6 +1583,21 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
     };
 &nbsp;
     /**
+     * Updates the group in the backend with the given data
+     *
+     * @param group     The group that should be updated
+     */
+    this.updateGroupData = <span class="fstat-no" title="function not covered" >function(group){</span>
+        // send data back to the server
+<span class="cstat-no" title="statement not covered" >        $http.post('/admin/modify/group', group).</span>
+            success(<span class="fstat-no" title="function not covered" >function() {</span>
+            }).
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >                console.log("Error GroupCtrl: Could not modify the notifications");</span>
+            });
+    };
+&nbsp;
+    /**
      * Function sets the new topic and creates a corresponding notification
      *
      * @param groupID
@@ -1551,17 +1618,27 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 <span class="cstat-no" title="statement not covered" >                    changeGroup.notifications.push(notification);</span>
                 }
 &nbsp;
-                // send data back to the server
-<span class="cstat-no" title="statement not covered" >                $http.post('/admin/modify/group', changeGroup).</span>
-                    success(<span class="fstat-no" title="function not covered" >function() {</span>
-                    }).
-                    error(<span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >                        console.log("Error GroupCtrl: Could not modify the notifications");</span>
-                    });
+<span class="cstat-no" title="statement not covered" >                that.updateGroupData(changeGroup);</span>
             }).
-            error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                console.log("Error GroupCtrl: Could not fetch the group for modifying the notifications");</span>
             });
+    };
+&nbsp;
+    /**
+     * Updates the bufferedGroup with the given user / member data
+     *
+     * @param users The users that should be included in the new group
+     */
+    this.updateUserData = <span class="fstat-no" title="function not covered" >function(users){</span>
+<span class="cstat-no" title="statement not covered" >        that.bufferedGroup.member = "";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        users.forEach(<span class="fstat-no" title="function not covered" >function(u){</span></span>
+<span class="cstat-no" title="statement not covered" >            that.bufferedGroup.member += ","+u.email;</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        that.bufferedGroup.member = that.bufferedGroup.member.substr(1, that.bufferedGroup.member.length -1);</span>
+<span class="cstat-no" title="statement not covered" >        that.updateGroupData(that.bufferedGroup);</span>
     };
 &nbsp;
     /**
@@ -1589,10 +1666,10 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 &nbsp;
                 userIDsOfTheGroup.forEach(function(userid){
                     $http.get('/admin/users/'+userid).
-                        success(function(data, status, headers, config) {
+                        success(function(data) {
                             that.userInGroupArray.push(data[0]);
                         }).
-                        error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+                        error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                            console.log("error GroupController: User "+ userid +" cannot get pulled");</span>
                         });
                 });
@@ -1706,7 +1783,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
      */
     this.deleteGroup = function(uID){
         $http.delete('/admin/group/'+uID, this.currentGroup).
-            success(function(data, status, headers, config) {
+            success(function() {
                 // remove from GUI
                 var targetPos = -1;
                 for(var i=0; i &lt; that.groupsCreatedByThisUserOrUserIsMemberOfGroup.length; i++){
@@ -1720,7 +1797,8 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
                     that.groupsCreatedByThisUserOrUserIsMemberOfGroup.splice(targetPos,1);
                 }
             }).
-            error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >                console.log("Error while deleting the group!")</span>
             });
 &nbsp;
         that.getGroups();
@@ -1762,7 +1840,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 09 2015 17:31:10 GMT+0100 (CET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 21 2015 18:49:56 GMT+0100 (CET)</div>
 </div>
 
 <script src="../../prettify.js"></script>

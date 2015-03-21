@@ -12,6 +12,10 @@ body{
 	margin: auto;
 }
 
+.no-margin{
+    margin-bottom: 0px;
+}
+
 .font-white{
     color: white;
 }

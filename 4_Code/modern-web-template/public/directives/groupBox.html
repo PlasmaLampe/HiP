@@ -13,7 +13,10 @@
             </div>
 
             <div class="shift-right" ng-show="uc.isSupervisor()">
-                <a href="#">[<span ng-click="gc.deleteGroup(grp.uID)" class="glyphicon glyphicon-trash"></span>]</a>
+                <a href="#"><span ng-click="gc.deleteGroup(grp.uID)"
+                                  class="glyphicon glyphicon-remove-circle"
+                                  tooltip-html-unsafe="{{lc.getTerm('tooltip_delete_group')}}"
+                                  tooltip-trigger="mouseenter" tooltip-placement="right"></span></a>
             </div>
 
             <div class="float-clear"></div>
@@ -29,7 +32,9 @@
             </div>
 
             <div class="shift-right">
-                [<span ng-click="gc.deleteGroup(grp.uID)" class="glyphicon glyphicon-trash">]</span>
+                <span ng-click="gc.deleteGroup(grp.uID)" class="glyphicon glyphicon-remove-circle"
+                      tooltip-html-unsafe="{{lc.getTerm('tooltip_delete_group')}}"
+                      tooltip-trigger="mouseenter" tooltip-placement="right"></span>
             </div>
 
             <div class="float-clear"></div>

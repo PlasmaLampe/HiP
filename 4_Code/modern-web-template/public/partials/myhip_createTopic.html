@@ -2,24 +2,25 @@
     <group-box></group-box>
 
     <div id="mainSingleBox" class="panel panel-default" ng-controller="TopicCtrl as tc" ng-init="choice = 1">
-        <div class="panel-heading">
-            <div class="shift-left" ng-click="choice=1"> <a>{{lc.getTerm('system_topic_header')}}</a></div>
-            <div class="pull-right" ng-click="choice=2"> <a>{{lc.getTerm('system_topic_copy')}}</a></div>
-            <div class="float-clear"></div>
-        </div>
+        <div class="panel-heading" ng-bind="lc.getTerm('system_topic_createOrcopy')"></div>
 
         <div class="panel-body">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="{active : choice == 1}" ng-click="choice=1"><a href ng-bind="lc.getTerm('system_topic_header')"></a></li>
+                <li role="presentation" ng-class="{active : choice == 2}" ng-click="choice=2"><a href ng-bind="lc.getTerm('system_topic_copy')"></a></li>
+            </ul>
+
+            <br>
 
             <!-- create new topic form -->
             <form class="form-horizontal" role="form" ng-submit="tc.createTopic()" ng-show="choice == 1">
-                <h4 ng-bind="lc.getTerm('system_topic_information')"></h4>
-
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon" ng-bind="lc.getTerm('system_topic_form_name')"></span>
-                            <input type="text" class="form-control" name="groupName" id="groupName" placeholder=""
-                                   ng-model="tc.currentTopic.name">
+                            <input type="text" class="form-control" ng-model="tc.currentTopic.name"
+                                   tooltip="{{lc.getTerm('tooltip_createGroup_mainTopic')}}"
+                                   tooltip-trigger="focus" tooltip-placement="right">
                         </div>
                     </div>
 
@@ -44,16 +45,16 @@
                                     </li>
                                 </ul>
                             </div>
-                            <input type="text" class="form-control" name="groupID" id="groupID" placeholder=""
-                                   ng-model="tc.currentTopic.groupID">
+                            <input type="text" class="form-control" ng-model="tc.currentTopic.groupID" disabled>
                         </div>
                     </div>
 
                     <div class="col-sm-offset-1 col-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon" ng-bind="lc.getTerm('system_topic_form_sub')"></span>
-                            <input type="text" class="form-control" name="subTopics" id="subTopics" placeholder=""
-                                   ng-model="tc.currentTopicSubTopicsAsString">
+                            <input type="text" class="form-control" ng-model="tc.currentTopicSubTopicsAsString"
+                                   tooltip-html-unsafe="{{lc.getTerm('tooltip_createGroup_subTopic')}}"
+                                   tooltip-trigger="focus" tooltip-placement="right">
                         </div>
                     </div>
                 </div>
@@ -73,9 +74,6 @@
             <!-- copy topic form -->
             <form class="form-horizontal" role="form" ng-submit="tc.copyTopic(tc.currentTopic.uID,tc.currentTopic.groupID,
                         tc.modifyTopicName)" ng-show="choice == 2">
-
-                <h4 ng-bind="lc.getTerm('system_topic_information_copy')"></h4>
-
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">
                         <div class="input-group">

@@ -22,15 +22,8 @@
                         <div class="float-clear"></div>
                     </div>
                     <div class="panel-footer">
-                        <div class="shift-left" ng-bind="lc.getTerm('system_group_member')">
-                        </div>
-
-                        <div class="shift-left">
-                            <img class="userAvatars" ng-repeat="usr in gc.userInGroupArray" ng-src="{{usr.avatar}}"
-                                 tooltip-html-unsafe="{{usr.firstname}} {{usr.lastname}}"
-                                 tooltip-trigger="mouseenter" tooltip-placement="top">
-                        </div>
-
+                        <user-gallery   modus="supervisor" groupcontroller="gc" languagecontroller="lc"
+                                        usercontroller="uc"></user-gallery>
                         <div class="float-clear"></div>
                     </div>
                 </div>

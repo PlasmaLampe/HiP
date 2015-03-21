@@ -346,6 +346,21 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
     };
 
     /**
+     * Updates the group in the backend with the given data
+     *
+     * @param group     The group that should be updated
+     */
+    this.updateGroupData = function(group){
+        // send data back to the server
+        $http.post('/admin/modify/group', group).
+            success(function() {
+            }).
+            error(function() {
+                console.log("Error GroupCtrl: Could not modify the notifications");
+            });
+    };
+
+    /**
      * Function sets the new topic and creates a corresponding notification
      *
      * @param groupID
@@ -366,17 +381,27 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
                     changeGroup.notifications.push(notification);
                 }
 
-                // send data back to the server
-                $http.post('/admin/modify/group', changeGroup).
-                    success(function() {
-                    }).
-                    error(function() {
-                        console.log("Error GroupCtrl: Could not modify the notifications");
-                    });
+                that.updateGroupData(changeGroup);
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 console.log("Error GroupCtrl: Could not fetch the group for modifying the notifications");
             });
+    };
+
+    /**
+     * Updates the bufferedGroup with the given user / member data
+     *
+     * @param users The users that should be included in the new group
+     */
+    this.updateUserData = function(users){
+        that.bufferedGroup.member = "";
+
+        users.forEach(function(u){
+            that.bufferedGroup.member += ","+u.email;
+        });
+
+        that.bufferedGroup.member = that.bufferedGroup.member.substr(1, that.bufferedGroup.member.length -1);
+        that.updateGroupData(that.bufferedGroup);
     };
 
     /**
@@ -404,10 +429,10 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 
                 userIDsOfTheGroup.forEach(function(userid){
                     $http.get('/admin/users/'+userid).
-                        success(function(data, status, headers, config) {
+                        success(function(data) {
                             that.userInGroupArray.push(data[0]);
                         }).
-                        error(function(data, status, headers, config) {
+                        error(function() {
                             console.log("error GroupController: User "+ userid +" cannot get pulled");
                         });
                 });
@@ -521,7 +546,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
      */
     this.deleteGroup = function(uID){
         $http.delete('/admin/group/'+uID, this.currentGroup).
-            success(function(data, status, headers, config) {
+            success(function() {
                 // remove from GUI
                 var targetPos = -1;
                 for(var i=0; i < that.groupsCreatedByThisUserOrUserIsMemberOfGroup.length; i++){
@@ -535,7 +560,8 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
                     that.groupsCreatedByThisUserOrUserIsMemberOfGroup.splice(targetPos,1);
                 }
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
+                console.log("Error while deleting the group!")
             });
 
         that.getGroups();
