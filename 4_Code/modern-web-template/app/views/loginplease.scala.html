@@ -23,15 +23,14 @@
             <nav> <!-- class="upperNavigation" -->
                 <div class="navbar-left">
                     <ul class="nav nav-pills">
-                        <li class="inner-nav"> <a href="/login" ng-bind="lc.getTerm('system_login')"></a> </li>
-                        <li class="inner-nav"> <img src='assets/images/arrow.png' width="32"></li>
+                        <li class="inner-nav"> <a ng-click="lc.getLanguage('eng')">   <img src='assets/images/eng.png'  alt="english" width="16"> </a> </li>
+                        <li class="inner-nav"> <a ng-click="lc.getLanguage('de')">    <img src='assets/images/de.png'   alt="german" width="16"> </a> </li>
                     </ul>
                 </div>
 
                 <div class="navbar-right">
                     <ul class="nav nav-pills">
-                        <li class="inner-nav"> <a ng-click="lc.getLanguage('eng')">   <img src='assets/images/eng.png'  alt="english" width="16"> </a> </li>
-                        <li class="inner-nav"> <a ng-click="lc.getLanguage('de')">    <img src='assets/images/de.png'   alt="german" width="16"> </a> </li>
+                        <li class="inner-nav"> <a href="/login" ng-bind="lc.getTerm('system_login')"></a> </li>
                     </ul>
                 </div>
             </nav>
@@ -56,7 +55,7 @@
                     <div class="panel-heading" ng-bind="lc.getTerm('system_start_head')"></div>
                     <div>
                         <div class="panel-body">
-                            <h4 ng-bind="lc.getTerm('system_start_subheader')"></h4>
+                            <a href="/login"><h4 ng-bind="lc.getTerm('system_start_subheader')"></h4></a>
                             {{lc.getTerm('system_start_infotext')}}
 
                             <br><br><br>
@@ -99,7 +98,7 @@
         <!-- Footer -->
         <div id="footer">
             <div id="footer-left">
-                <span>HiP 2014</span> |
+                <span>HiP 2015</span> |
                 <a ng-click="tab = 2" class="font-white" href="#" alt="Impressum"> Impressum </a>
             </div>
         </div>

@@ -77,6 +77,33 @@ class MessageController extends Controller with MongoController {
     }
   }
 
+  /**
+   * Returns a list of messages given its sender's name
+   *
+   * @return a list that contains the messages as a JSON object
+   */
+  def getMessagesBySender(sendName : String) = Action.async {
+    // let's do our query
+    val cursor: Cursor[MessageModel] = collection.
+      // find all
+      find(Json.obj("sender" -> sendName)).
+      // perform the query and get a cursor of JsObject
+      cursor[MessageModel]
+
+    // gather all the JsObjects in a list
+    val futureUsersList: Future[List[MessageModel]] = cursor.collect[List]()
+
+    // transform the list into a JsArray
+    val futurePersonsJsonArray: Future[JsArray] = futureUsersList.map { messages =>
+      Json.arr(messages)
+    }
+
+    // everything's ok! Let's reply with the array
+    futurePersonsJsonArray.map {
+      messages =>
+        Ok(messages(0))
+    }
+  }
 
   /**
    * Deletes the message with the given uID

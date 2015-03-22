@@ -72,6 +72,8 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         name: "-1"
     };
 
+    this.imageSearchPrefix = "<img";
+
     /**
      * Clears the ModifyTopic buffer
      */
@@ -433,7 +435,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                 constraintJSON.valueInTopic = ""+that.currentTopic.content.length;
                 checkConstraint();
             }else if (constraintJSON.name == 'img_limitation') {
-                constraintJSON.valueInTopic = ""+(that.currentTopic.content.split('<img').length-1);
+                constraintJSON.valueInTopic = ""+(that.currentTopic.content.split(that.imageSearchPrefix).length-1);
                 checkConstraint();
             }else if (constraintJSON.name == 'max_character_limitation') {
                 constraintJSON.valueInTopic = ""+that.currentTopic.content.length;

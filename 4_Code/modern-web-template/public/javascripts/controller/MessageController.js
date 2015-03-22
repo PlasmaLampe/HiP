@@ -18,11 +18,14 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
     this.messageThatGetsCurrentlyCreated = {};
 
     this.messages = [{ }];
+    this.outMessages = [{ }];
 
     this.detailMessage = {
         title : "MyTitle",
         content: "MyContent"
     };
+
+    this.deleteCandidate = "";
 
     /**
      * Fetches the messages given the name of it's receiver.
@@ -32,16 +35,34 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
      */
     this.getMessagesByReceiverName = function(recName){
         $http.get('/admin/messages/all/'+recName).
-            success(function(data, status, headers, config) {
-
+            success(function(data) {
                 that.messages = data;
 
                 if(that.debug == true){
                     console.log("info MessageCtrl: getting message data");
                 }
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
+                that.messages  = that.errorObject;
+            });
+    };
 
+    /**
+     * Fetches the messages given the name of it's sender.
+     * The data is stored internally in that.outMessages.
+     *
+     * @param sendName   the name of the sender.
+     */
+    this.getMessagesBySenderName = function(sendName){
+        $http.get('/admin/messages/sendBy/'+sendName).
+            success(function(data) {
+                that.outMessages = data;
+
+                if(that.debug == true){
+                    console.log("info MessageCtrl: getting message data");
+                }
+            }).
+            error(function() {
                 that.messages  = that.errorObject;
             });
     };
@@ -128,6 +149,7 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
             console.log("info MessageCtrl: fetching messages for user " + $routeParams.recName);
 
         that.getMessagesByReceiverName($routeParams.recName);
+        that.getMessagesBySenderName($routeParams.recName);
     }
 
     if($routeParams.messageID != undefined){
