@@ -89,6 +89,8 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         that.gps                    = [];
     };
 
+    this.buffer0 = "";  // simple buffer slot - use it for calculations as you want
+
     /**
      * WORKAROUNG FOR BUG IN ANGULAR.JS
      *
@@ -1291,6 +1293,23 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
             keys: ['nextTextBlock'],
             nextTextBlock: uID
         }, true, false);
+    };
+
+    /**
+     * Function adds a new subtopic for the parent topic
+     * @param name      name (or names - separated by ',') of the topic/-s
+     * @param topicUID  uID of the parent topic
+     */
+    this.addNewSubtopic = function(name, topicUID){
+        $http.get('/admin/topic/'+topicUID).success(function(topic){
+            var parentTopic = topic[0];
+
+            var topics = commonTaskService.createSubTopic(name, parentTopic.group, topicUID, parentTopic.deadline, $http);
+
+            topics.forEach(function(t){
+                that.subtopics.push(t);
+            });
+        });
     };
 
     /* update parameter if needed */

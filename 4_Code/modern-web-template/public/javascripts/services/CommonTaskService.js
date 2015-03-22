@@ -349,6 +349,46 @@ servicesModule.service('commonTaskService', function(){
     };
 
     /**
+     * Creates the given sub topics with the given parent topic
+     *
+     * @param subTopicsAsString     The subtopic names with separation by ','
+     * @param groupID               The uID of the group that works on the topic
+     * @param currentTopicID        The uID of the parent topic
+     * @param deadline              The deadline of the parent topic
+     * @param $http                 Reference to the $http object
+     * @return Array{JSON}          Returns the complete list of created subtopics
+     */
+    this.createSubTopic = function (subTopicsAsString, groupID, currentTopicID, deadline, $http) {
+        var subtopics = subTopicsAsString.split(',');
+
+        var returnArray = [];
+
+        subtopics.forEach(function (subTopic) {
+            var currentSubTopicID = that.generateUID(subTopic);
+
+            var subTopicJSON = that.createTopicObject(currentSubTopicID, subTopic, groupID, currentTopicID, "",
+                "wip", [], deadline);
+
+            that.createConstraints($http, subTopicJSON);
+
+            returnArray.push(subTopicJSON);
+
+            console.log(subTopicJSON);
+
+            $http.post('/admin/topic', subTopicJSON).
+                success(function () {
+                    /* create empty history */
+                    var historyObject = that.createHistoryObject(currentSubTopicID);
+                    $http.post('/admin/history', historyObject);
+                }).
+                error(function (data, status, headers, config) {
+                });
+        });
+
+        return returnArray;
+    };
+
+    /**
      * Creates a new topic with the given information
      *
      * @param topicname             the name of the topic
@@ -367,24 +407,7 @@ servicesModule.service('commonTaskService', function(){
         if (subTopicsAsString == undefined)
             subTopicsAsString = "";
         else {
-            var subtopics = subTopicsAsString.split(',');
-            subtopics.forEach(function (subTopic) {
-                var currentSubTopicID = that.generateUID(subTopic);
-
-                var subTopicJSON = that.createTopicObject(currentSubTopicID, subTopic, groupID, currentTopicID, "",
-                    "wip", [], deadline);
-
-                that.createConstraints($http, subTopicJSON);
-
-                $http.post('/admin/topic', subTopicJSON).
-                    success(function () {
-                        /* create empty history */
-                        var historyObject = that.createHistoryObject(currentSubTopicID);
-                        $http.post('/admin/history', historyObject);
-                    }).
-                    error(function (data, status, headers, config) {
-                    });
-            });
+            this.createSubTopic(subTopicsAsString, groupID, currentTopicID, deadline, $http);
         }
 
         /* create actual main topic */
