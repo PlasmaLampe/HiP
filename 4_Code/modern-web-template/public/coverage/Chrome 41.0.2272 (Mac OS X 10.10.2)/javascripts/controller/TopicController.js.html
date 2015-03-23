@@ -18,16 +18,16 @@
     <h1>Code coverage report for <span class="entity">javascripts/controller/TopicController.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">68.95% <small>(322 / 467)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">68.79% <small>(324 / 471)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">61.49% <small>(91 / 148)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">61.33% <small>(92 / 150)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">57.98% <small>(69 / 119)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">57.5% <small>(69 / 120)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">68.88% <small>(321 / 466)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">68.72% <small>(323 / 470)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -1376,7 +1376,19 @@
 1339
 1340
 1341
-1342</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+1342
+1343
+1344
+1345
+1346
+1347
+1348
+1349
+1350
+1351
+1352
+1353
+1354</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1555,6 +1567,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
@@ -2533,8 +2549,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2693,6 +2707,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-yes">37</span>
@@ -2716,6 +2739,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Created by Jörg Amelunxen on 11.11.14.
@@ -2871,11 +2895,11 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
      * Creates a new topic with the internally stored information and sends it to the server
      */
     this.createTopic = function(){
-        commonTaskService.createTopic(that.currentTopic.name, that.currentTopicSubTopicsAsString, that.currentTopic.groupID,
-            $scope.gc, $scope.uc.email, $http);
+        var uid = commonTaskService.createTopic(that.currentTopic.name, that.currentTopicSubTopicsAsString, that.currentTopic.group,
+            $scope.gc, $scope.uc.email, $http, that.currentTopic.deadline);
 &nbsp;
         /* create corresponding chat system */
-        commonTaskService.createChat($http, that.currentTopic.uID, that.currentTopic.name + " Chat");
+        commonTaskService.createChat($http, uid, that.currentTopic.name + " Chat");
     };
 &nbsp;
     /**
@@ -2896,6 +2920,10 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                 else                    <span class="cstat-no" title="statement not covered" >mTopic.name = name;</span>
 &nbsp;
                 mTopic.uID  =  commonTaskService.generateUID(mTopic.name);
+&nbsp;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if(group != undefined){
+<span class="cstat-no" title="statement not covered" >                    mTopic.group = group;</span>
+                }
 &nbsp;
                 /* get subtopics */
                 $http.get('/admin/topicbyuser/'+uID).success(function(subTopics){
@@ -3416,7 +3444,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
             success(function(data) {
                 that.topicsByStatus = data;
             }).
-            error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                console.log("error TopicController: Topics with status "+statusOfTheTopic+" cannot get pulled");</span>
             });
     };
@@ -3873,8 +3901,6 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                     /* force update */
 <span class="cstat-no" title="statement not covered" >                    var element = angular.element($('#lat'));</span>
 <span class="cstat-no" title="statement not covered" >                    element.scope().$apply();</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >                    that.map.setCenter({lat:that.currentTopic.gps[0], lng:that.currentTopic.gps[1]});</span>
                 });
             }
 &nbsp;
@@ -3916,7 +3942,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
 <span class="cstat-no" title="statement not covered" >                    return constraint.value;</span>
                 }
             }
-        };
+        }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        var min =  getValueOfConstraint('character_limitation');</span>
 <span class="cstat-no" title="statement not covered" >        var max =  getValueOfConstraint('max_character_limitation');</span>
@@ -4033,6 +4059,15 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         });
     };
 &nbsp;
+    /**
+     * Finds the fitting id and sets the internal value for that.currentTopic.group
+     * @param buffergroup
+     */
+    this.setIDForGroupInCurrentTopic = <span class="fstat-no" title="function not covered" >function(buffergroup, offlineData){</span>
+<span class="cstat-no" title="statement not covered" >        console.log(buffergroup);</span>
+<span class="cstat-no" title="statement not covered" >        console.log(offlineData);</span>
+    };
+&nbsp;
     /* update parameter if needed */
     <span class="missing-if-branch" title="else path not taken" >E</span>if($routeParams.topicID != undefined){
         that.getConstraintsForThisTopic($routeParams.topicID);
@@ -4058,12 +4093,13 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
 <span class="branch-2 cbranch-no" title="branch not covered" >        $routeParams.userID == undefined)</span>{
 <span class="cstat-no" title="statement not covered" >        that.getTopicsByStatus('done');</span>
     }
-}]);</pre></td></tr>
+}]);
+&nbsp;</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 23 2015 16:27:52 GMT+0100 (CET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 23 2015 21:48:04 GMT+0100 (CET)</div>
 </div>
 
 <script src="../../prettify.js"></script>

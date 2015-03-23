@@ -376,6 +376,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
         $http.get('/admin/group/'+groupID).
             success(function(data) {
                 var changeGroup = data[0];
+
                 changeGroup.topic = currentTopicID;
 
                 if( !$.inArray( notification, changeGroup.notifications ) ){

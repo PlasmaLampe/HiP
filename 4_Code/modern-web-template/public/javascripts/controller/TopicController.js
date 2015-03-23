@@ -152,11 +152,11 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
      * Creates a new topic with the internally stored information and sends it to the server
      */
     this.createTopic = function(){
-        commonTaskService.createTopic(that.currentTopic.name, that.currentTopicSubTopicsAsString, that.currentTopic.groupID,
-            $scope.gc, $scope.uc.email, $http);
+        var uid = commonTaskService.createTopic(that.currentTopic.name, that.currentTopicSubTopicsAsString, that.currentTopic.group,
+            $scope.gc, $scope.uc.email, $http, that.currentTopic.deadline);
 
         /* create corresponding chat system */
-        commonTaskService.createChat($http, that.currentTopic.uID, that.currentTopic.name + " Chat");
+        commonTaskService.createChat($http, uid, that.currentTopic.name + " Chat");
     };
 
     /**
@@ -177,6 +177,10 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                 else                    mTopic.name = name;
 
                 mTopic.uID  =  commonTaskService.generateUID(mTopic.name);
+
+                if(group != undefined){
+                    mTopic.group = group;
+                }
 
                 /* get subtopics */
                 $http.get('/admin/topicbyuser/'+uID).success(function(subTopics){
@@ -697,7 +701,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
             success(function(data) {
                 that.topicsByStatus = data;
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 console.log("error TopicController: Topics with status "+statusOfTheTopic+" cannot get pulled");
             });
     };
@@ -1154,8 +1158,6 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                     /* force update */
                     var element = angular.element($('#lat'));
                     element.scope().$apply();
-
-                    that.map.setCenter({lat:that.currentTopic.gps[0], lng:that.currentTopic.gps[1]});
                 });
             }
 
@@ -1197,7 +1199,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                     return constraint.value;
                 }
             }
-        };
+        }
 
         var min =  getValueOfConstraint('character_limitation');
         var max =  getValueOfConstraint('max_character_limitation');
@@ -1312,6 +1314,15 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                 that.subtopics.push(t);
             });
         });
+    };
+
+    /**
+     * Finds the fitting id and sets the internal value for that.currentTopic.group
+     * @param buffergroup
+     */
+    this.setIDForGroupInCurrentTopic = function(buffergroup, offlineData){
+        console.log(buffergroup);
+        console.log(offlineData);
     };
 
     /* update parameter if needed */

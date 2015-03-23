@@ -17,6 +17,10 @@ controllersModule.controller('GalleryCtrl', ['$scope','$http','keyValueService' 
 
     this.newType = [];          // stores the newly selected type
 
+    this.candidateKvStore   = "-1";     // needed for the deletion-modal
+    this.candidateUID       = "-1";     // needed for the deletion-modal
+    this.candidateThumbnailID = "-1";   // needed for the deletion-modal
+
     /**
      * This functions opens the meta-data panel for the given picture
      *

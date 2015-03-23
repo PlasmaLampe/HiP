@@ -12,6 +12,11 @@ body{
 	margin: auto;
 }
 
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
 .no-margin{
     margin-bottom: 0px;
 }
@@ -21,6 +26,14 @@ body{
 }
 
 .font-white:hover{
+    color: #eb9316;
+}
+
+.font-black{
+    color: black;
+}
+
+.font-black:hover{
     color: #eb9316;
 }
 

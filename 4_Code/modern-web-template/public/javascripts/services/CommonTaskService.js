@@ -335,13 +335,21 @@ servicesModule.service('commonTaskService', function(){
      * @param debugFlag     debug true/false
      */
     this.sendPrivateMessage = function ($http, tempMessage, debugFlag) {
+        if(tempMessage.content == undefined){
+            tempMessage.content = "";
+        }
+
+        if(tempMessage.title == undefined){
+            tempMessage.title = "-";
+        }
+
         $http.post('/admin/messages', tempMessage).
-            success(function (data, status, headers, config) {
+            success(function () {
                 if (debugFlag) {
                     console.log("info MessageCtrl: Message sending completed");
                 }
             }).
-            error(function (data, status, headers, config) {
+            error(function () {
                 if (debugFlag) {
                     console.log("error MessageCtrl: Error while sending message");
                 }
@@ -373,8 +381,6 @@ servicesModule.service('commonTaskService', function(){
 
             returnArray.push(subTopicJSON);
 
-            console.log(subTopicJSON);
-
             $http.post('/admin/topic', subTopicJSON).
                 success(function () {
                     /* create empty history */
@@ -398,6 +404,7 @@ servicesModule.service('commonTaskService', function(){
      * @param mainTopicCreatedBy    creator of the main topic
      * @param $http                 reference to the http interface
      * @param deadline              the deadline for the given topic
+     * @return {String} uID         the uID of the new topic
      */
     this.createTopic = function (topicname, subTopicsAsString, groupID, refToGrpController, mainTopicCreatedBy, $http,
                                       deadline) {
@@ -438,6 +445,8 @@ servicesModule.service('commonTaskService', function(){
             refToGrpController.createNotificationAtGroupAndSetTopic(groupID,
                 currentTopicID, "system_notification_groupTopicChanged", [topicname]);
         }
+
+        return currentTopicID;
     };
 
     /**

@@ -341,14 +341,7 @@ describe('Testsuite for the TopicController:', function () {
 
 
         /* expect the creation of the chat */
-        var expectedChat = {
-            uID     : demoTopic1.uID,
-            name    : demoTopic1.name + " Chat",
-            message : [""],
-            sender  : [""]
-        };
-
-        $httpBackend.expectPOST('/admin/chat/true',expectedChat).respond(200,{});
+        $httpBackend.expectPOST('/admin/chat/true').respond(200,{});
 
         /* expect creation of both history objects */
         $httpBackend.expectPOST('/admin/history').respond(200,{});

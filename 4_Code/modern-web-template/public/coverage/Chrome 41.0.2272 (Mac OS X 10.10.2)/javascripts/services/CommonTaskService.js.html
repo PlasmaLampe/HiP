@@ -14,20 +14,20 @@
     </style>
 </head>
 <body>
-<div class="header high">
+<div class="header medium">
     <h1>Code coverage report for <span class="entity">javascripts/services/CommonTaskService.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">80.71% <small>(113 / 140)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">79.86% <small>(115 / 144)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">66.67% <small>(32 / 48)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">65.38% <small>(34 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">70.73% <small>(29 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">80.71% <small>(113 / 140)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">79.86% <small>(115 / 144)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -553,7 +553,16 @@
 516
 517
 518
-519</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -891,6 +900,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">136</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -930,8 +947,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
@@ -941,6 +956,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -993,6 +1009,8 @@
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1408,13 +1426,21 @@ servicesModule.service('commonTaskService', function(){
      * @param debugFlag     debug true/false
      */
     this.sendPrivateMessage = function ($http, tempMessage, debugFlag) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(tempMessage.content == undefined){
+<span class="cstat-no" title="statement not covered" >            tempMessage.content = "";</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(tempMessage.title == undefined){
+<span class="cstat-no" title="statement not covered" >            tempMessage.title = "-";</span>
+        }
+&nbsp;
         $http.post('/admin/messages', tempMessage).
-            success(function (data, status, headers, config) {
+            success(function () {
                 <span class="missing-if-branch" title="if path not taken" >I</span>if (debugFlag) {
 <span class="cstat-no" title="statement not covered" >                    console.log("info MessageCtrl: Message sending completed");</span>
                 }
             }).
-            error(<span class="fstat-no" title="function not covered" >function (data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >                if (debugFlag) {</span>
 <span class="cstat-no" title="statement not covered" >                    console.log("error MessageCtrl: Error while sending message");</span>
                 }
@@ -1446,8 +1472,6 @@ servicesModule.service('commonTaskService', function(){
 &nbsp;
             returnArray.push(subTopicJSON);
 &nbsp;
-            console.log(subTopicJSON);
-&nbsp;
             $http.post('/admin/topic', subTopicJSON).
                 success(function () {
                     /* create empty history */
@@ -1471,6 +1495,7 @@ servicesModule.service('commonTaskService', function(){
      * @param mainTopicCreatedBy    creator of the main topic
      * @param $http                 reference to the http interface
      * @param deadline              the deadline for the given topic
+     * @return {String} uID         the uID of the new topic
      */
     this.createTopic = function (topicname, subTopicsAsString, groupID, refToGrpController, mainTopicCreatedBy, $http,
                                       deadline) {
@@ -1511,6 +1536,8 @@ servicesModule.service('commonTaskService', function(){
             refToGrpController.createNotificationAtGroupAndSetTopic(groupID,
                 currentTopicID, "system_notification_groupTopicChanged", [topicname]);
         }
+&nbsp;
+        return currentTopicID;
     };
 &nbsp;
     /**
@@ -1594,7 +1621,7 @@ servicesModule.service('commonTaskService', function(){
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 23 2015 16:27:52 GMT+0100 (CET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 23 2015 21:48:04 GMT+0100 (CET)</div>
 </div>
 
 <script src="../../prettify.js"></script>

@@ -147,6 +147,19 @@ controllersModule.controller('UserCtrl', ['$scope','$http', '$attrs', function($
                         that.lastname = u.lastname;
                     }
                 });
+
+                /* drop doubles */
+                var found = [];
+                var newUserList = [];
+                that.userList.forEach(function(u){
+                    if(jQuery.inArray(u.email, found) == -1){
+                        /* not yet included in cleaned user list */
+                        found.push(u.email);
+                        newUserList.push(u);
+                    }
+                });
+
+                that.userList = newUserList;
             }).
             error(function() {
                 console.log("Error getting user information")
