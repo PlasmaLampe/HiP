@@ -48,15 +48,13 @@
 
                 <div class="pull-right">
                     <ul class="nav nav-pills">
-                        <li class="inner-nav">  </li>
-                        <li class="inner-nav">  </a> </li>
+                        <li class="inner-nav"><a ng-click="lc.getLanguage('eng')"> <img class="pull-right" src='assets/images/eng.png' alt="english" width="16"/></a></li>
+                        <li class="inner-nav"><a ng-click="lc.getLanguage('de')"> <img class="pull-right" src='assets/images/de.png' alt="german" width="16"/></a></li>
 
                         <li class="inner-nav dropdown li-no-dec">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{uc.firstname}} <span class="glyphicon glyphicon-user"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a ng-click="lc.getLanguage('eng')"> English <img class="pull-right" src='assets/images/eng.png' alt="english" width="16"/></a></li>
-                                <li class="divider"></li>
-                                <li><a ng-click="lc.getLanguage('de')"> Deutsch <img class="pull-right" src='assets/images/de.png' alt="german" width="16"/></a></li>
+                                <li><a href="/#/profile"> {{lc.getTerm('system_profile')}} <img class="pull-right" src='assets/images/profile.png' alt="logout" width="16"/></a></li>
                                 <li class="divider"></li>
                                 <li><a href="/logout"> {{lc.getTerm('system_lang_logout')}} <img class="pull-right" src='assets/images/logout.png' alt="logout" width="16"/></a></li>
                             </ul>

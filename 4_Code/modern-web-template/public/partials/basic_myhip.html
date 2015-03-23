@@ -15,11 +15,6 @@
                     {{lc.getTerm('system_student_welcome')}} {{uc.firstname}}
                 </div>
             </div>
-            <div class="panel-footer">
-                <a href="/#/topic/accept">
-                    <div ng-show="uc.isMaster()" ng-bind="lc.getTerm('system_supervisor_dataAccept')"></div>
-                </a>
-            </div>
         </div>
 
         <div id="contentBox">
@@ -38,6 +33,7 @@
                             <li> <a href="/#/group/create"   ng-bind="lc.getTerm('system_supervisor_navigation_addGroup')"> </a> </li>
                             <li> <a href="/#/group/create2"  ng-bind="lc.getTerm('system_supervisor_navigation_addGroup2')"> </a> </li>
                             <li> <a href="/#/browse"         ng-bind="lc.getTerm('system_navigation_browse')"> </a> </li>
+                            <li><a href="/#/topic/accept"    ng-show="uc.isMaster()" ng-bind="lc.getTerm('system_supervisor_dataAccept')"></a></li>
                         </ul>
                     </div>
 

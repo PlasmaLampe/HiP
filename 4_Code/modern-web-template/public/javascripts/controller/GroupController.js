@@ -299,11 +299,10 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 
                 // send data back to the server
                 $http.post('/admin/modify/group', changeGroup).
-                    success(function(data, status, headers, config) {
-                        // this callback will be called asynchronously
-                        // when the response is available
+                    success(function() {
+
                     }).
-                    error(function(data, status, headers, config) {
+                    error(function() {
                         console.log("Error GroupCtrl: Could not set a topic");
                     });
             }).
@@ -335,12 +334,12 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
         }
 
         $http.post('/admin/notification', grpNotification).
-            success(function(data, status, headers, config) {
+            success(function() {
                 if(that.debug){
                     console.log("info GrpCtrl: Posting completed");
                 }
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 if(that.debug) {
                     console.log("error GrpCtrl: Error while posting");
                 }
@@ -414,15 +413,15 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
      */
     this.getGroupByUID = function(uID){
         $http.get('/admin/group/'+uID).
-            success(function(data, status, headers, config) {
+            success(function(data) {
                 that.bufferedGroup = data[0];
 
                 // get more information about the topic
                 $http.get('/admin/topic/'+that.bufferedGroup.topic).
-                    success(function(data, status, headers, config) {
+                    success(function(data) {
                         that.bufferedTopic = data[0];
                     }).
-                    error(function(data, status, headers, config) {
+                    error(function() {
                         console.log("error GroupController: Topic cannot get pulled");
                     });
 
@@ -455,7 +454,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
      */
     this.getGroups = function(userid){
         $http.get('/admin/groups').
-            success(function(data, status, headers, config) {
+            success(function(data) {
                 that.groups = data;
 
                 // Separate groups that have been created by this user
@@ -491,7 +490,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
                 });
                 that.createAggregatedNotificationList(requestNotifications);
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 that.groups = "Error: Connection error";
             });
     };
@@ -527,9 +526,9 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
         that.currentGroup.notifications.push(createNotification("system_notification_groupCreated",[firstname]));
 
         $http.post('/admin/group', this.currentGroup).
-            success(function(data, status, headers, config) {
+            success(function() {
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 console.log("Error GroupCtrl: Could not create the group");
             });
 

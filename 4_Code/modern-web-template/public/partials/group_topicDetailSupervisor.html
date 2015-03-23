@@ -52,9 +52,12 @@
                     <form class="form-horizontal" role="form" ng-submit="tc.updateConstraints()">
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <div class="pull-left">     <img src='assets/images/stop-light-yellow.png'  alt="yellow" height="16" width="40">
+                                <div class="pull-left">
+                                    <span class="label label-warning" ng-bind="lc.getTerm('character_limitation')"></span>
                                     <span ng-bind-template="{{lc.getTerm('threshold_light')}}: {{tc.maxcharThreshold}}%"></span></div>
-                                <div class="pull-right">    <img src='assets/images/stop-light-green.png'   alt="green"  height="16" width="40">   </div>
+                                <div class="pull-right">
+                                    <span class="label label-success" ng-bind="lc.getTerm('max_character_limitation')"></span>
+                                </div>
                                 <slider floor="0" ceiling="100" step="1" precision="1" ng-model="tc.maxcharThreshold"></slider>
                             </div>
                         </div>

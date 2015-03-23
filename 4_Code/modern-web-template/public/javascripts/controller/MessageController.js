@@ -75,7 +75,7 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
      */
     this.getMessageByID = function(messageID){
         $http.get('/admin/messages/view/'+messageID).
-            success(function(data, status, headers, config) {
+            success(function(data) {
 
                 that.detailMessage.title = data[0].title;
                 that.detailMessage.content = data[0].content;
@@ -84,8 +84,7 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
                     console.log("info MessageCtrl: getting message data of message " + messageID);
                 }
             }).
-            error(function(data, status, headers, config) {
-
+            error(function() {
                 that.messages  = that.errorObject;
             });
     };
@@ -117,7 +116,7 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
         }
 
         $http.delete('/admin/messages/'+messageID).
-            success(function(data, status, headers, config) {
+            success(function() {
                 if(that.debug == true){
                     console.log("info MessageCtrl: message with id " + messageID + " has been deleted ");
                 }
@@ -133,7 +132,7 @@ controllersModule.controller('MessageCtrl', ['$scope','$http', '$routeParams','c
                 that.messages = newValues;
 
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
 
                 that.messages  = that.errorObject;
 

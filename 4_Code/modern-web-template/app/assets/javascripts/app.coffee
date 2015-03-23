@@ -29,6 +29,9 @@ angular.module('myApp.routeConfig', ['ngRoute'])
             .when('/myhip', {
                 templateUrl: '/assets/partials/basic_myhip.html'
             })
+            .when('/profile', {
+                templateUrl: '/assets/partials/basic_profile.html'
+            })
             .when('/browse', {
               templateUrl: '/assets/partials/basic_showAllContent.html'
             })

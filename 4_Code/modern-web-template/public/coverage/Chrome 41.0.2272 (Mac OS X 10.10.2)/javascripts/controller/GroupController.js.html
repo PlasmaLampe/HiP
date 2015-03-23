@@ -636,8 +636,7 @@
 599
 600
 601
-602
-603</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+602</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -938,7 +937,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1540,11 +1538,10 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 &nbsp;
                 // send data back to the server
                 $http.post('/admin/modify/group', changeGroup).
-                    success(function(data, status, headers, config) {
-                        // this callback will be called asynchronously
-                        // when the response is available
+                    success(function() {
+&nbsp;
                     }).
-                    error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+                    error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                        console.log("Error GroupCtrl: Could not set a topic");</span>
                     });
             }).
@@ -1576,12 +1573,12 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
         }
 &nbsp;
         $http.post('/admin/notification', grpNotification).
-            success(function(data, status, headers, config) {
+            success(function() {
                 <span class="missing-if-branch" title="if path not taken" >I</span>if(that.debug){
 <span class="cstat-no" title="statement not covered" >                    console.log("info GrpCtrl: Posting completed");</span>
                 }
             }).
-            error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                if(that.debug) {</span>
 <span class="cstat-no" title="statement not covered" >                    console.log("error GrpCtrl: Error while posting");</span>
                 }
@@ -1655,15 +1652,15 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
      */
     this.getGroupByUID = function(uID){
         $http.get('/admin/group/'+uID).
-            success(function(data, status, headers, config) {
+            success(function(data) {
                 that.bufferedGroup = data[0];
 &nbsp;
                 // get more information about the topic
                 $http.get('/admin/topic/'+that.bufferedGroup.topic).
-                    success(function(data, status, headers, config) {
+                    success(function(data) {
                         that.bufferedTopic = data[0];
                     }).
-                    error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+                    error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                        console.log("error GroupController: Topic cannot get pulled");</span>
                     });
 &nbsp;
@@ -1696,7 +1693,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
      */
     this.getGroups = function(userid){
         $http.get('/admin/groups').
-            success(function(data, status, headers, config) {
+            success(function(data) {
                 that.groups = data;
 &nbsp;
                 // Separate groups that have been created by this user
@@ -1732,7 +1729,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
                 });
                 that.createAggregatedNotificationList(requestNotifications);
             }).
-            error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                that.groups = "Error: Connection error";</span>
             });
     };
@@ -1768,9 +1765,9 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
         that.currentGroup.notifications.push(createNotification("system_notification_groupCreated",[firstname]));
 &nbsp;
         $http.post('/admin/group', this.currentGroup).
-            success(function(data, status, headers, config) {
+            success(function() {
             }).
-            error(<span class="fstat-no" title="function not covered" >function(data, status, headers, config) {</span>
+            error(<span class="fstat-no" title="function not covered" >function() {</span>
 <span class="cstat-no" title="statement not covered" >                console.log("Error GroupCtrl: Could not create the group");</span>
             });
 &nbsp;
@@ -1846,7 +1843,7 @@ groupModule.controller('GroupCtrl', ['$scope','$http', '$routeParams', 'commonTa
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Mar 22 2015 19:56:48 GMT+0100 (CET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 23 2015 16:27:52 GMT+0100 (CET)</div>
 </div>
 
 <script src="../../prettify.js"></script>
