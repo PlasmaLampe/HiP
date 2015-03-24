@@ -86,7 +86,7 @@
                         </div>
 
                         <!-- Change input fields -->
-                        <div class="form-group">
+                        <div class="form-group" ng-init="tc.buffer0 = 0">
                             <div class="col-sm-offset-1 col-sm-10">
                                 <div class="form-group">
                                     <div ng-repeat="constraint in tc.constraintsForThisTopic">
@@ -94,7 +94,7 @@
                                             <span class="input-group-addon" ng-bind="lc.getTerm(constraint.name)"></span>
 
                                             <input type="text" class="form-control"
-                                                   ng-change="tc.updateLightSign()"
+                                                   ng-change="tc.updateLightSign(); tc.buffer0 = 1"
                                                    ng-model="constraint.value" tooltip="{{lc.getTerm('tooltip_constraint')}}"
                                                    tooltip-trigger="focus" tooltip-placement="right">
                                         </div>
@@ -103,7 +103,9 @@
 
                                 <div class="shift-right">
                                     <button id="sendContraints"
-                                            type="submit" class="btn btn-success"
+                                            type="submit" class="btn"
+                                            ng-class="{ 'btn-default' : tc.buffer0 == 0,
+                                                        'btn-success' : tc.buffer0 == 1 }"
                                             ng-click="ac.addAlert(lc.getTerm('notification_update_constraints'),'info')"
                                             ng-bind="lc.getTerm('system_topic_detail_changeConstraint')"></button>
                                 </div>
