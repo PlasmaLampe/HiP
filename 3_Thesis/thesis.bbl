@@ -25,6 +25,13 @@ AngularJS (2015b).
 \newblock karma-runner/karma.
 \newblock Website, \url{https://github.com/karma-runner/karma}, 14.02.2015.
 
+\bibitem[Apple, 2014]{Apple:2014aa}
+Apple (2014).
+\newblock Getting started with ibeacon.
+\newblock PDF,
+  \url{https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf},
+  last checked 25.03.2015.
+
 \bibitem[Azuma, 1997]{Azu97}
 Azuma, R.~T. (1997).
 \newblock A survey of augmented reality a survey of augmented reality a survey
@@ -55,6 +62,12 @@ Berczuk, S. (2007).
 \newblock Back to basics: The role of agile principles in success with an
   distributed scrum team.
 \newblock {\em Agile Conference (AGILE), 2007}, pages 382 -- 388.
+
+\bibitem[Bevan, 1997]{bevan1997quality}
+Bevan, N. (1997).
+\newblock Quality and usability: a new framework.
+\newblock {\em Achieving software product quality, van Veenendaal, E, and
+  McMullan, J (eds)}.
 
 \bibitem[Bondo et~al., 2010]{Bon10}
 Bondo, J., Barnard, D., and Burcow, D. (2010).
@@ -137,6 +150,13 @@ Hampel, T. (2001).
 \newblock {\em Virtuelle Wissensr{\"a}ume}.
 \newblock PhD thesis, Universit{\"a}t Paderborn.
 
+\bibitem[Herman, 1996]{herman1996towards}
+Herman, L. (1996).
+\newblock Towards effective usability evaluation in asia: Cross-cultural
+  differences.
+\newblock In {\em Computer-Human Interaction, 1996. Proceedings., Sixth
+  Australian Conference on}, pages 135--136. IEEE.
+
 \bibitem[IEEE, 1990]{IEEEReq}
 IEEE (1990).
 \newblock Ieee standard glossary of software engineering terminology.
@@ -164,6 +184,16 @@ Junaio (2014).
   \url{http://www.slideshare.net/metaio_AR/why-to-become-a-junaio-developer},
   last checked 14.09.2014.
 
+\bibitem[Jung et~al., 2004]{jung2004measuring}
+Jung, H.-W., Kim, S.-G., and Chung, C.-S. (2004).
+\newblock Measuring software product quality: A survey of iso/iec 9126.
+\newblock {\em IEEE software}, 21(5):88--92.
+
+\bibitem[Kaufmann, 2014]{Kaufmann:2014aa}
+Kaufmann, T. (2014).
+\newblock Bluetooth low energy ibeacon ist mehr als ein leuchtfeuer.
+\newblock {\em Golem}.
+
 \bibitem[Keaveney, 2011]{Keaveney11}
 Keaveney, S.~Conboy, K. (2011).
 \newblock {\em Cost Estimation in Agile Development Projects}.
@@ -175,6 +205,12 @@ Lidwell, W., Holden, K., and Butler, J. (2010).
   Enhance Usability, Influence Perception, Increase Appeal, Make Better Design
   Decisions,}.
 \newblock Rockport Publishers.
+
+\bibitem[Lin et~al., 1997]{lin1997proposed}
+Lin, H.~X., Choong, Y.-Y., and Salvendy, G. (1997).
+\newblock A proposed index of usability: a method for comparing the relative
+  usability of different software systems.
+\newblock {\em Behaviour \& information technology}, 16(4-5):267--277.
 
 \bibitem[Mast, 2013]{Mast2013}
 Mast, R. (2013).
@@ -199,6 +235,11 @@ Mesbah, A. and van Deursen, A. (2007).
 \newblock Migrating multi-page web applications to single-page ajax interfaces.
 \newblock {\em Software Maintenance and Reengineering, 2007. CSMR '07.}, pages
   181 -- 190.
+
+\bibitem[Microsoft, 2009]{Patterns:2009aa}
+Microsoft (2009).
+\newblock {\em Microsoft Application Architecture Guide, 2nd Edition}.
+\newblock Microsoft Press book.
 
 \bibitem[MongoDB-Inc., 2015]{gridfs}
 MongoDB-Inc. (2015).
@@ -239,6 +280,19 @@ Pichler, R. (2010).
 \newblock
   Website,\url{http://www.romanpichler.com/blog/10-tips-writing-good-user-stories/}
   ,last checked 17.03.2015.
+
+\bibitem[RadiusNetworks, 2015a]{RadiusNetworks:2015aa}
+RadiusNetworks (2015a).
+\newblock Android beacon library.
+\newblock Website, \url{http://altbeacon.github.io/android-beacon-library/},
+  last checked 25.03.2015.
+
+\bibitem[RadiusNetworks, 2015b]{RadiusNetworks:2015ab}
+RadiusNetworks (2015b).
+\newblock Reference application.
+\newblock Website,
+  \url{http://altbeacon.github.io/android-beacon-library/samples.html}, last
+  checked 25.03.2015.
 
 \bibitem[Rodriguez, 2008]{Rodriguez2008}
 Rodriguez, A. (2008).

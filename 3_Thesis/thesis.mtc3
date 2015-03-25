@@ -3,15 +3,15 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Architecture of the application}{\reset@font\mtcSfont 28}{section.3.3}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Usage of the components}{\reset@font\mtcSfont 29}{section.3.4}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.5}Backend (Web-Server)}{\reset@font\mtcSfont 30}{section.3.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.1}Input data/content via CMS in the system}{\reset@font\mtcSSfont 32}{subsection.3.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.2}Manage content as a reviewer}{\reset@font\mtcSSfont 32}{subsection.3.5.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.3}Including a 3D-Tooling system for point-clouds (WebGL)}{\reset@font\mtcSSfont 32}{subsection.3.5.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.1}Input data/content via the \ac {CMS} in the system}{\reset@font\mtcSSfont 31}{subsection.3.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.2}Manage content as a reviewer}{\reset@font\mtcSSfont 33}{subsection.3.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.3}Including a 3D-Tooling system for point-clouds (WebGL)}{\reset@font\mtcSSfont 33}{subsection.3.5.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.4}Cost estimation of the backend}{\reset@font\mtcSSfont 33}{subsection.3.5.4}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.6}Frontend (App)}{\reset@font\mtcSfont 34}{section.3.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.1}Input data into the system (scan objects and annotate them)}{\reset@font\mtcSSfont 35}{subsection.3.6.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Data format for \ac {AR} files}{\reset@font\mtcSSSfont 35}{figure.caption.69}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.2}Show close "interesting places" within a map}{\reset@font\mtcSSfont 35}{subsection.3.6.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.1}Input data into the system (scan objects and annotate them)}{\reset@font\mtcSSfont 36}{subsection.3.6.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Data format for \ac {AR} files}{\reset@font\mtcSSSfont 37}{figure.caption.63}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.2}Show close "interesting places" within a map}{\reset@font\mtcSSfont 37}{subsection.3.6.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.3}Navigation to "interesting places"}{\reset@font\mtcSSfont 38}{subsection.3.6.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.4}Fetching topics and PDF export}{\reset@font\mtcSSfont 40}{subsection.3.6.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.5}Rendering AR-data with Junaio}{\reset@font\mtcSSfont 41}{subsection.3.6.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.6}Cost estimation of the frontend}{\reset@font\mtcSSfont 41}{subsection.3.6.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.4}Fetching topics and PDF export}{\reset@font\mtcSSfont 41}{subsection.3.6.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.5}Rendering AR-data with Junaio}{\reset@font\mtcSSfont 42}{subsection.3.6.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.6}Cost estimation of the frontend}{\reset@font\mtcSSfont 43}{subsection.3.6.6}}

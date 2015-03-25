@@ -1,10 +1,18 @@
 \chapter[Testing the application]{Testing the application}
-Although the section called \textit{testing} is the second last of this thesis, testing was a major force within the whole development process. We had to do changes on existing code parts often, which was the main reason for the \ac{TDD} development approach. So, the following section will contain the results of the final test suites for the current version of the HiP application. Thus, this summary does not cope with the importance of testing within the development process but it cannot be shown or expressed in a better way within this written thesis. 
+Although the section called \textit{testing} is the second last of this thesis, testing was a major force within the whole development process. We had to do changes on existing code parts often, which was the main reason for the \ac{TDD} development approach. 
 
-As we have described in chapter \ref{background}, the tests have been developed with the help of the Jasmine framework.
+The following section will contain the results of the final test suites for the current version of the HiP application. Thus, this summary does not cope with the importance of testing within the development process but it cannot be shown or expressed in a better way within this written thesis. 
+
+Nevertheless, testing is only a small fragment with respect to a complete quality assurance according to the quality model described within the ISO 9126, which will be described in the next section. However, functional quality assurance (i.e., testing) was most that could be achieved in the time frame of this master thesis. 
+
+\section{Quality assurance and quality models}
+
+\cite{jung2004measuring}
+
+So, after we have now seen this theoretical approach to software quality assurance, we will now take a closer look at the used test suites. As we have described in chapter \ref{background}, the tests have been developed with the help of the Jasmine framework.
   
 \section{Test environment}
-The Jasmine test suites were run within Karma on Mac OSX operating system with Google Chrome. The hardware configuration was a dual core \ac{CPU} and 8096MB \ac{RAM}.
+The Jasmine test suites were run within Karma on Mac OS X operating system with Google Chrome. The hardware configuration was a dual core \ac{CPU} and 8096MB \ac{RAM}.
 
 \section{Testing results}
 A typical test case within our test suites looks like the test case shown in Listing \ref{testcase}. 
@@ -31,11 +39,14 @@ As one can see, this is a unit test case written for the Jasmine framework. Line
 
 Because we restricted ourselves to unit tests and did not create any integration tests, we were not able to reach every line of code within our controllers and services within the unit test cases (a lot of code is only for handling events and user input). However, we ended up with XX\todo{set} test cases with a coverage of YY\todo{set}. 
 
-Besides unit testing, we created a simple acceptance test that will be handled in the next section.
+However, unit testing was not the only quality assurance system, we have used for this project. The next section will describe the usability improvements of the \ac{HiP} application.
 
-\section{Acceptance test of the prototype}
-Besides the technical testing of the application, we created an acceptance test for the smartphone-frontend-application and the web-backend-application.
+\section{Usability study of the backend system}
+According to Lin et. al., usability is an important part of every software system and the importance of usability for such systems is still rising (\cite{lin1997proposed}). 
 
-\subsection{Small usablity study of the app}
+The ISO 9126 defines usability as 'a set of attributes that bear on the effort needed for use, and on the individual assessment of such use, by a stated or implied set of users' (\cite{bevan1997quality}). Furthermore, ISO 9126 defines the main aspects of usability as \emph{Understandability}, \emph{Learnability}, \emph{Operability}, \emph{Attractiveness} and \emph{Usability Compliance} (\cite{bevan1997quality}). In general, it is very hard to evaluate usability problems by developers for systems they have written because they have a very different view as the end-user. This problem gets enhanced by the fact that usability problems are in many cases hard to grasp by objective metrics and are influenced by personal and cultural backgrounds (\cite{herman1996towards}). The most objective way to evaluate a lot of usability problems are checklists and questionnaires (e.g., did we include tooltips to increase the \emph{Learnability} of the application?) (\cite{herman1996towards})\todo{better source?}. 
 
-\subsection{Small usability study of the backend / CMS}
+Because of these problems, we tried to get professional feedback by an external usability expert to circumvent the problem that we need to evaluate our own system. Kindly, M. Sc. Bj\"orn Senft offered us to evaluate the \ac{HiP} application backend within an informal review session to find common usability problems. 
+
+Together with one member of the currently started project group, which will take over the development project, we sat together and made a complete 3 hour walkthrough of the application. In the end, we came up with a great list of small and not that small usability problems. Examples of such problems were, the missing of instant feedback for a couple of user forms and misleading color conventions. Most of these problems have been fixed in the last weeks of this master-thesis. However, some of these problems remain open and are listet in Table \ref{usabilityTable} within the appendix. As we will see in section \ref{futurework}, these problems may be handled by the project group.
+

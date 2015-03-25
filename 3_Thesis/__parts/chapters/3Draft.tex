@@ -329,7 +329,12 @@ As we can see in Listing \ref{Android:polyline}, we can directly draw on the map
 
 Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
 
-\todo{IBeacon support for indoor navigation}
+However, by using \ac{GPS} we are only able to creating a good location awareness for outdoor situations. As soon as the user of the smartphone enters building, we need to think about other ways to get a precise estimation about the position of the user. The smartphone application could include this by using iBeacons. 
+An iBeacon is a new approach for creating very precise location estimations that has been developed by Apple. Technically, \ac{BLE} is used to connect to a device that supports the iBeacon technology within a region around the device (i.e., the object that has the iBeacon device attached). This allows a smartphone to determine whether it has entered or left the region and to create an estimation about the proximity to the beacon (\cite{Apple:2014aa}). Natively, only iOS since version 7.0 offers support for the usage of iBeacon.
+
+However, there exist a couple of libraries on the Android platform that offer solutions for creating iBeacon functionality for Android. Two of these libraries are created by Radius Networks and Sensorberg. Sensorberg's solution was for example used to create the iBeacon based indoor navigation at the Cebit 2014 (\cite{Kaufmann:2014aa}). However, Sensorberg focuses on the distribution of own hardware in combination with its library. So, the library of Radius Networks called \emph{Android Beacon Library}, which offers mainly its library licensed under the Apache License Version 2.0, is more interesting for our project. The library allows Android devices to use beacons in a similar way like iOS devices. This means, every app using this library on the Android smartphone can request to get notifications when the smartphone reaches a close range to a beacon respectively leaves it (\cite{RadiusNetworks:2015aa}). 
+
+The usage of the library is very easy and fast. One only needs to derive a new class from a class that is included within the library and overwrite a couple of methods. For example, by a simple overwrite of the method \emph{didEnterRegion(Region region)} one can handle the reaction of the smartphone application when a new iBeacon has been found (\cite{RadiusNetworks:2015ab}).   
 
 But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
 
@@ -395,14 +400,16 @@ Now, after we have seen the technical details about the different parts of the f
 	Include treasure hunts, etc.	&	The user should be able to join treasure hunts within Paderborn		&	2 \\	
 	Include the Junaio framework	&	The user should be able to render AR-information, as soon as he		&	6 \\			
 							&	arrives at a specific position									&	\\
+	Include iBeacon support		&	The user should be able to get information about iBeacons on its		&	3 \\			
+							&	location													&	\\
 	Fork and understand \ac{OsmAnd}	&	We need to find the important parts of \ac{OsmAnd} for the \ac{HiP}	&	6 \\
 							&	application. To find out, what we need to include and how 			&	\\
 							&	this is possible												& \\
 	Include needed parts of \ac{OsmAnd}	&	Include the needed parts of \ac{OsmAnd} in the \ac{HiP} application	&	8 \\	
-					  	 	& 												& $\sum$ $34$   \\			
+					  	 	& 												& $\sum$ $37$   \\			
 	\bottomrule
  \end{tabular}
  \label{tab:costFrontend}
  \end{table} 
 
-Table \ref{tab:costFrontend} shows the minimal features of the smartphone frontend, which sum up to $34$ story points. So, the frontend system should cost about $204$ hours to create a prototypical but running system. 
+Table \ref{tab:costFrontend} shows the minimal features of the smartphone frontend, which sum up to $34$ story points. So, the frontend system should cost about $222$ hours to create a prototypical but running system. 
