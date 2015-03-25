@@ -329,6 +329,8 @@ As we can see in Listing \ref{Android:polyline}, we can directly draw on the map
 
 Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
 
+But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
+
 However, by using \ac{GPS} we are only able to creating a good location awareness for outdoor situations. As soon as the user of the smartphone enters building, we need to think about other ways to get a precise estimation about the position of the user. The smartphone application could include this by using iBeacons. 
 An iBeacon is a new approach for creating very precise location estimations that has been developed by Apple. Technically, \ac{BLE} is used to connect to a device that supports the iBeacon technology within a region around the device (i.e., the object that has the iBeacon device attached). This allows a smartphone to determine whether it has entered or left the region and to create an estimation about the proximity to the beacon (\cite{Apple:2014aa}). Natively, only iOS since version 7.0 offers support for the usage of iBeacon.
 
@@ -336,10 +338,10 @@ However, there exist a couple of libraries on the Android platform that offer so
 
 The usage of the library is very easy and fast. One only needs to derive a new class from a class that is included within the library and overwrite a couple of methods. For example, by a simple overwrite of the method \emph{didEnterRegion(Region region)} one can handle the reaction of the smartphone application when a new iBeacon has been found (\cite{RadiusNetworks:2015ab}).   
 
-But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
+Because we are now able to fetch the location of the user indoor and outdoor, we will now take a look at possibilities to use this information.
 
 \subsection{Fetching topics and PDF export}
-As soon as an user arrives at a specific location, he is able to gather data about the object and collect the information he wants. On a technical level, this is a simple \ac{HTTP} GET request to our backend to download the information.
+The requirements states that as soon as an user arrives at a specific location, he should be able to gather data about the object and collect the information he wants. On a technical level, this is a simple \ac{HTTP} GET request to our backend to download the information as soon as he arrives at the position.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -347,7 +349,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Creation and usage of an Android HTTP client},label=Android:HTTP,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Creation and usage of an Android \ac{HTTP} client},label=Android:HTTP,frame=tlbr,breaklines]
 /* init variables */
 [...]
 
