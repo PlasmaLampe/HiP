@@ -14,7 +14,7 @@
 \contentsline {lstlisting}{\numberline {3.1}Example for using the GPS coordinates within an Android application}{37}{lstlisting.3.1}
 \contentsline {lstlisting}{\numberline {3.2}Example for construction of the DirectionsRequest JSON object that is needed to use the directions service}{38}{lstlisting.3.2}
 \contentsline {lstlisting}{\numberline {3.3}Example for writing a poly line on the google map}{39}{lstlisting.3.3}
-\contentsline {lstlisting}{\numberline {3.4}Creation and usage of an Android HTTP client}{41}{lstlisting.3.4}
+\contentsline {lstlisting}{\numberline {3.4}Creation and usage of an Android \ac {HTTP} client}{41}{lstlisting.3.4}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {4.1}Generation of JWT tokens within the backend}{48}{lstlisting.4.1}
 \contentsline {lstlisting}{\numberline {4.2}Snippet of the upload Action of the FileController for uploading pictures}{49}{lstlisting.4.2}
@@ -26,7 +26,7 @@
 \contentsline {lstlisting}{\numberline {4.8}The translation from the backend data format to the frontend data format within the key value service}{58}{lstlisting.4.8}
 \contentsline {lstlisting}{\numberline {4.9}The format of topic files within the smartphone application.}{59}{lstlisting.4.9}
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {5.1}Simple test case for the type service}{62}{lstlisting.5.1}
+\contentsline {lstlisting}{\numberline {5.1}Simple test case for the type service}{63}{lstlisting.5.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {A.1}Complete upload Action of the FileController}{84}{lstlisting.A.1}
+\contentsline {lstlisting}{\numberline {A.1}Complete upload Action of the FileController}{86}{lstlisting.A.1}

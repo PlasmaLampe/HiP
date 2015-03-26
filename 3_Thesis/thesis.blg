@@ -24,93 +24,93 @@ A level-1 auxiliary file: __parts/_FrontBackMatter/Index.aux
 A level-1 auxiliary file: __parts/_FrontBackmatter/Declaration.aux
 Database file #1: __bib/literatur.bib
 Warning--entry type for "RadiusNetworks:2015ab" isn't style-file defined
---line 12 of file __bib/literatur.bib
+--line 38 of file __bib/literatur.bib
 Warning--entry type for "RadiusNetworks:2015aa" isn't style-file defined
---line 20 of file __bib/literatur.bib
+--line 46 of file __bib/literatur.bib
 Warning--entry type for "Apple:2014aa" isn't style-file defined
---line 36 of file __bib/literatur.bib
+--line 62 of file __bib/literatur.bib
 Warning--entry type for "Alliance:2013aa" isn't style-file defined
---line 95 of file __bib/literatur.bib
+--line 121 of file __bib/literatur.bib
 Warning--entry type for "Pichler:2010aa" isn't style-file defined
---line 103 of file __bib/literatur.bib
+--line 129 of file __bib/literatur.bib
 Warning--entry type for "Wattson:2013aa" isn't style-file defined
---line 123 of file __bib/literatur.bib
+--line 149 of file __bib/literatur.bib
 Warning--entry type for "Mueller2011" isn't style-file defined
---line 131 of file __bib/literatur.bib
-Warning--entry type for "AngularCons" isn't style-file defined
 --line 157 of file __bib/literatur.bib
+Warning--entry type for "AngularCons" isn't style-file defined
+--line 183 of file __bib/literatur.bib
 Warning--entry type for "gridfs" isn't style-file defined
---line 165 of file __bib/literatur.bib
+--line 191 of file __bib/literatur.bib
 Warning--entry type for "pdfCreation" isn't style-file defined
---line 182 of file __bib/literatur.bib
+--line 208 of file __bib/literatur.bib
 Warning--entry type for "itext2015" isn't style-file defined
---line 193 of file __bib/literatur.bib
+--line 219 of file __bib/literatur.bib
 Warning--entry type for "osmand" isn't style-file defined
---line 204 of file __bib/literatur.bib
+--line 230 of file __bib/literatur.bib
 Warning--entry type for "GooglePolylineNative" isn't style-file defined
---line 215 of file __bib/literatur.bib
+--line 241 of file __bib/literatur.bib
 Warning--entry type for "GoogleNavi" isn't style-file defined
---line 226 of file __bib/literatur.bib
+--line 252 of file __bib/literatur.bib
 Warning--entry type for "ScrumMeth" isn't style-file defined
---line 237 of file __bib/literatur.bib
-Warning--entry type for "BDD" isn't style-file defined
 --line 263 of file __bib/literatur.bib
+Warning--entry type for "BDD" isn't style-file defined
+--line 289 of file __bib/literatur.bib
 Warning--entry type for "7_github_2015" isn't style-file defined
---line 274 of file __bib/literatur.bib
+--line 300 of file __bib/literatur.bib
 Warning--entry type for "5_maxxor.com_2015" isn't style-file defined
---line 303 of file __bib/literatur.bib
+--line 329 of file __bib/literatur.bib
 Warning--entry type for "beck2001agile" isn't style-file defined
---line 346 of file __bib/literatur.bib
+--line 372 of file __bib/literatur.bib
 Warning--entry type for "GAA2015" isn't style-file defined
---line 435 of file __bib/literatur.bib
+--line 461 of file __bib/literatur.bib
 Warning--entry type for "wikimedia" isn't style-file defined
---line 554 of file __bib/literatur.bib
+--line 580 of file __bib/literatur.bib
 Warning--entry type for "junaio1" isn't style-file defined
---line 564 of file __bib/literatur.bib
+--line 590 of file __bib/literatur.bib
 Warning--entry type for "wikitude" isn't style-file defined
---line 572 of file __bib/literatur.bib
+--line 598 of file __bib/literatur.bib
 Warning--entry type for "statIPhone" isn't style-file defined
---line 596 of file __bib/literatur.bib
+--line 622 of file __bib/literatur.bib
 Warning--empty journal in bradley2014json
-You've used 60 entries,
+You've used 63 entries,
             1935 wiz_defined-function locations,
-            815 strings with 13500 characters,
-and the built_in function-call counts, 19141 in all, are:
-= -- 1932
-> -- 629
-< -- 59
-+ -- 206
-- -- 198
-* -- 1364
-:= -- 3489
-add.period$ -- 183
-call.type$ -- 60
-change.case$ -- 390
-chr.to.int$ -- 58
-cite$ -- 61
-duplicate$ -- 811
-empty$ -- 1311
-format.name$ -- 266
-if$ -- 3726
+            827 strings with 13903 characters,
+and the built_in function-call counts, 20248 in all, are:
+= -- 2040
+> -- 672
+< -- 62
++ -- 220
+- -- 212
+* -- 1445
+:= -- 3682
+add.period$ -- 193
+call.type$ -- 63
+change.case$ -- 411
+chr.to.int$ -- 61
+cite$ -- 64
+duplicate$ -- 861
+empty$ -- 1391
+format.name$ -- 285
+if$ -- 3949
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 39
-newline$ -- 302
-num.names$ -- 180
-pop$ -- 307
+missing$ -- 43
+newline$ -- 317
+num.names$ -- 189
+pop$ -- 333
 preamble$ -- 1
-purify$ -- 399
+purify$ -- 421
 quote$ -- 0
-skip$ -- 674
+skip$ -- 710
 stack$ -- 0
-substring$ -- 1131
-swap$ -- 102
-text.length$ -- 9
+substring$ -- 1186
+swap$ -- 110
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 346
+type$ -- 362
 warning$ -- 1
-while$ -- 156
+while$ -- 165
 width$ -- 0
-write$ -- 748
+write$ -- 786
 (There was 1 error message)

@@ -102,6 +102,12 @@ Danube (2014).
   \url{http://scrummethodology.com/scrum-effort-estimation-and-story-points/},
   12.02.2015.
 
+\bibitem[Deissenboeck et~al., 2009]{deissenboeck2009software}
+Deissenboeck, F., Juergens, E., Lochmann, K., and Wagner, S. (2009).
+\newblock Software quality models: Purposes, usage scenarios and requirements.
+\newblock In {\em Software Quality, 2009. WOSQ09. ICSE Workshop}, pages 9--14.
+  IEEE.
+
 \bibitem[Dev.metaio.com, 2015]{MetaioDEV}
 Dev.metaio.com (2015).
 \newblock Overview | metaio developer portal.
@@ -161,6 +167,11 @@ Herman, L. (1996).
 IEEE (1990).
 \newblock Ieee standard glossary of software engineering terminology.
 \newblock {\em IEEE Std 610.12-1990}, pages 1--84.
+
+\bibitem[ISO/IEC, 2001]{ISOIEC9126}
+ISO/IEC (2001).
+\newblock {\em ISO/IEC 9126. Software engineering -- Product quality}.
+\newblock ISO/IEC.
 
 \bibitem[iText Software~Corp, 2015]{itext2015}
 iText Software~Corp (2015).
@@ -327,6 +338,11 @@ Vogel, L. (2010).
 \newblock Creating pdf with java and itext.
 \newblock Website, \url{http://www.vogella.com/tutorials/JavaPDF/article.html},
   14.02.2015.
+
+\bibitem[Waghmode and Jamsandekar, 2013]{waghmodesoftware}
+Waghmode, M. and Jamsandekar, P. (2013).
+\newblock Software quality models: A comparative study.
+\newblock {\em Information and Software Technology}.
 
 \bibitem[Wattson, 2013]{Wattson:2013aa}
 Wattson, M. (2013).

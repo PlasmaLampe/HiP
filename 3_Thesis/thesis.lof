@@ -5,10 +5,10 @@
 \contentsline {xchapter}{Introduction into the thesis}{1}{chapter.1}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Technical and methodological background}{5}{chapter.2}
-\contentsline {figure}{\numberline {1}{\ignorespaces The domain model of the university courses.\relax }}{6}{figure.caption.16}
-\contentsline {figure}{\numberline {2}{\ignorespaces The Scrum development process (Simplified, original work from \cite {5_maxxor.com_2015}).\relax }}{8}{figure.caption.19}
-\contentsline {figure}{\numberline {3}{\ignorespaces A burn-down diagram showing an example sprint.\relax }}{9}{figure.caption.20}
-\contentsline {figure}{\numberline {4}{\ignorespaces The \ac {CD} process showing some tools that can be used to create a \ac {CD} pipeline (taken from \cite {Wattson:2013aa})\relax }}{12}{figure.caption.22}
+\contentsline {figure}{\numberline {1}{\ignorespaces The domain model of the university courses.\relax }}{6}{figure.caption.17}
+\contentsline {figure}{\numberline {2}{\ignorespaces The Scrum development process (Simplified, original work from \cite {5_maxxor.com_2015}).\relax }}{8}{figure.caption.20}
+\contentsline {figure}{\numberline {3}{\ignorespaces A burn-down diagram showing an example sprint.\relax }}{9}{figure.caption.21}
+\contentsline {figure}{\numberline {4}{\ignorespaces The \ac {CD} process showing some tools that can be used to create a \ac {CD} pipeline (taken from \cite {Wattson:2013aa})\relax }}{12}{figure.caption.23}
 \contentsline {figure}{\numberline {5}{\ignorespaces The figure shows the placement of the AREL interpreter within the platform stack. (Taken from \cite {MetaioDEV})\relax }}{20}{figure.caption.40}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Draft of the application}{25}{chapter.3}
@@ -28,8 +28,8 @@
 \addvspace {10\p@ }
 \contentsline {xchapter}{Testing the application}{61}{chapter.5}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion and future work}{65}{chapter.6}
+\contentsline {xchapter}{Discussion and future work}{67}{chapter.6}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Appendix}{69}{appendix.A}
-\contentsline {figure}{\numberline {17}{\ignorespaces The diagram shows the work-flow within the backend system with the three roles that are involved in the work-flow\relax }}{71}{figure.caption.85}
-\contentsline {figure}{\numberline {18}{\ignorespaces An \ac {UML2} use case diagram showing the different users of the \ac {HiP} system\relax }}{73}{figure.caption.86}
+\contentsline {xchapter}{Appendix}{71}{appendix.A}
+\contentsline {figure}{\numberline {17}{\ignorespaces The diagram shows the work-flow within the backend system with the three roles that are involved in the work-flow\relax }}{73}{figure.caption.87}
+\contentsline {figure}{\numberline {18}{\ignorespaces An \ac {UML2} use case diagram showing the different users of the \ac {HiP} system\relax }}{75}{figure.caption.88}
