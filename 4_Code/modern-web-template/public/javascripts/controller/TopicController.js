@@ -475,9 +475,9 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         }
 
         $http.put('/admin/topic', topic).
-            success(function(data, status, headers, config) {
+            success(function() {
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 console.log("error TopicController: Topic cannot get updated");
             });
 
@@ -1314,6 +1314,20 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                 that.subtopics.push(t);
             });
         });
+    };
+
+    /**
+     * This function sets a new pictureID to the topic
+     * @param pictureID
+     */
+    this.setNewTopicPicture = function(pictureID){
+        that.currentTopic.topicPicture = pictureID;
+
+        /* send to backend */
+        that.updateTopicAndBypassHistory(that.currentTopic.uID, {
+            keys: ['topicPicture'],
+            topicPicture: pictureID
+        }, false, false);
     };
 
     /**

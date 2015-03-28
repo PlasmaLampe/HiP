@@ -46,6 +46,9 @@ DELETE        /admin/topic/:uID                      @controllers.TopicControlle
 
 GET           /admin/topicapp                        @controllers.TopicController.getTopicsInAppFormat
 
+# Alias for /admin/picture/:uID needed for the current version of the app
+GET           /admin/topicapp/pictures/:uIDPlusPost  @controllers.TopicController.getTopicPicture(uIDPlusPost: String)
+
 POST          /admin/notification                    @controllers.GroupController.addNotification
 POST          /admin/readRight/:uID/:uIDRight        @controllers.GroupController.addGroupToReadableList(uID: String, uIDRight: String)
 

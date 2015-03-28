@@ -57,6 +57,15 @@
 
         <br>
 
+        <!-- set new topic picture block -->
+        <span ng-show="copyto.currentTopic.topicPicture == img.uID" ng-bind="lc.getTerm('system_setted_topic_picture')"></span>
+        <a href ng-show="copyto.currentTopic.topicPicture != img.uID">
+            <span ng-bind="lc.getTerm('system_set_topic_picture')"  ng-click="copyto.setNewTopicPicture(img.uID)"></span>
+        </a>
+        <!-- END OF: set new topic picture block -->
+
+        <br>
+
         <a href>
             <span ng-bind="opentext"    ng-click="gallery.refreshTypes(); gallery.openMetaData(img.uID, img.kvStore)"></span>
         </a>

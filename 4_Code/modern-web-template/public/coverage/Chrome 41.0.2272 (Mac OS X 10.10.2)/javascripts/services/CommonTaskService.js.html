@@ -14,20 +14,20 @@
     </style>
 </head>
 <body>
-<div class="header medium">
+<div class="header high">
     <h1>Code coverage report for <span class="entity">javascripts/services/CommonTaskService.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">79.86% <small>(115 / 144)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">80.14% <small>(117 / 146)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">65.38% <small>(34 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">64.81% <small>(35 / 54)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
         Functions: <span class="metric">70.73% <small>(29 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">79.86% <small>(115 / 144)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">80.14% <small>(117 / 146)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -562,7 +562,13 @@
 525
 526
 527
-528</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+528
+529
+530
+531
+532
+533
+534</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -689,6 +695,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">136</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -717,6 +724,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1206,18 +1218,19 @@ servicesModule.service('commonTaskService', function(){
      * @param createdBy     creator of this topic. This may also be another topic.
      * @param content       content of the topic
      * @param topicStatus   status of the topic. I.e., 'wip', 'ir' or 'done'
-     * @param constraintArray   An array containing all constraints for this topic
+     * @param constraintArray       An array containing all constraints for this topic
      * @param deadline              the deadline for the given topic
-     * @param tagstore
-     * @param linkedTopics
-     * @param maxCharTreshold
-     * @param gps
-     * @param metaStore
-     * @param nextTextBlock
+     * @param tagstore              An array containing all the tags of the topic
+     * @param linkedTopics          An array containing UIDs of all linked topics
+     * @param maxCharTreshold       The treshold for the light sign
+     * @param gps                   An array containing the GPS data (lat., and long.)
+     * @param metaStore             UID of the key/value-store that is used to store the meta-data
+     * @param nextTextBlock         An array containing all child text blocks
+     * @param topicPicture          The uID of the picture that represents the topic
      * @returns {{uID: *, name: *, group: *, createdBy: *, content: *, status: *, constraints: *}}
      */
     this.createTopicObject = function(uID, topicname, groupID, createdBy, content, topicStatus, constraintArray, deadline,
-        tagstore, linkedTopics, maxCharTreshold, gps, metaStore, nextTextBlock){
+        tagstore, linkedTopics, maxCharTreshold, gps, metaStore, nextTextBlock, topicPicture){
 &nbsp;
         if(tagstore == undefined){
             tagstore = [];
@@ -1243,6 +1256,10 @@ servicesModule.service('commonTaskService', function(){
             nextTextBlock = [];
         }
 &nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(topicPicture == undefined){
+            topicPicture = "-1";
+        }
+&nbsp;
         return {
             uID:        uID,
             name:       topicname,
@@ -1257,7 +1274,8 @@ servicesModule.service('commonTaskService', function(){
             maxCharThreshold:   maxCharTreshold,
             gps:        gps,
             metaStore:  metaStore,
-            nextTextBlock:      nextTextBlock
+            nextTextBlock:  nextTextBlock,
+            topicPicture:   topicPicture
         };
     };
 &nbsp;
@@ -1621,7 +1639,7 @@ servicesModule.service('commonTaskService', function(){
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Mar 24 2015 21:07:27 GMT+0100 (CET)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Mar 28 2015 18:30:34 GMT+0100 (CET)</div>
 </div>
 
 <script src="../../prettify.js"></script>

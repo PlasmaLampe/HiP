@@ -115,18 +115,19 @@ servicesModule.service('commonTaskService', function(){
      * @param createdBy     creator of this topic. This may also be another topic.
      * @param content       content of the topic
      * @param topicStatus   status of the topic. I.e., 'wip', 'ir' or 'done'
-     * @param constraintArray   An array containing all constraints for this topic
+     * @param constraintArray       An array containing all constraints for this topic
      * @param deadline              the deadline for the given topic
-     * @param tagstore
-     * @param linkedTopics
-     * @param maxCharTreshold
-     * @param gps
-     * @param metaStore
-     * @param nextTextBlock
+     * @param tagstore              An array containing all the tags of the topic
+     * @param linkedTopics          An array containing UIDs of all linked topics
+     * @param maxCharTreshold       The treshold for the light sign
+     * @param gps                   An array containing the GPS data (lat., and long.)
+     * @param metaStore             UID of the key/value-store that is used to store the meta-data
+     * @param nextTextBlock         An array containing all child text blocks
+     * @param topicPicture          The uID of the picture that represents the topic
      * @returns {{uID: *, name: *, group: *, createdBy: *, content: *, status: *, constraints: *}}
      */
     this.createTopicObject = function(uID, topicname, groupID, createdBy, content, topicStatus, constraintArray, deadline,
-        tagstore, linkedTopics, maxCharTreshold, gps, metaStore, nextTextBlock){
+        tagstore, linkedTopics, maxCharTreshold, gps, metaStore, nextTextBlock, topicPicture){
 
         if(tagstore == undefined){
             tagstore = [];
@@ -152,6 +153,10 @@ servicesModule.service('commonTaskService', function(){
             nextTextBlock = [];
         }
 
+        if(topicPicture == undefined){
+            topicPicture = "-1";
+        }
+
         return {
             uID:        uID,
             name:       topicname,
@@ -166,7 +171,8 @@ servicesModule.service('commonTaskService', function(){
             maxCharThreshold:   maxCharTreshold,
             gps:        gps,
             metaStore:  metaStore,
-            nextTextBlock:      nextTextBlock
+            nextTextBlock:  nextTextBlock,
+            topicPicture:   topicPicture
         };
     };
 

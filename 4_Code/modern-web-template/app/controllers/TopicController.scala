@@ -69,7 +69,8 @@ class TopicController extends Controller with MongoController {
                                         "$set" -> Json.obj("maxCharThreshold" -> topic.maxCharThreshold),
                                         "$set" -> Json.obj("gps" -> topic.gps),
                                         "$set" -> Json.obj("metaStore" -> topic.metaStore),
-                                        "$set" -> Json.obj("nextTextBlock" -> topic.nextTextBlock))
+                                        "$set" -> Json.obj("nextTextBlock" -> topic.nextTextBlock),
+                                        "$set" -> Json.obj("topicPicture" -> topic.topicPicture))
 
           topicCollection.update(Json.obj("uID" -> topic.uID), modifier).map {
             lastError =>
@@ -179,6 +180,38 @@ class TopicController extends Controller with MongoController {
         var returnThis = Json.obj("data" -> dataArray)
 
         Ok(returnThis)
+    }
+  }
+
+  /**
+   * Action reroutes to the correct controller for finding the topic picture
+   * Used as a wrapper for the format that Timo has used in his bachelor thesis
+   * @return
+   */
+  def getTopicPicture(uIDPlusPost: String) = Action.async {
+    val topicID = uIDPlusPost.substring(0,uIDPlusPost.lastIndexOf('.'))
+
+    // let's do our query
+    val cursor: Cursor[TopicModel] = topicCollection.find(Json.obj("uID"
+      -> topicID)).cursor[TopicModel]
+
+    // gather all the JsObjects in a list
+    val futureTopicsList: Future[List[TopicModel]] = cursor.collect[List]()
+
+    // transform the list into a JsArray
+    val futurePersonsJsonArray: Future[JsArray] = futureTopicsList.map { topics =>
+      Json.arr(topics)
+    }
+
+    futurePersonsJsonArray.map {
+      topics =>
+        val pictureID  = topics(0).\\("topicPicture").toString()
+        val firstDoubleQuote = pictureID.indexOf('"') +1
+        val lastDoubleQuote = pictureID.lastIndexOf('"')
+
+        val cleanedPictureID = pictureID.substring(firstDoubleQuote, lastDoubleQuote)
+
+        Redirect(routes.FileController.getMediaFile(cleanedPictureID))
     }
   }
 
