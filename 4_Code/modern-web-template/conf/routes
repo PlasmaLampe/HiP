@@ -44,6 +44,11 @@ POST          /admin/topic                           @controllers.TopicControlle
 PUT           /admin/topic                           @controllers.TopicController.updateTopic
 DELETE        /admin/topic/:uID                      @controllers.TopicController.deleteTopic(uID: String)
 
+GET           /admin/lock/:topicUID                  @controllers.LockController.getLock(topicUID: String)
+POST          /admin/lock                            @controllers.LockController.createLock
+PUT           /admin/lock                            @controllers.LockController.updateLock
+DELETE        /admin/lock/:topicUID                  @controllers.LockController.deleteLock(topicUID: String)
+
 GET           /admin/topicapp                        @controllers.TopicController.getTopicsInAppFormat
 
 # Alias for /admin/picture/:uID needed for the current version of the app
