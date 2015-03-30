@@ -94,14 +94,16 @@ class FileController extends Controller with MongoController{
         val cleanedID = fileToSave.id.toString.split('"')(1)
         val cleanedIDThumb = fileToSaveThumb.id.toString.split('"')(1)
 
-        metaCollection.insert(Json.obj(
+        val returnObj = Json.obj(
           "uID"   ->  cleanedID,
           "topic" ->  topicID,
           "thumbnailID" -> cleanedIDThumb,
           "kvStore" -> "-1"
-        ))
+        )
 
-        Ok("File uploaded")
+        metaCollection.insert(returnObj)
+
+        Ok(returnObj)
       case None => BadRequest("no media file")
     }
   }

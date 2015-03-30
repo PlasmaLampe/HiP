@@ -85,7 +85,7 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
      */
     this.updateLock = function(topicUID, lastChange){
         var lock = createLockObject(topicUID, lastChange);
-        console.log(lock);
+
         $http.put('/admin/lock', lock).success(function(){
             that.currentLock = lock;
         }).error(function(){
@@ -141,8 +141,6 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
 
                 $timeout(function(){
                     that.doIOwnLock(topicUID);
-
-                    console.log("tried again")
                 }, 1000 * 60 * 5);
 
                 return false;
