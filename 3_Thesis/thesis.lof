@@ -17,8 +17,8 @@
 \contentsline {figure}{\numberline {8}{\ignorespaces The usage of the different components and how they work together\relax }}{30}{figure.caption.53}
 \contentsline {figure}{\numberline {9}{\ignorespaces A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application\relax }}{32}{figure.caption.56}
 \contentsline {figure}{\numberline {10}{\ignorespaces A mockup showing the main page of the frontend application showing a map of paderborn and a general overview about the UI-elements\relax }}{35}{figure.caption.60}
-\contentsline {figure}{\numberline {11}{\ignorespaces A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself\relax }}{36}{figure.caption.61}
-\contentsline {figure}{\numberline {12}{\ignorespaces The main menu of the \emph {Metaio Toolbox} showing the main features of the app.\relax }}{37}{figure.caption.63}
+\contentsline {figure}{\numberline {11}{\ignorespaces A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself\relax }}{37}{figure.caption.61}
+\contentsline {figure}{\numberline {12}{\ignorespaces The main menu of the \emph {Metaio Toolbox} showing the main features of the app.\relax }}{38}{figure.caption.63}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation details}{45}{chapter.4}
 \contentsline {figure}{\numberline {13}{\ignorespaces An example for a JWT authentication token. On the left side: The JWT in Base64 encoding. On the right side: JWT as the decoded token.\relax }}{47}{figure.caption.71}

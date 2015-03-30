@@ -36,15 +36,15 @@
 \contentsline {section}{\numberline {3.5}Backend (Web-Server)}{30}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Input data/content via the \ac {CMS} in the system}{31}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Manage content as a reviewer}{33}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Including a 3D-Tooling system for point-clouds (WebGL)}{33}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{33}{subsection.3.5.4}
-\contentsline {section}{\numberline {3.6}Frontend (App)}{34}{section.3.6}
+\contentsline {subsection}{\numberline {3.5.3}Including a 3D-Tooling system for point-clouds (WebGL)}{34}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{34}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Frontend (App)}{35}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{36}{subsection.3.6.1}
-\contentsline {subsubsection}{Data format for \ac {AR} files}{37}{figure.caption.63}
+\contentsline {subsubsection}{Data format for \ac {AR} files}{36}{figure.caption.63}
 \contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{37}{subsection.3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{38}{subsection.3.6.3}
-\contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{41}{subsection.3.6.4}
-\contentsline {subsection}{\numberline {3.6.5}Rendering AR-data with Junaio}{42}{subsection.3.6.5}
+\contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{39}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{42}{subsection.3.6.4}
+\contentsline {subsection}{\numberline {3.6.5}Rendering AR-data with Junaio}{43}{subsection.3.6.5}
 \contentsline {subsection}{\numberline {3.6.6}Cost estimation of the frontend}{43}{subsection.3.6.6}
 \contentsline {chapter}{\numberline {4}Implementation details}{45}{chapter.4}
 \contentsline {section}{\numberline {4.1}General overview of the system}{45}{section.4.1}

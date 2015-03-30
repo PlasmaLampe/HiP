@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  26 MAR 2015 20:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  30 MAR 2015 18:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2291,113 +2291,113 @@ File: gfx/mockup_web_1.pdf Graphic file (type pdf)
 <use gfx/mockup_web_1.pdf>
 Package pdftex.def Info: gfx/mockup_web_1.pdf used on input line 122.
 (pdftex.def)             Requested size: 380.69788pt x 285.35455pt.
- [31] [32 <./gfx/mockup_web_1.pdf>] [33]
-<gfx/mockup_app_1.pdf, id=1602, 400.49625pt x 741.77126pt>
+ [31] [32 <./gfx/mockup_web_1.pdf>] [33] [34]
+<gfx/mockup_app_1.pdf, id=1628, 400.49625pt x 741.77126pt>
 File: gfx/mockup_app_1.pdf Graphic file (type pdf)
 
 <use gfx/mockup_app_1.pdf>
-Package pdftex.def Info: gfx/mockup_app_1.pdf used on input line 196.
+Package pdftex.def Info: gfx/mockup_app_1.pdf used on input line 226.
 (pdftex.def)             Requested size: 190.34894pt x 352.56006pt.
- [34] [35 <./gfx/mockup_app_1.pdf>]
-<gfx/mockup_app_2.pdf, id=1674, 589.20125pt x 741.77126pt>
+ [35 <./gfx/mockup_app_1.pdf>]
+<gfx/mockup_app_2.pdf, id=1694, 589.20125pt x 741.77126pt>
 File: gfx/mockup_app_2.pdf Graphic file (type pdf)
 
 <use gfx/mockup_app_2.pdf>
-Package pdftex.def Info: gfx/mockup_app_2.pdf used on input line 209.
+Package pdftex.def Info: gfx/mockup_app_2.pdf used on input line 239.
 (pdftex.def)             Requested size: 266.48735pt x 335.49176pt.
- <gfx/toolbox.png, id=1676, 642.4pt x 882.29625pt>
+ <gfx/toolbox.png, id=1696, 642.4pt x 882.29625pt>
 File: gfx/toolbox.png Graphic file (type png)
 
 <use gfx/toolbox.png>
-Package pdftex.def Info: gfx/toolbox.png used on input line 218.
+Package pdftex.def Info: gfx/toolbox.png used on input line 248.
 (pdftex.def)             Requested size: 190.34894pt x 261.43294pt.
- [36 <./gfx/mockup_app_2.pdf>]
 Package acronym Info: Label `acro:GPS' newly defined as it shall be overridden
-although it is yet undefined on input line 229.
- [37 <./gfx/toolbox.png>]
+although it is yet undefined on input line 259.
+ [36] [37 <./gfx/mockup_app_2.pdf>] [38 <./gfx/toolbox.png>]
 
-Package xcolor Warning: Incompatible color definition on input line 268.
-
-
-Package xcolor Warning: Incompatible color definition on input line 268.
-
-[38] [39]
-
-Package xcolor Warning: Incompatible color definition on input line 328.
+Package xcolor Warning: Incompatible color definition on input line 298.
 
 
-Package xcolor Warning: Incompatible color definition on input line 328.
+Package xcolor Warning: Incompatible color definition on input line 298.
+
+[39]
+
+Package xcolor Warning: Incompatible color definition on input line 358.
+
+
+Package xcolor Warning: Incompatible color definition on input line 358.
 
 Package acronym Info: Label `acro:OsmAnd' newly defined as it shall be overridd
 en
-although it is yet undefined on input line 330.
+although it is yet undefined on input line 360.
 Package acronym Info: Label `acro:OSM' newly defined as it shall be overridden
-although it is yet undefined on input line 330.
+although it is yet undefined on input line 360.
 
-Package xcolor Warning: Incompatible color definition on input line 330.
-
-
-Package xcolor Warning: Incompatible color definition on input line 330.
-
-Package acronym Info: Label `acro:BLE' newly defined as it shall be overridden
-although it is yet undefined on input line 335.
-
-Package xcolor Warning: Incompatible color definition on input line 335.
+Package xcolor Warning: Incompatible color definition on input line 360.
 
 
-Package xcolor Warning: Incompatible color definition on input line 335.
+Package xcolor Warning: Incompatible color definition on input line 360.
 
 [40]
-
-Package xcolor Warning: Incompatible color definition on input line 337.
-
-
-Package xcolor Warning: Incompatible color definition on input line 337.
+Package acronym Info: Label `acro:BLE' newly defined as it shall be overridden
+although it is yet undefined on input line 365.
 
 
-Package xcolor Warning: Incompatible color definition on input line 337.
+Package xcolor Warning: Incompatible color definition on input line 365.
 
 
-Package xcolor Warning: Incompatible color definition on input line 337.
+Package xcolor Warning: Incompatible color definition on input line 365.
 
 
-Package xcolor Warning: Incompatible color definition on input line 339.
+Package xcolor Warning: Incompatible color definition on input line 367.
 
 
-Package xcolor Warning: Incompatible color definition on input line 339.
+Package xcolor Warning: Incompatible color definition on input line 367.
+
+
+Package xcolor Warning: Incompatible color definition on input line 367.
+
+
+Package xcolor Warning: Incompatible color definition on input line 367.
+
+
+Package xcolor Warning: Incompatible color definition on input line 369.
+
+
+Package xcolor Warning: Incompatible color definition on input line 369.
 
 [41]
 Package acronym Info: Label `acro:PDF' newly defined as it shall be overridden
-although it is yet undefined on input line 374.
+although it is yet undefined on input line 404.
 
 
-Package xcolor Warning: Incompatible color definition on input line 375.
+Package xcolor Warning: Incompatible color definition on input line 405.
 
 
-Package xcolor Warning: Incompatible color definition on input line 375.
+Package xcolor Warning: Incompatible color definition on input line 405.
 
 
-Package xcolor Warning: Incompatible color definition on input line 376.
+Package xcolor Warning: Incompatible color definition on input line 406.
 
 
-Package xcolor Warning: Incompatible color definition on input line 376.
+Package xcolor Warning: Incompatible color definition on input line 406.
 
 [42]
-Overfull \hbox (43.39539pt too wide) in paragraph at lines 392--415
+Overfull \hbox (43.39539pt too wide) in paragraph at lines 422--445
 [][]
  []
 
-) [43]
+) [43] [44]
 \openout2 = `__parts/chapters/4Implementation.aux'.
 
- (./__parts/chapters/4Implementation.tex [44
-
-
-
-
-]
+ (./__parts/chapters/4Implementation.tex
 Chapter 4.
-[45] [46] <gfx/JWT_b.png, id=1972, 939.51pt x 506.89375pt>
+[45
+
+
+
+
+] [46] <gfx/JWT_b.png, id=1993, 939.51pt x 506.89375pt>
 File: gfx/JWT_b.png Graphic file (type png)
  <use gfx/JWT_b.png>
 Package pdftex.def Info: gfx/JWT_b.png used on input line 42.
@@ -2422,7 +2422,7 @@ Package xcolor Warning: Incompatible color definition on input line 142.
 
 Package xcolor Warning: Incompatible color definition on input line 142.
 
-[50] [51] <gfx/mediaGallery.png, id=2119, 667.49374pt x 135.50626pt>
+[50] [51] <gfx/mediaGallery.png, id=2139, 667.49374pt x 135.50626pt>
 File: gfx/mediaGallery.png Graphic file (type png)
 
 <use gfx/mediaGallery.png>
@@ -2435,14 +2435,14 @@ Package xcolor Warning: Incompatible color definition on input line 261.
 
 Package xcolor Warning: Incompatible color definition on input line 261.
 
-[53] [54] <gfx/templateBox.png, id=2193, 247.92625pt x 399.4925pt>
+[53] [54] <gfx/templateBox.png, id=2213, 247.92625pt x 399.4925pt>
 File: gfx/templateBox.png Graphic file (type png)
 
 <use gfx/templateBox.png>
 Package pdftex.def Info: gfx/templateBox.png used on input line 320.
 (pdftex.def)             Requested size: 152.27682pt x 245.37248pt.
  [55 <./gfx/templateBox.png>]
-<gfx/kvs.pdf, id=2205, 722.7pt x 542.025pt>
+<gfx/kvs.pdf, id=2225, 722.7pt x 542.025pt>
 File: gfx/kvs.pdf Graphic file (type pdf)
  <use gfx/kvs.pdf>
 Package pdftex.def Info: gfx/kvs.pdf used on input line 362.
@@ -2590,14 +2590,14 @@ although it is yet undefined on input line 5.
 
 pdfTeX warning: pdflatex (file ./gfx/HiP-Backend-Workflow.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/HiP-Backend-Workflow.pdf, id=2544, 794.97pt x 865.2325pt>
+<gfx/HiP-Backend-Workflow.pdf, id=2564, 794.97pt x 865.2325pt>
 File: gfx/HiP-Backend-Workflow.pdf Graphic file (type pdf)
 
 <use gfx/HiP-Backend-Workflow.pdf>
 Package pdftex.def Info: gfx/HiP-Backend-Workflow.pdf used on input line 32.
 (pdftex.def)             Requested size: 494.90839pt x 538.66982pt.
  [72] [73 <./gfx/HiP-Backend-Workflow.pdf>]
-<gfx/HiP-UseCase_Diagramm.pdf, id=2862, 544.70518pt x 360.44261pt>
+<gfx/HiP-UseCase_Diagramm.pdf, id=2883, 544.70518pt x 360.44261pt>
 File: gfx/HiP-UseCase_Diagramm.pdf Graphic file (type pdf)
 
 <use gfx/HiP-UseCase_Diagramm.pdf>
@@ -2703,6 +2703,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--22
  org / api / ng / service / $compile #
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\T1/cmtt/m/n/10.95 apple . com / ibeacon / Getting-[]Started-[]with-[]iBeacon .
+ pdf$[][]\T1/pplj/m/n/10.95 , last checked
+ []
+
 [89
 
 
@@ -2742,12 +2748,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--197
  / www . slideshare . net / metaio _ AR /
  []
 
-
-Underfull \hbox (badness 2165) in paragraph at lines 197--197
-\T1/cmtt/m/n/10.95 why-[]to-[]become-[]a-[]junaio-[]developer$[][]\T1/pplj/m/n/
-10.95 , last checked 14.09.2014.  (Cited
- []
-
 [91]
 Underfull \hbox (badness 2103) in paragraph at lines 294--294
 \T1/cmtt/m/n/10.95 www . romanpichler . com / blog / 10-[]tips-[]writing-[]good
@@ -2766,13 +2766,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--307
 amples . html$[][]\T1/pplj/m/n/10.95 , last
  []
 
-[92]
+
 Underfull \hbox (badness 10000) in paragraph at lines 325--325
 \T1/cmtt/m/n/10.95 263401 / global-[]apple-[]iphone-[]sales-[]since-[]3rd-[]qua
 rter-[]2007/$[][]\T1/pplj/m/n/10.95 , last
  []
 
-
+[92]
 Underfull \hbox (badness 1348) in paragraph at lines 353--353
 []\T1/pplj/m/n/10.95 Wattson, M. (2013).  Con-tin-u-ous de-liv-ery for win-ners
  -- with a feed-
@@ -3042,21 +3042,29 @@ __parts/_FrontBackmatter/Declaration.tex
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: C25BBCD7E8A7D95F82E8D3A0E8FA30CD;6063.
-Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: 28559EBF62B5A19A0C060A28F49E1EEC;3934.
+
+Package rerunfilecheck Warning: File `thesis.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `thesis.brf':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  FC765C6EA5AB03575DDB4F35E5DBE6F3;3934.
 
 LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
  ) 
 Here is how much of TeX's memory you used:
- 29832 strings out of 493315
- 499108 string characters out of 6137904
- 803645 words of memory out of 5000000
- 31422 multiletter control sequences out of 15000+600000
+ 29807 strings out of 493315
+ 498716 string characters out of 6137904
+ 803681 words of memory out of 5000000
+ 31377 multiletter control sequences out of 15000+600000
  118351 words of font info for 151 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 74i,14n,87p,1958b,2557s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 74i,14n,87p,1958b,2561s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/tex
 live/2013/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/local/texlive/201
@@ -3078,10 +3086,10 @@ tt1095.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.
 pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (109 pages, 3779908 bytes).
+Output written on thesis.pdf (109 pages, 3778846 bytes).
 PDF statistics:
- 3410 PDF objects out of 3580 (max. 8388607)
- 2981 compressed objects within 30 object streams
- 874 named destinations out of 1000 (max. 500000)
+ 3367 PDF objects out of 3580 (max. 8388607)
+ 2938 compressed objects within 30 object streams
+ 894 named destinations out of 1000 (max. 500000)
  23284 words of extra memory for PDF output out of 24883 (max. 10000000)
 

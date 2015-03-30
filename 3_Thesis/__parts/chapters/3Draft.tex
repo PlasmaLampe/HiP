@@ -133,6 +133,36 @@ The storage of the data respectively content of the topics and groups will be ma
 
 So, when an user changes something at a topic, the data is changed on the model within the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. However, this way of data handling (i.e., modifying on the client side and sending data back as soon as the user hits the \emph{save} button) induces problems if more than one user works at the same time at the same topic. Imagine user $A$ and $B$ start to work at the same topic at the same point in time. Then both download the same content on their client side but if $A$ clicks \emph{save} before $B$, then $B$ will override all changes from $A$. We will prevent this problem by creating a \emph{lock} mechanism on a topic. So, if $A$ works on the topic, $B$ is not able to start editing in the first place. The now induced efficiency problem (i.e., only one user can work at a topic) will be reduced by offering features for creating different text blocks that are autonomously locked. So, $A$ is not locking the topic \emph{S\"udring center} but only a part of it (e.g., \emph{S\"udring center - Introduction}).
 
+The following pseudo-code in Listing \ref{locked} shows the algorithm that is used to lock the topics. \todo{describe}
+
+\lstset{language=Java,
+basicstyle=\small,
+showspaces=false,
+showstringspaces=false,   
+tabsize=2,
+backgroundcolor=\color{grey}}
+\begin{lstlisting}[numbers=left,caption={},label=locked,frame=tlbr,breaklines]
+onChange(){
+	doIOwnTheLock <- (internalLock.lastChange <= 5min ago)
+	if(doIOwnTheLock)
+		// we are fine -> working is possible
+	else{
+		currentLock <- db.locks.lock(topicUID)
+		
+		topicIsLocked <- (currentLock.lastChange <= 5min ago)
+		
+		if(topicIsLocked){
+			// we cannot modify the topic
+			// update lock again in 5 minutes
+		}else{
+			newTimestamp <- Date.currentTime
+			db.locks.lock(newTimestamp)
+			internalLock.lastChange = newTimestamp
+		}
+	}
+}
+\end{lstlisting}
+
 Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
