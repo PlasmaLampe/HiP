@@ -6,7 +6,8 @@
  * This is the major controller of the backend. It handles the change of topics, media entries, footnotes, etc.
  * Note that it needs the existence of an user controller (uc) in the current scope to work properly.
  */
-controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','commonTaskService','LinkCreator','$timeout', function($scope,$http,$routeParams,commonTaskService, LinkCreator, $timeout) {
+controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','commonTaskService','LinkCreator','$timeout','LockService',
+        function($scope,$http,$routeParams,commonTaskService, LinkCreator, $timeout, LockService) {
     var that = this;
 
     this.debug = false;
@@ -72,7 +73,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         name: "-1"
     };
 
-    this.imageSearchPrefix = "<img";
+    this.imageSearchPrefix  = "<img";
 
     /**
      * Clears the ModifyTopic buffer
@@ -621,6 +622,8 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         /* fetch data basis for post-processing */
         $http.get('/admin/topic').success(function(topics){
             that.topics = topics;
+
+            LockService.getLock(uIDOfTheTopic);
 
             /* fetch the concrete topic */
             $http.get('/admin/topic/'+uIDOfTheTopic).
@@ -1337,6 +1340,19 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
     this.setIDForGroupInCurrentTopic = function(buffergroup, offlineData){
         console.log(buffergroup);
         console.log(offlineData);
+    };
+
+    /**
+     * Handles locking of the input field
+     */
+    this.locked = function(){
+        var lock = LockService.doIOwnLock(that.currentTopic.uID);
+
+        if(!lock){
+            that.buffer0 = -1;
+        }if(lock){
+            that.buffer0 = 1;
+        }
     };
 
     /* update parameter if needed */

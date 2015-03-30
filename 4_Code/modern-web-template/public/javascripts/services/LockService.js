@@ -45,6 +45,7 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
 
         $http.post('/admin/lock', lock).success(function(){
             that.currentLock = lock;
+            that.mytimeStamp = lock.lastChange;
         }).error(function(){
             console.log("Error while creating the lock")
         })
@@ -57,7 +58,16 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
      *                  the lock gets stored in this.currentLock
      */
     this.getLock = function(topicUID, callback){
+        if(topicUID == undefined){
+            return;
+        }
+
         $http.get('/admin/lock/'+topicUID).success(function(lock){
+            if(lock[0] == undefined){
+                /* no lock has been found */
+                that.createLock(topicUID);
+            }
+
             if(callback != undefined){
                 callback(lock[0]);
             }
@@ -75,7 +85,7 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
      */
     this.updateLock = function(topicUID, lastChange){
         var lock = createLockObject(topicUID, lastChange);
-
+        console.log(lock);
         $http.put('/admin/lock', lock).success(function(){
             that.currentLock = lock;
         }).error(function(){
@@ -103,7 +113,13 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
      * @returns {boolean}
      */
     this.doIOwnLock = function(topicUID){
-        /* we are to fast -> lock is not fetched yet */
+        /* abort condition 1 - undefined parameter */
+        if(topicUID == undefined){
+            console.log("Warning: undefined parameter in function doIOwnLock");
+            return false;
+        }
+
+        /* abort condition 2 - we are to fast -> lock is not fetched yet */
         if(that.currentLock == "-1"){
             return false;
         }
@@ -132,14 +148,14 @@ servicesModule.service('LockService', ['$http', '$timeout', function($http, $tim
                 return false;
             }else{
                 //newTimestamp <- Date.currentTime
-                var newTimestamp = new Date().getTime();
+                var newTimestamp = new Date().getTime()+"";
 
                 //db.locks.lock(newTimestamp)
                 that.updateLock(topicUID, newTimestamp);
 
                 //internalLock.lastChange = newTimestamp
                 that.mytimeStamp = newTimestamp;
-                that.currentLock.lastChange = newTimestamp;
+                that.currentLock = createLockObject(topicUID, newTimestamp);
 
                 return true;
             }

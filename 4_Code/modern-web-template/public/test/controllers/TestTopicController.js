@@ -108,12 +108,18 @@ describe('Testsuite for the TopicController:', function () {
             versionNumber: "2"
         };
 
+        var lock1 = {
+            topicUID: "1",
+            lastChange: new Date().getTime()+""
+        };
+
         return {demoTopic1: demoTopic1, demoTopic2: demoTopic2,
             demoSubTopic: demoSubTopic, demoConstraint: demoConstraint,
             footnote1: footnote1, footnote2: footnote2,
             media1: media1, historyObject: historyObject,
             demoConstraint2: demoConstraint2,
-            demoConstraint3: demoConstraint3};
+            demoConstraint3: demoConstraint3,
+            lock1: lock1};
     }
 
     var __ret           = initTestVariables();
@@ -130,6 +136,8 @@ describe('Testsuite for the TopicController:', function () {
     var media1          = __ret.media1;
     var historyObject   = __ret.historyObject;
 
+    var lock1           = __ret.lock1;
+
     beforeEach(function () {
         module('myApp.controllers');
     });
@@ -139,6 +147,9 @@ describe('Testsuite for the TopicController:', function () {
 
         $httpBackend.when('GET', '/admin/topic')
             .respond(demoTopicList);
+
+        $httpBackend.when('GET', '/admin/lock/1')
+            .respond([lock1]);
 
         $httpBackend.when('GET', '/admin/topicbyuser/anUser')
             .respond(demoTopicList);

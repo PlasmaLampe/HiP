@@ -120,9 +120,9 @@
 
                     <form ng-submit="tc.updateStatus(ac,lc,'notification_alert_save')" ng-init="tc.buffer0 = 0">
                         <div class="shift-left" ng-style="{'max-width':'75%'}">
-                            <div text-angular ng-model="tc.currentTopic.content"
+                            <div id="editor" text-angular ng-model="tc.currentTopic.content"
                                  ng-style="{'max-height': '300px','overflow': 'scroll'}"
-                                 ng-change="tc.buffer0 = 1"></div>
+                                 ng-change="tc.buffer0 = 1; tc.locked()"></div>
                         </div>
                         <div class="shift-right">
                             <templates-box  languagecontroller="lc"
@@ -137,10 +137,15 @@
 
 
                         <div class="shift-right">
-                            <button class="btn"  ng-class="{ 'btn-default' : tc.buffer0 == 0,
-                                                '             btn-success' : tc.buffer0 == 1 }"
+                            <button ng-hide="tc.buffer0 == -1" class="btn"  ng-class="{
+                                                             'btn-default' : tc.buffer0 == 0,
+                                                             'btn-success' : tc.buffer0 == 1 }"
                                     type="submit" ng-click="addAlert(alertmsg,'info')"
                                     ng-bind="lc.getTerm('system_edit_form_create')"></button>
+
+                            <a href ng-show="tc.buffer0 == -1" class="btn btn-danger"
+                                    ng-click="ac.addAlert(lc.getTerm('alert_topic_locked'),'danger')"
+                                    ng-bind="lc.getTerm('system_edit_form_locked')"></a>
                         </div>
                     </form>
 

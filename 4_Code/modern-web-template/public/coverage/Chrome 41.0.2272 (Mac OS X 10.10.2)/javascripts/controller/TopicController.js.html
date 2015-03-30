@@ -18,16 +18,16 @@
     <h1>Code coverage report for <span class="entity">javascripts/controller/TopicController.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">68.57% <small>(325 / 474)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">67.98% <small>(327 / 481)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">61.33% <small>(92 / 150)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">59.74% <small>(92 / 154)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">57.02% <small>(69 / 121)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">56.56% <small>(69 / 122)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">68.5% <small>(324 / 473)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">67.92% <small>(326 / 480)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -1402,7 +1402,23 @@
 1365
 1366
 1367
-1368</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+1368
+1369
+1370
+1371
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1411,6 +1427,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37</span>
@@ -2024,6 +2041,8 @@
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2744,6 +2763,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-yes">37</span>
@@ -2777,7 +2809,8 @@
  * This is the major controller of the backend. It handles the change of topics, media entries, footnotes, etc.
  * Note that it needs the existence of an user controller (uc) in the current scope to work properly.
  */
-controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','commonTaskService','LinkCreator','$timeout', function($scope,$http,$routeParams,commonTaskService, LinkCreator, $timeout) {
+controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','commonTaskService','LinkCreator','$timeout','LockService',
+        function($scope,$http,$routeParams,commonTaskService, LinkCreator, $timeout, LockService) {
     var that = this;
 &nbsp;
     this.debug = false;
@@ -2843,7 +2876,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         name: "-1"
     };
 &nbsp;
-    this.imageSearchPrefix = "&lt;img";
+    this.imageSearchPrefix  = "&lt;img";
 &nbsp;
     /**
      * Clears the ModifyTopic buffer
@@ -3392,6 +3425,8 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         /* fetch data basis for post-processing */
         $http.get('/admin/topic').success(function(topics){
             that.topics = topics;
+&nbsp;
+            LockService.getLock(uIDOfTheTopic);
 &nbsp;
             /* fetch the concrete topic */
             $http.get('/admin/topic/'+uIDOfTheTopic).
@@ -4110,6 +4145,19 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
 <span class="cstat-no" title="statement not covered" >        console.log(offlineData);</span>
     };
 &nbsp;
+    /**
+     * Handles locking of the input field
+     */
+    this.locked = <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >        var lock = LockService.doIOwnLock(that.currentTopic.uID);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if(!lock){</span>
+<span class="cstat-no" title="statement not covered" >            that.buffer0 = -1;</span>
+        }<span class="cstat-no" title="statement not covered" >if(lock){</span>
+<span class="cstat-no" title="statement not covered" >            that.buffer0 = 1;</span>
+        }
+    };
+&nbsp;
     /* update parameter if needed */
     <span class="missing-if-branch" title="else path not taken" >E</span>if($routeParams.topicID != undefined){
         that.getConstraintsForThisTopic($routeParams.topicID);
@@ -4141,7 +4189,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 30 2015 14:01:41 GMT+0200 (CEST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 30 2015 15:06:20 GMT+0200 (CEST)</div>
 </div>
 
 <script src="../../prettify.js"></script>
