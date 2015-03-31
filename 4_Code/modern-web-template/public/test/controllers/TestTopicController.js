@@ -51,7 +51,8 @@ describe('Testsuite for the TopicController:', function () {
             constraints: ["constraintA"],
             deadline : "2015-01-14T23:00:00.000Z",
             tagStore: "-1",
-            linkedTopics: []
+            linkedTopics: [],
+            metaStore: "uID554"
         };
 
         var demoConstraint = {
@@ -122,6 +123,11 @@ describe('Testsuite for the TopicController:', function () {
             values: ['myValue']
         };
 
+        var storageObject = {
+            uID: "uID_store",
+            list: ["type#test"]
+        };
+
         return {demoTopic1: demoTopic1, demoTopic2: demoTopic2,
             demoSubTopic: demoSubTopic, demoConstraint: demoConstraint,
             footnote1: footnote1, footnote2: footnote2,
@@ -129,7 +135,8 @@ describe('Testsuite for the TopicController:', function () {
             demoConstraint2: demoConstraint2,
             demoConstraint3: demoConstraint3,
             lock1: lock1,
-            type: typeObject};
+            type: typeObject,
+            store: storageObject};
     }
 
     var __ret           = initTestVariables();
@@ -150,6 +157,8 @@ describe('Testsuite for the TopicController:', function () {
 
     var type            = __ret.type;
 
+    var store           = __ret.store;
+
     beforeEach(function () {
         module('myApp.controllers');
     });
@@ -161,7 +170,7 @@ describe('Testsuite for the TopicController:', function () {
             .respond([type]);
 
         $httpBackend.when('GET', '/admin/kv/undefined')
-            .respond({});
+            .respond([store]);
 
         $httpBackend.when('GET', '/admin/topic')
             .respond(demoTopicList);
@@ -237,6 +246,8 @@ describe('Testsuite for the TopicController:', function () {
         media1              = __ret.media1;
 
         type                = __ret.type;
+
+        store               = __ret.store;
     }));
 
     afterEach(function () {
@@ -316,7 +327,7 @@ describe('Testsuite for the TopicController:', function () {
         expect(mockLC.getTerm).toHaveBeenCalled();
     });
 
-    it('deletes the current topic with the deleteCurrentTopic function and includes sub-topics' +
+    it('deletes the current topic with the deleteCurrentTopic function and includes sub-topics ' +
         'within this process', function () {
         initController();
 
@@ -328,6 +339,10 @@ describe('Testsuite for the TopicController:', function () {
         controller.deleteCurrentTopic();
 
         $httpBackend.expectDELETE('/admin/topic/'+demoTopic1.uID)
+            .respond(200,{});
+
+        /* expect deletion of the kv of the main topic */
+        $httpBackend.expectDELETE('/admin/kv/')
             .respond(200,{});
 
         /* expect deletion of subtopic and the chat system */
@@ -346,6 +361,10 @@ describe('Testsuite for the TopicController:', function () {
         $httpBackend.expectDELETE('/admin/chat/'+demoSubTopic.uID)
             .respond(200,{});
 
+        /* expect deletion of the kv of the sub topic */
+        $httpBackend.expectDELETE('/admin/kv/uID554')
+            .respond(200,{});
+        
         /* expect deletion of history */
         $httpBackend.expectDELETE('/admin/history/'+demoSubTopic.uID)
             .respond(200,{});

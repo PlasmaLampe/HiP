@@ -897,8 +897,10 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
      * This function is internally used for deleting topics
      *
      * @param deleteThis    the uID of the topic that should be deleted
+     * @param metaStore     optional: The uID of the meta-store. If the value is included,
+     *                      the kv store gets also deleted.
      */
-    function deletingProcedure(deleteThis) {
+    function deletingProcedure(deleteThis, metaStore) {
         $http.delete('/admin/topic/' + deleteThis).
             success(function () {
                 // remove corresponding chat system
@@ -910,6 +912,11 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                         that.currentUserTopics.splice(index,1);
                     }
                 });
+
+                // delete meta-store
+                if(metaStore != undefined){
+                    keyValueService.deleteKVStore(metaStore);
+                }
 
                 // clear buffer
                 that.clearBuffer();
@@ -934,7 +941,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
             success(function (data) {
                 data.forEach(function(subtopic){
                     if(subtopic.uID != that.modifyTopicID)
-                        deletingProcedure(subtopic.uID);
+                        deletingProcedure(subtopic.uID, subtopic.metaStore);
                 });
             }).
             error(function () {
