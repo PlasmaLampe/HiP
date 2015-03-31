@@ -364,7 +364,7 @@ describe('Testsuite for the TopicController:', function () {
         /* expect deletion of the kv of the sub topic */
         $httpBackend.expectDELETE('/admin/kv/uID554')
             .respond(200,{});
-        
+
         /* expect deletion of history */
         $httpBackend.expectDELETE('/admin/history/'+demoSubTopic.uID)
             .respond(200,{});
