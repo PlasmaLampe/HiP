@@ -113,13 +113,23 @@ describe('Testsuite for the TopicController:', function () {
             lastChange: new Date().getTime()+""
         };
 
+        var typeObject = {
+            uID: "uID_new",
+            name: 'newName',
+            extendsType: 'root',
+            system: false,
+            keys: ['ownAttr'],
+            values: ['myValue']
+        };
+
         return {demoTopic1: demoTopic1, demoTopic2: demoTopic2,
             demoSubTopic: demoSubTopic, demoConstraint: demoConstraint,
             footnote1: footnote1, footnote2: footnote2,
             media1: media1, historyObject: historyObject,
             demoConstraint2: demoConstraint2,
             demoConstraint3: demoConstraint3,
-            lock1: lock1};
+            lock1: lock1,
+            type: typeObject};
     }
 
     var __ret           = initTestVariables();
@@ -138,12 +148,20 @@ describe('Testsuite for the TopicController:', function () {
 
     var lock1           = __ret.lock1;
 
+    var type            = __ret.type;
+
     beforeEach(function () {
         module('myApp.controllers');
     });
 
     beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
         $httpBackend = _$httpBackend_;
+
+        $httpBackend.when('GET', '/admin/types')
+            .respond([type]);
+
+        $httpBackend.when('GET', '/admin/kv/undefined')
+            .respond({});
 
         $httpBackend.when('GET', '/admin/topic')
             .respond(demoTopicList);
@@ -217,6 +235,8 @@ describe('Testsuite for the TopicController:', function () {
         demoFootnote2       = __ret.footnote2;
 
         media1              = __ret.media1;
+
+        type                = __ret.type;
     }));
 
     afterEach(function () {

@@ -6,8 +6,8 @@
  * This is the major controller of the backend. It handles the change of topics, media entries, footnotes, etc.
  * Note that it needs the existence of an user controller (uc) in the current scope to work properly.
  */
-controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','commonTaskService','LinkCreator','$timeout','LockService',
-        function($scope,$http,$routeParams,commonTaskService, LinkCreator, $timeout, LockService) {
+controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','commonTaskService','LinkCreator','$timeout','LockService', 'keyValueService',
+        function($scope,$http,$routeParams,commonTaskService, LinkCreator, $timeout, LockService, keyValueService) {
     var that = this;
 
     this.debug = false;
@@ -60,6 +60,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
     this.modifyTopicCreatedBy   = "";
     this.modifyTopicContraints  = [];
     this.modifyTopicDeadline    = [];
+    this.modifyTopicMeta        = "";
     this.tagstore               = "";
     this.linkedTopic            = "";
     this.maxCharTreshold        = "";
@@ -86,6 +87,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         that.modifyTopicStatus  = "";
         that.modifyTopicCreatedBy = "";
         that.modifyTopicDeadline  = "";
+        that.modifyTopicMeta      = "";
         that.tagstore               = "";
         that.linkedTopic            = "";
         that.maxCharTreshold        = "";
@@ -109,7 +111,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
      * @param topicCreatedBy
      */
     this.doSomethingWithTopic = function(topicID, topicName, topicContent, topicGroup, topicStatus, topicConstraints,
-        topicCreatedBy, deadline, tagstore, linkedTopic, maxCharTreshold, gps){
+        topicCreatedBy, deadline, tagstore, linkedTopic, maxCharTreshold, gps, metaStore){
         that.modifyTopicID      = topicID;
         that.modifyTopicName    = topicName;
         that.modifyTopicContent = topicContent;
@@ -121,6 +123,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         that.linkedTopic          = linkedTopic;
         that.maxCharTreshold      = maxCharTreshold;
         that.gps                  = gps;
+        that.modifyTopicMeta      = metaStore;
 
         var constraintsAreInitialized = topicConstraints[0] != "" || topicConstraints != undefined;
         if(constraintsAreInitialized){
@@ -623,6 +626,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         $http.get('/admin/topic').success(function(topics){
             that.topics = topics;
 
+            /* get the lock status of the topic */
             LockService.getLock(uIDOfTheTopic);
 
             /* fetch the concrete topic */
@@ -630,6 +634,28 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                 success(function(data) {
                     that.currentTopic = data[0];
 
+                    /* get or create the data of the meta-store */
+                    if (that.currentTopic.metaStore != "-1") {
+                        keyValueService.getKVStore(that.currentTopic.metaStore, function(store){
+                           that.topicMetaData = store;
+                        });
+                    }else{
+                        that.topicMetaData = keyValueService.createEmptyStoreAccordingToType('topicMeta');
+
+                        var uIDOfTheNewStore = that.topicMetaData.uID;
+                        that.currentTopic.metaStore = uIDOfTheNewStore;
+
+                        /* send info backend */
+                        that.updateTopicAndBypassHistory(that.currentTopic.uID, {
+                            keys: ['metaStore'],
+                            metaStore: uIDOfTheNewStore
+                        }, false, false);
+
+                        console.log("Warning: No existing Meta-store for topic "+uIDOfTheTopic+"! " +
+                            "It has been created with id "+uIDOfTheNewStore);
+                    }
+
+                    /* extract information about the maximal treshold for the lightsign */
                     that.maxcharThreshold = that.currentTopic.maxCharThreshold;
 
                     /* create the list of pictures of the topic */
@@ -687,7 +713,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                             console.log("error TopicController: Cannot fetch history entries");
                         });
                 }).
-                error(function(data, status, headers, config) {
+                error(function() {
                     console.log("error TopicController: Topic cannot get pulled");
                 });
         });
@@ -757,7 +783,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
                     }
                 }
             }).
-            error(function(data, status, headers, config) {
+            error(function() {
                 console.log("error TopicController: Constraints cannot get pulled");
             });
     };
@@ -846,7 +872,7 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
             that.maxCharTreshold, that.gps);
 
         $http.put('/admin/topic', topic).
-            success(function(data, status, headers, config) {
+            success(function() {
             }).
             error(function() {
                 console.log("error TopicController: Topic cannot get updated");
@@ -917,6 +943,9 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
 
         /* delete the main topic and the main chat */
         deletingProcedure(that.modifyTopicID);
+
+        /* delete the KV-meta-store */
+        keyValueService.deleteKVStore(that.modifyTopicMeta);
     };
 
     /**
@@ -1353,6 +1382,16 @@ controllersModule.controller('TopicCtrl', ['$scope','$http', '$routeParams','com
         }if(lock){
             that.buffer0 = 1;
         }
+    };
+
+    /**
+     * This function saves the current meta-store in the backend.
+     */
+    this.saveMetaData = function(triggerWell){
+        keyValueService.updateKVStore(that.topicMetaData);
+
+        /* trigger view */
+        $scope.collapse[triggerWell] = !$scope.collapse[triggerWell];
     };
 
     /* update parameter if needed */

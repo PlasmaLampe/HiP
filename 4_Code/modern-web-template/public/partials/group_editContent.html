@@ -8,7 +8,7 @@
         GROUP MEMBER VIEW
         -->
         <div ng-show="gc.userIDIsMemberOfGrp(uc.email,tc.currentTopic.group)" ng-init="status = false; picUpload = false; footnotes = true;
-            lTopics = true; gps = true">
+            lTopics = true; gps = true; metaStore = true">
 
             <ul class="nav nav-tabs">
                 <li role="presentation" ng-class="{active : showDiv == 1}" ng-click="showDiv=1"><a href ng-bind="lc.getTerm('system_edit_header')"></a></li>
@@ -204,26 +204,48 @@
 
                     <div class="float-clear"></div>
 
-                    <h5 ng-click="lTopics = !lTopics">
-                        <collapse-triangle condition="lTopics"></collapse-triangle> {{lc.getTerm('system_edit_linked_topics')}}
-                    </h5>
+                    <!-- Linked Topics -->
+                    <div class="shift-left">
+                        <h5 ng-click="lTopics = !lTopics">
+                            <collapse-triangle condition="lTopics"></collapse-triangle> {{lc.getTerm('system_edit_linked_topics')}}
+                        </h5>
+                        <div collapse="lTopics">
+                            <!-- show linked topics -->
+                            <show-topic-links usercontroller="uc" topiccontroller="tc" groupcontroller="gc"></show-topic-links>
 
-                    <div collapse="lTopics">
-                        <!-- show linked topics -->
-                        <show-topic-links usercontroller="uc" topiccontroller="tc" groupcontroller="gc"></show-topic-links>
-
-                        <!-- Link creation -->
-                        <create-topic-links
-                                languagecontroller="lc"
-                                usercontroller="uc"
-                                groupcontroller="gc"
-                                topiccontroller="tc"></create-topic-links>
+                            <!-- Link creation -->
+                            <create-topic-links
+                                    languagecontroller="lc"
+                                    usercontroller="uc"
+                                    groupcontroller="gc"
+                                    topiccontroller="tc"></create-topic-links>
+                        </div>
                     </div>
+                    <!-- End of: linked topics -->
+
+                    <!-- Meta-data -->
+                    <div class="shift-right" style="min-width: 40%">
+                        <h5 ng-click="metaStore = !metaStore">
+                            <collapse-triangle condition="metaStore"></collapse-triangle> {{lc.getTerm('system_edit_topic_metadata')}}
+                        </h5>
+                        <div class="well well-lg" collapse="metaStore">
+                            <div ng-repeat="key in tc.topicMetaData.keys">
+                                <small ng-bind="lc.getTypeKeyName(key, tc.topicMetaData.type)"></small>
+                                <input type="text" class="form-control" placeholder="key" ng-model="tc.topicMetaData[key]">
+                            </div>
+
+                            <button type="button" class="btn btn-primary btn-sm" ng-bind="lc.getTerm('system_topic_metadata')"
+                                    ng-click="tc.saveMetaData(metaStore)"></button>
+                        </div>
+                    </div>
+                    <!-- End of: meta-data -->
+                    <div class="float-clear"></div>
 
                     <hr>
 
                     <b>Tags:</b>
                     <tag-cloud topiccontroller="tc" languagecontroller="lc"></tag-cloud>
+
                 </div>
 
 
