@@ -9,18 +9,18 @@
 \contentsline {xchapter}{Draft of the application}{25}{chapter.3}
 \contentsline {table}{\numberline {1}{\ignorespaces Use Case Scenario: Student changes content of a topic\relax }}{27}{table.caption.49}
 \contentsline {table}{\numberline {2}{\ignorespaces Use Case Scenario: Supervisor creates a new group\relax }}{27}{table.caption.50}
-\contentsline {table}{\numberline {3}{\ignorespaces A brief cost-estimation about the backend\relax }}{34}{table.caption.59}
-\contentsline {table}{\numberline {4}{\ignorespaces A brief cost-estimation about the frontend\relax }}{44}{table.caption.70}
+\contentsline {table}{\numberline {3}{\ignorespaces A brief cost-estimation about the backend\relax }}{34}{table.caption.60}
+\contentsline {table}{\numberline {4}{\ignorespaces A brief cost-estimation about the frontend\relax }}{44}{table.caption.71}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation details}{45}{chapter.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Testing the application}{61}{chapter.5}
+\contentsline {xchapter}{Testing the application}{63}{chapter.5}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion and future work}{67}{chapter.6}
+\contentsline {xchapter}{Discussion and future work}{69}{chapter.6}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Appendix}{71}{appendix.A}
-\contentsline {table}{\numberline {5}{\ignorespaces Showing the derived requirements of the backend for the supervisor role, which are sorted by priority}}{76}{table.A.5}
-\contentsline {table}{\numberline {6}{\ignorespaces Showing the derived requirements of the Backend for the student role, which are sorted by priority}}{78}{table.A.6}
-\contentsline {table}{\numberline {7}{\ignorespaces Showing the derived requirements of the Backend for the master role, which are sorted by priority}}{80}{table.A.7}
-\contentsline {table}{\numberline {8}{\ignorespaces Showing the derived requirements of the Backend, which are sorted by priority}}{81}{table.A.8}
-\contentsline {table}{\numberline {9}{\ignorespaces Showing the derived requirements of the Frontend, which are sorted by priority}}{82}{table.A.9}
+\contentsline {xchapter}{Appendix}{73}{appendix.A}
+\contentsline {table}{\numberline {5}{\ignorespaces Showing the derived requirements of the backend for the supervisor role, which are sorted by priority}}{78}{table.A.5}
+\contentsline {table}{\numberline {6}{\ignorespaces Showing the derived requirements of the Backend for the student role, which are sorted by priority}}{80}{table.A.6}
+\contentsline {table}{\numberline {7}{\ignorespaces Showing the derived requirements of the Backend for the master role, which are sorted by priority}}{82}{table.A.7}
+\contentsline {table}{\numberline {8}{\ignorespaces Showing the derived requirements of the Backend, which are sorted by priority}}{83}{table.A.8}
+\contentsline {table}{\numberline {9}{\ignorespaces Showing the derived requirements of the Frontend, which are sorted by priority}}{84}{table.A.9}

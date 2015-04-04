@@ -340,8 +340,12 @@ First of all, we need a static content definition, which is an \ac{XML} document
 
 So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
 
-\subsection{WebGL}
-Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser.
+\subsection{WebGL and JSModeler}
+Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser. However, we will use libraries like \emph{JSModeler} to abstract from the low-level OpenGL commands and simplify the development process.
+
+JSModeler provides a 3d object viewer for presenting 3d models and small scenes on a web page. It is able to import models with the formats 3DS, OBJ and STL. Furthermore, it is able to manipulate the points within the internal buffer, so we will be able to manipulate rendered objects. 
+
+After we have now taken a look at the used frameworks and technologies, we will now change our view to the used techniques and tools.
 
 \section{Testing techniques and tools}	
 Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. This leads us to \ac{TDD}, which is a developing technique that relies on the heavy use of tests. \ac{TDD} will be explained in the following section. 

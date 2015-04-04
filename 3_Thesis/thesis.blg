@@ -9,7 +9,7 @@ A level-1 auxiliary file: __parts/_FrontBackmatter/Contents.aux
 A level-1 auxiliary file: __parts/chapters/1Intro.aux
 A level-1 auxiliary file: __parts/chapters/2Basics.aux
 Case mismatch error between cite keys beck2001agile and Beck2001agile
----line 26 of file __parts/chapters/2Basics.aux
+---line 29 of file __parts/chapters/2Basics.aux
  : \citation{beck2001agile
  :                        }
 I'm skipping whatever remains of this command

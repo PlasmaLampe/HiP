@@ -440,5 +440,20 @@ As one can see, the format consists of \ac{JS} objects that are included in the 
 
 Because the \ac{HiP} backend uses another representation (which is also contained within the MongoDB), we offer another \ac{URI} to retrieve the file for the smartphone. Internally, we translate the representation that is stored within the MongoDB into the other representation for the smartphone. Note that this is not a break with the \ac{REST} principle that we should not use different \ac{URI} to specify the format. In this case, we do not only exchange the format (e.g., \ac{XML} to \ac{JSON}) of the same data. We store other (i.e., less) fields within the smartphone object as in the original document that is stored in the MongoDB. So, after all, we create a new object (which has another format) and every object has its own identifier. 
 
+In a similar way, the interface for pictures translates the internally used identifier to the frontend-app style. Internally, a picture is an autonomous object that is identified by its unique identifier. Furthermore, every pictures contains meta information about the topic it is used in. This way, we can easily include as many pictures as we want in one topic. Timo used another approach and identifies pictures with the id of the topic that it contains plus the suffix \emph{.jpg}. So, we provided a new interface that accepts calls like 
+
+\emph{hiproot/admin/app/pictures/topicID.jpg} 
+
+and redirects the call to the internally used interface
+
+\emph{hiproot/admin/pictures/mainPictureID.jpg}. 
+
+The main picture of a topic has to be chosen in the hip backend. Figure \ref{frontendScreenshot} shows a screenshot of the \ac{HiP} frontend that uses the provided data of the backend. \todo{BILDER?}
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=.5\textwidth]{gfx/frontend.jpg}}
+\caption{A screenshot of the smartphone frontend with data provided by the current version of the \ac{HiP} backend.}
+\label{frontendScreenshot}
+\end{figure}     
 
 After we have now seen some of the details of the implementation, we will now come to the testing chapter. 

@@ -40,7 +40,7 @@
 \contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{34}{subsection.3.5.4}
 \contentsline {section}{\numberline {3.6}Frontend (App)}{35}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{36}{subsection.3.6.1}
-\contentsline {subsubsection}{Data format for \ac {AR} files}{36}{figure.caption.63}
+\contentsline {subsubsection}{Data format for \ac {AR} files}{36}{figure.caption.64}
 \contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{37}{subsection.3.6.2}
 \contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{39}{subsection.3.6.3}
 \contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{42}{subsection.3.6.4}
@@ -52,30 +52,30 @@
 \contentsline {section}{\numberline {4.3}Scala: Picture upload and the creation of thumbnails}{49}{section.4.3}
 \contentsline {section}{\numberline {4.4}Important directives used in the system}{51}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}A media gallery with the media-gallery directive}{52}{subsection.4.4.1}
-\contentsline {subsubsection}{Directive definition}{53}{figure.caption.74}
+\contentsline {subsubsection}{Directive definition}{53}{figure.caption.75}
 \contentsline {subsubsection}{Controller of the media gallery directive}{54}{lstnumber.4.5.17}
 \contentsline {subsection}{\numberline {4.4.2}Template handling with the templates-box directive}{55}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}AngularJS: Key/Value stores}{56}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}Typing of stores}{59}{subsection.4.5.1}
 \contentsline {section}{\numberline {4.6}Interface to the smartphone app}{59}{section.4.6}
-\contentsline {chapter}{\numberline {5}Testing the application}{61}{chapter.5}
-\contentsline {section}{\numberline {5.1}Quality assurance and quality models}{61}{section.5.1}
-\contentsline {section}{\numberline {5.2}Test environment}{63}{section.5.2}
-\contentsline {section}{\numberline {5.3}Testing results}{63}{section.5.3}
-\contentsline {section}{\numberline {5.4}Usability study of the backend system}{64}{section.5.4}
-\contentsline {chapter}{\numberline {6}Discussion and future work}{67}{chapter.6}
-\contentsline {section}{\numberline {6.1}Handing of the project}{67}{section.6.1}
-\contentsline {section}{\numberline {6.2}Arisen problems within this thesis}{67}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}The agile process}{68}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}The development of the application}{68}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Discussion and future work}{69}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Results / Conclusion}{69}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Future work}{69}{subsection.6.3.2}
-\contentsline {chapter}{\numberline {A}Appendix}{71}{appendix.A}
-\contentsline {section}{\numberline {A.1}Installation manual}{71}{section.A.1}
-\contentsline {section}{\numberline {A.2}Figures and tables}{72}{section.A.2}
+\contentsline {chapter}{\numberline {5}Testing the application}{63}{chapter.5}
+\contentsline {section}{\numberline {5.1}Quality assurance and quality models}{63}{section.5.1}
+\contentsline {section}{\numberline {5.2}Test environment}{65}{section.5.2}
+\contentsline {section}{\numberline {5.3}Testing results}{65}{section.5.3}
+\contentsline {section}{\numberline {5.4}Usability study of the backend system}{66}{section.5.4}
+\contentsline {chapter}{\numberline {6}Discussion and future work}{69}{chapter.6}
+\contentsline {section}{\numberline {6.1}Handing of the project}{69}{section.6.1}
+\contentsline {section}{\numberline {6.2}Arisen problems within this thesis}{69}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}The agile process}{70}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}The development of the application}{70}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}Discussion and future work}{71}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Results / Conclusion}{71}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Future work}{71}{subsection.6.3.2}
+\contentsline {chapter}{\numberline {A}Appendix}{73}{appendix.A}
+\contentsline {section}{\numberline {A.1}Installation manual}{73}{section.A.1}
+\contentsline {section}{\numberline {A.2}Figures and tables}{74}{section.A.2}
 \vspace {\beforebibskip }
-\contentsline {chapter}{\spacedlowsmallcaps {Bibliography}}{89}{dummy.6}
-\contentsline {chapter}{\spacedlowsmallcaps {Index}}{95}{dummy.7}
-\contentsline {chapter}{\spacedlowsmallcaps {Publications}}{95}{dummy.8}
-\contentsline {chapter}{\spacedlowsmallcaps {Statutory Declaration}}{95}{dummy.8}
+\contentsline {chapter}{\spacedlowsmallcaps {Bibliography}}{91}{dummy.6}
+\contentsline {chapter}{\spacedlowsmallcaps {Index}}{97}{dummy.7}
+\contentsline {chapter}{\spacedlowsmallcaps {Publications}}{97}{dummy.8}
+\contentsline {chapter}{\spacedlowsmallcaps {Statutory Declaration}}{97}{dummy.8}

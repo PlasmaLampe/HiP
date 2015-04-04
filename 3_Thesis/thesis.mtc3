@@ -9,7 +9,7 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.5.4}Cost estimation of the backend}{\reset@font\mtcSSfont 34}{subsection.3.5.4}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.6}Frontend (App)}{\reset@font\mtcSfont 35}{section.3.6}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.1}Input data into the system (scan objects and annotate them)}{\reset@font\mtcSSfont 36}{subsection.3.6.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Data format for \ac {AR} files}{\reset@font\mtcSSSfont 36}{figure.caption.63}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Data format for \ac {AR} files}{\reset@font\mtcSSSfont 36}{figure.caption.64}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.2}Show close "interesting places" within a map}{\reset@font\mtcSSfont 37}{subsection.3.6.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.3}Navigation to "interesting places"}{\reset@font\mtcSSfont 39}{subsection.3.6.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.6.4}Fetching topics and PDF export}{\reset@font\mtcSSfont 42}{subsection.3.6.4}}
