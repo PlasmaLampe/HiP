@@ -176,11 +176,15 @@ The attachment of information and comments to a complete topic can easily be cre
 
 If the supervisor is satisfied with the given quality, he should be able to mark the topic as 'ready for publish'. On a technical side, this boils down to setting a different flag at the topic object. So, the needed time for this feature should be low.
 
-\subsection{Including a 3D-Tooling system for point-clouds (WebGL)}
-The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student. 
-\todo{mehr}
-The editor should be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. 
-\todo{technical details}
+\subsection{Including a 3D-Tooling system for point-clouds (JSModeler)}
+\label{modelingObjects}
+The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student. However, because the needed file format is proprietary and the owning company Metaio does not publish any information about the format, we will not include a complete modeling editor within the backend. More details about the problematic file format are described in section \ref{creator3dmapProblem}. We will leave this problem open for the project group. Maybe they are able to reverse-engineer needed information or exchange the used technology (e.g., using \emph{Wikitude} instead of \emph{Junaio}).
+
+Any way, the editor should in the end be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. The mockup shows the rendered point-cloud and two buttons to edit the augmentations on this point-cloud. This information can afterwards be shown within the fronted application.
+
+Because of the described problems, we will include a mockup system within this master thesis that should be able to render 3D-objects without editing features. To create this, we will use the library \emph{JSModeler}, which is a great start for such a system.
+
+\todo{details about JSModeler}
 
 \subsection{Cost estimation of the backend}
 \label{backendEstimation}
@@ -230,7 +234,7 @@ Table \ref{tab:costBackend} shows that the backend system needs a lot of typical
 
 The smartphone application is the part of the system that gets shipped to the end-user (respectively downloaded via an App-Store like Google-Play). The user can use the app to find interesting places respectively objects in Paderborn and is able to start a navigation to the place/object easily. Furthermore, the user can get an overview about all places in Paderborn by activating a map that shows all entries within the system. A mockup of this view is shown in Figure \ref{app1}. Of course, the user will be able to set up specific filters like 'show only art', 'show only historic buildings' or 'use simplified language' to adapt the system to his own experiences and educational qualifications. Moreover, if the university courses would add information over years, the system will need filtering features like this to handle the complexity of the data.
 
-After an user has reached an interesting place, he can use the details tab to switch into the \ac{AR}-mode. With this view, the user can use the smartphone-camera to embed information, which has been added via the backend, right into the picture of the object. An mockup of this view is shown in Figure \ref{app2}. 
+After an user has reached an interesting place, he can use the details tab to switch into the \ac{AR}-mode. With this view, the user can use the smartphone-camera to embed information, which has been added via the backend, right into the picture of the object. This backend process has already been described in section \ref{modelingObjects}. An mockup of this view is shown in Figure \ref{app2}. 
 To create a feasible input for the \ac{AR} system, the user should be able to scan objects in 3D directly with his smartphone and send the data (i.e., a point-cloud of the scanned object), back to the web-server.  Afterwards, the user can add annotations to the point-cloud via the web-backend of the system. 
 
 In the following, we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included within the draft. 
@@ -250,7 +254,10 @@ With the Junaio eco-system of the company Metaio it is quite easy to scan object
 	\label{MetToolbox}
 \end{figure}	
 
+However, because of the problematic file format, there may be a shift the the Junaio eco-system to alternative environments. The problems with the \emph{creator3dmap} are described in the following section.
+
 \subsubsection{Data format for \ac{AR} files}
+\label{creator3dmapProblem}
 The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. Both files are essentially ZIP files that contain metadata, pictures and binary data for the point-clouds. The original idea within this thesis was to use these files to render the point-clouds in the backend and offer features for manipulation. However, because we would need the file specification to be able to read the binary data contained in the ZIP files, we asked for such a specification at the company Metaio. Sadly, we never received an answer. 
 
 Thus, this part of the thesis is postponed and left open for the Project Group.

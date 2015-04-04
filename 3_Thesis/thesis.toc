@@ -20,12 +20,12 @@
 \contentsline {subsection}{\numberline {2.4.3}AngularJS}{17}{subsection.2.4.3}
 \contentsline {subsection}{\numberline {2.4.4}Twitter Bootstrap}{19}{subsection.2.4.4}
 \contentsline {subsection}{\numberline {2.4.5}Junaio - Metaio}{20}{subsection.2.4.5}
-\contentsline {subsection}{\numberline {2.4.6}WebGL}{21}{subsection.2.4.6}
+\contentsline {subsection}{\numberline {2.4.6}WebGL and JSModeler}{21}{subsection.2.4.6}
 \contentsline {section}{\numberline {2.5}Testing techniques and tools}{21}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}TDD}{21}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}TDD}{22}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Jasmine and Karma}{23}{subsection.2.5.2}
 \contentsline {section}{\numberline {2.6}Tooling}{23}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Git}{23}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.1}Git}{24}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}Jira}{24}{subsection.2.6.2}
 \contentsline {subsection}{\numberline {2.6.3}IntelliJ IDEA}{24}{subsection.2.6.3}
 \contentsline {chapter}{\numberline {3}Draft of the application}{25}{chapter.3}
@@ -36,23 +36,23 @@
 \contentsline {section}{\numberline {3.5}Backend (Web-Server)}{30}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Input data/content via the \ac {CMS} in the system}{31}{subsection.3.5.1}
 \contentsline {subsection}{\numberline {3.5.2}Manage content as a reviewer}{33}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Including a 3D-Tooling system for point-clouds (WebGL)}{34}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.3}Including a 3D-Tooling system for point-clouds (JSModeler)}{34}{subsection.3.5.3}
 \contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{34}{subsection.3.5.4}
 \contentsline {section}{\numberline {3.6}Frontend (App)}{35}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{36}{subsection.3.6.1}
-\contentsline {subsubsection}{Data format for \ac {AR} files}{36}{figure.caption.64}
-\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{37}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{37}{subsection.3.6.1}
+\contentsline {subsubsection}{Data format for \ac {AR} files}{38}{figure.caption.63}
+\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{38}{subsection.3.6.2}
 \contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{39}{subsection.3.6.3}
 \contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{42}{subsection.3.6.4}
 \contentsline {subsection}{\numberline {3.6.5}Rendering AR-data with Junaio}{43}{subsection.3.6.5}
-\contentsline {subsection}{\numberline {3.6.6}Cost estimation of the frontend}{43}{subsection.3.6.6}
+\contentsline {subsection}{\numberline {3.6.6}Cost estimation of the frontend}{44}{subsection.3.6.6}
 \contentsline {chapter}{\numberline {4}Implementation details}{45}{chapter.4}
 \contentsline {section}{\numberline {4.1}General overview of the system}{45}{section.4.1}
 \contentsline {section}{\numberline {4.2}Scala: Highlighting and annotation with AnnotatorJS}{46}{section.4.2}
 \contentsline {section}{\numberline {4.3}Scala: Picture upload and the creation of thumbnails}{49}{section.4.3}
 \contentsline {section}{\numberline {4.4}Important directives used in the system}{51}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}A media gallery with the media-gallery directive}{52}{subsection.4.4.1}
-\contentsline {subsubsection}{Directive definition}{53}{figure.caption.75}
+\contentsline {subsubsection}{Directive definition}{53}{figure.caption.74}
 \contentsline {subsubsection}{Controller of the media gallery directive}{54}{lstnumber.4.5.17}
 \contentsline {subsection}{\numberline {4.4.2}Template handling with the templates-box directive}{55}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}AngularJS: Key/Value stores}{56}{section.4.5}
