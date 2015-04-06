@@ -70,11 +70,27 @@ Table \ref{tab:ucTopicChange} shows that when a student wants to change the cont
  \label{tab:ucGroupCreation}
  \end{table} 
 
-The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that it will be quite easy for a supervisor to create a new group. The only steps he needs to take is to log into the system, open the correct view and input all needed information (e.g., members of the group). 
+The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that, from the users side, it will be quite easy for a supervisor to create a new group. The only steps he needs to take is to log into the system, open the correct view and input all needed information (e.g., members of the group). However, even these two simple use cases includes complex interaction between the different controllers and views within the system. This is shown in the \ac{UML} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchange and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
 
-\todo{include simple sequence diagrams}
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/SDChangeContent}}
+\caption{The corresponding \ac{UML} sequence diagram for use case ‚\emph{Student changes content of a topic}‘.}
+\label{SD1}
+\end{figure} 
 
-Now, after we have seen what the application is about, we will now take a closer look at the planned architecture.
+Figure \ref{SD1} shows the interaction that is needed to exchange content within a specific topic. The student is able to login at the \emph{index partial}, which redirects the login to the backend via the \emph{Play framework routing}. After that, the student gets redirected to a new partial (i.e., \emph{the group partial}, where he is able to select the topic he wants to edit). The third involved partial is the \emph{Topic-partial} that shows the chosen topic and offers \ac{UI} topic editing functions.  
+
+In a similar way, Figure \ref{SD2} shows the process and the interaction for creation of a new group. Since this use case does not need any information about a topic, we do not need the Topic-partial and the Topic-controller. Most of the interaction is similar to the shown diagram in Figure \ref{SD1}. However, the group controller handles now the creation of the actual group and sends the storage request to the database within the \emph{storing()} function (as stated before, the actual storing is not included in these sequence diagrams).
+
+\begin{figure}[th]
+\centerline{\includegraphics[width=1\textwidth]{gfx/SDCreateGroup}}
+\caption{The corresponding \ac{UML} sequence diagram for use case ‚\emph{Supervisor creates a new group}‘.}
+\label{SD2}
+\end{figure} 
+
+\clearpage
+
+Now, after we have seen what the application is about and got a first idea about used components within the \ac{UML} sequence diagrams, we will now take a closer look at the planned architecture.
 
 \section{Architecture of the application}
 \label{architecture}
