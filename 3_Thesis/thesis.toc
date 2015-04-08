@@ -35,13 +35,13 @@
 \contentsline {section}{\numberline {3.4}Usage of the components}{31}{section.3.4}
 \contentsline {section}{\numberline {3.5}Backend (Web-Server)}{33}{section.3.5}
 \contentsline {subsection}{\numberline {3.5.1}Input data/content via the \ac {CMS} in the system}{33}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Manage content as a reviewer}{35}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.2}Manage content as a reviewer}{36}{subsection.3.5.2}
 \contentsline {subsection}{\numberline {3.5.3}Including a 3D-Tooling system for point-clouds (JSModeler)}{36}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{36}{subsection.3.5.4}
-\contentsline {section}{\numberline {3.6}Frontend (App)}{37}{section.3.6}
+\contentsline {subsection}{\numberline {3.5.4}Cost estimation of the backend}{37}{subsection.3.5.4}
+\contentsline {section}{\numberline {3.6}Frontend (App)}{38}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Input data into the system (scan objects and annotate them)}{39}{subsection.3.6.1}
-\contentsline {subsubsection}{Data format for \ac {AR} files}{40}{figure.caption.64}
-\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{41}{subsection.3.6.2}
+\contentsline {subsubsection}{Data format for \ac {AR} files}{39}{figure.caption.61}
+\contentsline {subsection}{\numberline {3.6.2}Show close "interesting places" within a map}{40}{subsection.3.6.2}
 \contentsline {subsection}{\numberline {3.6.3}Navigation to "interesting places"}{42}{subsection.3.6.3}
 \contentsline {subsection}{\numberline {3.6.4}Fetching topics and PDF export}{45}{subsection.3.6.4}
 \contentsline {subsection}{\numberline {3.6.5}Rendering AR-data with Junaio}{46}{subsection.3.6.5}
@@ -52,7 +52,7 @@
 \contentsline {section}{\numberline {4.3}Scala: Picture upload and the creation of thumbnails}{53}{section.4.3}
 \contentsline {section}{\numberline {4.4}Important directives used in the system}{55}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}A media gallery with the media-gallery directive}{56}{subsection.4.4.1}
-\contentsline {subsubsection}{Directive definition}{57}{figure.caption.75}
+\contentsline {subsubsection}{Directive definition}{57}{figure.caption.72}
 \contentsline {subsubsection}{Controller of the media gallery directive}{58}{lstnumber.4.5.17}
 \contentsline {subsection}{\numberline {4.4.2}Template handling with the templates-box directive}{59}{subsection.4.4.2}
 \contentsline {section}{\numberline {4.5}AngularJS: Key/Value stores}{60}{section.4.5}

@@ -11,10 +11,11 @@
 \contentsline {lstlisting}{\numberline {2.9}Simple example that shows the usage of a custom directive}{19}{lstlisting.2.9}
 \contentsline {lstlisting}{\numberline {2.10}Example for the HTML5 AREL layer}{20}{lstlisting.2.10}
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {3.1}Example for using the GPS coordinates within an Android application}{41}{lstlisting.3.1}
-\contentsline {lstlisting}{\numberline {3.2}Example for construction of the DirectionsRequest JSON object that is needed to use the directions service}{42}{lstlisting.3.2}
-\contentsline {lstlisting}{\numberline {3.3}Example for writing a poly line on the google map}{42}{lstlisting.3.3}
-\contentsline {lstlisting}{\numberline {3.4}Creation and usage of an Android \ac {HTTP} client}{45}{lstlisting.3.4}
+\contentsline {lstlisting}{\numberline {3.1}Pseudocode of the locking algorithm that is used for preventing multi-user from overwriting content.}{35}{lstlisting.3.1}
+\contentsline {lstlisting}{\numberline {3.2}Example for using the GPS coordinates within an Android application}{40}{lstlisting.3.2}
+\contentsline {lstlisting}{\numberline {3.3}Example for construction of the DirectionsRequest JSON object that is needed to use the directions service}{42}{lstlisting.3.3}
+\contentsline {lstlisting}{\numberline {3.4}Example for writing a poly line on the google map}{43}{lstlisting.3.4}
+\contentsline {lstlisting}{\numberline {3.5}Creation and usage of an Android \ac {HTTP} client}{45}{lstlisting.3.5}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {4.1}Generation of JWT tokens within the backend}{52}{lstlisting.4.1}
 \contentsline {lstlisting}{\numberline {4.2}Snippet of the upload Action of the FileController for uploading pictures}{53}{lstlisting.4.2}

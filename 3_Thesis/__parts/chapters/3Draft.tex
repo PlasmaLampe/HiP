@@ -149,7 +149,7 @@ The storage of the data respectively content of the topics and groups will be ma
 
 So, when an user changes something at a topic, the data is changed on the model within the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. However, this way of data handling (i.e., modifying on the client side and sending data back as soon as the user hits the \emph{save} button) induces problems if more than one user works at the same time at the same topic. Imagine user $A$ and $B$ start to work at the same topic at the same point in time. Then both download the same content on their client side but if $A$ clicks \emph{save} before $B$, then $B$ will override all changes from $A$. We will prevent this problem by creating a \emph{lock} mechanism on a topic. So, if $A$ works on the topic, $B$ is not able to start editing in the first place. The now induced efficiency problem (i.e., only one user can work at a topic) will be reduced by offering features for creating different text blocks that are autonomously locked. So, $A$ is not locking the topic \emph{S\"udring center} but only a part of it (e.g., \emph{S\"udring center - Introduction}).
 
-The following pseudo-code in Listing \ref{locked} shows the algorithm that is used to lock the topics. \todo{describe}
+The following pseudo-code in Listing \ref{locked} shows the algorithm that is used to lock the topics. 
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -157,7 +157,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={},label=locked,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Pseudocode of the locking algorithm that is used for preventing multi-user from overwriting content.},label=locked,frame=tlbr,breaklines]
 onChange(){
 	doIOwnTheLock <- (internalLock.lastChange <= 5min ago)
 	if(doIOwnTheLock)
@@ -179,7 +179,10 @@ onChange(){
 }
 \end{lstlisting}
 
-Furthermore, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
+The main idea of this algorithm is that we check if we are able to create a lock (resp. even own the lock) on the current topic before we do any changes (line 3). On a technical level the lock is a timestamp that described the last time when the topic has been changed. For checking the availability of the lock, we look at the timestamp and compare it with the current time. If the last edit is less than 5 minutes old, we wait 5 minutes and try again. 
+If the lock is older than 5 minutes, we set it to the current time and save the used value in an internal variable for comparison. This way, we are able to check locally on the client side, if the current client is the client that owns the lock.
+
+Besides this locking algorithm, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
 
 However, to handle the organization of these topics, we will need to implement groups and their relation to users in the system. So, we will have group documents in the MongoDB, which are linked to the user objects that get returned by the \emph{SecureSocial 2} plugin, which has been explained in section \ref{Play2}.
 
@@ -199,8 +202,6 @@ The augmentation editor will be needed to edit the objects (i.e., point clouds) 
 Any way, the editor should in the end be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. The mockup shows the rendered point-cloud and two buttons to edit the augmentations on this point-cloud. This information can afterwards be shown within the fronted application.
 
 Because of the described problems, we will include a mockup system within this master thesis that should be able to render 3D-objects without editing features. To create this, we will use the library \emph{JSModeler}, which is a great start for such a system.
-
-\todo{details about JSModeler}
 
 \subsection{Cost estimation of the backend}
 \label{backendEstimation}
@@ -241,28 +242,33 @@ Now, as we have seen the major ideas about the backend, we will try to create a 
 
 Table \ref{tab:costBackend} shows that the backend system needs a lot of typical \ac{CMS} functions, which sum up to $35$ story points. So, the backend system should cost about $210$ hours to create a prototypical but running system. 
 
+\clearpage
+
 \section{Frontend (App)}
+The smartphone application is the part of the system that gets shipped to the end-user (respectively downloaded via an App-Store like Google-Play). The user can use the app to find interesting places respectively objects in Paderborn and is able to start a navigation to the place/object easily. Furthermore, the user can get an overview about all places in Paderborn by activating a map that shows all entries within the system. A mockup of this view is shown in Figure \ref{app1}. 
+
 \begin{figure}[th]
 \centerline{\includegraphics[width=0.5\textwidth]{gfx/mockup_app_1}}
-\caption{A mockup showing the main page of the frontend application showing a map of paderborn and a general overview about the UI-elements}
+\caption{A mockup showing the main page of the frontend application showing a map of paderborn and a general overview about the UI-elements.}
 \label{app1}
 \end{figure}
 
-The smartphone application is the part of the system that gets shipped to the end-user (respectively downloaded via an App-Store like Google-Play). The user can use the app to find interesting places respectively objects in Paderborn and is able to start a navigation to the place/object easily. Furthermore, the user can get an overview about all places in Paderborn by activating a map that shows all entries within the system. A mockup of this view is shown in Figure \ref{app1}. Of course, the user will be able to set up specific filters like 'show only art', 'show only historic buildings' or 'use simplified language' to adapt the system to his own experiences and educational qualifications. Moreover, if the university courses would add information over years, the system will need filtering features like this to handle the complexity of the data.
+Of course, the user will be able to set up specific filters like 'show only art', 'show only historic buildings' or 'use simplified language' to adapt the system to his own experiences and educational qualifications. Moreover, if the university courses would add information over years, the system will need filtering features like this to handle the complexity of the data.
 
-After an user has reached an interesting place, he can use the details tab to switch into the \ac{AR}-mode. With this view, the user can use the smartphone-camera to embed information, which has been added via the backend, right into the picture of the object. This backend process has already been described in section \ref{modelingObjects}. An mockup of this view is shown in Figure \ref{app2}. 
+After an user has reached an interesting place, he can use the details tab to switch into the \ac{AR}-mode. With this view, the user can use the smartphone-camera to embed information, which has been added via the backend, right into the picture of the object. This backend process has already been described in section \ref{modelingObjects}. An mockup of this view is shown in Figure \ref{app2}. The mockup shows an annotated object, which is now found within the \ac{AR}-environment with the attached annotations. The tabs at the bottom of the screen are used to switch between different menus of the smartphone application. 
+
 To create a feasible input for the \ac{AR} system, the user should be able to scan objects in 3D directly with his smartphone and send the data (i.e., a point-cloud of the scanned object), back to the web-server.  Afterwards, the user can add annotations to the point-cloud via the web-backend of the system. 
 
 In the following, we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included within the draft. 
 
 \begin{figure}[th]
 	\centerline{\includegraphics[width=0.7\textwidth]{gfx/mockup_app_2}}
-	\caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself}
+	\caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself.}
 	\label{app2}
 \end{figure}			
-  
+
 \subsection{Input data into the system (scan objects and annotate them)} 
-With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown in Figure \ref{MetToolbox}. When an object gets scanned with the Toolbox, the file is stored on the smartphone's filesystem and can be shared by using email attachments \todo{more}.
+With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown in Figure \ref{MetToolbox}. When an object gets scanned with the Toolbox, the file is stored on the smartphone's filesystem and can be shared by using email attachments.
 
 \begin{figure}[th]
 	\centerline{\includegraphics[width=0.5\textwidth]{gfx/toolbox.png}}
