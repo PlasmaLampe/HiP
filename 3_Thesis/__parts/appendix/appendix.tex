@@ -438,6 +438,88 @@ F1 & The user should be able to \textbf{navigate} 			&  - The navigation should 
     \clearpage% Flush page
 }
 
+\afterpage{%
+    \clearpage% Flush earlier floats (otherwise order might not be correct)
+    %\thispagestyle{empty}% empty page style (?)
+    \begin{landscape}% Landscape page
+        \centering % Center table
+	\begin{center}
+	
+\begin{longtable}{|l|l|lll|}
+\caption{The found usability problems within the walktrough.} 
+\label{UsabilityProblems} \\
+
+\hline 
+	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Solved within last version}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endfirsthead
+
+\multicolumn{3}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline 	\multicolumn{1}{|c|}{\textbf{ID}} & \multicolumn{1}{c|}{\textbf{Description}} & \multicolumn{1}{c|}{\textbf{Solved within last version}} & \multicolumn{1}{c|}{\textbf{Priority}} \\ \hline 
+\endhead
+
+\hline \multicolumn{3}{|r|}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+		\hline
+	UW01 & Use better icons (e.g., flaticons.com) & Yes & 1 \\
+	UW02 & Make tabs better recognizable & Yes & 1 \\
+	UW03 & Use <a> with href to force other mouse cursor & Yes & 1 \\
+	UW04 & Create a new way to show topics/subtopics & No & 1 \\
+	UW05 & Be able to include group members to existing groups & Yes & 1 \\
+	UW06 & Include imprint & Yes & 1 \\
+	UW07 & Startpage: Use a better position to the login button & Yes & 1 \\
+	UW08 & Startpage: Describe system better & Yes & 1 \\
+	UW09 & Groups: Exchange \emph{Welcome to the group}  & Yes & 1 \\
+	UW10 & Groups: Request confirmation on delete & Yes & 1 \\
+	UW11 & Groups: Use light signs to show status & Yes & 1 \\
+	UW12 & Groups: Show content as tree-structures & No & 1 \\
+	UW13 & Groups: Add user-feedback to the dialogue & Yes & 1 \\
+	UW14 & Chat: Improve the whole chat system (i.e., make it global) & No & 1 \\
+	UW15 & Topic creation: Add free-text search  & Yes & 1 \\
+	UW16 & Topic creation: Show subtopics in tree-structures  & No & 1 \\
+	UW17 & Topic creation: Add status \emph{hidden}  & Yes & 2 \\
+	UW18 & Topic modification: Use groups as first filter  & No & 1 \\
+	UW19 & Group creation: Show subtopics in tree-structures  & No & 1 \\
+	UW20 & Group creation: Use simpler date-picker  & No & 2 \\
+	UW21 & Group-box: Remove refresh button  & Yes & 2 \\
+	UW22 & Template-box: Do not close menu by clicking on the \emph{<div>}  & Yes & 2 \\
+	UW23 & Template-box: Exchange the way the pulldown-button works  & Yes & 2 \\
+	UW24 & Template-box: Use a scroll-view for the preview mode  & No & 3 \\
+	UW25 & Browse: Remove button  & Yes & 3 \\
+	UW26 & Notification-box: Exchange icon for filter  & Yes & 2 \\
+	UW26 & Notification-box: Show data more tabular  & No & 2 \\
+	UW27 & Navigation: Remove Home-button  & Yes & 2 \\
+	UW28 & Navigation: Show the currently logged-in user  & Yes & 2 \\
+	UW29 & Mail-system: Show user-feedback for sent-messages & Yes & 2 \\
+	UW30 & Mail-system: Add outbox  & Yes & 2 \\	
+	UW31 & Mail-system: Show usernames and not mail-addresses  & Yes & 2 \\
+	UW32 & Mail-system: Add e-mail notification for in-system messages  & No & 2 \\
+	UW33 & Contact form: Add contact form  & No & 3 \\
+	UW34 & Propose topics: More help-text & Yes & 2 \\
+	UW35 & Propose topics: Wrong label on button  & Yes & 2 \\
+	UW36 & Topic edit: Exchange full-screen logo  & Yes & 3 \\
+	UW37 & Topic edit: Edit-frame is buggy  & No & 3 \\
+	UW38 & Topic edit: Automatically show new pictures  & Yes & 2 \\
+	UW39 & Topic edit: Exchange editor-plugin  & No & 3 \\
+	UW40 & Topic edit: Do not switch view on map by click on the map  & Yes & 2 \\
+	UW41 & Topic edit: Make Button labels better understandable  & No & 2 \\
+	UW42 & Topic edit: Show what is located at a given GPS position & No & 2 \\
+	UW43 & Topic edit: Add autocomplete for address field (GPS) & No & 2 \\
+	UW44 & Topic edit: Change position of footnote-box with respect  & Yes & 2 \\
+	& to locality  &  &  \\
+	UW45 & Topic edit: Do not use red-colors on buttons & Yes & 2 \\
+	UW46 & Topic edit: Add delete-mode for tags to prevent deleting & Yes & 2 \\
+	& by accident   &  &  \\
+	UW47 & Topic edit: Order of history is buggy  & No & 2 \\
+\end{longtable}
+\end{center} 
+    \end{landscape}
+    \clearpage% Flush page
+}
+
 \clearpage
 
 \lstset{language=JavaScript,

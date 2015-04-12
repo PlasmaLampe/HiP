@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  8 APR 2015 19:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  12 APR 2015 15:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1792,7 +1792,7 @@ Package microtype Info: Character `029' is missing
 
  (./__parts/chapters/2Basics.tex
 Chapter 2.
-<gfx/domainModel.pdf, id=717, 341.94691pt x 202.20705pt>
+<gfx/domainModel.pdf, id=719, 341.94691pt x 202.20705pt>
 File: gfx/domainModel.pdf Graphic file (type pdf)
 
 <use gfx/domainModel.pdf>
@@ -1864,7 +1864,7 @@ Overfull \hbox (0.91083pt too wide) in paragraph at lines 28--29
 e ap-proach within ev-ery sprint
  []
 
-<gfx/scrum.png, id=772, 815.045pt x 507.8975pt>
+<gfx/scrum.png, id=775, 815.045pt x 507.8975pt>
 File: gfx/scrum.png Graphic file (type png)
  <use gfx/scrum.png>
 Package pdftex.def Info: gfx/scrum.png used on input line 31.
@@ -1910,7 +1910,7 @@ Package xcolor Warning: Incompatible color definition on input line 42.
 
 Package xcolor Warning: Incompatible color definition on input line 42.
 
-[7] [8 <./gfx/scrum.png>] <gfx/burndown.png, id=804, 771.88374pt x 443.6575pt>
+[7] [8 <./gfx/scrum.png>] <gfx/burndown.png, id=806, 771.88374pt x 443.6575pt>
 File: gfx/burndown.png Graphic file (type png)
 
 <use gfx/burndown.png>
@@ -1976,7 +1976,7 @@ Package xcolor Warning: Incompatible color definition on input line 79.
 
 Package xcolor Warning: Incompatible color definition on input line 79.
 
-[11] <gfx/continuous-delivery.png, id=854, 671.50874pt x 491.8375pt>
+[11] <gfx/continuous-delivery.png, id=856, 671.50874pt x 491.8375pt>
 File: gfx/continuous-delivery.png Graphic file (type png)
 
 <use gfx/continuous-delivery.png>
@@ -2102,7 +2102,7 @@ Package xcolor Warning: Incompatible color definition on input line 311.
 
 Package xcolor Warning: Incompatible color definition on input line 311.
 
-[19] <gfx/stackAREL.png, id=1071, 656.4525pt x 557.08125pt>
+[19] <gfx/stackAREL.png, id=1073, 656.4525pt x 557.08125pt>
 File: gfx/stackAREL.png Graphic file (type png)
 
 <use gfx/stackAREL.png>
@@ -2226,7 +2226,7 @@ Package xcolor Warning: Incompatible color definition on input line 8.
 
 Package xcolor Warning: Incompatible color definition on input line 8.
 
-<gfx/cards.jpg, id=1196, 1729.46124pt x 1186.4325pt>
+<gfx/cards.jpg, id=1198, 1729.46124pt x 1186.4325pt>
 File: gfx/cards.jpg Graphic file (type jpg)
  <use gfx/cards.jpg>
 Package pdftex.def Info: gfx/cards.jpg used on input line 13.
@@ -2238,14 +2238,14 @@ Package pdftex.def Info: gfx/cards.jpg used on input line 13.
 
 
 ] [26 <./gfx/cards.jpg>] [27]
-<gfx/SDChangeContent.pdf, id=1233, 546.45953pt x 567.46275pt>
+<gfx/SDChangeContent.pdf, id=1235, 546.45953pt x 567.46275pt>
 File: gfx/SDChangeContent.pdf Graphic file (type pdf)
 
 <use gfx/SDChangeContent.pdf>
 Package pdftex.def Info: gfx/SDChangeContent.pdf used on input line 76.
 (pdftex.def)             Requested size: 380.69788pt x 395.34225pt.
  [28 <./gfx/SDChangeContent.pdf>]
-<gfx/SDCreateGroup.pdf, id=1264, 454.23943pt x 438.32349pt>
+<gfx/SDCreateGroup.pdf, id=1266, 454.23943pt x 438.32349pt>
 File: gfx/SDCreateGroup.pdf Graphic file (type pdf)
 
 <use gfx/SDCreateGroup.pdf>
@@ -2264,7 +2264,7 @@ Package xcolor Warning: Incompatible color definition on input line 97.
 
 Package xcolor Warning: Incompatible color definition on input line 97.
 
-<gfx/architecture.pdf, id=1297, 722.7pt x 542.025pt>
+<gfx/architecture.pdf, id=1299, 722.7pt x 542.025pt>
 File: gfx/architecture.pdf Graphic file (type pdf)
 
 <use gfx/architecture.pdf>
@@ -2285,7 +2285,7 @@ Package xcolor Warning: Incompatible color definition on input line 114.
 
 [30
 
-] <gfx/components.pdf, id=1317, 722.7pt x 542.025pt>
+] <gfx/components.pdf, id=1319, 722.7pt x 542.025pt>
 File: gfx/components.pdf Graphic file (type pdf)
 
 <use gfx/components.pdf>
@@ -2296,7 +2296,7 @@ Package acronym Info: Label `acro:JWT' newly defined as it shall be overridden
 although it is yet undefined on input line 128.
 Package acronym Info: Label `acro:JWS' newly defined as it shall be overridden
 although it is yet undefined on input line 128.
- [32 <./gfx/components.pdf>] <gfx/mockup_web_1.pdf, id=1520, 532.99126pt x 399.
+ [32 <./gfx/components.pdf>] <gfx/mockup_web_1.pdf, id=1522, 532.99126pt x 399.
 4925pt>
 File: gfx/mockup_web_1.pdf Graphic file (type pdf)
 
@@ -2304,7 +2304,7 @@ File: gfx/mockup_web_1.pdf Graphic file (type pdf)
 Package pdftex.def Info: gfx/mockup_web_1.pdf used on input line 138.
 (pdftex.def)             Requested size: 380.69788pt x 285.35455pt.
  [33] [34 <./gfx/mockup_web_1.pdf>] [35] [36]
-[37] <gfx/mockup_app_1.pdf, id=1711, 400.49625pt x 741.77126pt>
+[37] <gfx/mockup_app_1.pdf, id=1713, 400.49625pt x 741.77126pt>
 File: gfx/mockup_app_1.pdf Graphic file (type pdf)
 
 <use gfx/mockup_app_1.pdf>
@@ -2313,13 +2313,13 @@ Package pdftex.def Info: gfx/mockup_app_1.pdf used on input line 251.
  [38
 
  <./gfx/mockup_app_1.pdf>]
-<gfx/mockup_app_2.pdf, id=1777, 589.20125pt x 741.77126pt>
+<gfx/mockup_app_2.pdf, id=1779, 589.20125pt x 741.77126pt>
 File: gfx/mockup_app_2.pdf Graphic file (type pdf)
 
 <use gfx/mockup_app_2.pdf>
 Package pdftex.def Info: gfx/mockup_app_2.pdf used on input line 265.
 (pdftex.def)             Requested size: 266.48735pt x 335.49176pt.
- <gfx/toolbox.png, id=1779, 642.4pt x 882.29625pt>
+ <gfx/toolbox.png, id=1781, 642.4pt x 882.29625pt>
 File: gfx/toolbox.png Graphic file (type png)
 
 <use gfx/toolbox.png>
@@ -2415,7 +2415,7 @@ Overfull \hbox (43.39539pt too wide) in paragraph at lines 451--474
 
 ]
 Chapter 4.
-[49] [50] <gfx/JWT_b.png, id=2079, 939.51pt x 506.89375pt>
+[49] [50] <gfx/JWT_b.png, id=2081, 939.51pt x 506.89375pt>
 File: gfx/JWT_b.png Graphic file (type png)
  <use gfx/JWT_b.png>
 Package pdftex.def Info: gfx/JWT_b.png used on input line 42.
@@ -2440,7 +2440,7 @@ Package xcolor Warning: Incompatible color definition on input line 142.
 
 Package xcolor Warning: Incompatible color definition on input line 142.
 
-[54] [55] <gfx/mediaGallery.png, id=2226, 667.49374pt x 135.50626pt>
+[54] [55] <gfx/mediaGallery.png, id=2228, 667.49374pt x 135.50626pt>
 File: gfx/mediaGallery.png Graphic file (type png)
 
 <use gfx/mediaGallery.png>
@@ -2453,14 +2453,14 @@ Package xcolor Warning: Incompatible color definition on input line 261.
 
 Package xcolor Warning: Incompatible color definition on input line 261.
 
-[57] [58] <gfx/templateBox.png, id=2298, 247.92625pt x 399.4925pt>
+[57] [58] <gfx/templateBox.png, id=2300, 247.92625pt x 399.4925pt>
 File: gfx/templateBox.png Graphic file (type png)
 
 <use gfx/templateBox.png>
 Package pdftex.def Info: gfx/templateBox.png used on input line 320.
 (pdftex.def)             Requested size: 152.27682pt x 245.37248pt.
  [59 <./gfx/templateBox.png>]
-<gfx/kvs.pdf, id=2312, 722.7pt x 542.025pt>
+<gfx/kvs.pdf, id=2314, 722.7pt x 542.025pt>
 File: gfx/kvs.pdf Graphic file (type pdf)
  <use gfx/kvs.pdf>
 Package pdftex.def Info: gfx/kvs.pdf used on input line 362.
@@ -2468,7 +2468,7 @@ Package pdftex.def Info: gfx/kvs.pdf used on input line 362.
  [60] [61 <./gfx/kvs.pdf>]
 Package acronym Info: Label `acro:KVS' newly defined as it shall be overridden
 although it is yet undefined on input line 408.
- [62] [63] <gfx/frontend.jpg, id=2505, 479.7925pt x 851.18pt>
+ [62] [63] <gfx/frontend.jpg, id=2507, 479.7925pt x 851.18pt>
 File: gfx/frontend.jpg Graphic file (type jpg)
 
 <use gfx/frontend.jpg>
@@ -2564,12 +2564,7 @@ Package xcolor Warning: Incompatible color definition on input line 70.
 
 Package xcolor Warning: Incompatible color definition on input line 70.
 
-[70]
-
-LaTeX Warning: Reference `usabilityTable' on page 71 undefined on input line 74
-.
-
-) [71]
+[70]) [71]
 \openout2 = `__parts/chapters/6Lookout.aux'.
 
  (./__parts/chapters/6Lookout.tex [72
@@ -2615,28 +2610,28 @@ although it is yet undefined on input line 5.
 
 pdfTeX warning: pdflatex (file ./gfx/HiP-Backend-Workflow.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/HiP-Backend-Workflow.pdf, id=2665, 794.97pt x 865.2325pt>
+<gfx/HiP-Backend-Workflow.pdf, id=2668, 794.97pt x 865.2325pt>
 File: gfx/HiP-Backend-Workflow.pdf Graphic file (type pdf)
 
 <use gfx/HiP-Backend-Workflow.pdf>
 Package pdftex.def Info: gfx/HiP-Backend-Workflow.pdf used on input line 32.
 (pdftex.def)             Requested size: 494.90839pt x 538.66982pt.
  [78] [79 <./gfx/HiP-Backend-Workflow.pdf>]
-<gfx/HiP-UseCase_Diagramm.pdf, id=2984, 544.70518pt x 360.44261pt>
+<gfx/HiP-UseCase_Diagramm.pdf, id=2987, 544.70518pt x 360.44261pt>
 File: gfx/HiP-UseCase_Diagramm.pdf Graphic file (type pdf)
 
 <use gfx/HiP-UseCase_Diagramm.pdf>
-Package pdftex.def Info: gfx/HiP-UseCase_Diagramm.pdf used on input line 441.
+Package pdftex.def Info: gfx/HiP-UseCase_Diagramm.pdf used on input line 523.
 (pdftex.def)             Requested size: 571.04681pt x 377.88191pt.
 
 
-LaTeX Warning: Float too large for page by 19.18404pt on input line 441.
+LaTeX Warning: Float too large for page by 19.18404pt on input line 523.
 
 [80
 
 
 ] [81 <./gfx/HiP-UseCase_Diagramm.pdf>]
-Underfull \vbox (badness 10000) detected at line 441
+Underfull \vbox (badness 10000) detected at line 523
  []
 
 [82
@@ -2645,7 +2640,7 @@ Underfull \vbox (badness 10000) detected at line 441
 
 
 ] [83]
-Underfull \vbox (badness 10000) detected at line 441
+Underfull \vbox (badness 10000) detected at line 523
  []
 
 [84
@@ -2654,7 +2649,7 @@ Underfull \vbox (badness 10000) detected at line 441
 
 
 ] [85]
-Underfull \vbox (badness 10000) detected at line 441
+Underfull \vbox (badness 10000) detected at line 523
  []
 
 [86
@@ -2663,7 +2658,7 @@ Underfull \vbox (badness 10000) detected at line 441
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 441
+Underfull \vbox (badness 10000) detected at line 523
  []
 
 [87
@@ -2672,28 +2667,33 @@ Underfull \vbox (badness 10000) detected at line 441
 
 
 ]
-Underfull \vbox (badness 10000) detected at line 441
+Underfull \vbox (badness 10000) detected at line 523
  []
 
 LaTeX Font Info:    Font shape `T1/pplj/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/pplj/b/it' tried instead on input line 441.
+(Font)              Font shape `T1/pplj/b/it' tried instead on input line 523.
 [88
 
 
 
 
-] [89] [90] [91] [92
+] [89] [90] [91]
+Underfull \vbox (badness 10000) detected at line 523
+ []
+
+[92
 
 
-]) [93] [94
 
 
+] [93] [94] [95
 
-]
+
+]) [96]
 \openout2 = `__parts/_FrontBackmatter/Bibliography.aux'.
 
-
-(./__parts/_FrontBackmatter/Bibliography.tex (./thesis.bbl (./thesis.brf)
+ (./__parts/_FrontBackmatter/Bibliography.tex
+(./thesis.bbl (./thesis.brf)
 \tf@brf=\write11
 \openout11 = `thesis.brf'.
 
@@ -2728,7 +2728,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--22
  org / api / ng / service / $compile #
  []
 
-[95
+[97
+
+
+
 
 
 
@@ -2756,7 +2759,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--153
 lyline . html$[][]\T1/pplj/m/n/10.95 ,
  []
 
-[96]
+[98]
 Underfull \hbox (badness 10000) in paragraph at lines 197--197
 []\T1/pplj/m/n/10.95 Junaio (2014).  Why to be-come a ju-naio de-vel-oper.
  []
@@ -2773,7 +2776,7 @@ Underfull \hbox (badness 2165) in paragraph at lines 197--197
 10.95 , last checked 14.09.2014.  (Cited
  []
 
-[97]
+[99]
 Underfull \hbox (badness 2103) in paragraph at lines 294--294
 \T1/cmtt/m/n/10.95 www . romanpichler . com / blog / 10-[]tips-[]writing-[]good
 -[]user-[]stories/$[][] \T1/pplj/m/n/10.95 ,last
@@ -2791,19 +2794,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 307--307
 amples . html$[][]\T1/pplj/m/n/10.95 , last
  []
 
-[98]
-Underfull \hbox (badness 10000) in paragraph at lines 325--325
+[100]
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
 \T1/cmtt/m/n/10.95 263401 / global-[]apple-[]iphone-[]sales-[]since-[]3rd-[]qua
 rter-[]2007/$[][]\T1/pplj/m/n/10.95 , last
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 353--353
+Underfull \hbox (badness 1348) in paragraph at lines 360--360
 []\T1/pplj/m/n/10.95 Wattson, M. (2013).  Con-tin-u-ous de-liv-ery for win-ners
  -- with a feed-
  []
 
-)) [99] [100
+)) [101] [102
 
 
 
@@ -2815,7 +2818,7 @@ No file thesis.ind.
 )
 \openout2 = `__parts/_FrontBackmatter/Declaration.aux'.
 
- (./__parts/_FrontBackmatter/Declaration.tex) [101
+ (./__parts/_FrontBackmatter/Declaration.tex) [103
 
 
 
@@ -3070,18 +3073,20 @@ __parts/_FrontBackmatter/Declaration.tex
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: E374D74FFBDC9F7C0054E306136D3A59;6081.
-Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: 114BB041096B2A5F13CD92CAA0C98916;3934.
 
-LaTeX Warning: There were undefined references.
+Package rerunfilecheck Warning: File `thesis.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
 
+Package rerunfilecheck Info: Checksums for `thesis.brf':
+(rerunfilecheck)             Before: 71EFDB4E089E6F715C74E73DC57D425E;3880
+(rerunfilecheck)             After:  AD36C8D950E74F6684870BD9F74FA331;3940.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
  ) 
 Here is how much of TeX's memory you used:
- 29893 strings out of 493315
- 499889 string characters out of 6137904
- 804086 words of memory out of 5000000
- 31454 multiletter control sequences out of 15000+600000
+ 29902 strings out of 493315
+ 500052 string characters out of 6137904
+ 805997 words of memory out of 5000000
+ 31460 multiletter control sequences out of 15000+600000
  118351 words of font info for 151 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  74i,14n,87p,1958b,2498s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3106,10 +3111,10 @@ tt1095.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.
 pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (115 pages, 4197534 bytes).
+Output written on thesis.pdf (117 pages, 4203161 bytes).
 PDF statistics:
- 3536 PDF objects out of 3580 (max. 8388607)
- 3088 compressed objects within 31 object streams
- 900 named destinations out of 1000 (max. 500000)
+ 3549 PDF objects out of 3580 (max. 8388607)
+ 3099 compressed objects within 31 object streams
+ 903 named destinations out of 1000 (max. 500000)
  23299 words of extra memory for PDF output out of 24883 (max. 10000000)
 

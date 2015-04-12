@@ -75,7 +75,7 @@
 \contentsline {section}{\numberline {A.1}Installation manual}{77}{section.A.1}
 \contentsline {section}{\numberline {A.2}Figures and tables}{78}{section.A.2}
 \vspace {\beforebibskip }
-\contentsline {chapter}{\spacedlowsmallcaps {Bibliography}}{95}{dummy.6}
-\contentsline {chapter}{\spacedlowsmallcaps {Index}}{101}{dummy.7}
-\contentsline {chapter}{\spacedlowsmallcaps {Publications}}{101}{dummy.8}
-\contentsline {chapter}{\spacedlowsmallcaps {Statutory Declaration}}{101}{dummy.8}
+\contentsline {chapter}{\spacedlowsmallcaps {Bibliography}}{97}{dummy.6}
+\contentsline {chapter}{\spacedlowsmallcaps {Index}}{103}{dummy.7}
+\contentsline {chapter}{\spacedlowsmallcaps {Publications}}{103}{dummy.8}
+\contentsline {chapter}{\spacedlowsmallcaps {Statutory Declaration}}{103}{dummy.8}
