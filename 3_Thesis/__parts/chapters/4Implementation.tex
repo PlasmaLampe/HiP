@@ -24,6 +24,11 @@ However, the most application logic is included on the client side within the An
 	\item[directives:] Last but not least, we are using directives to encapsulate application logic and \ac{GUI} data that are used in a component. For example, the MediaGallery directive can be used like a usual \ac{HTML} tag and contains the complete logic for a media gallery including meta data for pictures, etc. However, we will take a closer look at the used directives in section \ref{usedDirectives}.
 \end{itemize}
 
+So, now we have an idea about the four main parts of the client side. However, we need a more structured view about the way these parts are connected.
+\todo{Architecture pic}
+
+After we have now gained some insights into the general architecture of the system, we will get a more detailed view on some parts.
+
 \section{Scala: Highlighting and annotation with AnnotatorJS}
 The highlighting of the content of topics itself is handled by the \ac{JS} library \emph{AnnotatorJS}. Technically, the plugin creates \emph{<span>} \ac{HTML} tags with the (css) class \emph{annotator-hl} and adds them to the \ac{DOM}-tree at the same position were the original text was placed. So, the creation of the highlighting itself is quite simple. However, we wanted to attach the information to a given topic and store it in some way.  
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  12 APR 2015 15:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  13 APR 2015 17:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2529,12 +2529,6 @@ Package acronym Info: Label `acro:RAM' newly defined as it shall be overridden
 although it is yet undefined on input line 36.
  [69]
 
-LaTeX Warning: Marginpar on page 70 moved.
-
-
-LaTeX Warning: Marginpar on page 70 moved.
-
-
 Package xcolor Warning: Incompatible color definition on input line 68.
 
 
@@ -2610,14 +2604,14 @@ although it is yet undefined on input line 5.
 
 pdfTeX warning: pdflatex (file ./gfx/HiP-Backend-Workflow.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/HiP-Backend-Workflow.pdf, id=2668, 794.97pt x 865.2325pt>
+<gfx/HiP-Backend-Workflow.pdf, id=2664, 794.97pt x 865.2325pt>
 File: gfx/HiP-Backend-Workflow.pdf Graphic file (type pdf)
 
 <use gfx/HiP-Backend-Workflow.pdf>
 Package pdftex.def Info: gfx/HiP-Backend-Workflow.pdf used on input line 32.
 (pdftex.def)             Requested size: 494.90839pt x 538.66982pt.
  [78] [79 <./gfx/HiP-Backend-Workflow.pdf>]
-<gfx/HiP-UseCase_Diagramm.pdf, id=2987, 544.70518pt x 360.44261pt>
+<gfx/HiP-UseCase_Diagramm.pdf, id=2982, 544.70518pt x 360.44261pt>
 File: gfx/HiP-UseCase_Diagramm.pdf Graphic file (type pdf)
 
 <use gfx/HiP-UseCase_Diagramm.pdf>
@@ -3073,20 +3067,15 @@ __parts/_FrontBackmatter/Declaration.tex
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: E374D74FFBDC9F7C0054E306136D3A59;6081.
-
-Package rerunfilecheck Warning: File `thesis.brf' has changed.
-(rerunfilecheck)                Rerun to get bibliographical references right.
-
-Package rerunfilecheck Info: Checksums for `thesis.brf':
-(rerunfilecheck)             Before: 71EFDB4E089E6F715C74E73DC57D425E;3880
-(rerunfilecheck)             After:  AD36C8D950E74F6684870BD9F74FA331;3940.
+Package rerunfilecheck Info: File `thesis.brf' has not changed.
+(rerunfilecheck)             Checksum: AD36C8D950E74F6684870BD9F74FA331;3940.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
  ) 
 Here is how much of TeX's memory you used:
- 29902 strings out of 493315
- 500052 string characters out of 6137904
- 805997 words of memory out of 5000000
- 31460 multiletter control sequences out of 15000+600000
+ 29879 strings out of 493315
+ 499474 string characters out of 6137904
+ 804681 words of memory out of 5000000
+ 31441 multiletter control sequences out of 15000+600000
  118351 words of font info for 151 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  74i,14n,87p,1958b,2498s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3111,10 +3100,10 @@ tt1095.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.
 pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (117 pages, 4203161 bytes).
+Output written on thesis.pdf (117 pages, 4203448 bytes).
 PDF statistics:
- 3549 PDF objects out of 3580 (max. 8388607)
- 3099 compressed objects within 31 object streams
- 903 named destinations out of 1000 (max. 500000)
+ 3544 PDF objects out of 3580 (max. 8388607)
+ 3094 compressed objects within 31 object streams
+ 899 named destinations out of 1000 (max. 500000)
  23299 words of extra memory for PDF output out of 24883 (max. 10000000)
 
