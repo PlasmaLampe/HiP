@@ -5,9 +5,9 @@
     \flushright{\textit{(T. E. Lawrence (1931))}}
   \end{verse}
 
-The following two chapters will contain details about the planned system because an idea about the system, its behavior and the background of the used technologies is very important (just like the quotation above shows). 
+The following two chapters will contain details about the planned system. We dedicate a whole chapter to this part of the development process because an idea about the system, its behavior and the background of the used technologies is very important and the foundation of the complete following work (just like the quotation above shows). 
 
-In general, the planned application should be able to handle the complete workflow for a university course situation. So, the backend should offer features that offer groups of students the work on specific topics. The domain model showing this situation for a general university course is shown in Figure \ref{domain}. As one can see, students are working together in groups to create content for a specific topic. The whole process is supervised by the supervising employee of the university. 
+In general, the planned application should be able to handle the complete workflow for a university course situation. So, the backend should offer features that enable groups of students the work on specific topics. The domain model showing this situation for an (offline-) general university course is shown in Figure \ref{domain}. As one can see, students are working together in groups to create content for a specific topic. The whole process is supervised by the supervising employee of the university. We will project this way of working into our backend application.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/domainModel.pdf}}
@@ -17,13 +17,13 @@ In general, the planned application should be able to handle the complete workfl
 
 Before we come into more detail about the software itself, we will now get an insight into the used technical frameworks respectively tools and methodological concepts, which have been used during the development process.  Note that we will focus on the frameworks and plugins that are needed to understand the details of the implementation in chapter \ref{implementation}. Although, the whole system uses a lot more of them.
 
-The first thing, which is important to notice, is that the system will be developed with an agile software development method, which will be based on Scrum. Because of that, we will start by explaining the Scrum development method.
+The first thing, which is important to notice, is that the system will be developed with an agile software development method that will be based on Scrum. Because of that, we will start by explaining the Scrum development method.
 
 \section{Agile Development - Scrum}
 \label{SCRUM-intro}
-The main idea of agile development is described within the agile manifesto \cite{Beck2001agile}\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process. The HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe. However, a full Scrum approach is not possible because the development team is very small (i.e.,  we will combine different roles in one person). Nonetheless, we will include the ideas and concepts of the Scrum process. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
+The main idea of agile development is described within the agile manifesto \cite{Beck2001agile}\footnote{The whole manifesto can be found here: \url{http://agilemanifesto.org}}. Within agile development, the organizational focus is set to frequent software delivery and close customer relationship. Because Scrum is such an agile development method, we find similar ideas in the Scrum development process. The HiP-application will be developed in a Scrum-like fashion to achieve a high efficiency in the small timeframe and to be able to compare the experience with the Scrum like process with a classical development process. However, a full Scrum approach is not possible because the development team is very small (i.e.,  we will combine different roles in one person). Nonetheless, we will include the ideas and concepts of the Scrum process. But to get a first intuition about the Scrum process itself, we will now describe the main ideas of Scrum and agile development in general.
 
-Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. However, \cite{Ber07} points out that a four week sprint is in many cases problematic because a lot of customer requests have to be included into currently running sprints and so the backlog becomes more and more useless; he suggests sprints with a length of about 2 weeks. In any case, after every sprint the product should be more refined (\cite{scrum}). Of course, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The Product-Backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in the short timeframe of the master thesis. The close customer relationship can for example be found in the fact the the customer is often invited in meetings after the sprints to see the progress on the product and, more important, to be able to influence the development process. However, \cite{paulk2002agile} claims that customers may also create a threat to finish agile development successful if they are not able or willing to maintain such a close relationship with the development team.
+Using Scrum means, the application will be developed within autonomous short \textit{sprints} with a length between 1 up to 4 weeks. However, \cite{Ber07} points out that a four week sprint is in many cases problematic because a lot of customer requests have to be included into currently running sprints and so the backlog becomes more and more useless; he suggests sprints with a length of about 2 weeks. In any case, after every sprint the product should be more refined (\cite{scrum}). Of course, it should be possible to execute the application at the end of any given sprint, which will result in a fast and stable development process. The general development process is also shown in Figure \ref{ScrumDia}. The product-backlog is the foundation of every sprint-backlog because it contains every feature that will be needed in the product at some time. So, one derives the sprint-backlog, which includes every feature that should be added in a specific sprint, from the product-backlog for every new sprint. In addition to that, daily Scrum meetings should ensure that the whole team is up-to-date and as efficient as possible. In more detail, Scrum is known to reduce every category of work (i.e., defects, rework, total work required, and process overhead) within a \ac{CMMI} compliant development process by almost 50\% (\cite{Sut09}), which is also great for development in the short timeframe of the master thesis. The close customer relationship can for example be found in the fact the the customer is often invited to meetings after the sprints to see the progress on the product and, more important, to be able to influence the development process. However, \cite{paulk2002agile} claims that customers may also create a threat to finish agile development successful if they are not able or willing to maintain such a close relationship with the development team.
 
 We will use a \ac{TDD}-like approach within every sprint (where possible) because we will need to adapt and refactor existing code often. So, we will at first create needed test cases and afterwards implement against these test cases. This approach will prevent that testing of the application will be shifted into the last week(s) of the development process and done in a superficial way. In addition to that, a comprehensive test suite is a great basis for further development (\cite{max03}).
 
@@ -33,23 +33,23 @@ We will use a \ac{TDD}-like approach within every sprint (where possible) becaus
 \label{ScrumDia}
 \end{figure}
 
-Now, after we have seen the general concept of Scrum, we will now take a look at methods for cost estimation. 
+Now, after we have seen the general concept of Scrum and agile development in general, we will now take a look at methods for cost estimation. 
 
 \section{Methods for cost estimation}
 \label{cost}
 To get a feasible estimation of the workload of a given backlog, as it has been described in section \ref{SCRUM-intro}, we need some methods to create a good work- respectively cost-estimation. This is important to be able to choose a fitting amount of work per sprint.
 
-As \cite{Keaveney11} points out, one of the main principles of agile methods is to have meetings with the customer within the development phase to adapt the requirements if needed (\cite{beck2001agile}). However, changing requirements within a currently running software development are a common cause of problems with respect to software cost estimating (\cite{jones2003flawed}). So, our methods for cost-estimation has to be able to handle changing requirements in short time-frames. Similarly, surveys have shown that in real life scenarios, the techniques used to estimate costs in agile development projects are in general based on the expertise of the team-members (\cite{ceschi2005project}). So, the developers look to past iterations (or even past projects) to produce estimates about the costs of the current project respectively sprint (\cite{ceschi2005project}). 
+As \cite{Keaveney11} points out, one of the main principles of agile methods is to have meetings with the customer within the development phase to adapt the requirements if needed (\cite{Beck2001agile}). However, changing requirements within a currently running software development are a common cause of problems with respect to software cost estimating (\cite{jones2003flawed}). So, our methods for cost-estimation has to be able to handle changing requirements in short time-frames. Similarly, surveys have shown that in real life scenarios the techniques used to estimate costs in agile development projects are in general based on the expertise of the team-members (\cite{ceschi2005project}). This means, the developers look to past iterations (or even past projects) to produce estimates about the costs of the current project respectively sprint (\cite{ceschi2005project}). 
 
 To be able to formalize knowledge about past iterations and to be able to compare the data with the current iteration, one can use diagrams like burn-down charts.
 
 \subsection{Burn-down charts}
-To get the idea of burn-down charts, we need a first intuition about story points. Story points correspond to a specific estimated time-frame, like one story point per 30 minutes \emph{- Story points will be explained in the next section. For now, see them as a unit of needed time - }.
+To get the idea of burn-down charts, we need a first intuition about story points. Story points correspond to a specific estimated time-frame, like one story point per 30 minutes \emph{- Story points will be explained in the next section. For now, see them as an unit of needed time - }.
 
-A burn-down chart shows the amount of remaining story points on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time and can derive if the sprint can be finished in the given time-frame by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The OPT line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the OPT line, the developers are to slow in the current sprint and in the case the sprint curve is below the OPT line, the developers are ahead of the time. 
+A burn-down chart shows the amount of remaining story points on the y-axis and the days of the sprint on the x-axis. With such a chart, one can estimate the remaining time and can derive if the sprint can be finished in the given timeframe by looking at the \textit{slope} of the graph. Figure \ref{Burndown example} shows an example burn down chart over 8 days. The \emph{OPT} line shows the optimal slope that ends up on 0 remaining story points on the last day. If the sprint curve is above the \emph{OPT} line, the developers are to slow in the current sprint and in the case the sprint curve is below the \emph{OPT} line, the developers are ahead of the time. 
 
-Obviously, burn-down charts do not have problems with changing requirements outside of the current sprint. 
-But, in addition to that, we can also include new tasks to a running sprint and can simply adapt the OPT line with its slope to track the new added tasks within the active sprint. With this knowledge about the management of tasks and time estimation, we can take a closer look at story points.
+Obviously, burn-down charts do not have problems with changing requirements outside of the current sprint because they only track the information within the current sprint. 
+But, in addition to that, we can also include new tasks to a running sprint and can simply adapt the \emph{OPT} line with its slope to track the new added tasks within the active sprint. With this knowledge about the management of tasks and time estimation, we can take a closer look at story points.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/burndown}}
@@ -66,7 +66,7 @@ Another idea is that you can easily imagine the analogy 'this story is like that
 Now, as we have seen how to manage the reduction of requirements with burn-down charts and story points, we will take a look at the way we can specify user requirements in the first place; by using user stories.
 
 \subsection{User stories}
-As \cite{Pichler:2010aa} describes, a user story explains how a customer or a user uses the final the product in a short story. To create respectively discover these stories, one can use personas. Such a persona is a fictional character that represents a specific user type that might use a website or a product. A persona for our \ac{HiP} backend could for example be \emph{Steve}, the 24 year old student of english history that needs to create his homework with the backend. Obviously, Steve would represent the role \emph{student} from the view of the backend. 
+As \cite{Pichler:2010aa} describes, an user story explains how a customer or an user uses the final the product in a short story. To create respectively discover these stories, one can use personas. Such a persona is a fictional character that represents a specific user type that might use a website or a product. A persona for our \ac{HiP} backend could for example be \emph{Steve}, the 24 year old student of english history that needs to create his homework with the backend. Obviously, Steve would represent the role \emph{student} from the view of the backend. 
 
 Another important fact about user stories is that they are closely related to agile development. This relation can, for example, be seen at the fact that each user story is expected to result in a contribution to the value of the general product. This contribution should be added regardless of the order of the actual implementation (\cite{Alliance:2013aa}). Of course, this is a necessary condition for a user story, if one thinks about the way the development team works on the backlog of the product. The entries within the backlog are sorted into sprints and each entry within a sprint can be implemented as an autonomous unit by the development team. So, in general, one do not have any dependencies on entries within the sprint backlog.
 
@@ -94,7 +94,7 @@ Thus, \ac{CD} is the needed brick for creating a \emph{continuous deployment pro
 Now, after we have gained some insights about the process itself, we will take a look at the frameworks that will be used in the development process.
 
 \section{Used Frameworks}
-Because the time frame for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{HTTP}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-interface and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
+Because the timeframe for the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{HTTP}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-\ac{UI} and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
 
 \subsection{Play Framework}	
 \label{Play2}
@@ -127,7 +127,7 @@ GET /assets/*file   controllers.Assets.at(path="/public", file)
 
 Very briefly, the Play framework includes three different parts: 
 
-1) Java code that implements the controllers. The controllers are used to handle requests that get routed to them via \ac{HTTP}. A simple controller is shown in Listing \ref{Play:Controller}. As one can see within line 10 of Listing \ref{Play:Controller} the String "Your new application is ready" gets passed to the render function of the class index and returned as a parameter within the \textit{ok} function, which creates a simple \ac{HTTP} header with return-code 200. The index class is a Scala class that gets automatically created from the Scala/\acs{HTML} template called \textit{index.scala.html}. We will see this in more detail within point 3 of this list.
+1) Java code that implements the controllers. The controllers are used to handle requests that get routed to them via \ac{HTTP}. A simple controller is shown in Listing \ref{Play:Controller}. As one can see within line 10 of Listing \ref{Play:Controller} the String "Your new application is ready" gets passed to the render function of the class index and returned as a parameter within the \textit{ok} function, which creates a simple \ac{HTTP} header with return-code $200$. The index class is a Scala class that gets automatically created from the Scala/\acs{HTML} template called \textit{index.scala.html}. We will see this in more detail within point 3 of this list.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -150,7 +150,7 @@ public class Application extends Controller {
 }
 \end{lstlisting}
 
-2) Java code that implements the model entities. The model in Play 2.0 is used to do the data handling, which is quite easy because the Play framework maps automatically the documents in the MongoDB to concrete Scala ojects. \\
+2) Java code that implements the model entities. The model in Play 2.0 is used to do the data handling, which is quite easy because the Play framework maps automatically the documents stored in the MongoDB to concrete Scala objects. \\
 3) Scala templates that are used as \textit{views}. As a return value of the controllers, they pass data to a fitting template and return a corresponding \ac{HTML}-view. However, we may also skip the template engine sometimes to directly return \ac{JSON}-documents, which can be used to provide a \ac{API}. Listing \ref{Play:Template} shows the used \textit{index.scala.html} template used in Listing \ref{Play:Controller}. In line 1 of Listing \ref{Play:Template}, we declare the used parameters (i.e., a String variable) that we have used to pass the String "Your new application is ready". The \textit{@main} command in line 3 calls another template, which includes everything besides the \ac{HTML} body. The body of the file is now included in line 4 by calling another framework specific method, which includes a welcome and documentation message and renders our passed String variable.
 
 \lstset{language=XML,
@@ -206,7 +206,7 @@ var object = {
 db.hipUsers.insert(object);
 \end{lstlisting}
 
-Similarly one can read documents from the database by creating a document that is matched against the collection.
+Similarly, one can read documents from the database by creating a document that is matched against the collection.
 For example, to retrieve the user \textit{John Doe} that has been included within Listing \ref{MongoDB:insert} by matching against his lastname, one would need to do the steps shown in Listing \ref{MongoDB:query}. The object that is used to match the query is created in line 3. The query itself is started in line 7 of Listing \ref{MongoDB:query}.
 
 \begin{lstlisting}[numbers=left,caption={Reading documents from a MongoDB},label=MongoDB:query,frame=tlbr,breaklines]
@@ -259,9 +259,9 @@ backgroundcolor=\color{grey}}
 \end{lstlisting}
 
 As soon as the page gets rendered, the \ac{DOM}-tree will be loaded with the result value of the given javascript function called \textit{getTerm(String)}. 
-Another major feature of AngularJS is the, so called, two-way data binding. This feature is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value. This creates a source-code that includes less unnecessary lines of code for updating the values in the view. 
+Another major feature of AngularJS is the, so called, two-way data binding. This feature is closely coupled to expressions. The two-way data binding ensures that the rendered value of the function getTerm(String) gets automatically updated, as soon as the function returns a different value. This creates a source-code that includes less unnecessary lines of code for updating the values in the view. The main drawback of the two-way data binding is a lower performance. This problem is also known by the developers of AngularJS. Because of that, Angular 1.3 introduced faster one-time data binding that allows for a model to be updated once from the value set by the controller (\cite{Peterson:2015aa}). We will need to keep this in mind, to create fast code with AngularJS.
 
-Furthermore, AngularJS offers directives like \textit{ng-class} which adds dynamically a specific class to a \ac{DOM}-element if a given expression evaluates to true.
+Furthermore, AngularJS offers directives like \textit{ng-class} that add a specific class to a \ac{DOM}-element dynamically if a given expression evaluates to true.
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -281,7 +281,7 @@ backgroundcolor=\color{grey}}
 \end{lstlisting}
 Listing \ref{Angular:ngclass} shows how the \textit{ng-class} directive exchanges the used style of the alert depending on the boolean expression that is places behind the ':'. So, the syntax of the attribute value is \{ class : expression \}.
 
-Of course, one can also create own directives to get a much cleaner code. For example, it is possible to create a directive called \textit{chat-box} that can directly be included within the \ac{DOM}-tree. Thus, the usage of the created chat element folds down to the code that is shown in Listing \ref{Angular:ownDirective}. The same can be achieved by using web components or Google Polymer, which is in essence an extension of the web-components technology. However both technologies are, at the present point in time, only fully compatible to Google Chrome. Because of that, we will use custom AngularJS directives to create clean and maintainable code.
+Of course, one can also create own directives to get a much cleaner code. It is, for example, possible to create a directive called \textit{chat-box} that can directly be included within the \ac{DOM}-tree. Thus, the usage of the created chat element folds down to the code that is shown in Listing \ref{Angular:ownDirective}. The same can be achieved by using web components or \emph{Google Polymer}, which is in essence an extension of the web-components technology. However, both technologies are, at the present point in time, only fully compatible to Google Chrome. A direct dependency on Google Chrome is not possible because we will not have any influence on the browser that is used by students and supervisors. Because of that, we will use custom AngularJS directives to create clean and maintainable code.
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -338,7 +338,7 @@ backgroundcolor=\color{grey}}
 
 First of all, we need a static content definition, which is an \ac{XML} document that references the models and graphics that will be loaded when we start the \ac{AREL} application. The second part is the \ac{HTML5} layer, which is also addressed in the static content definition. The \ac{HTML5} binds the static content definition to the application logic and may also add additional \ac{GUI} functionality. An example for such an \ac{HTML5} layer is shown in \ref{AREL:HTML5}. The last part, the application logic is written in \ac{JS} and loads objects that are afterwords tracked by patterns.  
 
-So, \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
+\ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
 
 \subsection{WebGL and JSModeler}
 Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds, of the scanned objects, right within the browser. However, we will use libraries like \emph{JSModeler} to abstract from the low-level OpenGL commands and simplify the development process.
@@ -380,11 +380,11 @@ Furthermore, Karma can be used with an extension called \emph{Karma-jasmine} to 
 \section{Tooling}
 A couple of frameworks and techniques is a good start for creating such a sophisticated system. However, we will also need fitting tooling to support the development. These tools will be described in the following section.
 
-\subsection{Git}
-We will use Git, which is a commonly used distributed revision control and source code management system, for the versioning of our source-code. Git is free software distributed under the terms of the GNU General Public License version 2.
+\subsection{Git and GitHub}
+We will use Git, which is a commonly used distributed revision control and source code management system, for the versioning of our project source-code. Git is free software distributed under the terms of the GNU General Public License version 2.
 The service GitHub offers his users the possibility to maintain public and private Git repositories. The usage of GitHub is free, if the user uses public repositories only. We will use GitHub to host our source-code.
 \subsection{Jira}
-Jira is a proprietary software for project tracking purposes, which has been developed by the company Atlassian. It has support for agile development methods like Scrum or Kanban and offers a couple of features for bug tracking and time respectively cost estimation, like burn-down charts, which has been explained in section \ref{cost}. 
+Jira is a proprietary software for project tracking purposes, which has been developed by the company Atlassian. It has support for agile development methods like Scrum or Kanban and offers a couple of features for bug tracking and time respectively cost estimation. An example of such supported estimation tools are  burn-down charts that have been explained in section \ref{cost}. 
 
 We will use Jira to track the status of the \ac{HiP} application.
 

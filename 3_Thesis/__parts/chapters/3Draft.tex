@@ -2,12 +2,12 @@
 \label{draft}
 Within this thesis, we will develop an application (with focus on the backend system) to handle all these problems that have been described above within the section about the current situation. This master thesis will handle the planning respectively cost estimation of the different parts/features of the general system and will, after the needed technologies respectively frameworks are elaborated and evaluated, include a prototypical implementation of the needed components of the backend system. 
 
-But at first, we will start with the first step within each development process; the requirements engineering.
+But for now, we will start with the same first step as every development process; the requirements engineering phase.
 
 \section{Requirements engineering}
 First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
 
-We started the development of the application with a requirements engineering meeting together with our \textit{customer}. Within this meeting, we talked about the main ideas of the application and tried to grasp the needed functionality. In the end, we ended up with a couple of cards with written user stories. Some of these cards are shown in Figure \ref{cards}.
+We started the development of the application with a requirements engineering meeting together with our \textit{customer}. Within this meeting, we talked about the main ideas of the application and tried to grasp the needed functionality. In the end, we ended up with a couple of cards with written user stories. Some of these cards are shown in Figure \ref{cards}. The cards were also sorted within the meeting to create clusters of connected requirements.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/cards.jpg}}
@@ -20,7 +20,7 @@ After this meeting, these stories got refined to concrete high level requirement
 One of these main features that has been elaborated in this meeting, was the need for four different roles within the complete system. We will now take a more detailed look at these roles within the following section.
 
 \section{Use Cases}
-The system on its whole will have four different kinds of users, which correspond to four different roles within the system. The roles are briefly described in the following:
+The system on its whole will have four different kinds of users, which correspond to four different roles within the system. These roles are:
 
 \begin{enumerate}
 	\item Supervisors: Supervisors work at the university and create groups, topics and are able to review the information of their groups. The main goal of a supervisor is the supervision of groups.
@@ -29,9 +29,9 @@ The system on its whole will have four different kinds of users, which correspon
 	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
 \end{enumerate}
 
-These four different roles are also shown in Figure \ref{usecase} as an \ac{UML2} use case diagram, which is placed in the appendix. Figure shows the roles together with the functionality that gets invoked by these roles. 	
+The four different roles are also shown in Figure \ref{usecase} as an \ac{UML2} use case diagram, which is placed in the appendix. This figure shows the roles together with the functionality that gets invoked by these roles. 	
 
-After we have now seen the different roles that are involved in this system, we will include two use case tables as an example for the usage of the system here. However, a complete list of use case scenarios would be to large for this thesis.
+After we have now seen the different roles that are involved in this system, we will outline two use case tables as an example for the usage of the system. However, a complete list of use case scenarios would be to large for this thesis because this could fill a book on its own.
 
  \begin{table}[h]
 \scriptsize
@@ -51,7 +51,7 @@ After we have now seen the different roles that are involved in this system, we 
  \label{tab:ucTopicChange}
  \end{table} 
 
-Table \ref{tab:ucTopicChange} shows that when a student wants to change the content of a topic he is working on, he needs to log into the system, navigate to the group and topic and is then able to change the content.
+Table \ref{tab:ucTopicChange} shows that in case a student wants to change the content of a topic he is working on, he needs to log into the system, navigate to the group and topic and is then able to change the content.
  
  \begin{table}[h]
 \scriptsize
@@ -70,7 +70,9 @@ Table \ref{tab:ucTopicChange} shows that when a student wants to change the cont
  \label{tab:ucGroupCreation}
  \end{table} 
 
-The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that, from the users side, it will be quite easy for a supervisor to create a new group. The only steps he needs to take is to log into the system, open the correct view and input all needed information (e.g., members of the group). However, even these two simple use cases includes complex interaction between the different controllers and views within the system. This is shown in the \ac{UML} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchange and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
+The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that it will be quite easy for a supervisor to create a new group. The only steps he needs to take is to log into the system, open the correct view and input all needed information (e.g., members of the group). 
+
+However, even these two simple use cases includes complex interaction between the different controllers and views within the system. This is shown in the \ac{UML} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both diagrams contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchange and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/SDChangeContent}}
@@ -78,9 +80,9 @@ The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It
 \label{SD1}
 \end{figure} 
 
-Figure \ref{SD1} shows the interaction that is needed to exchange content within a specific topic. The student is able to login at the \emph{index partial}, which redirects the login to the backend via the \emph{Play framework routing}. After that, the student gets redirected to a new partial (i.e., \emph{the group partial}, where he is able to select the topic he wants to edit). The third involved partial is the \emph{Topic-partial} that shows the chosen topic and offers \ac{UI} topic editing functions.  
+Figure \ref{SD1} shows the interaction that is needed to exchange content within a specific topic. The student is able to login at the \emph{index partial}, which redirects the login to the backend via the \emph{Play framework routing}. After that, the student gets redirected to a new partial (i.e., \emph{the group partial}, where he is able to select the topic he wants to edit). The third involved partial is the \emph{topic partial} that shows the chosen topic and offers \ac{UI} topic editing functions.  
 
-In a similar way, Figure \ref{SD2} shows the process and the interaction for creation of a new group. Since this use case does not need any information about a topic, we do not need the Topic-partial and the Topic-controller. Most of the interaction is similar to the shown diagram in Figure \ref{SD1}. However, the group controller handles now the creation of the actual group and sends the storage request to the database within the \emph{storing()} function (as stated before, the actual storing is not included in these sequence diagrams).
+In a similar way, Figure \ref{SD2} shows the process and the interaction for the creation of a new group. Since this use case does not need any information about a topic, we do not need the topic partial and the topic controller. Most of the interaction is similar to the shown diagram in Figure \ref{SD1}. The group controller handles the creation of the actual group and sends the storage request to the database within the \emph{storing()} function (as stated before, the actual storing is not included in these sequence diagrams).
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/SDCreateGroup}}
@@ -94,11 +96,11 @@ Now, after we have seen what the application is about and got a first idea about
 
 \section{Architecture of the application}
 \label{architecture}
-The architecture design within agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system on its whole, before the actual programming phase is started (\cite{Patterns:2009aa}). This is, obviously, not applicable within an agile development approach. As \cite{Mast2013} points out, agile architecture design has the following important attributes:
+The architecture design phase within agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system on its whole, before the actual programming phase is started (\cite{Patterns:2009aa}). This is, obviously, not applicable within an agile development approach as not all requirements are stated in the beginning of the development process. As \cite{Mast2013} points out, agile architecture design has the following important attributes:
 
 \begin{enumerate}
-	\item At the beginning, one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
-	\item This enables the developer to be able to use an iterative development style and to postpone important development choices to the \textit{Least Responsible Moment}. The \textit{Least Responsible Moment} is the latest possible point in time, where you can implement an architecture decision.
+	\item At the beginning one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
+	\item This approach enables the developer to be able to use an iterative development style and to postpone important development choices to the \textit{Least Responsible Moment}. The \textit{Least Responsible Moment} is the latest possible point in time, where you can implement an architecture decision.
 	\item This way, detailed structures and technical concepts are created on-the-fly, while the application gets developed.
 \end{enumerate}
 
@@ -108,7 +110,7 @@ The architecture design within agile projects is slightly different from the des
 \label{hip:architecture}
 \end{figure}
 
-That said, we will choose a 2-tier 3-layer architecture for the development for the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-layer architecture is nice because it enables us to exchange the first tier easily, which is a feature that we will need to support the web-backend and a smartphone front-end. 
+That said, we will choose a 2-tier 3-layer architecture for the development for the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-layer architecture is nice because it enables us to exchange the first layer (and thus the first tier) easily, which is a feature that we will need to support the web-backend and a smartphone front-end. 
 
 The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows also the storage layer, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application layer on the second tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, some parts of the application layer need to be included on the client side within the presentation layer. Because of that, the presentation layer will be much more complex as it is shown in this brief draft since AngularJS, which is used in this layer, relies on a \ac{MVVM} architecture on its own.
 However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
@@ -116,11 +118,11 @@ However, more detailed decisions about the architecture design are postponed to 
 Now, we have an idea about the general architecture. Nevertheless, we need to take a look at the usage of the different components (e.g., frameworks, libraries and tools) and how they will work together.
 
 \section{Usage of the components}
-As we have seen in section \ref{architecture} a lot of application logic will be included in the first layer (i.e., presentation layer). To offer all needed features of the backend in this short time frame, we will need to include a couple of frameworks and libraries. A brief overview about the components and how they work together is shown in Figure \ref{hip:components}. 
+As we have seen in section \ref{architecture} a lot of application logic will be included in the first layer (i.e., the presentation layer). To offer all needed features of the backend in this short time frame, we will need to include a couple of frameworks and libraries. A brief overview about the components and how they work together is shown in Figure \ref{hip:components}. 
 
  \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/components}}
-\caption{The usage of the different components and how they work together}
+\caption{The usage of the different components and how they work together.}
 \label{hip:components}
 \end{figure}
 
@@ -130,7 +132,7 @@ However, this creates the need for the user of the \ac{HiP} application to regis
 After we have now seen the general architecture and the used frameworks, we will take a look at the different part of the system in more detail.
  
 \section{Backend (Web-Server)}
-The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor and unlocked for the frontend application by an user, who represents the master role. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application. The whole process is also shown in Figure \ref{workflow_backend}, which can be found in the appendix. The figure shows the complete workflow within the backend system as a flowchart.
+The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and data assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application by an user, who represents the master role. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application. The whole process is also shown in Figure \ref{workflow_backend}, which can be found in the appendix. The figure shows the complete workflow within the backend system as a flowchart.
 
 The data (i.e., topics, graphics, etc.) should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
 
@@ -145,7 +147,7 @@ Furthermore, the backend should include a way to modify the point-clouds of the 
 The following subsections will take a closer look at specific parts of the backend to create a better foundation for the cost estimation at the end of this section. 
 
 \subsection{Input data/content via the \ac{CMS} in the system}
-The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. 
+The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. Besides the general topics, the system will also able to handle subtopics, which are more detailed/refined topics that belong to the main topic. For example, if the main topic handles a specific church, than typical subtopics could be \emph{creation and history}.
 
 So, when an user changes something at a topic, the data is changed on the model within the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. However, this way of data handling (i.e., modifying on the client side and sending data back as soon as the user hits the \emph{save} button) induces problems if more than one user works at the same time at the same topic. Imagine user $A$ and $B$ start to work at the same topic at the same point in time. Then both download the same content on their client side but if $A$ clicks \emph{save} before $B$, then $B$ will override all changes from $A$. We will prevent this problem by creating a \emph{lock} mechanism on a topic. So, if $A$ works on the topic, $B$ is not able to start editing in the first place. The now induced efficiency problem (i.e., only one user can work at a topic) will be reduced by offering features for creating different text blocks that are autonomously locked. So, $A$ is not locking the topic \emph{S\"udring center} but only a part of it (e.g., \emph{S\"udring center - Introduction}).
 
@@ -179,7 +181,7 @@ onChange(){
 }
 \end{lstlisting}
 
-The main idea of this algorithm is that we check if we are able to create a lock (resp. even own the lock) on the current topic before we do any changes (line 3). On a technical level the lock is a timestamp that described the last time when the topic has been changed. For checking the availability of the lock, we look at the timestamp and compare it with the current time. If the last edit is less than 5 minutes old, we wait 5 minutes and try again. 
+The main idea of this algorithm is that we check if we are able to create a lock (resp. even own the lock) on the current topic before we do any changes (line 3). On a technical level the lock is a timestamp that describes the last time when the topic has been changed. For checking the availability of the lock, we look at the timestamp and compare it with the current time. If the last edit is less than 5 minutes old, we wait 5 minutes and try again. 
 If the lock is older than 5 minutes, we set it to the current time and save the used value in an internal variable for comparison. This way, we are able to check locally on the client side, if the current client is the client that owns the lock.
 
 Besides this locking algorithm, the status of the topics should be reflected by constraints (e.g., maximal or minimal characters in the topic) about the topic that get automatically evaluated while the students are working on the topic. 
@@ -280,7 +282,7 @@ However, because of the problematic file format, there may be a shift the the Ju
 
 \subsubsection{Data format for \ac{AR} files}
 \label{creator3dmapProblem}
-The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. Both files are essentially ZIP files that contain metadata, pictures and binary data for the point-clouds. The original idea within this thesis was to use these files to render the point-clouds in the backend and offer features for manipulation. However, because we would need the file specification to be able to read the binary data contained in the ZIP files, we asked for such a specification at the company Metaio. Sadly, we never received an answer. 
+The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} format. Both files are essentially \emph{ZIP} files that contain metadata, pictures and binary data for the point-clouds. The original idea within this thesis was to use these files to render the point-clouds in the backend and offer features for manipulation. However, because we would need the file specification to be able to read the binary data contained in the ZIP files, we asked for such a specification at the company Metaio. Sadly, we never received an answer. 
 
 Thus, this part of the thesis is postponed and left open for the Project Group.
 
@@ -440,7 +442,9 @@ All in all, \ac{PDF} export can be included fast and easy within the smartphone 
 
 \subsection{Rendering AR-data with Junaio}
 The rendering of the \ac{AR} data is another very important part of the \ac{HiP} frontend. As it has been explained in section \ref{AREL}, we need to create a static content definition, a \ac{HTML5} layer and the application logic. While the application logic can be general for the whole application, we need to generate the static content definition and the \ac{HTML5} layer for every topic because the shown objects are changed, as soon as we change a topic.
-\todo{more}
+The static content definition contains the used models for that specific scene. 
+
+The concrete costs of this part of the frontend are very hard to estimate because we lack a couple of information about the way we can integrate the data we get from the Metaio Toolbox. Nevertheless, we will try to create a feasible estimation within the next subsection.
 
 \subsection{Cost estimation of the frontend}	
 Now, after we have seen the technical details about the different parts of the frontend, we can create our cost estimation. One problem is that the cost estimation of the frontend is quite complex and depends heavily on the choice of the basis for the navigation feature. Thus, we assume in the following that we use the \ac{OsmAnd} project as the basis for the \ac{HiP}-navigation features. Like in section \ref{backendEstimation}, one story point should represent 6 hours.

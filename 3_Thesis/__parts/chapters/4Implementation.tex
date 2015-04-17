@@ -1,11 +1,11 @@
 \chapter[Implementation details]{Implementation details}
 \label{implementation}
-This chapter will show details about the implementation. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will pick only specific parts, which are important within the system and show these parts within this chapter.
+This chapter will show details about the implementation of the \ac{HiP} application. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will start by explaining the implementation in general on an abstract level and show only specific implementation parts, afterwards. The shown implementation parts are chosen because we think that these parts are important within the system and deepen the understanding of the application.
 
-Furthermore, we will show things that has been changed from the draft because the requirements came up within the implementation phase in the agile process. These changes are mostly features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}.
+Furthermore, we will show details that has been changed from the draft described in section \ref{draft} because the (changed respectively new) requirements came up within the implementation phase in the agile process. Of course, these changes are features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}. These changes have also induced a couple of architectural problems because some ideas and structures that has been used for the current version of the \ac{HiP} application are already deprecated but this problem will be explained in more detail in chapter \ref{discussion}.
 
 \section{General overview of the system}
-As it has been explained in the previous chapter, the third tier (i.e., the storage/database tier) of the application is driven by a MongoDB. The connection to the MongoDB is done by the Play framework with a single line within the configuration file of the play framework (i.e., application.conf):
+As it has been explained in the previous chapter, the third tier (i.e., the storage/database tier) of the application is driven by a MongoDB. The connection to the MongoDB is handled by the Play framework with a single line of code within the configuration file of the Play framework (i.e., the application.conf file):
 
 \verb|mongodb.uri = "mongodb://localhost:27017/hip"|
 
@@ -13,21 +13,33 @@ Note that one can easily connect to a remove database with a similar configurati
 
 \verb|mongodb.uri = "mongodb://user:pass@yourDomain:Port/hip"|  
 
-After Play 2.0 has created the connection to the MongoDB we can use it within the framework by extending a controller with the $MongoController$ trait (a Scala trait is similar to an interface in Java). By doing this, we have created a couple of Scala Controllers that form the second tier of the application. The main function of these controllers is the handling of data on the way to the database. Nevertheless, as we will see, the second tier includes also functions for creating thumbnails and the creation of \ac{JWT}. 
+After Play 2.0 has created the connection to the MongoDB we can use the connection within the framework by extending a controller with the \emph{MongoController} trait (a Scala trait is similar to an interface in Java). By doing this, we have created a couple of Scala controllers that form the second tier of the application. The main function of these controllers is the handling of data on the way to the database. Nevertheless, as we will see, the second tier includes also functions for creating thumbnails for uploaded pictures and the creation of \ac{JWT}. 
 
-However, the most application logic is included on the client side within the AngularJS framework. Here, we have four main points were we include the application-logic and \ac{GUI} parts:
+Besides these features on the server side, most application logic is included on the client side within the AngularJS framework. Here, we have four main points were we include the application-logic and \ac{GUI} parts:
 
 \begin{itemize}
-	\item[partials:] Partials are small \ac{HTML} snippets that get loaded as soon as the AngularJS router gets a \ac{HTTP} request to the corresponding \ac{HTML} page. Afterwards, the fitting partial gets loaded at a predefined position within the \ac{DOM} tree. Thus, one can see a partial as a part of a view of the system that contains \ac{GUI} elements and their connections to the controllers.  The complete \ac{HiP} backend consists of 22 different partials.  
+	\item[partials:] Partials are small \ac{HTML} snippets that get loaded as soon as the AngularJS router gets a \ac{HTTP} request to the corresponding \ac{HTML} page. Afterwards, the fitting partial gets loaded at a predefined position within the \ac{DOM} tree. Thus, one can see a partial as a part of a view of the system that contains \ac{GUI} elements and their connections to the controllers.  The complete \ac{HiP} backend consists of 22 different partials that are interconnected.  
 	\item[controllers:] The 16 controllers, which have been created for the \ac{HiP} backend, are getting commands and events from the user as he is browsing on the partials. These controllers are able to fetch data from the MongoDB and respond to the actions of the user. To offer the needed functionality, they make use of the next building block: services.  
-	\item[services:] The services encapsulate application logic. They can be created by controllers and are working completely autonomous. For the \ac{HiP} backend, we are using 4 different services.
+	\item[services:] The services encapsulate big parts of application logic. They can be created by controllers and are working completely autonomous. This is good for the creation of a system that stays easy to maintain. For the \ac{HiP} backend, we are using 4 different services.
 	\item[directives:] Last but not least, we are using directives to encapsulate application logic and \ac{GUI} data that are used in a component. For example, the MediaGallery directive can be used like a usual \ac{HTML} tag and contains the complete logic for a media gallery including meta data for pictures, etc. However, we will take a closer look at the used directives in section \ref{usedDirectives}.
 \end{itemize}
 
-So, now we have an idea about the four main parts of the client side. However, we need a more structured view about the way these parts are connected.
-\todo{Architecture pic}
+So, now we have an idea about the four main parts of the client side. 
+However, we need a more structured view about the way these parts are connected to understand the details of the application. 
 
-After we have now gained some insights into the general architecture of the system, we will get a more detailed view on some parts.
+Figure \ref{UML:Packages} shows the main dependencies between the just described main parts of the backend as an \ac{UML} package diagram. 
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=1\textwidth]{gfx/Components_dia}}
+\caption{The \ac{UML} package diagram shows the general dependencies between the main parts of the backend.}
+\label{UML:Packages}
+\end{figure} 
+
+The figure shows that the main application is only using partials, which make use of controllers and directives. Both are using services to use encapsulated application logic.
+
+A more technical view on the complete system can be found in Figure \ref{UML:deploymentDiagram} within the Appendix as a \ac{UML} deployment diagram. Because this technical view is not needed to understand the system itself but is useful to underline the main ideas of the architecture it has been shifted to the appendix.
+
+After we have now gained some insights into the general architecture of the system, we will get a more detailed view on some parts of the current implementation. Our journey though the system will start at the server side within Actions for the Play 2.0 framework.
 
 \section{Scala: Highlighting and annotation with AnnotatorJS}
 The highlighting of the content of topics itself is handled by the \ac{JS} library \emph{AnnotatorJS}. Technically, the plugin creates \emph{<span>} \ac{HTML} tags with the (css) class \emph{annotator-hl} and adds them to the \ac{DOM}-tree at the same position were the original text was placed. So, the creation of the highlighting itself is quite simple. However, we wanted to attach the information to a given topic and store it in some way.  
@@ -52,7 +64,7 @@ An example for such an \ac{JWT} authentication token is shown in Figure \ref{JWT
 As one can see, the token contains a header, which specifies the used algorithm, a body, which contains the payload and an authenticator, which is a \ac{HMAC} based on \ac{SHA256}. The payload contains mainly the userID and 
 consumer key of the application. So, this token proves that the request comes from an authenticated user of the \ac{HiP} backend.
 
-The creation of these tokens is done by the part of the backend that is included into the Play 2.0 framework. The action that generates such a token is shown in Listing \ref{Scala:tokenGen}.
+The creation of these tokens is done by the part of the backend that is included into the Play 2.0 framework. The Action that generates such a token is shown in Listing \ref{Scala:tokenGen}.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -96,15 +108,15 @@ def getToken = UserAwareAction { implicit  request =>
   }
 \end{lstlisting}
 
-Line 14-18 in Listing \ref{Scala:tokenGen} shows the preparation of the JWT's body and in line 20, we create the concrete JWT with the header and the already created body. The signing, which is used in the authenticator, is done in line 23. 
+Line $14-18$ in Listing \ref{Scala:tokenGen} shows the preparation of the JWT's body and in line $20$, we create the concrete JWT with the header and the already created body. The signing, which is used in the authenticator, is done in line $23$. 
 
 Note, that we do not use a general Action but an \emph{UserAwareAction} (line 1).
-The UserAwareAction is provided by SecureSocial2 and checks the session of the current user. The user object is afterwards checked in line 4. If the user is not logged in but tried to gain a JWT access token, he is send to the loginplease.html page that contains the needed information for logging into the system. If the user is logged into the system, the JWT creation process is started.
+The UserAwareAction is provided by SecureSocial2 and checks the session of the current user. The user object is afterwards checked in line $4$. If the user is not logged in but tried to gain a JWT access token, he is send to the loginplease.html page that contains the needed information for logging into the system. If the user is logged into the system, the JWT creation process is started.
 
 After we have now seen the creation of JWT tokens, we will now take a look at something else, which is also mainly handled by an Action within the Play 2.0 framework; the upload process of media files. 
 
 \section{Scala: Picture upload and the creation of thumbnails}
-The upload of a picture is handled on the client side by dropzone.js, which is a small \ac{JS} library that offers functionality for the easy upload of files to remote servers. On its core, dropzone.js uses the \ac{HTML5} upload mechanism to stay  browser independent. After the file has been send, a controller called FileController accepts the connection and parses a $multiFormData$ request. Listing \ref{Scala:Upload} shows the Scala code of that part of the Action.
+The upload of a picture is handled on the client side by dropzone.js, which is a small \ac{JS} library that offers functionality for the easy upload of files to remote servers. On its core, dropzone.js uses the \ac{HTML5} upload mechanism to stay browser independent. After the file has been send, a controller called FileController accepts the connection and parses a $multiFormData$ request. Listing \ref{Scala:Upload} shows the Scala code of that part of the Action.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -144,7 +156,7 @@ def upload(topicID: String) = Action(parse.multipartFormData) { request =>
   }
 \end{lstlisting}
 
-As one can see in line 9 from Listing \ref{Scala:Upload} we are using GridFS to store binary data within the MongoDB. GridFS exceed the \ac{BSON} document size limit of 16MB because it divides a file into parts and stores each of those parts as a separate document within the MongoDB (\cite{gridfs}). The picture gets inserted into the MongoDB in line 15 and the meta data is written in line 19. However, by only using this code, we would need to download the complete full-size picture, even in cases where this would not be needed.  Because of that, the upload Action creates thumbnails of the uploaded pictures while the picture gets inserted into the database. The code for creating the thumbnails is shown in Listing \ref{Scala:Upload:Thumb}.
+As one can see in line $9$ from Listing \ref{Scala:Upload} we are using GridFS to store binary data within the MongoDB. GridFS exceed the \ac{BSON} document size limit of 16MB because it divides a file into parts and stores each of those parts as a separate document within the MongoDB (\cite{gridfs}). The picture gets inserted into the MongoDB in line $15$ and the meta data is written in line $19$. However, by only using this code, we would need to download the complete full-size picture, even in cases where this would not be needed.  Because of that, the upload Action creates thumbnails of the uploaded pictures while the picture gets inserted into the database. The code for creating the thumbnails is shown in Listing \ref{Scala:Upload:Thumb}.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -189,9 +201,9 @@ gridFS.writeFromInputStream(fileToSaveThumb, fis)
 [...]
 \end{lstlisting}
 
-At this point, we have seen both parts of the upload Action independently. To get a full view of the Action and a better understanding about how both parts work together the complete Action is shown in Listing \ref{Scala:Upload:full}.
+At this point, we have seen both parts of the upload Action independently. To get a full view of the Action and a better understanding about how both parts work together the complete Action is shown in Listing \ref{Scala:Upload:full} within the appendix.
 
-After we have now seen a couple of important Actions within the Scala controllers, we will start to look at the code on the client side. To do this, we will start by taking a closer look at important directives that are used on the client side. 
+After we have now seen a couple of important Actions within the Scala controllers at the server side, we will start to look at the code on the client side. To do this, we will start by taking a closer look at important directives that are used on the client side. 
 
 \section{Important directives used in the system}
 \label{usedDirectives}
@@ -416,7 +428,7 @@ On the other hand, if we have a type $A$ with the keys $key1$ and $key2$ and cre
 So, for every new situation were we want to use the \ac{KVS}, we just need to create a new storage type and the remaining work is done by the service. The editing of types (e.g., adding keys or even complete types) can be done from every controller within AngularJS by using the \emph{TypeService}. This service encapsulates all needed functionality to modify types and is used within the \ac{HiP} backend to create a type modify interface for the admins of the \ac{HiP} backend. However, we will not get into more details about this service or the type modify interface within this thesis.
 
 \section{Interface to the smartphone app}
-As we have said before, the smartphone application gets currently developed by a bachelor student. The app accepts data as \ac{JS} objects. Listing \ref{InterfaceStructure} shows the structure of these objects for topics. 
+As we have said before, the development of the smartphone application started as a bachelor thesis and will also be taken over by the project group. The app accepts data as \ac{JS} objects. Listing \ref{InterfaceStructure} shows the structure of these objects for topics. 
 
 \lstset{language=JavaScript,
 basicstyle=\small,
@@ -443,9 +455,9 @@ backgroundcolor=\color{grey}}
 
 As one can see, the format consists of \ac{JS} objects that are included in the array, which is the value for the key \emph{data}.  
 
-Because the \ac{HiP} backend uses another representation (which is also contained within the MongoDB), we offer another \ac{URI} to retrieve the file for the smartphone. Internally, we translate the representation that is stored within the MongoDB into the other representation for the smartphone. Note that this is not a break with the \ac{REST} principle that we should not use different \ac{URI} to specify the format. In this case, we do not only exchange the format (e.g., \ac{XML} to \ac{JSON}) of the same data. We store other (i.e., less) fields within the smartphone object as in the original document that is stored in the MongoDB. So, after all, we create a new object (which has another format) and every object has its own identifier. 
+Because the \ac{HiP} backend uses another representation of the data (which is also contained within the MongoDB), we offer another \ac{URI} to retrieve the file for the smartphone. Internally, we translate the representation that is stored within the MongoDB into the other representation for the smartphone. Note that this is not a break with the \ac{REST} principle that we should not use different \ac{URI} to specify the format. In this case, we do not only exchange the format (e.g., \ac{XML} to \ac{JSON}) of the same data. We store other (i.e., less) fields within the smartphone object as in the original document that is stored in the MongoDB. So, after all, we create a new object with less fields (which has another format) and every object has its own identifier. 
 
-In a similar way, the interface for pictures translates the internally used identifier to the frontend-app style. Internally, a picture is an autonomous object that is identified by its unique identifier. Furthermore, every pictures contains meta information about the topic it is used in. This way, we can easily include as many pictures as we want in one topic. Timo used another approach and identifies pictures with the id of the topic that it contains plus the suffix \emph{.jpg}. So, we provided a new interface that accepts calls like 
+In a similar way, the interface for pictures translates the internally used identifier to the frontend-app style. Internally, a picture is an autonomous object that is identified by its unique identifier. Furthermore, every pictures contains meta information about the topic it is used in. This way, we can easily include as many pictures as we want in one topic. Timo Boegeholz, who wrote the first frontend application in his bachelor thesis, used another approach and identifies pictures with the id of the topic that it contains plus the suffix \emph{.jpg}. So, we provided a new interface that accepts calls like 
 
 \emph{hiproot/admin/app/pictures/topicID.jpg} 
 
@@ -453,7 +465,7 @@ and redirects the call to the internally used interface
 
 \emph{hiproot/admin/pictures/mainPictureID.jpg}. 
 
-The main picture of a topic has to be chosen in the hip backend. Figure \ref{frontendScreenshot} shows a screenshot of the \ac{HiP} frontend that uses the provided data of the backend. \todo{BILDER?}
+The main picture of a topic has to be chosen in the hip backend. Figure \ref{frontendScreenshot} shows a screenshot of the \ac{HiP} frontend that uses the provided data of the backend.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=.5\textwidth]{gfx/frontend.jpg}}

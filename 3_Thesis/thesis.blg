@@ -8,11 +8,6 @@ A level-1 auxiliary file: __parts/_FrontBackmatter/Acknowledgments.aux
 A level-1 auxiliary file: __parts/_FrontBackmatter/Contents.aux
 A level-1 auxiliary file: __parts/chapters/1Intro.aux
 A level-1 auxiliary file: __parts/chapters/2Basics.aux
-Case mismatch error between cite keys beck2001agile and Beck2001agile
----line 29 of file __parts/chapters/2Basics.aux
- : \citation{beck2001agile
- :                        }
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: __parts/chapters/3Draft.aux
 A level-1 auxiliary file: __parts/chapters/4Implementation.aux
 A level-1 auxiliary file: __parts/chapters/5Tests.aux
@@ -23,94 +18,96 @@ The style file: apalike.bst
 A level-1 auxiliary file: __parts/_FrontBackMatter/Index.aux
 A level-1 auxiliary file: __parts/_FrontBackmatter/Declaration.aux
 Database file #1: __bib/literatur.bib
+Warning--entry type for "Peterson:2015aa" isn't style-file defined
+--line 12 of file __bib/literatur.bib
 Warning--entry type for "RadiusNetworks:2015ab" isn't style-file defined
---line 48 of file __bib/literatur.bib
-Warning--entry type for "RadiusNetworks:2015aa" isn't style-file defined
 --line 56 of file __bib/literatur.bib
+Warning--entry type for "RadiusNetworks:2015aa" isn't style-file defined
+--line 64 of file __bib/literatur.bib
 Warning--entry type for "Apple:2014aa" isn't style-file defined
---line 72 of file __bib/literatur.bib
+--line 80 of file __bib/literatur.bib
 Warning--entry type for "Alliance:2013aa" isn't style-file defined
---line 131 of file __bib/literatur.bib
-Warning--entry type for "Pichler:2010aa" isn't style-file defined
 --line 139 of file __bib/literatur.bib
+Warning--entry type for "Pichler:2010aa" isn't style-file defined
+--line 147 of file __bib/literatur.bib
 Warning--entry type for "Wattson:2013aa" isn't style-file defined
---line 159 of file __bib/literatur.bib
-Warning--entry type for "Mueller2011" isn't style-file defined
 --line 167 of file __bib/literatur.bib
+Warning--entry type for "Mueller2011" isn't style-file defined
+--line 175 of file __bib/literatur.bib
 Warning--entry type for "AngularCons" isn't style-file defined
---line 193 of file __bib/literatur.bib
-Warning--entry type for "gridfs" isn't style-file defined
 --line 201 of file __bib/literatur.bib
+Warning--entry type for "gridfs" isn't style-file defined
+--line 209 of file __bib/literatur.bib
 Warning--entry type for "pdfCreation" isn't style-file defined
---line 218 of file __bib/literatur.bib
+--line 226 of file __bib/literatur.bib
 Warning--entry type for "itext2015" isn't style-file defined
---line 229 of file __bib/literatur.bib
+--line 237 of file __bib/literatur.bib
 Warning--entry type for "osmand" isn't style-file defined
---line 240 of file __bib/literatur.bib
+--line 248 of file __bib/literatur.bib
 Warning--entry type for "GooglePolylineNative" isn't style-file defined
---line 251 of file __bib/literatur.bib
+--line 259 of file __bib/literatur.bib
 Warning--entry type for "GoogleNavi" isn't style-file defined
---line 262 of file __bib/literatur.bib
+--line 270 of file __bib/literatur.bib
 Warning--entry type for "ScrumMeth" isn't style-file defined
---line 273 of file __bib/literatur.bib
+--line 281 of file __bib/literatur.bib
 Warning--entry type for "BDD" isn't style-file defined
---line 299 of file __bib/literatur.bib
+--line 307 of file __bib/literatur.bib
 Warning--entry type for "7_github_2015" isn't style-file defined
---line 310 of file __bib/literatur.bib
+--line 318 of file __bib/literatur.bib
 Warning--entry type for "5_maxxor.com_2015" isn't style-file defined
---line 339 of file __bib/literatur.bib
+--line 347 of file __bib/literatur.bib
 Warning--entry type for "beck2001agile" isn't style-file defined
---line 382 of file __bib/literatur.bib
+--line 390 of file __bib/literatur.bib
 Warning--entry type for "GAA2015" isn't style-file defined
---line 471 of file __bib/literatur.bib
+--line 479 of file __bib/literatur.bib
 Warning--entry type for "wikimedia" isn't style-file defined
---line 590 of file __bib/literatur.bib
+--line 598 of file __bib/literatur.bib
 Warning--entry type for "junaio1" isn't style-file defined
---line 600 of file __bib/literatur.bib
-Warning--entry type for "wikitude" isn't style-file defined
 --line 608 of file __bib/literatur.bib
+Warning--entry type for "wikitude" isn't style-file defined
+--line 616 of file __bib/literatur.bib
 Warning--entry type for "statIPhone" isn't style-file defined
---line 632 of file __bib/literatur.bib
+--line 640 of file __bib/literatur.bib
 Warning--empty journal in bradley2014json
-You've used 64 entries,
+You've used 65 entries,
             1935 wiz_defined-function locations,
-            832 strings with 14143 characters,
-and the built_in function-call counts, 20805 in all, are:
-= -- 2100
-> -- 690
-< -- 63
-+ -- 226
-- -- 218
-* -- 1485
-:= -- 3765
-add.period$ -- 197
-call.type$ -- 64
-change.case$ -- 419
-chr.to.int$ -- 62
-cite$ -- 65
-duplicate$ -- 888
-empty$ -- 1433
-format.name$ -- 292
-if$ -- 4072
+            837 strings with 14274 characters,
+and the built_in function-call counts, 21050 in all, are:
+= -- 2126
+> -- 697
+< -- 64
++ -- 228
+- -- 220
+* -- 1500
+:= -- 3814
+add.period$ -- 200
+call.type$ -- 65
+change.case$ -- 425
+chr.to.int$ -- 63
+cite$ -- 66
+duplicate$ -- 898
+empty$ -- 1448
+format.name$ -- 295
+if$ -- 4117
 int.to.chr$ -- 3
 int.to.str$ -- 0
 missing$ -- 44
-newline$ -- 322
-num.names$ -- 192
-pop$ -- 344
+newline$ -- 327
+num.names$ -- 195
+pop$ -- 347
 preamble$ -- 1
-purify$ -- 429
+purify$ -- 435
 quote$ -- 0
-skip$ -- 731
+skip$ -- 740
 stack$ -- 0
-substring$ -- 1230
+substring$ -- 1242
 swap$ -- 120
 text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 368
+type$ -- 374
 warning$ -- 1
-while$ -- 170
+while$ -- 172
 width$ -- 0
-write$ -- 800
-(There was 1 error message)
+write$ -- 812
+(There were 26 warnings)

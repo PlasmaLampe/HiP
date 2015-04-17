@@ -1,11 +1,11 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}General overview of the system}{\reset@font\mtcSfont 49}{section.4.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Scala: Highlighting and annotation with AnnotatorJS}{\reset@font\mtcSfont 50}{section.4.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Scala: Picture upload and the creation of thumbnails}{\reset@font\mtcSfont 53}{section.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Important directives used in the system}{\reset@font\mtcSfont 55}{section.4.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}A media gallery with the media-gallery directive}{\reset@font\mtcSSfont 56}{subsection.4.4.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Directive definition}{\reset@font\mtcSSSfont 57}{figure.caption.72}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Controller of the media gallery directive}{\reset@font\mtcSSSfont 58}{lstnumber.4.5.17}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Template handling with the templates-box directive}{\reset@font\mtcSSfont 59}{subsection.4.4.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}AngularJS: Key/Value stores}{\reset@font\mtcSfont 60}{section.4.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Typing of stores}{\reset@font\mtcSSfont 63}{subsection.4.5.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Interface to the smartphone app}{\reset@font\mtcSfont 63}{section.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}General overview of the system}{\reset@font\mtcSfont 51}{section.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Scala: Highlighting and annotation with AnnotatorJS}{\reset@font\mtcSfont 53}{section.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Scala: Picture upload and the creation of thumbnails}{\reset@font\mtcSfont 56}{section.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Important directives used in the system}{\reset@font\mtcSfont 59}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}A media gallery with the media-gallery directive}{\reset@font\mtcSSfont 59}{subsection.4.4.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Directive definition}{\reset@font\mtcSSSfont 60}{figure.caption.72}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Controller of the media gallery directive}{\reset@font\mtcSSSfont 61}{lstnumber.4.5.17}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Template handling with the templates-box directive}{\reset@font\mtcSSfont 62}{subsection.4.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}AngularJS: Key/Value stores}{\reset@font\mtcSfont 64}{section.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Typing of stores}{\reset@font\mtcSSfont 66}{subsection.4.5.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Interface to the smartphone app}{\reset@font\mtcSfont 66}{section.4.6}}
