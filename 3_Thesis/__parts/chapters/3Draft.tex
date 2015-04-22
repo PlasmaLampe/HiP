@@ -5,7 +5,7 @@ Within this thesis, we will develop an application (with focus on the backend sy
 But for now, we will start with the same first step as every development process; the requirements engineering phase.
 
 \section{Requirements engineering}
-First of all, a requirement is defined as "[...]A condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]" (\cite{IEEEReq}).
+First of all, a requirement is defined as \glqq[...] a condition or capability that must be met or possessed by a system or system component to satisfy a contract, standard, specification, or other formally imposed documents[...]\grqq  (\cite{IEEEReq}).
 
 We started the development of the application with a requirements engineering meeting together with our \textit{customer}. Within this meeting, we talked about the main ideas of the application and tried to grasp the needed functionality. In the end, we ended up with a couple of cards with written user stories. Some of these cards are shown in Figure \ref{cards}. The cards were also sorted within the meeting to create clusters of connected requirements.
 
@@ -17,7 +17,7 @@ We started the development of the application with a requirements engineering me
 
 After this meeting, these stories got refined to concrete high level requirements, which are measurable and prioritized. A complete list of all requirements, which were derived from these user stories, can be found within the appendix in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}. These requirements can directly be used to derive some the needed test cases for the \ac{TDD} approach.
 
-One of these main features that has been elaborated in this meeting, was the need for four different roles within the complete system. We will now take a more detailed look at these roles within the following section.
+One of the main features that has been elaborated in this meeting, was the need for four different roles within the complete system. We will now take a more detailed look at these roles within the following section.
 
 \section{Use Cases}
 The system on its whole will have four different kinds of users, which correspond to four different roles within the system. These roles are:
@@ -29,9 +29,8 @@ The system on its whole will have four different kinds of users, which correspon
 	\item Master: People, who have the role \textit{Master}, are able to accept respectively reject topics for the front-end application
 \end{enumerate}
 
-The four different roles are also shown in Figure \ref{usecase} as an \ac{UML2} use case diagram, which is placed in the appendix. This figure shows the roles together with the functionality that gets invoked by these roles. 	
-
-After we have now seen the different roles that are involved in this system, we will outline two use case tables as an example for the usage of the system. However, a complete list of use case scenarios would be to large for this thesis because this could fill a book on its own.
+The four different roles are also shown in Figure \ref{usecase} as an \ac{UML2} use case diagram, which is placed in the appendix. This figure shows the roles together with the functionality that gets invoked by these. 	
+After we have seen the different roles that are involved in this system, we will outline two use case tables as an example for the usage of the system. However, a complete list of use case scenarios would be too large for this thesis because this could fill a book on its own.
 
  \begin{table}[h]
 \scriptsize
@@ -51,7 +50,7 @@ After we have now seen the different roles that are involved in this system, we 
  \label{tab:ucTopicChange}
  \end{table} 
 
-Table \ref{tab:ucTopicChange} shows that in case a student wants to change the content of a topic he is working on, he needs to log into the system, navigate to the group and topic and is then able to change the content.
+Table \ref{tab:ucTopicChange} shows that in case a student wants to change the content of a topic he is working on, he needs to log into the system, navigate to the group and topic and is able to change the content.
  
  \begin{table}[h]
 \scriptsize
@@ -70,36 +69,36 @@ Table \ref{tab:ucTopicChange} shows that in case a student wants to change the c
  \label{tab:ucGroupCreation}
  \end{table} 
 
-The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that it will be quite easy for a supervisor to create a new group. The only steps he needs to take is to log into the system, open the correct view and input all needed information (e.g., members of the group). 
+The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that it will be quite easy for a supervisor to create a new group. The only steps he needs to take are to log into the system, open the correct view and input all needed information (e.g., members of the group). 
 
-However, even these two simple use cases includes complex interaction between the different controllers and views within the system. This is shown in the \ac{UML} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both diagrams contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchange and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
+However, even these two simple use cases include complex interaction between the different controllers and views within the system. This is shown in the \ac{UML} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both diagrams contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchanged and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/SDChangeContent}}
-\caption{The corresponding \ac{UML} sequence diagram for use case ‚\emph{Student changes content of a topic}‘.}
+\caption{The corresponding \ac{UML} sequence diagram for use case \glqq\emph{Student changes content of a topic}\grqq.}
 \label{SD1}
 \end{figure} 
 
 Figure \ref{SD1} shows the interaction that is needed to exchange content within a specific topic. The student is able to login at the \emph{index partial}, which redirects the login to the backend via the \emph{Play framework routing}. After that, the student gets redirected to a new partial (i.e., \emph{the group partial}, where he is able to select the topic he wants to edit). The third involved partial is the \emph{topic partial} that shows the chosen topic and offers \ac{UI} topic editing functions.  
 
-In a similar way, Figure \ref{SD2} shows the process and the interaction for the creation of a new group. Since this use case does not need any information about a topic, we do not need the topic partial and the topic controller. Most of the interaction is similar to the shown diagram in Figure \ref{SD1}. The group controller handles the creation of the actual group and sends the storage request to the database within the \emph{storing()} function (as stated before, the actual storing is not included in these sequence diagrams).
+In a similar way, Figure \ref{SD2} shows the process and the interaction of the creation of a new group. Since this use case does not need any information about a topic, we do not need the topic partial and the topic controller. Most of the interaction is similar to the shown diagram in Figure \ref{SD1}. The group controller handles the creation of the actual group and sends the storage request to the database within the \emph{storing()} function (as stated before, the actual storing is not included in these sequence diagrams).
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/SDCreateGroup}}
-\caption{The corresponding \ac{UML} sequence diagram for use case ‚\emph{Supervisor creates a new group}‘.}
+\caption{The corresponding \ac{UML} sequence diagram for use case \glqq\emph{Supervisor creates a new group}\grqq.}
 \label{SD2}
 \end{figure} 
 
 \clearpage
 
-Now, after we have seen what the application is about and got a first idea about used components within the \ac{UML} sequence diagrams, we will now take a closer look at the planned architecture.
+Now, after we have seen what the application is about and got a first idea about used components within the \ac{UML} sequence diagrams, we will  take a closer look at the planned architecture.
 
 \section{Architecture of the application}
 \label{architecture}
 The architecture design phase within agile projects is slightly different from the design in common respectively classical development projects. Within a classical development process, one would design the architecture of the system on its whole, before the actual programming phase is started (\cite{Patterns:2009aa}). This is, obviously, not applicable within an agile development approach as not all requirements are stated in the beginning of the development process. As \cite{Mast2013} points out, agile architecture design has the following important attributes:
 
 \begin{enumerate}
-	\item At the beginning one has only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
+	\item At the beginning one has got only an idea about the architecture, which describes the most important constraints. However, there has to be enough space to be able to adapt the architecture to new or changing requirements within the development process.
 	\item This approach enables the developer to be able to use an iterative development style and to postpone important development choices to the \textit{Least Responsible Moment}. The \textit{Least Responsible Moment} is the latest possible point in time, where you can implement an architecture decision.
 	\item This way, detailed structures and technical concepts are created on-the-fly, while the application gets developed.
 \end{enumerate}
@@ -110,9 +109,9 @@ The architecture design phase within agile projects is slightly different from t
 \label{hip:architecture}
 \end{figure}
 
-That said, we will choose a 2-tier 3-layer architecture for the development for the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-layer architecture is nice because it enables us to exchange the first layer (and thus the first tier) easily, which is a feature that we will need to support the web-backend and a smartphone front-end. 
+That said, we will choose a 2-tier 3-layer architecture for the development of the application. This is, according to \cite{Eckerson1995}, a quite common architecture for Client/Server respectively web applications. Within our application, the 3-layer architecture is nice because it enables us to exchange the first layer (and thus the first tier) easily, which is a feature that we will need to support the web-backend and a smartphone front-end. 
 
-The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows also the storage layer, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application layer on the second tier. Nevertheless, we want to build a fast and application that is able to give instant feedback to the user within the \ac{UI}. Because of that, some parts of the application layer need to be included on the client side within the presentation layer. Because of that, the presentation layer will be much more complex as it is shown in this brief draft since AngularJS, which is used in this layer, relies on a \ac{MVVM} architecture on its own.
+The main idea about the architecture is shown in Figure \ref{hip:architecture}. The figure shows also the storage layer, which will be driven by a MongoDB. The data that will be stored in the MongoDB gets prepared by the Play-Framework, which will create the foundation for the application layer on the second tier. Nevertheless, we want to build a fast  application that is able to give instant feedback to the user within the \ac{UI}. Because of that, some parts of the application layer need to be included on the client side within the presentation layer. Because of that, the presentation layer will be much more complex as it is shown in this brief draft since AngularJS, which is used in this layer, relies on a \ac{MVVM} architecture on its own.
 However, more detailed decisions about the architecture design are postponed to the \textit{least responsible moment}, as it has been suggested by \cite{Mast2013}.
 
 Now, we have an idea about the general architecture. Nevertheless, we need to take a look at the usage of the different components (e.g., frameworks, libraries and tools) and how they will work together.
@@ -129,16 +128,16 @@ As we have seen in section \ref{architecture} a lot of application logic will be
 The figure shows that the backend system will make use of AngularJS and Bootstrap UI to create the \ac{UI} itself. Furthermore, these two components will be supported by a couple of smaller \ac{JS} libraries for highlighting (i.e., \emph{AnnotatorJS}) or word processing environments (i.e., \emph{textAngular}). To create highlighting with AnnotatorJS that is persistent, we need to send the information via another \ac{REST} interface to storage service.
 However, this creates the need for the user of the \ac{HiP} application to register on this backend service, which is not acceptable. This is why the authentication of the user can be pushed from the \ac{HiP} backend to the storage service (i.e., AnnotateIt) with a \ac{JWT}. This \ac{JWT} is a digital claim encoded as a \ac{JSON} object that is digitally signed using a \ac{JWS}. It offers a possibility to represent claims that can be transferred between two parties in a safe way. More details about this authentication process will be shown in chapter \ref{implementation}.
 
-After we have now seen the general architecture and the used frameworks, we will take a look at the different part of the system in more detail.
+Now, after we have seen the general architecture and the used frameworks, we will take a look at the different part of the system in more detail.
  
 \section{Backend (Web-Server)}
 The most important part of the system for this thesis is contained within the backend-web-server. The backend should contain the whole data handling and data assessment. The students should be able to add data to the system (e.g., a textual article, graphics, \ac{AR}-data, etc.) and to modify existing data via a \ac{CMS}. These entries get reviewed, for example by the course supervisor, and unlocked for the frontend application by an user, who represents the master role. To do this, the backend needs features like annotations and highlighting, which should be private for a specific user. By using this, the supervisor can evaluate the given texts right within the \ac{CMS} and give his final judgement. If the supervisor is not satisfied with the quality of the given text, he should be able to send the document back to the student to get a revised and updated version of the document. If the supervisor is satisfied, he can unlock the information for showing in the frontend application. The whole process is also shown in Figure \ref{workflow_backend}, which can be found in the appendix. The figure shows the complete workflow within the backend system as a flowchart.
 
-The data (i.e., topics, graphics, etc.) should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) are also very important for the described filtering techniques on the client side.
+The data (i.e., topics, graphics, etc.) should be stored in a way that it can be shown within an \ac{AR}-environment in the smartphone application. Of course, we will need some mechanism to structure the data, for example tags or stored categories. This kind of information (especially tags) is also very important for the described filtering techniques on the client side.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{gfx/mockup_web_1}}
-\caption{A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application}
+\caption{A mockup showing the augmentation editor that will be included in the web-application. The editor will be used to edit the point-clouds, which have been added with the help of the smartphone-application.}
 \label{augmentation_web}
 \end{figure}
 
@@ -147,9 +146,9 @@ Furthermore, the backend should include a way to modify the point-clouds of the 
 The following subsections will take a closer look at specific parts of the backend to create a better foundation for the cost estimation at the end of this section. 
 
 \subsection{Input data/content via the \ac{CMS} in the system}
-The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. Besides the general topics, the system will also able to handle subtopics, which are more detailed/refined topics that belong to the main topic. For example, if the main topic handles a specific church, than typical subtopics could be \emph{creation and history}.
+The storage of the data respectively content of the topics and groups will be mainly done by using the MongoDB. For example, a topic will be an object with information like version number, content, etc. Besides the general topics, the system will also be able to handle subtopics, which are more detailed/refined topics that belong to the main topic. For example, if the main topic handles a specific church, then typical subtopics could be \emph{creation} and \emph{history}.
 
-So, when an user changes something at a topic, the data is changed on the model within the view and send back to the model in the backend. This can be done quite easy with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. However, this way of data handling (i.e., modifying on the client side and sending data back as soon as the user hits the \emph{save} button) induces problems if more than one user works at the same time at the same topic. Imagine user $A$ and $B$ start to work at the same topic at the same point in time. Then both download the same content on their client side but if $A$ clicks \emph{save} before $B$, then $B$ will override all changes from $A$. We will prevent this problem by creating a \emph{lock} mechanism on a topic. So, if $A$ works on the topic, $B$ is not able to start editing in the first place. The now induced efficiency problem (i.e., only one user can work at a topic) will be reduced by offering features for creating different text blocks that are autonomously locked. So, $A$ is not locking the topic \emph{S\"udring center} but only a part of it (e.g., \emph{S\"udring center - Introduction}).
+So, when an user changes something at a topic, the data is changed on the model within the view and sent back to the model in the backend. This can be done quite easily with AngularJS because it provides a \ac{HTTP} module that can send \ac{HTTP} requests with a simple call like $http.post(destination,data)$ to update the model with values from the view-model. However, this way of data handling (i.e., modifying on the client side and sending data back as soon as the user hits the \emph{save} button) induces problems if more than one user works at the same time on the same topic. Imagine user $A$ and $B$ start to work on the same topic at the same point in time. Then both download the same content on their client side but in the case $A$ clicks \emph{save} before $B$, then $B$ will overwrite all changes by $A$. We will prevent this problem by creating a \emph{lock} mechanism on a topic. So, if $A$ works on the topic, $B$ is not able to start editing in the first place. The now induced efficiency problem (i.e., only one user can work at a topic) will be reduced by offering features for creating different text blocks that are autonomously locked. So, $A$ is not locking the topic \emph{S\"udring Center} but only a part of it (e.g., \emph{S\"udring Center - Introduction}).
 
 The following pseudo-code in Listing \ref{locked} shows the algorithm that is used to lock the topics. 
 
@@ -191,7 +190,7 @@ However, to handle the organization of these topics, we will need to implement g
 But including data in the system is not enough for working with topics. We need also ways to offer review features for supervising users. 
 
 \subsection{Manage content as a reviewer}
-The reviewer should be able to review the content that gets send in by the students. In this process, he should be able to attach comments to the topic itself and send feedback to the students. This can easily be handled by the \ac{JS} library \emph{AnnotateJS} and will be explained in more detail within chapter \ref{implementation}.
+The reviewer should be able to review the content that gets sent in by the students. In this process, he should be able to attach comments to the topic itself and send feedback to the students. This can easily be handled by the \ac{JS} library \emph{AnnotateJS} and will be explained in more detail within chapter \ref{implementation}.
 
 The attachment of information and comments to a complete topic can easily be created by using the chat system and a new chat room, which is exclusively opened for that topic object. 
 
@@ -199,15 +198,15 @@ If the supervisor is satisfied with the given quality, he should be able to mark
 
 \subsection{Including a 3D-Tooling system for point-clouds (JSModeler)}
 \label{modelingObjects}
-The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student. However, because the needed file format is proprietary and the owning company Metaio does not publish any information about the format, we will not include a complete modeling editor within the backend. More details about the problematic file format are described in section \ref{creator3dmapProblem}. We will leave this problem open for the project group. Maybe they are able to reverse-engineer needed information or exchange the used technology (e.g., using \emph{Wikitude} instead of \emph{Junaio}).
+The augmentation editor will be needed to edit the objects (i.e., point clouds) that have been scanned with a smartphone by a student. However, because the needed file format is proprietary and the owning company Metaio does not publish any information about the format, we will not include a complete modeling editor within the backend. More details about the problematic file format are described in section \ref{creator3dmapProblem}. We will leave this problem unsolved for the project group. Maybe they are able to reverse-engineer needed information or exchange the used technology (e.g., using \emph{Wikitude} instead of \emph{Junaio}).
 
-Any way, the editor should in the end be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. The mockup shows the rendered point-cloud and two buttons to edit the augmentations on this point-cloud. This information can afterwards be shown within the fronted application.
+Anyway, in the end, the editor should be able to show the stored point-clouds and attach objets (for example images) to it. These images can, for example, contain annotations and/or further information. Figure \ref{augmentation_web} shows a mockup of such a system. The mockup shows the rendered point-cloud and two buttons to edit the augmentations on this point-cloud. This information can be shown within the fronted application, afterwards.
 
 Because of the described problems, we will include a mockup system within this master thesis that should be able to render 3D-objects without editing features. To create this, we will use the library \emph{JSModeler}, which is a great start for such a system.
 
 \subsection{Cost estimation of the backend}
 \label{backendEstimation}
-Now, as we have seen the major ideas about the backend, we will try to create a rough cost-estimation about the backend. The story points have been explained in section \ref{storyPoints} and should represent 6 hours per point. This way, we get only a rough estimation. Nonetheless, this rough estimation should be sufficient to get an idea about the needed time. However, note that some parts of the system could be subject for change because we are using an agile approach and some new requirements may come up within the development process.
+Now, as we have seen the major ideas about the backend, we will try to create a rough cost estimation about the backend. The story points have been explained in section \ref{storyPoints} and should represent 6 hours per point. This way, we get only a rough estimation. Nonetheless, this  estimation should be sufficient to get an idea about the needed time. However, note that some parts of the system could be subject for change because we are using an agile approach and some new requirements may come up within the development process.
 
  \begin{table}[h]
 \scriptsize
@@ -278,7 +277,7 @@ With the Junaio eco-system of the company Metaio it is quite easy to scan object
 	\label{MetToolbox}
 \end{figure}	
 
-However, because of the problematic file format, there may be a shift the the Junaio eco-system to alternative environments. The problems with the \emph{creator3dmap} are described in the following section.
+However, because of the problematic file format, there may be a shift from the Junaio eco-system to alternative environments. The problems with the \emph{creator3dmap} are described in the following section.
 
 \subsubsection{Data format for \ac{AR} files}
 \label{creator3dmapProblem}
@@ -352,7 +351,7 @@ backgroundcolor=\color{grey}}
 
 After doing that, we can access the direction service by posting a \ac{JSON} object to the Google service and use the returned data to render the navigation path within our application. The construction of such a \ac{JSON} object is shown in Listing \ref{Android:dirService}. 
 
-As we can see, this object include information like the position of the navigation origin, the position of the destination and specific travel options (e.g., using train, car, etc.). After we have send this object, we need to render the returned data. This is, for example, possible by drawing lines on the map using the $google.maps.Polyline$ class. This is shown in Listing \ref{Android:polyline}.
+As we can see, this object include information like the position of the navigation origin, the position of the destination and specific travel options (e.g., using train, car, etc.). After we have sent this object, we need to render the returned data. This is, for example, possible by drawing lines on the map using the $google.maps.Polyline$ class. This is shown in Listing \ref{Android:polyline}.
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -360,7 +359,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Example for writing a poly line on the google map},label=Android:polyline,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Example for writing a poly line on the google map.},label=Android:polyline,frame=tlbr,breaklines]
 function initialize() {
   var mapOptions = {
          /* positioning of the map */
@@ -388,14 +387,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript. The flightPath object is directly created as a Polyline object with the given coordinates. After that, it can directly be placed on the map. Although the shown code is \ac{JS}, the Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Obviously, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality, which has been expressed within the first requirements meeting. One just needs to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
 
-Another, more complex but more powerful, approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
+Another more complex but more powerful approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
 
 But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
 
 However, by using \ac{GPS} we are only able to creating a good location awareness for outdoor situations. As soon as the user of the smartphone enters building, we need to think about other ways to get a precise estimation about the position of the user. The smartphone application could include this by using iBeacons. 
 An iBeacon is a new approach for creating very precise location estimations that has been developed by Apple. Technically, \ac{BLE} is used to connect to a device that supports the iBeacon technology within a region around the device (i.e., the object that has the iBeacon device attached). This allows a smartphone to determine whether it has entered or left the region and to create an estimation about the proximity to the beacon (\cite{Apple:2014aa}). Natively, only iOS since version 7.0 offers support for the usage of iBeacon.
 
-However, there exist a couple of libraries on the Android platform that offer solutions for creating iBeacon functionality for Android. Two of these libraries are created by Radius Networks and Sensorberg. Sensorberg's solution was for example used to create the iBeacon based indoor navigation at the Cebit 2014 (\cite{Kaufmann:2014aa}). However, Sensorberg focuses on the distribution of own hardware in combination with its library. So, the library of Radius Networks called \emph{Android Beacon Library}, which offers mainly its library licensed under the Apache License Version 2.0, is more interesting for our project. The library allows Android devices to use beacons in a similar way like iOS devices. This means, every app using this library on the Android smartphone can request to get notifications when the smartphone reaches a close range to a beacon respectively leaves it (\cite{RadiusNetworks:2015aa}). 
+However, there exist a couple of libraries on the Android platform that offer solutions for creating iBeacon functionality for Android. Two of these libraries are created by Radius Networks and Sensorberg. Sensorberg's solution, for example, was used to create the iBeacon based indoor navigation at the Cebit 2014 (\cite{Kaufmann:2014aa}). However, Sensorberg focuses on the distribution of own hardware in combination with its library. So, the library of Radius Networks called \emph{Android Beacon Library}, which offers mainly its library licensed under the Apache License Version 2.0, is more interesting for our project. The library allows Android devices to use beacons in a similar way like iOS devices. This means, every app using this library on the Android smartphone can request to get notifications when the smartphone reaches a close range to a beacon respectively leaves it (\cite{RadiusNetworks:2015aa}). 
 
 The usage of the library is very easy and fast. One only needs to derive a new class from a class that is included within the library and overwrite a couple of methods. For example, by a simple overwrite of the method \emph{didEnterRegion(Region region)} one can handle the reaction of the smartphone application when a new iBeacon has been found (\cite{RadiusNetworks:2015ab}).   
 
@@ -410,7 +409,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Creation and usage of an Android \ac{HTTP} client},label=Android:HTTP,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Creation and usage of an Android \ac{HTTP} client.},label=Android:HTTP,frame=tlbr,breaklines]
 /* init variables */
 [...]
 

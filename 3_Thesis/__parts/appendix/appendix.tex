@@ -2,7 +2,9 @@
 The appendix contains diagrams and tables that were to big to put them into the continuous text. Furthermore, it contains a small installation manual for the \ac{HiP} backend.
 
 \section{Installation manual}
-The installation process of the \ac{HiP} backend is quite simple. In general, you need to install 3 different things: The Play 2.0 framework, the MongoDB and \ac{NPM}. In more detail, the process looks like this:
+The installation process of the \ac{HiP} backend is quite simple. In general, you need to install 3 different things: The Play 2.0 framework, the MongoDB and \ac{NPM}. 
+
+In more detail, the process looks like this:
 
 \begin{enumerate}
 	\item Get your Play 2.0 framework instance from \url{https://www.playframework.com/download}
@@ -11,7 +13,7 @@ The installation process of the \ac{HiP} backend is quite simple. In general, yo
 	\item Switch to \%hipRoot/public
 	\item Run npm link on your command line
 	\item Download MongoDB from \url{http://www.mongodb.org/downloads}
-	\item Run the MongoDB with the provided default database (this can be done on a Windows PC with the following command: \\ \verb|mongod --dbpath $<<$PATH TO THE PROVIDED DB$>>$)|
+	\item Run the MongoDB with the provided default database (this can be done on a Windows PC with the following command: \\ \verb|mongod --dbpath <<PATH TO THE PROVIDED DB>>|
 	\item Again: Go to your \ac{HiP} root folder
 	\item	Start the \ac{HiP} backend by using the command: activator run
 \end{enumerate}
@@ -285,7 +287,7 @@ The IDs of the entries within the tables, which are written in bold letters, wil
 	\textbf{BMi4} & The system should be \textbf{expandable} 		&  	& 1	\\
 	 	& (e.g., new content, filters, etc.)						&  	& 		\\
 	\hline
-	\textbf{BMi5} & The system should be \textbf{safe} with respect 	& -The system should be safe with 	& 1	\\
+	\textbf{BMi5} & The system should be \textbf{safe} with respect 	& - The system should be safe with 	& 1	\\
 	 	& to hackers resp. data manipulation 					&  respect to the economic view/ 	& 	\\
 		&												& definition of safety			&\\
 	\hline
@@ -472,7 +474,7 @@ F1 & The user should be able to \textbf{navigate} 			&  - The navigation should 
 	UW10 & Groups: Request confirmation on delete & Yes & 1 \\
 	UW11 & Groups: Use light signs to show status & Yes & 1 \\
 	UW12 & Groups: Show content as tree-structures & No & 1 \\
-	UW13 & Groups: Add user-feedback to the dialogue & Yes & 1 \\
+	UW13 & Groups: Add user feedback to the dialogue & Yes & 1 \\
 	UW14 & Chat: Improve the whole chat system (i.e., make it global) & No & 1 \\
 	UW15 & Topic creation: Add free-text search  & Yes & 1 \\
 	UW16 & Topic creation: Show subtopics in tree-structures  & No & 1 \\
@@ -482,32 +484,32 @@ F1 & The user should be able to \textbf{navigate} 			&  - The navigation should 
 	UW20 & Group creation: Use simpler date-picker  & No & 2 \\
 	UW21 & Group-box: Remove refresh button  & Yes & 2 \\
 	UW22 & Template-box: Do not close menu by clicking on the \emph{<div>}  & Yes & 2 \\
-	UW23 & Template-box: Exchange the way the pulldown-button works  & Yes & 2 \\
+	UW23 & Template-box: Exchange the way the pulldown button works  & Yes & 2 \\
 	UW24 & Template-box: Use a scroll-view for the preview mode  & No & 3 \\
 	UW25 & Browse: Remove button  & Yes & 3 \\
 	UW26 & Notification-box: Exchange icon for filter  & Yes & 2 \\
 	UW26 & Notification-box: Show data more tabular  & No & 2 \\
 	UW27 & Navigation: Remove Home-button  & Yes & 2 \\
 	UW28 & Navigation: Show the currently logged-in user  & Yes & 2 \\
-	UW29 & Mail-system: Show user-feedback for sent-messages & Yes & 2 \\
+	UW29 & Mail-system: Show user feedback for sent messages & Yes & 2 \\
 	UW30 & Mail-system: Add outbox  & Yes & 2 \\	
 	UW31 & Mail-system: Show usernames and not mail-addresses  & Yes & 2 \\
 	UW32 & Mail-system: Add e-mail notification for in-system messages  & No & 2 \\
 	UW33 & Contact form: Add contact form  & No & 3 \\
 	UW34 & Propose topics: More help-text & Yes & 2 \\
 	UW35 & Propose topics: Wrong label on button  & Yes & 2 \\
-	UW36 & Topic edit: Exchange full-screen logo  & Yes & 3 \\
+	UW36 & Topic edit: Exchange fullscreen logo  & Yes & 3 \\
 	UW37 & Topic edit: Edit-frame is buggy  & No & 3 \\
 	UW38 & Topic edit: Automatically show new pictures  & Yes & 2 \\
-	UW39 & Topic edit: Exchange editor-plugin  & No & 3 \\
+	UW39 & Topic edit: Exchange editor plugin  & No & 3 \\
 	UW40 & Topic edit: Do not switch view on map by click on the map  & Yes & 2 \\
 	UW41 & Topic edit: Make Button labels better understandable  & No & 2 \\
 	UW42 & Topic edit: Show what is located at a given GPS position & No & 2 \\
 	UW43 & Topic edit: Add autocomplete for address field (GPS) & No & 2 \\
 	UW44 & Topic edit: Change position of footnote-box with respect  & Yes & 2 \\
 	& to locality  &  &  \\
-	UW45 & Topic edit: Do not use red-colors on buttons & Yes & 2 \\
-	UW46 & Topic edit: Add delete-mode for tags to prevent deleting & Yes & 2 \\
+	UW45 & Topic edit: Do not use red colors on buttons & Yes & 2 \\
+	UW46 & Topic edit: Add \emph{delete mode} for tags to prevent deleting & Yes & 2 \\
 	& by accident   &  &  \\
 	UW47 & Topic edit: Order of history is buggy  & No & 2 \\
 \end{longtable}

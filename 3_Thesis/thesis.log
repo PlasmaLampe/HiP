@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  17 APR 2015 18:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  20 APR 2015 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3131,7 +3131,7 @@ tt1095.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.
 pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (119 pages, 4309386 bytes).
+Output written on thesis.pdf (119 pages, 4309398 bytes).
 PDF statistics:
  3617 PDF objects out of 4296 (max. 8388607)
  3154 compressed objects within 32 object streams
