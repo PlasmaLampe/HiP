@@ -71,11 +71,11 @@ Table \ref{tab:ucTopicChange} shows that in case a student wants to change the c
 
 The second use case scenario is shown within Table \ref{tab:ucGroupCreation}. It shows that it will be quite easy for a supervisor to create a new group. The only steps he needs to take are to log into the system, open the correct view and input all needed information (e.g., members of the group). 
 
-However, even these two simple use cases include complex interaction between the different controllers and views within the system. This is shown in the \ac{UML} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both diagrams contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchanged and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
+However, even these two simple use cases include complex interaction between the different controllers and views within the system. This is shown in the \ac{UML2} sequence diagrams within Figure \ref{SD1} and Figure \ref{SD2}. Note that both \ac{UML2} sequence diagrams does not contain the actual storing within the database to keep them on a manageable level of complexity/details. So, both diagrams contain only \emph{<<UI>>} and \emph{<<Controller>>} elements. Both \ac{UML2} sequence diagrams show AngularJS partials as \emph{<<UI>>} elements. These partials are \ac{HTML} parts that can be exchanged and offer different \ac{UI} elements. The connection to the backend is done by the \emph{Play framework routing} controller, which redirects the \ac{HTTP} requests to the fitting controller.
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/SDChangeContent}}
-\caption{The corresponding \ac{UML} sequence diagram for use case \glqq\emph{Student changes content of a topic}\grqq.}
+\caption{The corresponding \ac{UML2} sequence diagram for use case \glqq\emph{Student changes content of a topic}\grqq.}
 \label{SD1}
 \end{figure} 
 
@@ -85,13 +85,13 @@ In a similar way, Figure \ref{SD2} shows the process and the interaction of the 
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/SDCreateGroup}}
-\caption{The corresponding \ac{UML} sequence diagram for use case \glqq\emph{Supervisor creates a new group}\grqq.}
+\caption{The corresponding \ac{UML2} sequence diagram for use case \glqq\emph{Supervisor creates a new group}\grqq.}
 \label{SD2}
 \end{figure} 
 
 \clearpage
 
-Now, after we have seen what the application is about and got a first idea about used components within the \ac{UML} sequence diagrams, we will  take a closer look at the planned architecture.
+Now, after we have seen what the application is about and got a first idea about used components within the \ac{UML2} sequence diagrams, we will  take a closer look at the planned architecture.
 
 \section{Architecture of the application}
 \label{architecture}
@@ -260,24 +260,26 @@ After an user has reached an interesting place, he can use the details tab to sw
 
 To create a feasible input for the \ac{AR} system, the user should be able to scan objects in 3D directly with his smartphone and send the data (i.e., a point-cloud of the scanned object), back to the web-server.  Afterwards, the user can add annotations to the point-cloud via the web-backend of the system. 
 
-In the following, we will focus on the planning and cost estimations off the frontend applications because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included within the draft. 
-
-\begin{figure}[th]
-	\centerline{\includegraphics[width=0.7\textwidth]{gfx/mockup_app_2}}
-	\caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself.}
-	\label{app2}
-\end{figure}			
+In the following, we will focus on the planning and cost estimation of the frontend application because our actual prototypical implementation contains only the backend system.  However, code examples (for Android) and ideas will be included within the draft. 
 
 \subsection{Input data into the system (scan objects and annotate them)} 
-With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown in Figure \ref{MetToolbox}. When an object gets scanned with the Toolbox, the file is stored on the smartphone's filesystem and can be shared by using email attachments.
+With the Junaio eco-system of the company Metaio it is quite easy to scan objects and store them as point clouds that can be used to track the object with Junaio. The scanning process itself is done by the \emph{Metaio Toolbox}. A screenshot of the \emph{Metaio Toolbox} is shown in Figure \ref{MetToolbox}. When an object gets scanned with the Toolbox, the file is stored on the smartphone's filesystem and can be shared by using email attachments.	
+
+However, because of the problematic file format, there may be a shift from the Junaio eco-system to alternative environments. The problems with the \emph{creator3dmap} format are described in the following section.
+
+\begin{figure}[th]
+	\centerline{\includegraphics[width=0.6\textwidth]{gfx/mockup_app_2}}
+	\caption{A mockup showing the details page of the "Dreihasenfenster" while the camera of the smartphone is pointing to the window itself.}
+	\label{app2}
+\end{figure}	
 
 \begin{figure}[th]
 	\centerline{\includegraphics[width=0.5\textwidth]{gfx/toolbox.png}}
 	\caption{The main menu of the \emph{Metaio Toolbox} showing the main features of the app.}
 	\label{MetToolbox}
-\end{figure}	
+\end{figure}		
 
-However, because of the problematic file format, there may be a shift from the Junaio eco-system to alternative environments. The problems with the \emph{creator3dmap} are described in the following section.
+\clearpage 
 
 \subsubsection{Data format for \ac{AR} files}
 \label{creator3dmapProblem}
@@ -285,8 +287,8 @@ The scanned objects are saved within the \emph{3dmap} and \emph{creator3dmap} fo
 
 Thus, this part of the thesis is postponed and left open for the Project Group.
 
-\subsection{Show close "interesting places" within a map} 
-In the end, every topic will contain \ac{GPS} coordinates for exhibits and locations, which has been added by students. We can make use of this information to get a location specific map and navigation features on the smartphone. 
+\subsection{Show close or interesting places within a map} 
+In the end, every topic will contain \ac{GPS} coordinates for exhibits and locations, which has been added by students. We can make use of this information to get a location-specific map and navigation features on the smartphone. 
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -295,11 +297,6 @@ showstringspaces=false,
 tabsize=2,
 backgroundcolor=\color{grey}}
 \begin{lstlisting}[numbers=left,caption={Example for using the GPS coordinates within an Android application},label=Android:GPS,frame=tlbr,breaklines]
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
-import android.app.Activity;
-import android.os.Bundle;
-
 public class MapPane extends Activity implements OnMapReadyCallback {
 
     @Override
@@ -353,6 +350,8 @@ After doing that, we can access the direction service by posting a \ac{JSON} obj
 
 As we can see, this object include information like the position of the navigation origin, the position of the destination and specific travel options (e.g., using train, car, etc.). After we have sent this object, we need to render the returned data. This is, for example, possible by drawing lines on the map using the $google.maps.Polyline$ class. This is shown in Listing \ref{Android:polyline}.
 
+\clearpage 
+
 \lstset{language=Java,
 basicstyle=\small,
 showspaces=false,
@@ -387,7 +386,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 As we can see in Listing \ref{Android:polyline}, we can directly draw on the map, which is really fast. The listing shows the code in Javascript. The flightPath object is directly created as a Polyline object with the given coordinates. After that, it can directly be placed on the map. Although the shown code is \ac{JS}, the Polyline class can, however, be accessed natively with the Android SDK (\cite{GooglePolylineNative}). Obviously, the simplicity of the usage of the Google Maps API is a good foundation for more complex functionality, like the treasure hunt respectively geocaching functionality, which has been expressed within the first requirements meeting. One just needs to create an array of $LatLng$ objects from the locations that should be used as waypoints, the remaining work is done from the Google directions service.  
 
-Another more complex but more powerful approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., from different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
+Another more complex but more powerful approach would be to fork the \ac{OsmAnd} project and use the code as a basis for the HiP-Navigation feature. \ac{OsmAnd} is a map and navigation application that uses the \ac{OSM} data. The application offers routing with optical and voice guidance and navigation for car, bike, and pedestrian (\cite{osmand}). Furthermore, all main functionalities can be used online and offline, which is nice, because we can directly include the needed maps for the area of paderborn. This would reduce the load on the internet connection of the mobile device (i.e., smartphone). Another great feature of \ac{OsmAnd} is that it is capable of using different map overlays. An example for such an overlay is one for touring features. These functions could be modified within the HiP-Application to render different city plans (e.g., of different epochs). Last but not least, \ac{OsmAnd} supports intermediate points on your route, which can be modified for the treasure hunt functionality.
 
 But, as we have stated before, forking this project to create the \ac{HiP}-navigation application results in much more work but we end up with a complete navigation application with every common function. 
 
@@ -396,7 +395,7 @@ An iBeacon is a new approach for creating very precise location estimations that
 
 However, there exist a couple of libraries on the Android platform that offer solutions for creating iBeacon functionality for Android. Two of these libraries are created by Radius Networks and Sensorberg. Sensorberg's solution, for example, was used to create the iBeacon based indoor navigation at the Cebit 2014 (\cite{Kaufmann:2014aa}). However, Sensorberg focuses on the distribution of own hardware in combination with its library. So, the library of Radius Networks called \emph{Android Beacon Library}, which offers mainly its library licensed under the Apache License Version 2.0, is more interesting for our project. The library allows Android devices to use beacons in a similar way like iOS devices. This means, every app using this library on the Android smartphone can request to get notifications when the smartphone reaches a close range to a beacon respectively leaves it (\cite{RadiusNetworks:2015aa}). 
 
-The usage of the library is very easy and fast. One only needs to derive a new class from a class that is included within the library and overwrite a couple of methods. For example, by a simple overwrite of the method \emph{didEnterRegion(Region region)} one can handle the reaction of the smartphone application when a new iBeacon has been found (\cite{RadiusNetworks:2015ab}).   
+The usage of the library is very easy. One only needs to derive a new class from a class that is included within the library and overwrite a couple of methods. For example, by a simple overwrite of the method \emph{didEnterRegion(Region region)} one can handle the reaction of the smartphone application when a new iBeacon has been found (\cite{RadiusNetworks:2015ab}).   
 
 Because we are now able to fetch the location of the user indoor and outdoor, we will now take a look at possibilities to use this information.
 

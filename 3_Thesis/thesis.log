@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  20 APR 2015 16:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.2)  23 APR 2015 11:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1667,7 +1667,8 @@ Overfull \hbox (3.06299pt too wide) in paragraph at lines 15--15
  within 
  []
 
-Package acronym Info: Label `acro:UML' newly defined as it shall be overridden
+Package acronym Info: Label `acro:UML2' newly defined as it shall be overridden
+
 although it is yet undefined on input line 16.
 
 Overfull \hbox (1.50809pt too wide) in paragraph at lines 18--18
@@ -1681,14 +1682,15 @@ Overfull \hbox (2.82283pt too wide) in paragraph at lines 18--18
 hone 
  []
 
+Package acronym Info: Label `acro:JWT' newly defined as it shall be overridden
+although it is yet undefined on input line 27.
 [9
 
 ]
 Package acronym Info: Label `acro:HiP' newly defined as it shall be overridden
 although it is yet undefined on input line 31.
-Package acronym Info: Label `acro:UML2' newly defined as it shall be overridden
-
-although it is yet undefined on input line 39.
+Package acronym Info: Label `acro:UML' newly defined as it shall be overridden
+although it is yet undefined on input line 40.
 )
 \tf@lof=\write8
 \openout8 = `thesis.lof'.
@@ -1715,6 +1717,12 @@ Class scrreprt Warning: Usage of deprecated \float@listhead!
 e 54.
 
 (./thesis.lol [10]
+Package acronym Info: Label `acro:HTML5' newly defined as it shall be overridde
+n
+although it is yet undefined on input line 12.
+Package acronym Info: Label `acro:AREL' newly defined as it shall be overridden
+
+although it is yet undefined on input line 12.
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 
 although it is yet undefined on input line 18.
@@ -1792,13 +1800,7 @@ Package microtype Info: Character `029' is missing
 
  (./__parts/chapters/2Basics.tex
 Chapter 2.
-
-Overfull \hbox (2.72672pt too wide) in paragraph at lines 10--11
-\T1/pplj/m/n/10.95 model show-ing this sit-u-a-tion for an (offline-) gen-eral 
-uni-ver-sity course is shown
- []
-
-<gfx/domainModel.pdf, id=727, 341.94691pt x 202.20705pt>
+<gfx/domainModel.pdf, id=735, 341.94691pt x 202.20705pt>
 File: gfx/domainModel.pdf Graphic file (type pdf)
 
 <use gfx/domainModel.pdf>
@@ -1870,7 +1872,7 @@ Overfull \hbox (0.91083pt too wide) in paragraph at lines 28--29
 e ap-proach within ev-ery sprint
  []
 
-<gfx/scrum.png, id=782, 815.045pt x 507.8975pt>
+<gfx/scrum.png, id=790, 815.045pt x 507.8975pt>
 File: gfx/scrum.png Graphic file (type png)
  <use gfx/scrum.png>
 Package pdftex.def Info: gfx/scrum.png used on input line 31.
@@ -1918,7 +1920,7 @@ Package xcolor Warning: Incompatible color definition on input line 42.
 
 Package xcolor Warning: Incompatible color definition on input line 42.
 
-[7] [8 <./gfx/scrum.png>] <gfx/burndown.png, id=816, 771.88374pt x 443.6575pt>
+[7] [8 <./gfx/scrum.png>] <gfx/burndown.png, id=824, 771.88374pt x 443.6575pt>
 File: gfx/burndown.png Graphic file (type png)
 
 <use gfx/burndown.png>
@@ -1984,7 +1986,7 @@ Package xcolor Warning: Incompatible color definition on input line 79.
 
 Package xcolor Warning: Incompatible color definition on input line 79.
 
-[11] <gfx/continuous-delivery.png, id=866, 671.50874pt x 491.8375pt>
+[11] <gfx/continuous-delivery.png, id=874, 671.50874pt x 491.8375pt>
 File: gfx/continuous-delivery.png Graphic file (type png)
 
 <use gfx/continuous-delivery.png>
@@ -2016,221 +2018,202 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
 ) [13]
 LaTeX Font Info:    Font shape `T1/pplj/bx/n' in size <10> not available
 (Font)              Font shape `T1/pplj/b/n' tried instead on input line 139.
 Package acronym Info: Label `acro:HTML' newly defined as it shall be overridden
 
-although it is yet undefined on input line 154.
+although it is yet undefined on input line 147.
 Package acronym Info: Label `acro:JSON' newly defined as it shall be overridden
 
-although it is yet undefined on input line 154.
+although it is yet undefined on input line 147.
 Package acronym Info: Label `acro:API' newly defined as it shall be overridden
-although it is yet undefined on input line 154.
+although it is yet undefined on input line 147.
 
 [14]
 
-Package xcolor Warning: Incompatible color definition on input line 172.
+Package xcolor Warning: Incompatible color definition on input line 165.
 
 
-Package xcolor Warning: Incompatible color definition on input line 172.
+Package xcolor Warning: Incompatible color definition on input line 165.
 
 Package acronym Info: Label `acro:XML' newly defined as it shall be overridden
-although it is yet undefined on input line 178.
+although it is yet undefined on input line 171.
 Package acronym Info: Label `acro:SOAP' newly defined as it shall be overridden
 
-although it is yet undefined on input line 181.
+although it is yet undefined on input line 174.
 Package acronym Info: Label `acro:WSDL' newly defined as it shall be overridden
 
-although it is yet undefined on input line 181.
+although it is yet undefined on input line 174.
 
-Package xcolor Warning: Incompatible color definition on input line 181.
-
-
-Package xcolor Warning: Incompatible color definition on input line 181.
+Package xcolor Warning: Incompatible color definition on input line 174.
 
 
-Package xcolor Warning: Incompatible color definition on input line 184.
+Package xcolor Warning: Incompatible color definition on input line 174.
 
 
-Package xcolor Warning: Incompatible color definition on input line 184.
+Package xcolor Warning: Incompatible color definition on input line 177.
+
+
+Package xcolor Warning: Incompatible color definition on input line 177.
 
 Package acronym Info: Label `acro:BSON' newly defined as it shall be overridden
 
-although it is yet undefined on input line 184.
+although it is yet undefined on input line 177.
 [15]
 Package acronym Info: Label `acro:SPA' newly defined as it shall be overridden
-although it is yet undefined on input line 226.
+although it is yet undefined on input line 219.
 
 
-Package xcolor Warning: Incompatible color definition on input line 226.
+Package xcolor Warning: Incompatible color definition on input line 219.
 
 
-Package xcolor Warning: Incompatible color definition on input line 226.
+Package xcolor Warning: Incompatible color definition on input line 219.
 
 Package acronym Info: Label `acro:DOM' newly defined as it shall be overridden
-although it is yet undefined on input line 226.
+although it is yet undefined on input line 219.
 Package acronym Info: Label `acro:MVVM' newly defined as it shall be overridden
 
-although it is yet undefined on input line 226.
+although it is yet undefined on input line 219.
 [16]
 Package acronym Info: Label `acro:AJAX' newly defined as it shall be overridden
 
-although it is yet undefined on input line 244.
+although it is yet undefined on input line 237.
  [17]
 
-Package xcolor Warning: Incompatible color definition on input line 262.
+Package xcolor Warning: Incompatible color definition on input line 255.
 
 
-Package xcolor Warning: Incompatible color definition on input line 262.
+Package xcolor Warning: Incompatible color definition on input line 255.
 
 [18]
 Package acronym Info: Label `acro:CSS' newly defined as it shall be overridden
-although it is yet undefined on input line 303.
+although it is yet undefined on input line 296.
 Package acronym Info: Label `acro:JS' newly defined as it shall be overridden
-although it is yet undefined on input line 303.
+although it is yet undefined on input line 296.
 
 
-Package xcolor Warning: Incompatible color definition on input line 303.
+Package xcolor Warning: Incompatible color definition on input line 296.
 
 
-Package xcolor Warning: Incompatible color definition on input line 303.
+Package xcolor Warning: Incompatible color definition on input line 296.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
-[][]\T1/pplj/m/n/9 Bootstrap UI can be down-loaded here: http://angular-ui.gith
-ub.io/bootstrap/
- []
+Package xcolor Warning: Incompatible color definition on input line 304.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
-\T1/pplj/m/n/9 and is dis-tributed un-der the MIT li-cense https://github.com/a
-ngular-
- []
+Package xcolor Warning: Incompatible color definition on input line 304.
 
-[19]
-
-Package xcolor Warning: Incompatible color definition on input line 311.
-
-
-Package xcolor Warning: Incompatible color definition on input line 311.
-
-<gfx/stackAREL.png, id=1088, 656.4525pt x 557.08125pt>
+[19] <gfx/stackAREL.png, id=1092, 656.4525pt x 557.08125pt>
 File: gfx/stackAREL.png Graphic file (type png)
- <use gfx/stackAREL.png>
-Package pdftex.def Info: gfx/stackAREL.png used on input line 314.
-(pdftex.def)             Requested size: 266.48735pt x 226.14369pt.
+
+<use gfx/stackAREL.png>
+Package pdftex.def Info: gfx/stackAREL.png used on input line 307.
+(pdftex.def)             Requested size: 304.55945pt x 258.45358pt.
 
 
-Package xcolor Warning: Incompatible color definition on input line 315.
+Package xcolor Warning: Incompatible color definition on input line 308.
 
 
-Package xcolor Warning: Incompatible color definition on input line 315.
+Package xcolor Warning: Incompatible color definition on input line 308.
 
 
-Package xcolor Warning: Incompatible color definition on input line 315.
+Package xcolor Warning: Incompatible color definition on input line 308.
 
 
-Package xcolor Warning: Incompatible color definition on input line 315.
-
-Package acronym Info: Label `acro:AREL' newly defined as it shall be overridden
-
-although it is yet undefined on input line 319.
-
-Package xcolor Warning: Incompatible color definition on input line 319.
+Package xcolor Warning: Incompatible color definition on input line 308.
 
 
-Package xcolor Warning: Incompatible color definition on input line 319.
+Package xcolor Warning: Incompatible color definition on input line 312.
+
+
+Package xcolor Warning: Incompatible color definition on input line 312.
 
 [20 <./gfx/stackAREL.png>]
-Package acronym Info: Label `acro:HTML5' newly defined as it shall be overridde
-n
-although it is yet undefined on input line 339.
 Package acronym Info: Label `acro:GUI' newly defined as it shall be overridden
-although it is yet undefined on input line 339.
+although it is yet undefined on input line 318.
 Package acronym Info: Label `acro:WebGL' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 344.
- [21]
+although it is yet undefined on input line 339.
+ [21
 
-Package xcolor Warning: Incompatible color definition on input line 354.
+]
 
-
-Package xcolor Warning: Incompatible color definition on input line 354.
-
-
-Package xcolor Warning: Incompatible color definition on input line 354.
+Package xcolor Warning: Incompatible color definition on input line 349.
 
 
-Package xcolor Warning: Incompatible color definition on input line 354.
+Package xcolor Warning: Incompatible color definition on input line 349.
 
 
-Package xcolor Warning: Incompatible color definition on input line 356.
+Package xcolor Warning: Incompatible color definition on input line 349.
 
 
-Package xcolor Warning: Incompatible color definition on input line 356.
+Package xcolor Warning: Incompatible color definition on input line 349.
 
 
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 351.
 
 
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 351.
+
+
+Package xcolor Warning: Incompatible color definition on input line 353.
+
+
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 Package acronym Info: Label `acro:NCSU' newly defined as it shall be overridden
 
-although it is yet undefined on input line 358.
+although it is yet undefined on input line 353.
 
-Package xcolor Warning: Incompatible color definition on input line 358.
-
-
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 
-Package xcolor Warning: Incompatible color definition on input line 358.
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 
-Package xcolor Warning: Incompatible color definition on input line 361.
-
-
-Package xcolor Warning: Incompatible color definition on input line 361.
+Package xcolor Warning: Incompatible color definition on input line 353.
 
 [22]
 
-Package xcolor Warning: Incompatible color definition on input line 371.
+Package xcolor Warning: Incompatible color definition on input line 356.
+
+
+Package xcolor Warning: Incompatible color definition on input line 356.
+
+
+Package xcolor Warning: Incompatible color definition on input line 366.
+
+
+Package xcolor Warning: Incompatible color definition on input line 366.
 
 
 Package xcolor Warning: Incompatible color definition on input line 371.
 
 
-Package xcolor Warning: Incompatible color definition on input line 376.
-
-
-Package xcolor Warning: Incompatible color definition on input line 376.
+Package xcolor Warning: Incompatible color definition on input line 371.
 
 Package acronym Info: Label `acro:BDD' newly defined as it shall be overridden
-although it is yet undefined on input line 378.
+although it is yet undefined on input line 373.
 
-Package xcolor Warning: Incompatible color definition on input line 378.
+Package xcolor Warning: Incompatible color definition on input line 373.
 
 
-Package xcolor Warning: Incompatible color definition on input line 378.
+Package xcolor Warning: Incompatible color definition on input line 373.
 
 [23]
 Package acronym Info: Label `acro:IDE' newly defined as it shall be overridden
-although it is yet undefined on input line 394.
-) [24] [25]
+although it is yet undefined on input line 389.
+ [24]) [25]
 \openout2 = `__parts/chapters/3Draft.aux'.
 
  (./__parts/chapters/3Draft.tex [26
@@ -2246,188 +2229,200 @@ Package xcolor Warning: Incompatible color definition on input line 8.
 
 Package xcolor Warning: Incompatible color definition on input line 8.
 
-<gfx/cards.jpg, id=1222, 1729.46124pt x 1186.4325pt>
+<gfx/cards.jpg, id=1228, 1729.46124pt x 1186.4325pt>
 File: gfx/cards.jpg Graphic file (type jpg)
  <use gfx/cards.jpg>
 Package pdftex.def Info: gfx/cards.jpg used on input line 13.
 (pdftex.def)             Requested size: 380.69788pt x 261.16078pt.
 
 [27] [28 <./gfx/cards.jpg>] [29]
-<gfx/SDChangeContent.pdf, id=1259, 546.45953pt x 567.46275pt>
+<gfx/SDChangeContent.pdf, id=1265, 546.45953pt x 567.46275pt>
 File: gfx/SDChangeContent.pdf Graphic file (type pdf)
 
 <use gfx/SDChangeContent.pdf>
-Package pdftex.def Info: gfx/SDChangeContent.pdf used on input line 78.
+Package pdftex.def Info: gfx/SDChangeContent.pdf used on input line 77.
 (pdftex.def)             Requested size: 380.69788pt x 395.34225pt.
  [30 <./gfx/SDChangeContent.pdf>]
-<gfx/SDCreateGroup.pdf, id=1290, 454.23943pt x 438.32349pt>
+<gfx/SDCreateGroup.pdf, id=1296, 454.23943pt x 438.32349pt>
 File: gfx/SDCreateGroup.pdf Graphic file (type pdf)
 
 <use gfx/SDCreateGroup.pdf>
-Package pdftex.def Info: gfx/SDCreateGroup.pdf used on input line 88.
+Package pdftex.def Info: gfx/SDCreateGroup.pdf used on input line 87.
 (pdftex.def)             Requested size: 380.69788pt x 367.37323pt.
- [31] [32 <./gfx/SDCreateGroup.pdf>]
+ [31 <./gfx/SDCreateGroup.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 99.
-
-
-Package xcolor Warning: Incompatible color definition on input line 99.
+Package xcolor Warning: Incompatible color definition on input line 98.
 
 
-Package xcolor Warning: Incompatible color definition on input line 99.
+Package xcolor Warning: Incompatible color definition on input line 98.
 
 
-Package xcolor Warning: Incompatible color definition on input line 99.
+Package xcolor Warning: Incompatible color definition on input line 98.
 
-<gfx/architecture.pdf, id=1327, 722.7pt x 542.025pt>
+
+Package xcolor Warning: Incompatible color definition on input line 98.
+
+
+Overfull \hbox (3.79424pt too wide) in paragraph at lines 101--102
+\T1/pplj/m/n/10.95 de-scribes the most im-por-tant con-straints. How-ever, ther
+e has to be enough
+ []
+
+<gfx/architecture.pdf, id=1329, 722.7pt x 542.025pt>
 File: gfx/architecture.pdf Graphic file (type pdf)
 
 <use gfx/architecture.pdf>
-Package pdftex.def Info: gfx/architecture.pdf used on input line 108.
+Package pdftex.def Info: gfx/architecture.pdf used on input line 107.
 (pdftex.def)             Requested size: 380.69788pt x 285.52678pt.
 
 
-Package xcolor Warning: Incompatible color definition on input line 113.
+Package xcolor Warning: Incompatible color definition on input line 112.
 
 
-Package xcolor Warning: Incompatible color definition on input line 113.
+Package xcolor Warning: Incompatible color definition on input line 112.
 
 
-Package xcolor Warning: Incompatible color definition on input line 116.
+Package xcolor Warning: Incompatible color definition on input line 115.
 
 
-Package xcolor Warning: Incompatible color definition on input line 116.
+Package xcolor Warning: Incompatible color definition on input line 115.
 
-[33
+[32
 
-] <gfx/components.pdf, id=1347, 722.7pt x 542.025pt>
+] <gfx/components.pdf, id=1349, 722.7pt x 542.025pt>
 File: gfx/components.pdf Graphic file (type pdf)
 
 <use gfx/components.pdf>
-Package pdftex.def Info: gfx/components.pdf used on input line 124.
+Package pdftex.def Info: gfx/components.pdf used on input line 123.
 (pdftex.def)             Requested size: 380.69788pt x 285.52678pt.
- [34 <./gfx/architecture.pdf>]
-Package acronym Info: Label `acro:JWT' newly defined as it shall be overridden
-although it is yet undefined on input line 130.
+ [33 <./gfx/architecture.pdf>]
 Package acronym Info: Label `acro:JWS' newly defined as it shall be overridden
-although it is yet undefined on input line 130.
- [35 <./gfx/components.pdf>] <gfx/mockup_web_1.pdf, id=1550, 532.99126pt x 399.
+although it is yet undefined on input line 129.
+ [34 <./gfx/components.pdf>] <gfx/mockup_web_1.pdf, id=1550, 532.99126pt x 399.
 4925pt>
 File: gfx/mockup_web_1.pdf Graphic file (type pdf)
 
 <use gfx/mockup_web_1.pdf>
-Package pdftex.def Info: gfx/mockup_web_1.pdf used on input line 140.
+Package pdftex.def Info: gfx/mockup_web_1.pdf used on input line 139.
 (pdftex.def)             Requested size: 380.69788pt x 285.35455pt.
- [36] [37 <./gfx/mockup_web_1.pdf>] [38] [39]
-[40] <gfx/mockup_app_1.pdf, id=1739, 400.49625pt x 741.77126pt>
+ [35] [36 <./gfx/mockup_web_1.pdf>]
+(/usr/local/texlive/2013/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+) [37]
+[38] [39] <gfx/mockup_app_1.pdf, id=1740, 400.49625pt x 741.77126pt>
 File: gfx/mockup_app_1.pdf Graphic file (type pdf)
 
 <use gfx/mockup_app_1.pdf>
-Package pdftex.def Info: gfx/mockup_app_1.pdf used on input line 253.
+Package pdftex.def Info: gfx/mockup_app_1.pdf used on input line 252.
 (pdftex.def)             Requested size: 190.34894pt x 352.56006pt.
- [41
+ [40
 
  <./gfx/mockup_app_1.pdf>]
-<gfx/mockup_app_2.pdf, id=1806, 589.20125pt x 741.77126pt>
+<gfx/mockup_app_2.pdf, id=1807, 589.20125pt x 741.77126pt>
 File: gfx/mockup_app_2.pdf Graphic file (type pdf)
 
 <use gfx/mockup_app_2.pdf>
-Package pdftex.def Info: gfx/mockup_app_2.pdf used on input line 267.
-(pdftex.def)             Requested size: 266.48735pt x 335.49176pt.
- <gfx/toolbox.png, id=1808, 642.4pt x 882.29625pt>
+Package pdftex.def Info: gfx/mockup_app_2.pdf used on input line 271.
+(pdftex.def)             Requested size: 228.42104pt x 287.56921pt.
+ <gfx/toolbox.png, id=1808, 642.4pt x 757.83125pt>
 File: gfx/toolbox.png Graphic file (type png)
 
 <use gfx/toolbox.png>
-Package pdftex.def Info: gfx/toolbox.png used on input line 276.
-(pdftex.def)             Requested size: 190.34894pt x 261.43294pt.
- [42]
+Package pdftex.def Info: gfx/toolbox.png used on input line 277.
+(pdftex.def)             Requested size: 190.34894pt x 224.55275pt.
+ [41] [42 <./gfx/mockup_app_2.pdf> <./gfx/toolbox.png>]
 Package acronym Info: Label `acro:GPS' newly defined as it shall be overridden
-although it is yet undefined on input line 290.
- [43 <./gfx/mockup_app_2.pdf>] [44 <./gfx/toolbox.png>]
+although it is yet undefined on input line 291.
 
-Package xcolor Warning: Incompatible color definition on input line 329.
+[43
 
+]
 
-Package xcolor Warning: Incompatible color definition on input line 329.
-
-[45]
-
-Package xcolor Warning: Incompatible color definition on input line 389.
+Package xcolor Warning: Incompatible color definition on input line 325.
 
 
-Package xcolor Warning: Incompatible color definition on input line 389.
+Package xcolor Warning: Incompatible color definition on input line 325.
+
+[44]
+
+Package xcolor Warning: Incompatible color definition on input line 387.
+
+
+Package xcolor Warning: Incompatible color definition on input line 387.
 
 Package acronym Info: Label `acro:OsmAnd' newly defined as it shall be overridd
 en
-although it is yet undefined on input line 391.
+although it is yet undefined on input line 389.
 Package acronym Info: Label `acro:OSM' newly defined as it shall be overridden
-although it is yet undefined on input line 391.
+although it is yet undefined on input line 389.
 
-Package xcolor Warning: Incompatible color definition on input line 391.
+Package xcolor Warning: Incompatible color definition on input line 389.
 
 
-Package xcolor Warning: Incompatible color definition on input line 391.
+Package xcolor Warning: Incompatible color definition on input line 389.
+
+[45
+
+]
+Package acronym Info: Label `acro:BLE' newly defined as it shall be overridden
+although it is yet undefined on input line 394.
+
+
+Package xcolor Warning: Incompatible color definition on input line 394.
+
+
+Package xcolor Warning: Incompatible color definition on input line 394.
+
+
+Package xcolor Warning: Incompatible color definition on input line 396.
+
+
+Package xcolor Warning: Incompatible color definition on input line 396.
+
+
+Package xcolor Warning: Incompatible color definition on input line 396.
+
+
+Package xcolor Warning: Incompatible color definition on input line 396.
+
+
+Package xcolor Warning: Incompatible color definition on input line 398.
+
+
+Package xcolor Warning: Incompatible color definition on input line 398.
 
 [46]
-Package acronym Info: Label `acro:BLE' newly defined as it shall be overridden
-although it is yet undefined on input line 396.
+Package acronym Info: Label `acro:PDF' newly defined as it shall be overridden
+although it is yet undefined on input line 433.
 
 
-Package xcolor Warning: Incompatible color definition on input line 396.
+Package xcolor Warning: Incompatible color definition on input line 434.
 
 
-Package xcolor Warning: Incompatible color definition on input line 396.
+Package xcolor Warning: Incompatible color definition on input line 434.
 
 
-Package xcolor Warning: Incompatible color definition on input line 398.
+Package xcolor Warning: Incompatible color definition on input line 435.
 
 
-Package xcolor Warning: Incompatible color definition on input line 398.
-
-
-Package xcolor Warning: Incompatible color definition on input line 398.
-
-
-Package xcolor Warning: Incompatible color definition on input line 398.
-
-
-Package xcolor Warning: Incompatible color definition on input line 400.
-
-
-Package xcolor Warning: Incompatible color definition on input line 400.
+Package xcolor Warning: Incompatible color definition on input line 435.
 
 [47]
-Package acronym Info: Label `acro:PDF' newly defined as it shall be overridden
-although it is yet undefined on input line 435.
-
-
-Package xcolor Warning: Incompatible color definition on input line 436.
-
-
-Package xcolor Warning: Incompatible color definition on input line 436.
-
-
-Package xcolor Warning: Incompatible color definition on input line 437.
-
-
-Package xcolor Warning: Incompatible color definition on input line 437.
-
-[48]
-Overfull \hbox (43.39539pt too wide) in paragraph at lines 455--478
+Overfull \hbox (43.39539pt too wide) in paragraph at lines 453--476
 [][]
  []
 
-) [49] [50]
+) [48] [49]
 \openout2 = `__parts/chapters/4Implementation.aux'.
 
- (./__parts/chapters/4Implementation.tex
+ (./__parts/chapters/4Implementation.tex [50
+
+
+
+
+]
 Chapter 4.
-[51
-
-
-
-
-] <gfx/Components_dia.pdf, id=2089, 499.21924pt x 249.06862pt>
+[51] <gfx/Components_dia.pdf, id=2089, 499.21924pt x 249.06862pt>
 File: gfx/Components_dia.pdf Graphic file (type pdf)
 
 <use gfx/Components_dia.pdf>
@@ -2446,59 +2441,68 @@ Package acronym Info: Label `acro:SHA256' newly defined as it shall be overridd
 en
 although it is yet undefined on input line 64.
  [54]
-[55 <./gfx/JWT_b.png>]
-Overfull \hbox (22.81863pt too wide) in paragraph at lines 118--118
+[55 <./gfx/JWT_b.png>] [56
+
+]
+Overfull \hbox (22.81863pt too wide) in paragraph at lines 120--120
  |[]\T1/iwona/m/sc/14.4/80ls scala: pic-ture up-load and the cre-ation of thumb
 - 
  []
 
-[56]
+[57]
 
-Package xcolor Warning: Incompatible color definition on input line 159.
+Package xcolor Warning: Incompatible color definition on input line 161.
 
 
-Package xcolor Warning: Incompatible color definition on input line 159.
+Package xcolor Warning: Incompatible color definition on input line 161.
 
-[57] [58] <gfx/mediaGallery.png, id=2280, 667.49374pt x 135.50626pt>
+[58] [59] <gfx/mediaGallery.png, id=2298, 667.49374pt x 135.50626pt>
 File: gfx/mediaGallery.png Graphic file (type png)
 
 <use gfx/mediaGallery.png>
-Package pdftex.def Info: gfx/mediaGallery.png used on input line 244.
+Package pdftex.def Info: gfx/mediaGallery.png used on input line 246.
 (pdftex.def)             Requested size: 380.69788pt x 77.28691pt.
- [59]
+ [60 <./gfx/mediaGallery.png>]
 
-Package xcolor Warning: Incompatible color definition on input line 278.
+Package xcolor Warning: Incompatible color definition on input line 280.
 
 
-Package xcolor Warning: Incompatible color definition on input line 278.
+Package xcolor Warning: Incompatible color definition on input line 280.
 
-[60 <./gfx/mediaGallery.png>] [61]
-<gfx/templateBox.png, id=2345, 247.92625pt x 399.4925pt>
+[61] [62] <gfx/templateBox.png, id=2373, 247.92625pt x 399.4925pt>
 File: gfx/templateBox.png Graphic file (type png)
 
 <use gfx/templateBox.png>
-Package pdftex.def Info: gfx/templateBox.png used on input line 337.
-(pdftex.def)             Requested size: 152.27682pt x 245.37248pt.
- [62] [63 <./gfx/templateBox.png>]
-<gfx/kvs.pdf, id=2384, 722.7pt x 542.025pt>
-File: gfx/kvs.pdf Graphic file (type pdf)
- <use gfx/kvs.pdf>
-Package pdftex.def Info: gfx/kvs.pdf used on input line 379.
-(pdftex.def)             Requested size: 380.69788pt x 285.52678pt.
- [64 <./gfx/kvs.pdf>] [65]
-Package acronym Info: Label `acro:KVS' newly defined as it shall be overridden
-although it is yet undefined on input line 425.
- [66] <gfx/frontend.jpg, id=2548, 479.7925pt x 851.18pt>
-File: gfx/frontend.jpg Graphic file (type jpg)
+Package pdftex.def Info: gfx/templateBox.png used on input line 339.
+(pdftex.def)             Requested size: 190.34894pt x 306.72018pt.
 
-<use gfx/frontend.jpg>
-Package pdftex.def Info: gfx/frontend.jpg used on input line 471.
-(pdftex.def)             Requested size: 190.34894pt x 337.68654pt.
-) [67] [68 <./gfx/frontend.jpg>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[63] [64 <./gfx/templateBox.png>] <gfx/kvs.pdf, id=2389, 722.7pt x 542.025pt>
+File: gfx/kvs.pdf Graphic file (type pdf)
+
+<use gfx/kvs.pdf>
+Package pdftex.def Info: gfx/kvs.pdf used on input line 383.
+(pdftex.def)             Requested size: 380.69788pt x 285.52678pt.
+ [65
+
+] [66 <./gfx/kvs.pdf>] [67
+
+]
+Package acronym Info: Label `acro:KVS' newly defined as it shall be overridden
+although it is yet undefined on input line 434.
+ [68]
+<gfx/frontend.jpg, id=2585, 479.7925pt x 851.18pt>
+File: gfx/frontend.jpg Graphic file (type jpg)
+ <use gfx/frontend.jpg>
+Package pdftex.def Info: gfx/frontend.jpg used on input line 477.
+(pdftex.def)             Requested size: 266.48735pt x 472.76115pt.
+)
+[69] [70 <./gfx/frontend.jpg>]
 \openout2 = `__parts/chapters/5Tests.aux'.
 
-
-(./__parts/chapters/5Tests.tex
+ (./__parts/chapters/5Tests.tex
 Chapter 5.
 
 Package xcolor Warning: Incompatible color definition on input line 9.
@@ -2512,7 +2516,7 @@ Package xcolor Warning: Incompatible color definition on input line 11.
 
 Package xcolor Warning: Incompatible color definition on input line 11.
 
-[69
+[71
 
 
 
@@ -2531,30 +2535,17 @@ Package xcolor Warning: Incompatible color definition on input line 17.
 Package xcolor Warning: Incompatible color definition on input line 17.
 
 
-Overfull \hbox (8.55746pt too wide) in paragraph at lines 17--18
-\T1/pplj/m/n/10.95 look at one sub-characteristic of \T1/pplj/m/it/10.95 Re-li-
-a-bil-ity\T1/pplj/m/n/10.95 , which is called \T1/pplj/m/it/10.95 Ma-tu-rity\T1
-/pplj/m/n/10.95 . The ISO/IEC
- []
-
-
 Package xcolor Warning: Incompatible color definition on input line 19.
 
 
 Package xcolor Warning: Incompatible color definition on input line 19.
 
-
-Overfull \hbox (0.2959pt too wide) in paragraph at lines 25--26
-\U/zeur/m/n/10.95 Numberofestimatedtestcasestobeperformedtocoverallrequirements
-$\T1/pplj/m/n/10.95 . 
- []
-
-[70]
+[72]
 Package acronym Info: Label `acro:CPU' newly defined as it shall be overridden
 although it is yet undefined on input line 36.
 Package acronym Info: Label `acro:RAM' newly defined as it shall be overridden
 although it is yet undefined on input line 36.
- [71]
+ [73]
 
 Package xcolor Warning: Incompatible color definition on input line 68.
 
@@ -2585,17 +2576,17 @@ Package xcolor Warning: Incompatible color definition on input line 70.
 
 Package xcolor Warning: Incompatible color definition on input line 70.
 
-[72]) [73]
+[74]) [75]
 \openout2 = `__parts/chapters/6Lookout.aux'.
 
- (./__parts/chapters/6Lookout.tex [74
+ (./__parts/chapters/6Lookout.tex [76
 
 
 
 
 ]
 Chapter 6.
-[75] [76]
+[77] [78]
 
 Package xcolor Warning: Incompatible color definition on input line 21.
 
@@ -2608,21 +2599,21 @@ Overfull \hbox (0.20825pt too wide) in paragraph at lines 31--32
 s goal has been achieved
  []
 
-[77]
+[79]
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
 
 Package xcolor Warning: Incompatible color definition on input line 45.
 
-) [78]
+) [80]
 \openout2 = `__parts/appendix/appendix.aux'.
 
  (./__parts/appendix/appendix.tex
 Appendix A.
 Package acronym Info: Label `acro:NPM' newly defined as it shall be overridden
 although it is yet undefined on input line 5.
-[79
+[81
 
 
 
@@ -2631,46 +2622,37 @@ although it is yet undefined on input line 5.
 
 pdfTeX warning: pdflatex (file ./gfx/HiP-Backend-Workflow.pdf): PDF inclusion: 
 found PDF version <1.7>, but at most version <1.5> allowed
-<gfx/HiP-Backend-Workflow.pdf, id=2712, 794.97pt x 865.2325pt>
+<gfx/HiP-Backend-Workflow.pdf, id=2736, 794.97pt x 865.2325pt>
 File: gfx/HiP-Backend-Workflow.pdf Graphic file (type pdf)
 
 <use gfx/HiP-Backend-Workflow.pdf>
-Package pdftex.def Info: gfx/HiP-Backend-Workflow.pdf used on input line 32.
+Package pdftex.def Info: gfx/HiP-Backend-Workflow.pdf used on input line 34.
 (pdftex.def)             Requested size: 494.90839pt x 538.66982pt.
 
-<gfx/HiP-UseCase_Diagramm.pdf, id=2716, 544.70518pt x 360.44261pt>
+<gfx/HiP-UseCase_Diagramm.pdf, id=2740, 544.70518pt x 360.44261pt>
 File: gfx/HiP-UseCase_Diagramm.pdf Graphic file (type pdf)
 
 <use gfx/HiP-UseCase_Diagramm.pdf>
-Package pdftex.def Info: gfx/HiP-UseCase_Diagramm.pdf used on input line 40.
+Package pdftex.def Info: gfx/HiP-UseCase_Diagramm.pdf used on input line 42.
 (pdftex.def)             Requested size: 532.9747pt x 352.68686pt.
 
-<gfx/HiPDeployment.pdf, id=2721, 525.27847pt x 270.53311pt>
+<gfx/HiPDeployment.pdf, id=2745, 525.27847pt x 270.53311pt>
 File: gfx/HiPDeployment.pdf Graphic file (type pdf)
 
 <use gfx/HiPDeployment.pdf>
-Package pdftex.def Info: gfx/HiPDeployment.pdf used on input line 46.
+Package pdftex.def Info: gfx/HiPDeployment.pdf used on input line 48.
 (pdftex.def)             Requested size: 494.90839pt x 254.90384pt.
- [80] [81 <./gfx/HiP-Backend-Workflow.pdf>] [82 <./gfx/HiP-UseCase_Diagramm.pdf
->] [83 <./gfx/HiPDeployment.pdf>]
-Underfull \vbox (badness 10000) detected at line 519
- []
-
-[84
-
-
-
-] [85]
-Underfull \vbox (badness 10000) detected at line 519
+ [82] [83 <./gfx/HiP-Backend-Workflow.pdf>] [84 <./gfx/HiP-UseCase_Diagramm.pdf
+>] [85 <./gfx/HiPDeployment.pdf>]
+Underfull \vbox (badness 10000) detected at line 521
  []
 
 [86
 
 
 
-
 ] [87]
-Underfull \vbox (badness 10000) detected at line 519
+Underfull \vbox (badness 10000) detected at line 521
  []
 
 [88
@@ -2678,39 +2660,48 @@ Underfull \vbox (badness 10000) detected at line 519
 
 
 
-]
-Underfull \vbox (badness 10000) detected at line 519
+] [89]
+Underfull \vbox (badness 10000) detected at line 521
  []
 
-[89
-
-
-
-
-]
-Underfull \vbox (badness 10000) detected at line 519
- []
-
-LaTeX Font Info:    Font shape `T1/pplj/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/pplj/b/it' tried instead on input line 519.
 [90
 
 
 
 
-] [91] [92] [93]
-Underfull \vbox (badness 10000) detected at line 519
+]
+Underfull \vbox (badness 10000) detected at line 521
  []
 
-[94
+[91
 
 
 
 
-] [95] [96] [97
+]
+Underfull \vbox (badness 10000) detected at line 521
+ []
+
+LaTeX Font Info:    Font shape `T1/pplj/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/pplj/b/it' tried instead on input line 521.
+[92
 
 
-]) [98]
+
+
+] [93] [94] [95]
+Underfull \vbox (badness 10000) detected at line 521
+ []
+
+[96
+
+
+
+
+] [97] [98] [99
+
+
+]) [100]
 \openout2 = `__parts/_FrontBackmatter/Bibliography.aux'.
 
  (./__parts/_FrontBackmatter/Bibliography.tex
@@ -2718,11 +2709,6 @@ Underfull \vbox (badness 10000) detected at line 519
 \tf@brf=\write11
 \openout11 = `thesis.brf'.
 
-
-Underfull \hbox (badness 1931) in paragraph at lines 15--15
-\T1/cmtt/m/n/10.95 agilealliance . org / guide / tdd . html$[][]\T1/pplj/m/n/10
-.95 , 14.02.2015.  (Cited on pages [][]22[][]
- []
 
 ./thesis.bbl:22: Illegal parameter number in definition of \Hy@tempa.
 <to be read again> 
@@ -2754,7 +2740,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--22
  org / api / ng / service / $compile #
  []
 
-[99
+[101
 
 
 
@@ -2762,77 +2748,111 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--22
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 105--105
 \T1/cmtt/m/n/10.95 / / scrummethodology . com / scrum-[]effort-[]estimation-[]a
 nd-[]story-[]points/$[][]\T1/pplj/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+[]\T1/pplj/m/n/10.95 Duvall, P. (2012).  Break-ing down bar-ri-ers and re-duc-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+\T1/pplj/m/n/10.95 ing cy-cle times with de-vops and con-tin-u-ous de-liv-ery.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+\T1/pplj/m/n/10.95 Web-site, [][]$\T1/cmtt/m/n/10.95 http : / / try . newrelic 
+. com / rs / newrelic / images /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+\T1/cmtt/m/n/10.95 GigaOm-[]Pro-[]Report-[]Breaking-[]down-[]barriersand-[]redu
+cing-[]cycle-[]times$[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+[][]$\T1/cmtt/m/n/10.95 -[]with-[]devops-[]and-[]continuous-[]delivery . pdf$[]
+[]\T1/pplj/m/n/10.95 , last checked 21.02.2015.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
 \T1/cmtt/m/n/10.95 / / developers . google . com / maps / documentation / javas
 cript / directions$[][]\T1/pplj/m/n/10.95 ,
  []
 
-
-Underfull \hbox (badness 3128) in paragraph at lines 153--153
+[102]
+Underfull \hbox (badness 3128) in paragraph at lines 158--158
 []\T1/pplj/m/n/10.95 Google (2015).  Poly-line.  Web-site, [][]$\T1/cmtt/m/n/10
 .95 https : / / developer . android . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--153
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
 \T1/cmtt/m/n/10.95 reference / com / google / android / gms / maps / model / Po
-lyline . html$[][]\T1/pplj/m/n/10.95 ,
+lyline . html$[][]\T1/pplj/m/n/10.95 , last
  []
 
-[100]
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
 []\T1/pplj/m/n/10.95 Junaio (2014).  Why to be-come a ju-naio de-vel-oper.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--197
+Underfull \hbox (badness 10000) in paragraph at lines 203--203
 \T1/pplj/m/n/10.95 Slideshare pre-sen-ta-tion, [][]$\T1/cmtt/m/n/10.95 http : /
  / www . slideshare . net / metaio _ AR /
  []
 
 
-Underfull \hbox (badness 2165) in paragraph at lines 197--197
+Underfull \hbox (badness 2165) in paragraph at lines 203--203
 \T1/cmtt/m/n/10.95 why-[]to-[]become-[]a-[]junaio-[]developer$[][]\T1/pplj/m/n/
 10.95 , last checked 14.09.2014.  (Cited
  []
 
-[101]
-Underfull \hbox (badness 2103) in paragraph at lines 299--299
+[103]
+Underfull \hbox (badness 2096) in paragraph at lines 307--307
 \T1/cmtt/m/n/10.95 www . romanpichler . com / blog / 10-[]tips-[]writing-[]good
--[]user-[]stories/$[][] \T1/pplj/m/n/10.95 ,last
+-[]user-[]stories/$[][]\T1/pplj/m/n/10.95 , last
  []
 
-[102]
-Underfull \hbox (badness 7869) in paragraph at lines 312--312
-[]\T1/pplj/m/n/10.95 RadiusNetworks (2015b).  Ref-er-ence ap-pli-ca-tion.  Web-
+
+Underfull \hbox (badness 1577) in paragraph at lines 313--313
+[]\T1/pplj/m/n/10.95 RadiusNetworks (2015a).  An-droid Bea-con Li-brary.  Web-s
+ite, [][]$\T1/cmtt/m/n/10.95 http : / /
+ []
+
+[104]
+Underfull \hbox (badness 6910) in paragraph at lines 320--320
+[]\T1/pplj/m/n/10.95 RadiusNetworks (2015b).  Ref-er-ence Ap-pli-ca-tion.  Web-
 site, [][]$\T1/cmtt/m/n/10.95 http :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 312--312
+Underfull \hbox (badness 10000) in paragraph at lines 320--320
 \T1/cmtt/m/n/10.95 / / altbeacon . github . io / android-[]beacon-[]library / s
 amples . html$[][]\T1/pplj/m/n/10.95 , last
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 337--337
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
 \T1/cmtt/m/n/10.95 263401 / global-[]apple-[]iphone-[]sales-[]since-[]3rd-[]qua
 rter-[]2007/$[][]\T1/pplj/m/n/10.95 , last
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 365--365
-[]\T1/pplj/m/n/10.95 Wattson, M. (2013).  Con-tin-u-ous de-liv-ery for win-ners
- -- with a feed-
+Underfull \hbox (badness 1383) in paragraph at lines 361--361
+\T1/cmtt/m/n/10.95 vogella . com / tutorials / JavaPDF / article . html$[][]\T1
+/pplj/m/n/10.95 , last checked 14.02.2015.
  []
 
-[103])) [104]
+[105])) [106]
 \openout2 = `__parts/_FrontBackMatter/Index.aux'.
 
  (./__parts/_FrontBackMatter/Index.tex
@@ -2840,7 +2860,7 @@ No file thesis.ind.
 )
 \openout2 = `__parts/_FrontBackmatter/Declaration.aux'.
 
- (./__parts/_FrontBackmatter/Declaration.tex) [105
+ (./__parts/_FrontBackmatter/Declaration.tex) [107
 
 
 
@@ -3064,7 +3084,6 @@ gfx/burndown.png
 gfx/continuous-delivery.png
 lstlang1.sty    2004/09/05 1.3 listings language file
  lstmisc.sty    2007/02/22 1.4 (Carsten Heinz)
-lstlang1.sty    2004/09/05 1.3 listings language file
 gfx/stackAREL.png
 __parts/chapters/3Draft.tex
 gfx/cards.jpg
@@ -3073,6 +3092,7 @@ gfx/SDCreateGroup.pdf
 gfx/architecture.pdf
 gfx/components.pdf
 gfx/mockup_web_1.pdf
+lstlang1.sty    2004/09/05 1.3 listings language file
 gfx/mockup_app_1.pdf
 gfx/mockup_app_2.pdf
 gfx/toolbox.png
@@ -3097,19 +3117,19 @@ __parts/_FrontBackmatter/Declaration.tex
 
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B807BCD764465A5108CEFCBBF7C2CF05;6092.
+(rerunfilecheck)             Checksum: 5A139D0AB9ACED16B607D07FEDF87B0B;6098.
 Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: F24404403612820939A7BA8773238D93;4048.
+(rerunfilecheck)             Checksum: 2B82E715125F8F2B1466482AC5A10E64;4048.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 290.
  ) 
 Here is how much of TeX's memory you used:
- 29830 strings out of 493315
- 498310 string characters out of 6137904
- 803137 words of memory out of 5000000
- 31388 multiletter control sequences out of 15000+600000
+ 29815 strings out of 493315
+ 498105 string characters out of 6137904
+ 802283 words of memory out of 5000000
+ 31383 multiletter control sequences out of 15000+600000
  118351 words of font info for 151 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 74i,14n,87p,1958b,2463s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 74i,14n,87p,1957b,2433s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/tex
 live/2013/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/local/texlive/201
@@ -3131,10 +3151,10 @@ tt1095.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplb8a.
 pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></
 usr/local/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/loc
 al/texlive/2013/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (119 pages, 4309398 bytes).
+Output written on thesis.pdf (121 pages, 4310786 bytes).
 PDF statistics:
- 3617 PDF objects out of 4296 (max. 8388607)
- 3154 compressed objects within 32 object streams
- 901 named destinations out of 1000 (max. 500000)
+ 3644 PDF objects out of 4296 (max. 8388607)
+ 3173 compressed objects within 32 object streams
+ 891 named destinations out of 1000 (max. 500000)
  23309 words of extra memory for PDF output out of 24883 (max. 10000000)
 

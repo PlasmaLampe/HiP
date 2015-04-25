@@ -34,6 +34,8 @@ Warning--entry type for "Wattson:2013aa" isn't style-file defined
 --line 167 of file __bib/literatur.bib
 Warning--entry type for "Mueller2011" isn't style-file defined
 --line 175 of file __bib/literatur.bib
+Warning--entry type for "duvall2012breaking" isn't style-file defined
+--line 183 of file __bib/literatur.bib
 Warning--entry type for "AngularCons" isn't style-file defined
 --line 201 of file __bib/literatur.bib
 Warning--entry type for "gridfs" isn't style-file defined
@@ -71,16 +73,16 @@ Warning--entry type for "statIPhone" isn't style-file defined
 Warning--empty journal in bradley2014json
 You've used 65 entries,
             1935 wiz_defined-function locations,
-            837 strings with 14274 characters,
-and the built_in function-call counts, 21050 in all, are:
-= -- 2126
+            840 strings with 14565 characters,
+and the built_in function-call counts, 21047 in all, are:
+= -- 2128
 > -- 697
 < -- 64
-+ -- 228
++ -- 222
 - -- 220
 * -- 1500
-:= -- 3814
-add.period$ -- 200
+:= -- 3816
+add.period$ -- 201
 call.type$ -- 65
 change.case$ -- 425
 chr.to.int$ -- 63
@@ -88,19 +90,19 @@ cite$ -- 66
 duplicate$ -- 898
 empty$ -- 1448
 format.name$ -- 295
-if$ -- 4117
+if$ -- 4119
 int.to.chr$ -- 3
 int.to.str$ -- 0
 missing$ -- 44
-newline$ -- 327
+newline$ -- 328
 num.names$ -- 195
-pop$ -- 347
+pop$ -- 346
 preamble$ -- 1
 purify$ -- 435
 quote$ -- 0
 skip$ -- 740
 stack$ -- 0
-substring$ -- 1242
+substring$ -- 1236
 swap$ -- 120
 text.length$ -- 11
 text.prefix$ -- 0
@@ -109,5 +111,5 @@ type$ -- 374
 warning$ -- 1
 while$ -- 172
 width$ -- 0
-write$ -- 812
-(There were 26 warnings)
+write$ -- 814
+(There were 27 warnings)

@@ -9,9 +9,9 @@ Alliance, A. (2013).
 
 \bibitem[Alliance, 2015]{GAA2015}
 Alliance, A. (2015).
-\newblock Guide to agile practices.
-\newblock Website, \url{http://guide.agilealliance.org/guide/tdd.html},
-  14.02.2015.
+\newblock {Guide to Agile Practices}.
+\newblock Website, \url{http://guide.agilealliance.org/guide/tdd.html}, last
+  checked 14.02.2015.
 
 \bibitem[AngularJS, 2015a]{AngularCons}
 AngularJS (2015a).
@@ -23,20 +23,20 @@ AngularJS (2015a).
 \bibitem[AngularJS, 2015b]{7_github_2015}
 AngularJS (2015b).
 \newblock karma-runner/karma.
-\newblock Website, \url{https://github.com/karma-runner/karma}, 14.02.2015.
+\newblock Website, \url{https://github.com/karma-runner/karma}, last checked
+  14.02.2015.
 
 \bibitem[Apple, 2014]{Apple:2014aa}
 Apple (2014).
-\newblock Getting started with ibeacon.
+\newblock {Getting Started with iBeacon}.
 \newblock PDF,
   \url{https://developer.apple.com/ibeacon/Getting-Started-with-iBeacon.pdf},
   last checked 25.03.2015.
 
 \bibitem[Azuma, 1997]{Azu97}
 Azuma, R.~T. (1997).
-\newblock A survey of augmented reality a survey of augmented reality a survey
-  of augmented reality.
-\newblock {\em In Presence: Teleoperators and Virtual Environments},
+\newblock {A Survey of Augmented Reality}.
+\newblock {\em {In Presence: Teleoperators and Virtual Environments}},
   6(4):355--385.
 
 \bibitem[Beck, 1999]{Beck1999}
@@ -46,7 +46,7 @@ Beck, K. (1999).
 
 \bibitem[Beck, 2003]{beck2003test}
 Beck, K. (2003).
-\newblock {\em Test-driven development: by example}.
+\newblock {\em {Test-driven development: by example}}.
 \newblock Addison-Wesley Professional.
 
 \bibitem[Beck et~al., 2001]{Beck2001agile}
@@ -54,34 +54,35 @@ Beck, K., Beedle, M., van Bennekum, A., Cockburn, A., Cunningham, W., Fowler,
   M., Grenning, J., Highsmith, J., Hunt, A., Jeffries, R., Kern, J., Marick,
   B., Martin, R.~C., Mellor, S., Schwaber, K., Sutherland, J., and Thomas, D.
   (2001).
-\newblock Manifesto for agile software development.
-\newblock Website, \url{http://www.agilemanifesto.org/}, 14.02.2015.
+\newblock {Manifesto for Agile Software Development}.
+\newblock Website, \url{http://www.agilemanifesto.org/}, last checked
+  14.02.2015.
 
 \bibitem[Berczuk, 2007]{Ber07}
 Berczuk, S. (2007).
-\newblock Back to basics: The role of agile principles in success with an
-  distributed scrum team.
-\newblock {\em Agile Conference (AGILE), 2007}, pages 382 -- 388.
+\newblock {Back to Basics: The Role of Agile Principles in Success with an
+  Distributed Scrum Team}.
+\newblock {\em {Agile Conference (AGILE), 2007}}, pages 382 -- 388.
 
 \bibitem[Bevan, 1997]{bevan1997quality}
 Bevan, N. (1997).
-\newblock Quality and usability: a new framework.
-\newblock {\em Achieving software product quality, van Veenendaal, E, and
-  McMullan, J (eds)}.
+\newblock {Quality and usability: a new framework}.
+\newblock {\em {Achieving software product quality, van Veenendaal, E, and
+  McMullan, J (eds)}}.
 
 \bibitem[Bondo et~al., 2010]{Bon10}
 Bondo, J., Barnard, D., and Burcow, D. (2010).
-\newblock {\em iPhone User Interface Design Projects}.
-\newblock Apress.
+\newblock {\em {iPhone User Interface Design Projects}}.
+\newblock {Apress}.
 
 \bibitem[Bradley et~al., 2014]{bradley2014json}
 Bradley, J., Sakimura, N., and Jones, M. (2014).
-\newblock Json web token (jwt).
+\newblock {JSON Web Token (JWT)}.
 
 \bibitem[Ceschi et~al., 2005]{ceschi2005project}
 Ceschi, M., Sillitti, A., Succi, G., and De~Panfilis, S. (2005).
 \newblock Project management in plan-based and agile companies.
-\newblock {\em Software, IEEE}, 22(3):21--27.
+\newblock {\em {Software, IEEE}}, 22(3):21--27.
 
 \bibitem[Cohn, 2004]{cohn2004user}
 Cohn, M. (2004).
@@ -97,96 +98,101 @@ Cukier, D. (2013).
 
 \bibitem[Danube, 2014]{ScrumMeth}
 Danube (2014).
-\newblock Scrum effort estimation and story points.
+\newblock {Scrum Effort Estimation and Story Points}.
 \newblock Website,
   \url{http://scrummethodology.com/scrum-effort-estimation-and-story-points/},
-  12.02.2015.
+  last checked 12.02.2015.
 
 \bibitem[Deissenboeck et~al., 2009]{deissenboeck2009software}
 Deissenboeck, F., Juergens, E., Lochmann, K., and Wagner, S. (2009).
-\newblock Software quality models: Purposes, usage scenarios and requirements.
-\newblock In {\em Software Quality, 2009. WOSQ09. ICSE Workshop}, pages 9--14.
-  IEEE.
+\newblock {Software Quality Models: Purposes, usage scenarios and
+  requirements}.
+\newblock In {\em {Software Quality, 2009. WOSQ09. ICSE Workshop}}, pages
+  9--14. IEEE.
 
 \bibitem[Dev.metaio.com, 2015]{MetaioDEV}
 Dev.metaio.com (2015).
-\newblock Overview | metaio developer portal.
+\newblock {Overview | metaio Developer Porta}.
 
 \bibitem[Duvall, 2012]{duvall2012breaking}
 Duvall, P. (2012).
-\newblock Breaking down barriers and reducing cycle times with devops and
-  continuous delivery.
+\newblock {Breaking down barriers and reducing cycle times with devops and
+  continuous delivery}.
+\newblock Website, \url{http://try. newrelic.
+  com/rs/newrelic/images/GigaOm-Pro-Report-Breaking-down-barriersand-reducing-cycle-times}
+  \url{-with-devops-and-continuous-delivery.pdf}, last checked 21.02.2015.
 
 \bibitem[Eckerson, 1995]{Eckerson1995}
 Eckerson, W.~W. (1995).
-\newblock Three tier client/server architecture: Achieving scalability,
-  performance, and efficiency in client server applications.
-\newblock {\em Open Information Systems}, 3(20):46--50.
+\newblock {Three Tier Client/Server Architecture: Achieving Scalability,
+  Performance, and Efficiency in Client Server Applications}.
+\newblock {\em {Open Information Systems}}, 3(20):46--50.
 
 \bibitem[Fielding, 2000]{Fielding2000}
 Fielding, R.~T. (2000).
-\newblock {\em Architectural styles and the design of network-based software
-  architectures}.
-\newblock PhD thesis, University of California, Irvine, USA.
+\newblock {\em {Architectural styles and the design of network-based software
+  architectures}}.
+\newblock PhD thesis, {University of California, Irvine, USA}.
 \newblock AAI9980887.
 
 \bibitem[George and Williams, 2004]{George2004}
 George, B. and Williams, L. (2004).
-\newblock A structured experiment of test-driven development.
+\newblock {A structured experiment of Test-driven development}.
 \newblock {\em Information and Software Technology}, 46(5):337 -- 342.
 \newblock Special Issue on Software Engineering, Applications, Practices and
   Tools from the \{ACM\} Symposium on Applied Computing 2003.
 
 \bibitem[Google, 2014]{GoogleNavi}
 Google (2014).
-\newblock Google maps javascript api version 3.
+\newblock {Google Maps JavaScript API Version 3}.
 \newblock Website,
   \url{https://developers.google.com/maps/documentation/javascript/directions},
-  14.02.2015.
+  last checked 14.02.2015.
 
 \bibitem[Google, 2015]{GooglePolylineNative}
 Google (2015).
 \newblock Polyline.
 \newblock Website,
   \url{https://developer.android.com/reference/com/google/android/gms/maps/model/Polyline.html},
-  14.02.2015.
+  last checked 14.02.2015.
 
 \bibitem[Hampel, 2001]{ham01}
 Hampel, T. (2001).
-\newblock {\em Virtuelle Wissensr{\"a}ume}.
-\newblock PhD thesis, Universit{\"a}t Paderborn.
+\newblock {\em {Virtuelle Wissensr{\"a}ume}}.
+\newblock PhD thesis, {Universit{\"a}t Paderborn}.
 
 \bibitem[Herman, 1996]{herman1996towards}
 Herman, L. (1996).
-\newblock Towards effective usability evaluation in asia: Cross-cultural
-  differences.
-\newblock In {\em Computer-Human Interaction, 1996. Proceedings., Sixth
-  Australian Conference on}, pages 135--136. IEEE.
+\newblock {Towards effective usability evaluation in Asia: Cross-cultural
+  differences}.
+\newblock In {\em {Sixth Australian Conference on Computer-Human Interaction,
+  1996. Proceedings.}}, pages 135--136. IEEE.
 
 \bibitem[IEEE, 1990]{IEEEReq}
 IEEE (1990).
-\newblock Ieee standard glossary of software engineering terminology.
+\newblock {IEEE Standard Glossary of Software Engineering Terminology}.
 \newblock {\em IEEE Std 610.12-1990}, pages 1--84.
 
 \bibitem[ISO/IEC, 2001]{ISOIEC9126}
 ISO/IEC (2001).
-\newblock {\em ISO/IEC 9126. Software engineering -- Product quality}.
+\newblock {\em {ISO/IEC 9126. Software engineering -- Product quality}}.
 \newblock ISO/IEC.
 
 \bibitem[iText Software~Corp, 2015]{itext2015}
 iText Software~Corp (2015).
 \newblock itext core functionality.
-\newblock Website, \url{http://www.itextpdf.com/functionality}, 14.02.2015.
+\newblock Website, \url{http://www.itextpdf.com/functionality}, last checked
+  14.02.2015.
 
 \bibitem[Janzen and Saiedian, 2005]{Janzen2005}
 Janzen, D.~S. and Saiedian, H. (2005).
-\newblock Test-driven development: Concepts, taxonomy, and future direction.
-\newblock {\em Computer Science and Software Engineering}, page~33.
+\newblock {Test-driven development: Concepts, taxonomy, and future direction}.
+\newblock {\em {Computer Science and Software Engineering}}, page~33.
 
 \bibitem[Jones, 2003]{jones2003flawed}
 Jones, C. (2003).
-\newblock Why flawed software projects are not cancelled in time.
-\newblock {\em Cutter IT Journal}, 16(12):12--17.
+\newblock {Why flawed software projects are not cancelled in time}.
+\newblock {\em {Cutter IT Journal}}, 16(12):12--17.
 
 \bibitem[Junaio, 2014]{junaio1}
 Junaio (2014).
@@ -197,168 +203,170 @@ Junaio (2014).
 
 \bibitem[Jung et~al., 2004]{jung2004measuring}
 Jung, H.-W., Kim, S.-G., and Chung, C.-S. (2004).
-\newblock Measuring software product quality: A survey of iso/iec 9126.
+\newblock {Measuring software product quality: A survey of ISO/IEC 9126}.
 \newblock {\em IEEE software}, 21(5):88--92.
 
 \bibitem[Kaufmann, 2014]{Kaufmann:2014aa}
 Kaufmann, T. (2014).
-\newblock Bluetooth low energy ibeacon ist mehr als ein leuchtfeuer.
+\newblock {Bluetooth Low Energy: iBeacon ist mehr als ein Leuchtfeuer}.
 \newblock {\em Golem}.
 
 \bibitem[Keaveney, 2011]{Keaveney11}
 Keaveney, S.~Conboy, K. (2011).
-\newblock {\em Cost Estimation in Agile Development Projects}.
-\newblock National University of Ireland.
+\newblock {\em {Cost Estimation in Agile Development Projects}}.
+\newblock {National University of Ireland}.
 
 \bibitem[Lidwell et~al., 2010]{lidwell2010universal}
 Lidwell, W., Holden, K., and Butler, J. (2010).
-\newblock {\em Universal Principles of Design, Revised and Updated: 125 Ways to
-  Enhance Usability, Influence Perception, Increase Appeal, Make Better Design
-  Decisions,}.
+\newblock {\em {Universal Principles of Design, Revised and Updated: 125 Ways
+  to Enhance Usability, Influence Perception, Increase Appeal, Make Better
+  Design Decisions}}.
 \newblock Rockport Publishers.
 
 \bibitem[Lin et~al., 1997]{lin1997proposed}
 Lin, H.~X., Choong, Y.-Y., and Salvendy, G. (1997).
-\newblock A proposed index of usability: a method for comparing the relative
-  usability of different software systems.
+\newblock {A proposed index of usability: a method for comparing the relative
+  usability of different software systems}.
 \newblock {\em Behaviour \& information technology}, 16(4-5):267--277.
 
 \bibitem[Mast, 2013]{Mast2013}
 Mast, R. (2013).
-\newblock Architektur in agilen teams: Was softwarearchitekten von jazzmusikern
-  lernen k{\"o}nnen.
-\newblock {\em OBJEKTspektrum}.
+\newblock {Architektur in agilen Teams: Was Softwarearchitekten von
+  Jazzmusikern lernen k{\"o}nnen}.
+\newblock {\em {OBJEKTspektrum}}.
 
 \bibitem[Maximilien, 2003]{max03}
 Maximilien, E. Michael.~Williams, L. (2003).
-\newblock Assessing test-driven development at ibm.
-\newblock In {\em Software Engineering, 2003. Proceedings. 25th International
-  Conference on}, pages 564--569. IEEE.
+\newblock {Assessing Test-Driven Development at IBM}.
+\newblock In {\em Proceedings. 25th International Conference on Software
+  Engineering, 2003.}, pages 564--569. {IEEE}.
 
 \bibitem[Maxxor, 2015]{5_maxxor.com_2015}
 Maxxor (2015).
-\newblock Software development process | maxxor.
+\newblock {Software Development Process}.
 \newblock Website, \url{https://www.maxxor.com/software-development-process},
   last checked 14.02.2015.
 
 \bibitem[Mesbah and van Deursen, 2007]{Mes07}
 Mesbah, A. and van Deursen, A. (2007).
-\newblock Migrating multi-page web applications to single-page ajax interfaces.
-\newblock {\em Software Maintenance and Reengineering, 2007. CSMR '07.}, pages
-  181 -- 190.
+\newblock {Migrating Multi-page Web Applications to Single-page AJAX
+  Interfaces}.
+\newblock {\em {Software Maintenance and Reengineering, 2007. CSMR '07.}},
+  pages 181 -- 190.
 
 \bibitem[Microsoft, 2009]{Patterns:2009aa}
 Microsoft (2009).
-\newblock {\em Microsoft Application Architecture Guide, 2nd Edition}.
+\newblock {\em {Microsoft Application Architecture Guide, 2nd Edition}}.
 \newblock Microsoft Press book.
 
 \bibitem[MongoDB-Inc., 2015]{gridfs}
 MongoDB-Inc. (2015).
-\newblock Gridfs.
+\newblock {GridFS}.
 \newblock Website, \url{http://docs.mongodb.org/manual/core/gridfs/}, last
   checked 16.02.2015.
 
 \bibitem[Mueller et~al., 2011]{Mueller2011}
 Mueller, E., Wickett, J., and Gaekwad, K. (2011).
-\newblock What is devops?
+\newblock {What Is DevOps?}
 \newblock Website, \url{http://theagileadmin.com/what-is-devops/}, last checked
   21.02.2015.
 
 \bibitem[Nerur et~al., 2005]{nerur2005}
 Nerur, S., Mahapatra, R., and Mangalaraj, G. (2005).
 \newblock Challenges of migrating to agile methodologies.
-\newblock {\em Communications of the ACM}, 48(5):72--78.
+\newblock {\em {Communications of the ACM}}, 48(5):72--78.
 
 \bibitem[North, 2012]{BDD}
 North, D. (2012).
-\newblock Bdd is like tdd if...
+\newblock {BDD is like TDD if...}
 \newblock Website, \url{http://dannorth.net/2012/05/31/bdd-is-like-tdd-if/},
-  14.02.2015.
+  last checked 14.02.2015.
 
 \bibitem[OpenSource, 2012]{osmand}
 OpenSource (2012).
-\newblock Osmand.
-\newblock Website, \url{https://code.google.com/p/osmand/}, 14.02.2015.
+\newblock {OsmAnd}.
+\newblock Website, \url{https://code.google.com/p/osmand/}, last checked
+  14.02.2015.
 
 \bibitem[Paulk, 2002]{paulk2002agile}
 Paulk, M.~C. (2002).
 \newblock Agile methodologies and process discipline.
-\newblock {\em Institute for Software Research}, page~3.
+\newblock {\em {Institute for Software Research}}, page~3.
 
 \bibitem[Peterson, 2015]{Peterson:2015aa}
 Peterson, K. (2015).
-\newblock Angularjs: One-time vs two-way data binding.
+\newblock {AngularJS: One-Time VS Two-Way Data Binding}.
 \newblock Website, \url{http}, last checked 16.04.2015.
 
 \bibitem[Pichler, 2010]{Pichler:2010aa}
 Pichler, R. (2010).
-\newblock 10 tips for writing good user stories.
+\newblock {10 Tips for Writing Good User Stories}.
 \newblock
-  Website,\url{http://www.romanpichler.com/blog/10-tips-writing-good-user-stories/}
-  ,last checked 17.03.2015.
+  Website,\url{http://www.romanpichler.com/blog/10-tips-writing-good-user-stories/},
+  last checked 17.03.2015.
 
 \bibitem[RadiusNetworks, 2015a]{RadiusNetworks:2015aa}
 RadiusNetworks (2015a).
-\newblock Android beacon library.
+\newblock {Android Beacon Library}.
 \newblock Website, \url{http://altbeacon.github.io/android-beacon-library/},
   last checked 25.03.2015.
 
 \bibitem[RadiusNetworks, 2015b]{RadiusNetworks:2015ab}
 RadiusNetworks (2015b).
-\newblock Reference application.
+\newblock {Reference Application}.
 \newblock Website,
   \url{http://altbeacon.github.io/android-beacon-library/samples.html}, last
   checked 25.03.2015.
 
 \bibitem[Rodriguez, 2008]{Rodriguez2008}
 Rodriguez, A. (2008).
-\newblock Restful web services: The basics.
-\newblock {\em Online article in IBM DeveloperWorks Technical Library}, 36.
+\newblock {RESTful Web services: The basics}.
+\newblock {\em {Online article in IBM DeveloperWorks Technical Library}}, 36.
 
 \bibitem[Schwaber and Beedle, 2002]{scrum}
 Schwaber, K. and Beedle, M. (2002).
-\newblock {\em Agile Software Development with Scrum}.
+\newblock {\em {Agile Software Development with Scrum}}.
 \newblock Pearson.
 
 \bibitem[Shamsuddin et~al., 2014]{shamsuddin2014capturing}
 Shamsuddin, N.~A., Syed-Mohamad, S.~M., and Sulaiman, S. (2014).
-\newblock Capturing users' actions in a web application to support
-  learnability.
-\newblock In {\em Software Engineering Conference (MySEC), 2014 8th Malaysian},
-  pages 142--147. IEEE.
+\newblock {Capturing users' actions in a Web application to support
+  learnability}.
+\newblock In {\em {Software Engineering Conference (MySEC), 2014 8th
+  Malaysian}}, pages 142--147. IEEE.
 
 \bibitem[Statista, 2014]{statIPhone}
 Statista (2014).
-\newblock Global apple iphone sales from 3rd quarter 2007 to 3rd quarter 2014
-  (in million units).
+\newblock {Global Apple iPhone sales from 3rd quarter 2007 to 3rd quarter 2014
+  (in million units)}.
 \newblock Website,
   \url{http://www.statista.com/statistics/263401/global-apple-iphone-sales-since-3rd-quarter-2007/},
   last checked 13.09.2014.
 
 \bibitem[Sutherland, 2009]{Sut09}
 Sutherland, J.~Jakobsen, C. (2009).
-\newblock Scrum and cmmi -- going from good to great.
-\newblock {\em Agile Conference}.
+\newblock {Scrum and CMMI -- Going from Good to Great}.
+\newblock {\em {Agile Conference}}.
 
 \bibitem[Trelle, 2014]{Tre14}
 Trelle, T. (2014).
-\newblock Mongodb.
-\newblock {\em JavaMagazine}, 5:56--62.
+\newblock {MongoDB}.
+\newblock {\em {JavaMagazine}}, 5:56--62.
 
 \bibitem[Vogel, 2010]{pdfCreation}
 Vogel, L. (2010).
-\newblock Creating pdf with java and itext.
+\newblock {Creating PDF with Java and iText}.
 \newblock Website, \url{http://www.vogella.com/tutorials/JavaPDF/article.html},
-  14.02.2015.
+  last checked 14.02.2015.
 
 \bibitem[Waghmode and Jamsandekar, 2013]{waghmodesoftware}
 Waghmode, M. and Jamsandekar, P. (2013).
-\newblock Software quality models: A comparative study.
-\newblock {\em Information and Software Technology}.
+\newblock {Software Quality Models: A comparative study}.
+\newblock {\em {Information and Software Technology}}.
 
 \bibitem[Wattson, 2013]{Wattson:2013aa}
 Wattson, M. (2013).
-\newblock Continuous delivery for winners -- with a feedback loop.
+\newblock {Continuous Delivery for Winners -- With a Feedback Loop}.
 \newblock Website,
   \url{http://stackify.com/wp-content/uploads/2013/08/continuous-delivery.png},
   last checked 16.02.2015.
@@ -371,15 +379,15 @@ Wikimedia-Foundation (2014).
 
 \bibitem[Wikitude, 2014]{wikitude}
 Wikitude (2014).
-\newblock Augmented reality for multiple platforms.
+\newblock {Augmented Reality for multiple platforms}.
 \newblock Website, \url{http://www.wikitude.com/products/wikitude-sdk/}, last
   checked 14.09.2014.
 
 \bibitem[Williams et~al., 2003]{Williams2003}
 Williams, L., Maximilien, E.~M., and Vouk, M. (2003).
-\newblock Test-driven development as a defect-reduction practice.
-\newblock In {\em Proceedings of the 14th International Symposium on Software
-  Reliability Engineering}, ISSRE '03, pages 34--, Washington, DC, USA. IEEE
-  Computer Society.
+\newblock {Test-Driven Development As a Defect-Reduction Practice}.
+\newblock In {\em {Proceedings of the 14th International Symposium on Software
+  Reliability Engineering}}, ISSRE '03, pages 34--, Washington, DC, USA. {IEEE
+  Computer Society}.
 
 \end{thebibliography}

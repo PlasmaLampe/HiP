@@ -2,7 +2,7 @@
 \label{implementation}
 This chapter is going to show details about the implementation of the \ac{HiP} application. However, note that the application is too complex to be explained in full detail in this chapter. Because of that, we will start by explaining the implementation in general on an abstract level and show only specific implementation parts afterwards. The shown implementation parts are chosen because we think that these parts are important within the system and deepen the understanding of the application.
 
-Furthermore, we will show details that has been changed with respect to the draft described in section \ref{draft} because the (changed respectively new) requirements came up within the implementation phase in the agile process. Of course, these changes are features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}. These changes have also induced a couple of architectural problems because some ideas and structures that has been used for the current version of the \ac{HiP} application are already deprecated but this problem will be explained in more detail in chapter \ref{discussion}.
+Furthermore, we will show some ideas about details that has been changed with respect to the draft described in section \ref{draft} because the (changed respectively new) requirements came up within the implementation phase in the agile process. Of course, these changes are features, which are not included in the general list of requirements (tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}), because they were added afterwards as a result of discussions within the biweekly meetings with our \emph{customers}. These changes have also induced a couple of architectural problems because some ideas and structures that has been used for the current version of the \ac{HiP} application are already deprecated but this problem will be explained in more detail in chapter \ref{discussion}.
 
 \section{General overview of the system}
 As it has been explained in the previous chapter, the third tier (i.e., the storage/database tier) of the application is driven by a MongoDB. The connection to the MongoDB is handled by the Play framework with a single line of code within the configuration file of the Play framework (i.e., the application.conf file):
@@ -27,17 +27,17 @@ Besides these features on the server side, most application logic is included on
 So, now we have an idea about the four main parts of the client side. 
 However, we need a more structured view about the way these parts are connected to understand the details of the application. 
 
-Figure \ref{UML:Packages} shows the main dependencies between the just described main parts of the backend as an \ac{UML} package diagram. 
+Figure \ref{UML:Packages} shows the main dependencies between the just described main parts of the backend as an \ac{UML2} package diagram. 
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=1\textwidth]{gfx/Components_dia}}
-\caption{The \ac{UML} package diagram shows the general dependencies between the main parts of the backend.}
+\caption{The \ac{UML2} package diagram shows the general dependencies between the main parts of the backend.}
 \label{UML:Packages}
 \end{figure} 
 
 The figure shows that the main application is only using partials, which make use of controllers and directives. Both are using services to use encapsulated application logic.
 
-A more technical view on the complete system can be found in Figure \ref{UML:deploymentDiagram} within the Appendix as a \ac{UML} deployment diagram. Because this technical view is not needed to understand the system itself but is useful to underline the main ideas of the architecture it has been shifted to the appendix.
+A more technical view on the complete system can be found in Figure \ref{UML:deploymentDiagram} within the Appendix as a \ac{UML2} deployment diagram. Because this technical view is not needed to understand the system itself but is useful to underline the main ideas of the architecture it has been shifted to the appendix.
 
 Now, after we have gained some insights into the general architecture of the system, we will get a more detailed view on some parts of the current implementation. Our journey though the system will start at the server side within Actions for the Play 2.0 framework.
 
@@ -57,14 +57,16 @@ An example for such an \ac{JWT} authentication token is shown in Figure \ref{JWT
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/JWT_b}}
-\caption{An example for a JWT authentication token. \\On the left side: The JWT in Base64 encoding. On the right side: JWT as the decoded token.}
+\caption{An example of a \ac{JWT} authentication token. \\On the left side: The \ac{JWT} in Base64 encoding. On the right side: \ac{JWT} as the decoded token.}
 \label{JWT}
 \end{figure}
 
 As one can see, the token contains a header, which specifies the used algorithm, a body, which contains the payload and an authenticator, which is a \ac{HMAC} based on \ac{SHA256}. The payload contains mainly the userID and 
 consumer key of the application. So, this token proves that the request comes from an authenticated user of the \ac{HiP} backend.
 
-The creation of these tokens is done by the part of the backend that is included into the Play 2.0 framework. The Action that generates such a token is shown in Listing \ref{Scala:tokenGen}.
+The creation of these tokens is done by the server part of the backend that is included into the Play 2.0 framework. The Action that generates such a token is shown in Listing \ref{Scala:tokenGen}.
+
+\clearpage 
 
 \lstset{language=Java,
 basicstyle=\small,
@@ -72,7 +74,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Generation of JWT tokens within the backend.},label=Scala:tokenGen,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Generation of \ac{JWT} tokens within the backend.},label=Scala:tokenGen,frame=tlbr,breaklines]
 def getToken = UserAwareAction { implicit  request =>
     request.user match {
       case Some(user) => {
@@ -108,12 +110,12 @@ def getToken = UserAwareAction { implicit  request =>
   }
 \end{lstlisting}
 
-Line $14-18$ in Listing \ref{Scala:tokenGen} shows the preparation of the JWT's body and in line $20$, we create the concrete JWT with the header and the already created body. The signing, which is used in the authenticator, is done in line $23$. 
+Line $14-18$ in Listing \ref{Scala:tokenGen} shows the preparation of the JWT's body and in line $20$, we create the concrete \ac{JWT} with the header and the already created body. The signing, which is used in the authenticator, is done in line $23$. 
 
 Note, that we do not use a general Action but an \emph{UserAwareAction} (line 1).
-The UserAwareAction is provided by SecureSocial2 and checks the session of the current user. The user object is afterwards checked in line $4$. If the user is not logged in but tried to gain a JWT access token, he is sent to the loginplease.html page that contains the needed information for logging into the system. If the user is logged into the system, the JWT creation process is started.
+The UserAwareAction is provided by SecureSocial2 and checks the session of the current user. The user object is afterwards checked in line $4$ of Listing \ref{Scala:tokenGen}. If the check returns that the user is not logged in but tried to gain a \ac{JWT} access token, he is sent to the \emph{loginplease.html} page that contains the needed information for logging into the system. If the user is logged into the system, the \ac{JWT} creation process is started.
 
-After we have seen the creation of JWT tokens, we will take a look the upload process of media files, which is also mainly handled by an Action within the Play 2.0 framework. 
+After we have seen the creation of \ac{JWT} tokens, we will take a look the upload process of media files, which is also mainly handled by an Action within the Play 2.0 framework. 
 
 \section{Scala: Picture upload and the creation of thumbnails}
 The upload of a picture is handled on the client side by dropzone.js, which is a small \ac{JS} library that offers functionality for the easy upload of files to remote servers. On its core, dropzone.js uses the \ac{HTML5} upload mechanism to stay browser independent. After the file has been sent, a controller called FileController accepts the connection and parses a $multiFormData$ request. Listing \ref{Scala:Upload} shows the Scala code of that part of the Action.
@@ -203,7 +205,7 @@ gridFS.writeFromInputStream(fileToSaveThumb, fis)
 
 At this point, we have seen both parts of the upload Action independently. To get a full view of the Action and a better understanding about how both parts work together the complete Action is shown in Listing \ref{Scala:Upload:full} within the appendix.
 
-After we have now seen a couple of important Actions within the Scala controllers at the server side, we will start to look at the code on the client side. To do this, we will start by taking a closer look at important directives that are used on the client side. 
+After we have now seen a couple of important Actions within the Scala controllers at the server side, we will start to look at the code on the client side. The remaining Actions on the server side are mainly handling only database requests, anyway. To get a better understanding of the client side, we will start by taking a closer look at important directives that are used within it. 
 
 \section{Important directives used in the system}
 \label{usedDirectives}
@@ -242,7 +244,7 @@ To get a better idea about how the media gallery looks like, we can see an examp
 
 \begin{figure}[th]
 \centerline{\includegraphics[width=1\textwidth]{gfx/mediaGallery}}
-\caption{An example media gallery with two pictures}
+\caption{An example media gallery with two pictures.}
 \label{mediaGallery}
 \end{figure}
 
@@ -288,7 +290,7 @@ The restrict attribute contains a String, which is a subset of the String \verb|
 
 The scope attribute creates a new scope. If the attribute contains a new \ac{JSON} object, then a new scope is created with these values. With other words, the new \emph{isolated} scope does not inherit from the parent scope but uses the given data in the scope attribute. This is useful for the creation of reusable components because such components should not  read or modify data in the parent scope, as they are used in different contexts. 
 
-The last attribute, the templateUrl specified the location of the the template that is asynchronously loaded, when the directive is used.
+The last attribute, the templateUrl specifies the location of the the template that is asynchronously loaded, when the directive is used.
 
 \subsubsection{Controller of the media gallery directive}
 The controller is used for the whole data handling that is needed to offer the functionality of the media gallery. For example, the controller contains a function called openMetaData, which is shown in Listing \ref{openMetaData}, to download and prepare the meta data of the given picture. As one can see in that listing, the controller makes heavy use of the keyValueService. This service will be explained in more detail in section \ref{keyValueService}. However, for the moment take it as a provider for typical key/value containers. So, a container is a \ac{JS}-object that contains a list of keys and values; the needed keys depend on the \emph{type} of the currently loaded container. 
@@ -329,12 +331,12 @@ Within this section, we have seen the main parts of a directive in AngularJS and
 The files used within the second directive, the template box, are quite similar but we will take a closer look, now.
 
 \subsection{Template handling with the templates-box directive}
-The template box is used for creating new templates, sharing templates and using templates within topics. The \ac{UI} elements that are shown are depending on the user who is currently logged in. For example, a student who takes a look at the template box has no buttons for sharing a specific template.
+The template box is used for creating new templates, sharing templates and using templates within topics. The \ac{UI} elements that are shown are depending on the user who is currently logged in. For example, a student who takes a look at the template box has no buttons for sharing a specific template. Besides simple topics, templates can also be used to fill in topic blocks. The creation of these blocks was a major change with respect to the original draft in section \ref{draft}. Topic blocks are on a technical level simple topics that are included within another topic to represent a specific block of content (i.e., introduction, abstract, content in simple speech, etc.). Because the possible usage of these blocks is quite open, we could potentially use this blocks to create direct hierarchies of topics, which would remove the need for the concept of subtopics. This problem will be described in more detail in chapter \ref{discussion}. Anyway, the template box is, as stated above, capable of the creation and sharing of textual templates for topics and topic blocks.
 
 A typical example of the template box is shown in Figure \ref{templateBox}. The figure shows a template box from the view of a supervisor.
 
-\begin{figure}[th]
-\centerline{\includegraphics[width=.4\textwidth]{gfx/templateBox}}
+\begin{figure}[h]
+\centerline{\includegraphics[width=.5\textwidth]{gfx/templateBox}}
 \caption{An example template box with two templates. The menu of the lower template has been opened by using the triangle on the right side.}
 \label{templateBox}
 \end{figure}
@@ -342,6 +344,8 @@ A typical example of the template box is shown in Figure \ref{templateBox}. The 
 The \emph{Directive Definition Object} for this directive looks quite similar to the one from the media gallery directive and is shown in Listing \ref{constructorTemplate}. Because we have seen the theoretical background in the last section, we will explain this directive only briefly. Like in the last case, we restrict the usage to the element name with the $restrict$ attribute, create a new isolated scope with the $scope$ attribute and set the templateURL of the \ac{HTML} code that is sent back as soon as the directive is used. 
 
 It is noticeable within the \emph{Directive Definition Object} shown in Listing \ref{constructorTemplate} that it needs a lot more controllers as the \emph{Directive Definition Object} in section \ref{usedDirectives}. This results from the fact that the template box has a lot more functionality that needs to communicate with different aspects of the system, like the sharing of templates with groups and users.
+
+\clearpage
 
 \lstset{language=JavaScript,
 basicstyle=\small,
@@ -385,7 +389,9 @@ As one can see in the figure, the key-value service can be accessed via a \ac{JS
  
 All in all, the key-value service offers functions for downloading key-value stores from the backend database, delete stores, create new stores (empty and according to specific types), modify stores, transfer keys from one store to another, etc.  
 However, a crucial part of the program logic is encapsulated within the function that translates the data format because we need to change the data format after we downloaded a store from the backend. The translation function is shown in Listing \ref{keyTranslation}. 
- 
+
+\clearpage 
+
 \lstset{language=JavaScript,
 basicstyle=\small,
 showspaces=false,
@@ -425,7 +431,7 @@ After that, we add the key with its value to the variable called JSON, which end
 One of the features that make the key-value service so reusable is the idea of typed key-value stores. A type specifies the keys that need to be included within a specific key-value store. Of course, every store that is used within the system has a specific type and every type is a child of another one. If we create a new child that does not need to be derived from a specific type, then we say that its parent type is \emph{root}.
 On the other hand, if we have a type $A$ with the keys $key1$ and $key2$ and create a new type $B$ that is a child of type $A$ then $B$ will derive the keys $key1$ and $key2$ automatically because it is a subtype of $A$.
 
-So, for every new situation where we want to use the \ac{KVS}, we just need to create a new storage type and the remaining work is done by the service. The editing of types (e.g., adding keys or even complete types) can be done by every controller within AngularJS by using the \emph{TypeService}. This service encapsulates all needed functionality to modify types and is used within the \ac{HiP} backend to create a type modify interface for the admins of the \ac{HiP} backend. However, we will not get into more details about this service or the type modify interface within this thesis.
+So, for every new situation where we want to use the \ac{KVS}, we just need to create a new storage type and the remaining work is done by the service. The editing of types (e.g., adding keys or even complete types) can be done by every controller within AngularJS by using the \emph{TypeService}. This service encapsulates all needed functionality to modify types and is used within the \ac{HiP} backend to create a type modify interface for the admins of the \ac{HiP} backend. This flexibility was very important within the development process because we were able to handle changing requirements with small effort. For example, with the help of this service, we where able to implement the meta-data system for pictures within a couple of hours. This requirement came up during one of the biweekly meetings and we where able to react really fast. However, we will not get into more details about this service or the type modify interface within this thesis.
 
 \section{Interface to the smartphone app}
 As we have said before, the development of the smartphone application started as a bachelor thesis and will also be taken over by the project group. The app accepts data as \ac{JS} objects. Listing \ref{InterfaceStructure} shows the structure of these objects for topics. 
@@ -455,7 +461,7 @@ backgroundcolor=\color{grey}}
 
 As one can see, the format consists of \ac{JS} objects that are included in the array, which is the value for the key \emph{data}.  
 
-Because the \ac{HiP} backend uses another representation of the data (which is also contained within the MongoDB), we offer another \ac{URI} to retrieve the file for the smartphone. Internally, we translate the representation that is stored within the MongoDB into the other representation for the smartphone. Note that this is not a break with the \ac{REST} principle that we should not use different \ac{URI} to specify the format. In this case, we do not only exchange the format (e.g., \ac{XML} to \ac{JSON}) of the same data. We store other (i.e., less) fields within the smartphone object as in the original document that is stored in the MongoDB. So, after all, we create a new object with less fields (which has another format) and every object has its own identifier. 
+Because the \ac{HiP} backend uses another representation of the data (which is also contained within the MongoDB), we offer another \ac{URI} to retrieve the file for the smartphone. Internally, we translate the representation that is stored within the MongoDB into the other representation for the smartphone. Note that this is not a break with the \ac{REST} principle that we should not use different \ac{URI} to specify the format. In this case, we do not only exchange the format (e.g., \ac{XML} to \ac{JSON}) of the same data. We store other (i.e., less) fields within the smartphone object as in the original document that is stored in the MongoDB. So, after all, we create a new object with less fields (which has another format) and every object has its\ac{UML2} own identifier. 
 
 In a similar way, the interface for pictures translates the internally used identifier to the frontend-app style. Internally, a picture is an autonomous object that is identified by its unique identifier. Furthermore, every picture contains meta information about the topic it is used in. This way, we can easily include as many pictures as we want in one topic. Timo Boegeholz, who wrote the first frontend application in his bachelor thesis, used another approach and identifies pictures with the id of the topic that it contains plus the suffix \emph{.jpg}. So, we provided a new interface that accepts calls like 
 
@@ -468,7 +474,7 @@ and redirects the call to the internally used interface
 The main picture of a topic has to be chosen in the \ac{HiP} backend. Figure \ref{frontendScreenshot} shows a screenshot of the \ac{HiP} frontend that uses the provided data of the backend.
 
 \begin{figure}[th]
-\centerline{\includegraphics[width=.5\textwidth]{gfx/frontend.jpg}}
+\centerline{\includegraphics[width=.7\textwidth]{gfx/frontend.jpg}}
 \caption{A screenshot of the smartphone frontend with data provided by the current version of the \ac{HiP} backend.}
 \label{frontendScreenshot}
 \end{figure}     

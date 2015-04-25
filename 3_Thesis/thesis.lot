@@ -7,21 +7,21 @@
 \contentsline {xchapter}{Technical and methodological background}{5}{chapter.2}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Draft of the application}{27}{chapter.3}
-\contentsline {table}{\numberline {1}{\ignorespaces Use Case Scenario: Student changes content of a topic\relax }}{29}{table.caption.49}
-\contentsline {table}{\numberline {2}{\ignorespaces Use Case Scenario: Supervisor creates a new group\relax }}{29}{table.caption.50}
-\contentsline {table}{\numberline {3}{\ignorespaces A brief cost-estimation about the backend\relax }}{40}{table.caption.58}
-\contentsline {table}{\numberline {4}{\ignorespaces A brief cost-estimation about the frontend\relax }}{50}{table.caption.67}
+\contentsline {table}{\numberline {1}{\ignorespaces Use Case Scenario: Student changes content of a topic\relax }}{29}{table.caption.50}
+\contentsline {table}{\numberline {2}{\ignorespaces Use Case Scenario: Supervisor creates a new group\relax }}{29}{table.caption.51}
+\contentsline {table}{\numberline {3}{\ignorespaces A brief cost-estimation about the backend\relax }}{39}{table.caption.58}
+\contentsline {table}{\numberline {4}{\ignorespaces A brief cost-estimation about the frontend\relax }}{49}{table.caption.67}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation details}{51}{chapter.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Testing the application}{69}{chapter.5}
+\contentsline {xchapter}{Testing the application}{71}{chapter.5}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Discussion and future work}{75}{chapter.6}
+\contentsline {xchapter}{Discussion and future work}{77}{chapter.6}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Appendix}{79}{appendix.A}
-\contentsline {table}{\numberline {5}{\ignorespaces Showing the derived requirements of the backend for the supervisor role, which are sorted by priority.}}{84}{table.A.5}
-\contentsline {table}{\numberline {6}{\ignorespaces Showing the derived requirements of the Backend for the student role, which are sorted by priority.}}{86}{table.A.6}
-\contentsline {table}{\numberline {7}{\ignorespaces Showing the derived requirements of the Backend for the master role, which are sorted by priority.}}{88}{table.A.7}
-\contentsline {table}{\numberline {8}{\ignorespaces Showing the derived requirements of the Backend, which are sorted by priority.}}{89}{table.A.8}
-\contentsline {table}{\numberline {9}{\ignorespaces Showing the derived requirements of the Frontend, which are sorted by priority.}}{90}{table.A.9}
-\contentsline {table}{\numberline {10}{\ignorespaces The found usability problems within the walktrough.}}{94}{table.A.10}
+\contentsline {xchapter}{Appendix}{81}{appendix.A}
+\contentsline {table}{\numberline {5}{\ignorespaces Showing the derived requirements of the backend for the supervisor role, which are sorted by priority.}}{86}{table.A.5}
+\contentsline {table}{\numberline {6}{\ignorespaces Showing the derived requirements of the Backend for the student role, which are sorted by priority.}}{88}{table.A.6}
+\contentsline {table}{\numberline {7}{\ignorespaces Showing the derived requirements of the Backend for the master role, which are sorted by priority.}}{90}{table.A.7}
+\contentsline {table}{\numberline {8}{\ignorespaces Showing the derived requirements of the Backend, which are sorted by priority.}}{91}{table.A.8}
+\contentsline {table}{\numberline {9}{\ignorespaces Showing the derived requirements of the Frontend, which are sorted by priority.}}{92}{table.A.9}
+\contentsline {table}{\numberline {10}{\ignorespaces The found usability problems within the walktrough.}}{96}{table.A.10}

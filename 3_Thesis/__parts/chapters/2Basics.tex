@@ -94,11 +94,11 @@ Thus, \ac{CD} is the needed brick for creating a \emph{continuous deployment pro
 Now, after we have gained some insights about the process itself, we will take a look at the frameworks that will be used in the development process.
 
 \section{Used Frameworks}
-Because the timeframe of the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{HTTP}-interface and handles the routing from \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-\ac{UI} and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
+Because the timeframe of the project is quite small, it is not possible to create the whole application from scratch and, thus, we need a couple of frameworks to accelerate the process. We will use the Play-Framework in the backend, which offers a \ac{HTTP}-interface and handles the routing of \ac{HTTP}-requests to application code. On the frontend-side, AngularJS will be used to create a fast and responsive web-\ac{UI} and Junaio will be used to include the \ac{AR}-functionality on the smartphone application.
 
 \subsection{Play Framework}	
 \label{Play2}
-We will use the Play framework for the backend of the application because Play is an open source web application framework, which is written in Scala and Java, follows the \ac{MVC} architectural pattern and handles the routing from \ac{HTTP}-requests to application code. 
+We will use the Play framework for the backend of the application because Play is an open source web application framework, which is written in Scala and Java, follows the \ac{MVC} architectural pattern and handles the routing of \ac{HTTP}-requests to application code. 
 
 A simple example for the routing configuration file is shown in Listing \ref{Play:Routing}. In this file, each documented route consists of a \ac{HTTP} method and an \ac{URI} pattern that is linked to a call of a so called \textit{action method} within the Java respectively Scala code. 
 
@@ -129,21 +129,14 @@ Very briefly, the Play framework includes three different parts:
 
 1) Java code that implements the controllers. The controllers are used to handle requests that get routed to them via \ac{HTTP}. A simple controller is shown in Listing \ref{Play:Controller}. As one can see within line 10 of Listing \ref{Play:Controller} the String "Your new application is ready" gets passed to the render function of the class index and returned as a parameter within the \textit{ok} function, which creates a simple \ac{HTTP} header with return-code $200$. The index class is a Scala class that gets automatically created from the Scala/\acs{HTML} template called \textit{index.scala.html}. We will see this in more detail within point 3 of this list.
 
-\lstset{language=Java,
+\lstset{language=JavaScript,
 basicstyle=\small,
 showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Simple Java-controller within the Play Framework.},label=Play:Controller,frame=tlbr,breaklines]
-package controllers;
-
-import play.*;
-import play.mvc.*;
-import views.html.*;
-
+\begin{lstlisting}[numbers=left,caption={A simple Java controller within the Play Framework.},label=Play:Controller,frame=tlbr,breaklines]
 public class Application extends Controller {
-
     public static Result index() {
         return ok(index.render("Your new application is ready."));
     }
@@ -167,7 +160,7 @@ backgroundcolor=\color{grey}}
 }
 \end{lstlisting}
 
-Besides the templating feature, Play can be augmented with Plugins that handle specific behavior. For example, the Plugin \emph{SecureSocial 2} is able to handle the whole user registration and login process. In more detail, it offers an interface to get the data from users, who are currently logged into the system. Furthermore, it offers out of the box support for web-services like Twitter, Facebook, Google, LinkedIn and GitHub. If one does not want to rely on external services, \emph{SecureSocial 2} provides a Username/Password mechanism with signup, login and reset password functionality. We will use this last technique within the \ac{HiP} backend.
+Besides the templating feature, Play can be augmented with Plugins that handle specific behavior. For example, the Plugin \emph{SecureSocial 2} is able to handle the whole user registration and login process. In more detail, it offers an interface to get the data of users, who are currently logged into the system. Furthermore, it offers out of the box support for web-services like Twitter, Facebook, Google, LinkedIn and GitHub. If one does not want to rely on external services, \emph{SecureSocial 2} provides a Username/Password mechanism with signup, login and reset password functionality. We will use this last technique within the \ac{HiP} backend.
 
 As another important fact, Play emphasizes the usage of the \ac{REST} principle, as it can be seen within the routing configuration file. We can easily and directly make use of the different \ac{HTTP} commands and use them to structure our \ac{API} accordingly. In general, \acf{REST} is a style of software architecture that is used to build distributed systems and has been introduced in the dissertation of \cite{Fielding2000}.
 
@@ -270,10 +263,10 @@ showstringspaces=false,
 tabsize=2,
 backgroundcolor=\color{grey}}
 \begin{lstlisting}[numbers=left,caption={Simple example that shows the ng-class directive to change the style respectivly color of an alert depending on its type.},label=Angular:ngclass,frame=tlbr,breaklines]
-<div ng-class="{'alert-warning' : alert.type == 'warning',
-                         'alert-danger' : alert.type == 'danger',
-                         'alert-info' : alert.type == 'info',
-                         'alert-success' : alert.type == 'success'}"
+<div ng-class="{'alert-warning':alert.type=='warning',
+                         'alert-danger':alert.type=='danger',
+                         'alert-info':alert.type=='info',
+                         'alert-success':alert.type=='success'}"
      role="alert">
 
 	{{alert.msg}}
@@ -304,21 +297,25 @@ Twitter Bootstrap\footnote{Twitter Bootstrap is hosted on GitHub and can be down
 
 Twitter Bootstrap is licensed under the terms of the Apache License v2.0\footnote{The terms of the license can be found here: \url{http://www.apache.org/licenses/LICENSE-2.0}}.
 
-Furthermore, Twitter Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: http://angular-ui.github.io/bootstrap/ and is distributed under the MIT license https://github.com/angular-ui/bootstrap/blob/master/LICENSE}
+Furthermore, Twitter Bootstrap can be used with Bootstrap UI, which are Bootstrap components that have been written in AngularJS and can easily be reused. Examples for these components are tooltips, datepickers, timepickers, etc. So, this is also a great repository for components to accelerate the development process. \footnote{Bootstrap UI can be downloaded here: \url{http://angular-ui.github.io/bootstrap/} and is distributed under the MIT license \url{https://github.com/angular-ui/bootstrap/blob/master/LICENSE}}
 
 \subsection{Junaio - Metaio}
 \label{AREL}
 The \ac{AR}-functionality will be offered by the framework Junaio. The company Metaio, which runs Junaio, offers a developer program to develop own applications on the basis of the Junaio (eco-)system. Moreover, it is completely free of charge for the developers (\cite{junaio1}). However, deployed apps will be shipped with a Metaio watermark inside as long as you do not buy a specific license. 
 
 \begin{figure}[th]
-\centerline{\includegraphics[width=.7\textwidth]{gfx/stackAREL}}
+\centerline{\includegraphics[width=.8\textwidth]{gfx/stackAREL}}
 \caption{The figure shows the placement of the AREL interpreter within the platform stack (taken from \cite{MetaioDEV}).}
 \label{stackArel}
 \end{figure}
 
-Furthermore, Metaio has developed a JavaScript binding of the SDK used for \ac{AR}-applications called \ac{AREL}, which can be used as a platform to write your \ac{AR} apps without writing platform specific code of the mobile operating system \cite{MetaioDEV}. Figure \ref{stackArel} shows the placement of the \ac{AREL} interpreter within the platform stack. 
+Furthermore, Metaio has developed a JavaScript binding of the SDK used for \ac{AR}-applications called \ac{AREL}, which can be used as a platform to write your \ac{AR} apps without writing platform specific code of the mobile operating system (\cite{MetaioDEV}). Figure \ref{stackArel} shows the placement of the \ac{AREL} interpreter within the platform stack. 
 
 To use \ac{AREL}, we need three different parts that get combined to an \ac{AREL} application.
+
+\clearpage 
+
+First of all, we need a static content definition, which is a \ac{XML} document that references the models and graphics that will be loaded when we start the \ac{AREL} application. The second part is the \ac{HTML5} layer, which is also addressed in the static content definition. The \ac{HTML5} binds the static content definition to the application logic and may also add additional \ac{GUI} functionality. An example for such an \ac{HTML5} layer is shown in \ref{AREL:HTML5}. The last part, the application logic is written in \ac{JS} and loads objects that are afterwards tracked by patterns.  
 
 \lstset{language=XML,
 basicstyle=\small,
@@ -326,7 +323,7 @@ showspaces=false,
 showstringspaces=false,   
 tabsize=2,
 backgroundcolor=\color{grey}}
-\begin{lstlisting}[numbers=left,caption={Example for the HTML5 AREL layer},label=AREL:HTML5,frame=tlbr,breaklines]
+\begin{lstlisting}[numbers=left,caption={Example for the \ac{HTML5} \ac{AREL} layer},label=AREL:HTML5,frame=tlbr,breaklines]
 <head>
    <!-- Integrates the arel javascript bridge -->
    <script type="text/javascript" src="http://dev.junaio.com/arel/js/arel.js"></script>
@@ -336,14 +333,12 @@ backgroundcolor=\color{grey}}
 </head>
 \end{lstlisting}
 
-First of all, we need a static content definition, which is a \ac{XML} document that references the models and graphics that will be loaded when we start the \ac{AREL} application. The second part is the \ac{HTML5} layer, which is also addressed in the static content definition. The \ac{HTML5} binds the static content definition to the application logic and may also add additional \ac{GUI} functionality. An example for such an \ac{HTML5} layer is shown in \ref{AREL:HTML5}. The last part, the application logic is written in \ac{JS} and loads objects that are afterwards tracked by patterns.  
-
 \ac{AREL} allows scripting of \ac{AR}-applications on mobile operating systems like iOS or Android based on common web technologies such as \ac{HTML5}, \ac{XML} and JavaScript. 
 
 \subsection{WebGL and JSModeler}
 Last but not least, we will need \ac{WebGL} to create a possibility to render and manipulate the 3D-point clouds of the scanned objects right within the browser. However, we will use libraries like \emph{JSModeler} to abstract from the low-level OpenGL commands and simplify the development process.
 
-JSModeler provides a 3d object viewer for presenting 3d models and small scenes on a web page. It is able to import models with the formats 3DS, OBJ and STL. Furthermore, it offers features to manipulate the points within the internal buffer, so we will be able to manipulate rendered objects. 
+JSModeler provides a 3D object viewer for presenting 3D models and small scenes within a web page. It is able to import models with the formats 3DS, OBJ and STL. Furthermore, it offers features to manipulate the points within the internal buffer, so we will be able to manipulate rendered objects. 
 
 Now, after we have taken a look at the used frameworks and technologies, we will change our view to the used techniques and tools.
 
@@ -351,9 +346,9 @@ Now, after we have taken a look at the used frameworks and technologies, we will
 Because we use an agile development approach, testing becomes an important aspect even in the development process itself. This founds on the core aspect of agile development that even in early stages of the development process the requirements are going to slightly change and, thus, we need to adapt the existing code. This leads us to \ac{TDD}, which is a developing technique that relies on the heavy use of tests. \ac{TDD} will be explained in the following section. 
 
 \subsection{TDD}
-The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \cite{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. As the definition of the Agile Alliance (\cite{GAA2015}) states \textit{"Test-driven development" refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}. 
+The main idea of \ac{TDD} is that one develops the test cases upfront and implements the needed functions afterwards. This is a major shift in the way software gets developed as, traditionally, unit testing has been done on exiting code, after it has been implemented. According to \cite{nerur2005}, this \ac{TDD} approach leads to code that is more understandable and maintainable. However, \ac{TDD} is not only a different testing technique. The definition of the Agile Alliance states \glqq\emph{Test-driven development refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring)}\grqq (\cite{GAA2015}). 
 
-So, \ac{TDD} is not only a testing technique, it is a programming technique which follows a couple of rules to achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, the relation between writing test cases and designing a system seems to be a bit odd. However, as \cite{Janzen2005} point out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
+So, \ac{TDD} is not only a testing technique, it is a programming technique that follows a couple of rules to achieve a tight coupling of coding, testing and design. While the two parts coding and testing are easy to grasp, the relation between writing test cases and designing a system seems to be a bit odd. However, as \cite{Janzen2005} point out, while writing a test one is deciding what the program should do, which is an analysis step. This is how analysis gets coupled with testing.
 
 Furthermore, \cite{Janzen2005} state that the positive aspects of the usage of \ac{TDD} has also been shown in studies of the \ac{NCSU}, which have performed a couple of empirical studies (\cite{George2004}, \cite{max03}, \cite{Williams2003}) on TDD in industry settings.
 These studies showed that programmers, who used \ac{TDD} to produce code, created 18 up to 50 percent more external test cases than code that has been produced by corresponding control groups. The studies also reported that the \ac{TDD} developers spent less time while debugging their code. Nevertheless, they also reported that the \ac{TDD} project took up to 16 percent longer. But, in the case that the development took 16 percent more time, researchers noted that the control group without \ac{TDD} wrote far fewer tests than the \ac{TDD} group. 

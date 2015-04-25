@@ -33,7 +33,7 @@ As one can see, the ISO/IEC 9126 defines a metric with a name, shows the purpose
 So, after we have seen this theoretical approach to software quality assurance, we will take a closer look at the used test suites. As we have described in chapter \ref{background}, the tests have been developed with the help of the Jasmine framework.
   
 \section{Test environment}
-The Jasmine test suites were run within Karma on Mac OS X operating system with Google Chrome. The hardware configuration was a dual core \ac{CPU} and 8096MB \ac{RAM}.
+The Jasmine test suites where run within Karma on Mac OS X operating system with Google Chrome. The hardware configuration was a dual core \ac{CPU} and 8096MB \ac{RAM}.
 
 \section{Testing results}
 A typical test case within our test suites looks like the test case shown in Listing \ref{testcase}. 
@@ -60,7 +60,7 @@ As one can see, this is a unit test case written for the Jasmine framework. Line
 
 Because we restricted ourselves to unit tests and did not create any integration tests, we were not able to reach every line of code within our controllers and services within the unit test cases (a lot of code is only for handling events and user input). This can also be seen within the implementation of the acceptance criteria, which has been created from the requirements engineering (like the requirements in chapter \ref{draft}, these criteria are shown in tables \ref{RequirementsBackendSupervisor}, \ref{RequirementsBackendStudent}, \ref{RequirementsBackendMaster}, \ref{RequirementsBackendMisc} and \ref{RequirementsFrontend}). Some of these acceptance criteria could only be automatically tested with integration tests and are, thus, not tested within this thesis. 
 
-However, we ended up with 118 test cases with a statement-coverage of 71 percent. To express the testing result more formal, we will make use of the already defined metric called \emph{test coverage}. Remember, the metric  uses the ratio between the actual amount of test cases and the estimated amount of test cases that are needed to cover all requirements. We estimate this number to be about 165 test cases (assuming the amount of code per test case that we have achieved with the current number of concrete test cases). So, our ratio ends up to be: $\frac{118}{165}=0.71$. It is not surprising that the value is $0.71$ since we express essentially the same data as in the simple state-coverage. In the end, the value seems to be quite fine, assuming we should get as close as $1.0$ as possible, for a first prototype.
+However, we ended up with 118 test cases with a statement-coverage of 71 percent. To express the testing result more formal, we will make use of the already defined metric called \emph{test coverage}. Remember, the metric  uses the ratio between the actual amount of test cases and the estimated amount of test cases that are needed to cover all requirements. We estimate this number to be about 165 test cases (assuming the amount of code per test case that we have achieved with the current number of concrete test cases). So, our ratio ends up to be: $\frac{118}{165}=0.71$. It is not surprising that the value is $0.71$ since we express essentially the same data as in the simple statement-coverage. In the end, the value seems to be quite fine, assuming we should get as close to $1.0$ as possible, for a first prototype.
 
 Note that unit testing was not the only part of quality assurance that we have used for this project. The next section will describe the usability improvements of the \ac{HiP} application.
 
